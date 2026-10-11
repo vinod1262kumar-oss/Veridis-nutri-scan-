@@ -4,7 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_ANON_KEY"
+  SECRETS_SCAN_OMIT_PATHS = "supabase-config.js,dist/supabase-config.js"
 
 [[headers]]
   for = "/.env*"
