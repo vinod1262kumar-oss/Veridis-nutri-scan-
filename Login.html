@@ -273,8 +273,7 @@
         showAuthMessage('Account created. Check your email for the confirmation link before signing in.', 'success');
       } else {
         showAuthMessage('Authentication successful. Opening VERIDIS...', 'success');
-        window.location.assign('/index.html');
-      }
+        window.location.assign('/');
     } catch (error) {
       showAuthMessage(escapeHtml(error.message || 'Sign-in failed. Please try again.'), 'error');
     } finally {
@@ -287,10 +286,7 @@
     document.getElementById('google-auth-label').textContent = 'Connecting to Google...';
     try {
       const client = getSupabaseClient();
-      const { error } = await client.auth.signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo: window.location.origin + '/index.html' }
-      });
+      options: { redirectTo: window.location.origin + '/index.html' }
       if (error) throw error;
     } catch (error) {
       showAuthMessage(escapeHtml(error.message || 'Google sign-in could not start.'), 'error');
