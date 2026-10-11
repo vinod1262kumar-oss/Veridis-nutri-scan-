@@ -1,0 +1,122 @@
+{
+  "app": {
+    "name": "VERIDIS NutriScan",
+    "version": "1.0.0",
+    "description": "Hyperspectral Nutrition Intelligence & Molecular Food Forensics Platform",
+    "author": "VERIDIS Development Team",
+    "license": "MIT"
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "protocol": "http",
+    "timeout": 30000
+  },
+  "database": {
+    "type": "postgresql",
+    "host": "localhost",
+    "port": 5432,
+    "database": "veridis_nutrition",
+    "user": "admin",
+    "password": "your_password_here",
+    "pool": {
+      "min": 2,
+      "max": 10
+    }
+  },
+  "api": {
+    "baseUrl": "https://api.veridis.bio",
+    "version": "v1",
+    "timeout": 30000,
+    "rateLimit": {
+      "enabled": true,
+      "windowMs": 900000,
+      "maxRequests": 100
+    }
+  },
+  "pages": [
+    {
+      "id": "home",
+      "path": "/",
+      "file": "Index.html",
+      "title": "VERIDIS NutriScan - Hyperspectral Nutrition Scanner",
+      "description": "Deploy real-time molecular food forensics directly from your terminal."
+    },
+    {
+      "id": "login",
+      "path": "/login",
+      "file": "Login.html",
+      "title": "Clinical Telemetry Portal - VERIDIS",
+      "description": "Secure authentication and biometric access"
+    },
+    {
+      "id": "scanner",
+      "path": "/scanner",
+      "file": "Scanner.html",
+      "title": "Real-time Barcode Scanner - VERIDIS",
+      "description": "Scan and analyze food products instantly"
+    },
+    {
+      "id": "analysis",
+      "path": "/analysis",
+      "file": "Analysis.html",
+      "title": "Molecular Analysis Dashboard - VERIDIS",
+      "description": "Deep forensic analysis of nutritional content"
+    },
+    {
+      "id": "explanation",
+      "path": "/explanation",
+      "file": "Explanation.html",
+      "title": "Educational Hub - VERIDIS",
+      "description": "Learn about nutrition and food safety"
+    },
+    {
+      "id": "user",
+      "path": "/user-profile",
+      "file": "User.html",
+      "title": "User Profile & Health Vault - VERIDIS",
+      "description": "Manage your metabolic health data"
+    },
+    {
+      "id": "code",
+      "path": "/code",
+      "file": "code.html",
+      "title": "Developer API Documentation - VERIDIS",
+      "description": "Integration guides and API reference"
+    }
+  ],
+  "features": {
+    "authentication": {
+      "enabled": true,
+      "methods": ["email", "biometric", "sso"]
+    },
+    "spectralAnalysis": {
+      "enabled": true,
+      "resolution": "0.12nm"
+    },
+    "barcodeScanning": {
+      "enabled": true,
+      "formats": ["UPC", "EAN", "QR"]
+    },
+    "healthVault": {
+      "enabled": true,
+      "encryption": "AES-256"
+    }
+  },
+  "security": {
+    "enableHttps": true,
+    "jwtExpiration": 86400,
+    "corsOrigins": [
+      "http://localhost:3000",
+      "http://localhost:8000",
+      "https://veridis.bio"
+    ],
+    "csrfProtection": true,
+    "rateLimit": true
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "output": "./logs"
+  }
+}

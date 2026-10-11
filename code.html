@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>VERIDIS NutriScan - Biological Intelligence Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#ffefe0","tertiary-fixed-dim":"#ffb95f","inverse-on-surface":"#2b3139","surface-dim":"#0e141b","surface-variant":"#2f353d","surface":"#0e141b","surface-container-low":"#161c23","error":"#ffb4ab","primary-container":"#00f2a5","inverse-surface":"#dde3ed","secondary-fixed":"#acedff","surface-container":"#1a2027","background":"#0e141b","on-secondary-fixed":"#001f26","on-primary":"#003823","primary-fixed-dim":"#00e29a","surface-container-high":"#242a32","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","on-tertiary-fixed":"#2a1700","on-tertiary-container":"#825100","on-error":"#690005","on-error-container":"#ffdad6","outline":"#849589","on-primary-fixed":"#002113","primary-fixed":"#4affb4","tertiary-fixed":"#ffddb8","inverse-primary":"#006c47","secondary":"#4cd7f6","primary":"#c0ffdb","on-primary-fixed-variant":"#005235","surface-container-highest":"#2f353d","on-tertiary-fixed-variant":"#653e00","on-tertiary":"#472a00","surface-tint":"#00e29a","tertiary-container":"#ffcc90","on-surface":"#dde3ed","on-secondary-container":"#00424e","outline-variant":"#3b4a41","on-surface-variant":"#b9cbbe","on-primary-container":"#006945","on-secondary":"#003640","secondary-fixed-dim":"#4cd7f6","surface-bright":"#343a42","on-background":"#dde3ed","surface-container-lowest":"#090f16","error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"2rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter-mobile":"0.75rem","space-sm":"0.5rem"},fontFamily:{"data-display-md":["JetBrains Mono"],"label-mono-xs":["JetBrains Mono"],"body-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-display-lg":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"data-display-md":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"data-display-lg":["40px",{"lineHeight":"44px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase leading-none">VERIDIS NUTRISCAN</span><span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant tracking-widest mt-1">BIO-SPECTRAL ANALYSIS</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low border border-primary-container/20"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,242,165,0.8)]"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">SPECTRA v3.4 ONLINE</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container/60" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="live-scanner" href="#">Live Scanner</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="ingredient-intel" href="#">Ingredient Intel</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="health-vault" href="#">Health Vault</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="clean-food-explorer" href="#">Clean Food Explorer</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container px-space-md py-space-xs rounded-xl transition-all cursor-pointer group"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-lg">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search matrix...</span><kbd class="px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-secondary">⌘K / Scan Barcode</kbd></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-mono-xs text-label-mono-xs text-primary tracking-wider uppercase">SENSOR ACTIVE</span></div><button class="relative p-space-xs rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden sm:flex flex-col text-right"><span class="font-label-mono text-label-mono text-on-surface">Dr. Elena Vance</span><span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-wider">Pro Bio-Tier</span></div><div class="relative ring-1 ring-primary-container/30 rounded-full p-0.5"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfYHjWGiIm2RsNaTVEu5XYRXJb83fhKz8fqz-JwjjFymWdmQQdzg16x7Oaegy9WBp82_GSodCHddes6_xHpkK_rWngrkwwAOTZouHupN8WHj0_dLBRG7OQifkTG0CP-0cML8eqy2dsjGmyrE9cZg1It_5yiFy_1w8fQyfM0fHHbuYLEdRtOZd8tcmaQmbfPvhHHG_g6nOylj31YLMBRSkKkdBzUGIY7EcLqQSlURw"/></div></div></div></div></div><div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/50 to-transparent shadow-[0_0_12px_rgba(0,242,165,0.4)]"></div></header><main class="w-full pt-20 bg-background relative min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden pb-space-xl">
+<div class="absolute -top-32 left-1/4 w-[600px] h-[350px] bg-primary-container/10 blur-[130px] rounded-full pointer-events-none"></div>
+<div class="absolute top-20 right-10 w-[420px] h-[280px] bg-secondary/10 blur-[110px] rounded-full pointer-events-none"></div>
+<div class="w-full px-gutter max-w-7xl mx-auto flex flex-col gap-space-lg pt-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_10px_rgba(0,242,165,0.8)]"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-widest">VERIFIED PURITY REPOSITORY // v4.12</span>
+<span class="text-outline-variant font-label-mono-xs text-label-mono-xs px-2">|</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">54,291 PRODUCTS VALIDATED</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight uppercase">
+            Clean Food Explorer
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+            Crowdsourced clinical spectrometry database. Filter non-industrialized nourishment through high-tier metabolic scores, heavy metal assays, and seed oil exclusion protocols.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-auto">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-xl shadow-inner">
+<span class="material-symbols-outlined text-primary text-base">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">COMMUNITY ACCURACY</span>
+<span class="font-label-mono text-label-mono text-on-surface font-semibold">99.84% CERTIFIED</span>
+</div>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-variant text-on-surface p-space-xs rounded-lg transition-colors flex items-center justify-center" id="view-mode-toggle">
+<span class="material-symbols-outlined text-lg">grid_view</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container/90 backdrop-blur-2xl rounded-2xl p-space-md shadow-xl flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row items-center gap-space-sm">
+<div class="relative flex-1 w-full group">
+<div class="absolute inset-y-0 left-0 pl-space-md flex items-center pointer-events-none text-outline group-focus-within:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-xl">biotech</span>
+</div>
+<input class="w-full pl-11 pr-32 py-space-sm bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md rounded-xl transition-all outline-none focus:shadow-[0_0_20px_rgba(0,242,165,0.35)]" id="search-input" placeholder="Search by ingredient, barcode, clean brand, or additive E-number (e.g. E250, Glyphosate)..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-space-sm flex items-center gap-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs bg-surface-container px-2 py-0.5 rounded text-outline uppercase tracking-wider">RETICLE SCAN ACTIVE</span>
+<button class="bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold px-space-sm py-1.5 rounded-lg hover:shadow-[0_0_12px_rgba(0,242,165,0.5)] transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">qr_code_scanner</span>
+<span>SCAN</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-space-xs w-full md:w-auto">
+<div class="relative w-full md:w-64">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface font-label-mono text-label-mono px-space-md py-space-sm rounded-xl focus:outline-none focus:shadow-[0_0_16px_rgba(76,215,246,0.3)] transition-all cursor-pointer">
+<option selected="">Sort: Highest Purity Score</option>
+<option>Sort: Most Scanned Today</option>
+<option>Sort: Community Verified</option>
+<option>Sort: Lowest Heavy Metal Content</option>
+<option>Sort: Lowest Microplastic Index</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-outline text-lg">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 no-scrollbar text-nowrap">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider mr-1">METRIC FILTERS:</span>
+<button class="filter-chip active flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-mono-xs text-label-mono-xs font-semibold shadow-[0_0_12px_rgba(0,242,165,0.3)] transition-all">
+<span class="material-symbols-outlined text-xs">verified</span>
+<span>Veridis Score 90+</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
+<span class="material-symbols-outlined text-xs text-secondary">block</span>
+<span>Zero Seed Oils</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
+<span class="material-symbols-outlined text-xs text-primary">eco</span>
+<span>100% Organic</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
+<span class="material-symbols-outlined text-xs text-tertiary-fixed-dim">grain</span>
+<span>Gluten-Free</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
+<span class="material-symbols-outlined text-xs text-secondary-fixed">water_drop</span>
+<span>No Added Sugar</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
+<span class="material-symbols-outlined text-xs text-primary-fixed">psychiatry</span>
+<span>Regenerative Agriculture</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
+<span class="material-symbols-outlined text-xs text-secondary">smb_share</span>
+<span>Microplastic Tested</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-widest">ACTIVE CATEGORIES</span>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm">
+<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
+<div class="p-2 rounded-lg bg-surface-container-highest text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-lg">water_bottle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Plant Mylks</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">1,402 verified</span>
+</div>
+</div>
+<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
+<div class="p-2 rounded-lg bg-surface-container-highest text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-lg">fitness_center</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Protein &amp; Snacks</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">3,890 verified</span>
+</div>
+</div>
+<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
+<div class="p-2 rounded-lg bg-surface-container-highest text-tertiary-fixed-dim group-hover:bg-tertiary-fixed-dim group-hover:text-on-tertiary transition-colors">
+<span class="material-symbols-outlined text-lg">oil_barrel</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Pantry &amp; Oils</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">2,115 verified</span>
+</div>
+</div>
+<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
+<div class="p-2 rounded-lg bg-surface-container-highest text-primary-fixed group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-lg">child_care</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Baby &amp; Infant</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">842 verified</span>
+</div>
+</div>
+<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
+<div class="p-2 rounded-lg bg-surface-container-highest text-secondary-fixed-dim group-hover:bg-secondary-fixed-dim group-hover:text-on-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-lg">electric_bolt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Electrolytes</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">1,029 verified</span>
+</div>
+</div>
+<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
+<div class="p-2 rounded-lg bg-surface-container-highest text-primary-container group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg">spa</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Superfoods</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">984 verified</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg mt-space-sm">
+<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Malk pure organic unsweetened almond milk minimalist bottle standing on a dark obsidian clinical slate illuminated by subtle emerald backlight with pure droplets of water. Clean laboratory lighting, dark background, sharp high-fidelity photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-noJ3pY3JlNBVmiX-4M-BY0gCWfvd-dA5U9qEaGOSXFIl6_Eo9W35JhAgnz_l0VEGWGnvnaeK1HuAoWgfoR0B59YZzie-UhTI7muIW9xPlkpNxX9QOh97SKBvW-6uAKCzNOAaS0thX9Cjdr9taM3vlYM8n2d9OkXI_rwnWKYJJTDwkNWyqIL7jNL_gnqa3GLYffyC6Rkrf8j25eEncIpXrpAeEin-q31fVG6UfUg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // NOVA 1</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
+<div class="flex flex-col items-end">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
+<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">99</span>
+</div>
+<div class="relative w-7 h-7 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="0.8" stroke-width="3"></circle>
+</svg>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Malk Organics</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">grade</span> 4.9 (1.2k scans)
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                Organic Pure Almond Milk
+              </h2>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> 3 Ingredients Only
+                </span>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">shield</span> Gum Free
+                </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
+                  Clean Label Certified
+                </span>
+</div>
+<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
+<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
+<span>SPECTRAL INGREDIENT TELEMETRY</span>
+<span class="text-primary font-semibold">100% CLEAN</span>
+</div>
+<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
+                  Filtered Water, Organic Almonds, Himalayan Pink Salt.
+                </p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<span class="text-primary">● 0% Carrageenan</span>
+<span class="text-primary">● 0% Gellan Gum</span>
+<span class="text-primary">● 0% Industrial Emulsifiers</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center gap-space-xs">
+<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">inventory_2</span>
+<span>Add to Vault</span>
+</button>
+<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-base">compare_arrows</span>
+</button>
+</div>
+</div>
+<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Primal Kitchen organic avocado oil mayonnaise jar positioned on a dark textured obsidian table surface with micro green highlights and dark moody atmospheric laboratory rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsMI0VVTct62lMuhJGFsxc-qSAB9ZAzPXyHkpO8WPMLNevgp3o6VETRhp4jC-w5xoTcsv3Y4tp177im4z5dsLPRdtkJATR8JWEKSbjG5T3gBTv4zLmGgC7-xjYb6X5RFiuZftaYhn2_yIiyInBFeKki75nI9qK-4dqrNds8u3I7pPxlORG_mX0TWK4DWN2Yu_t_HC_Mgv85pd2P41YkZnAoW9CfbfGK61fj9JVx2E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // NON-SEED OIL</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
+<div class="flex flex-col items-end">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
+<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">97</span>
+</div>
+<div class="relative w-7 h-7 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="2.6" stroke-width="3"></circle>
+</svg>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Primal Kitchen</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">grade</span> 4.8 (3.4k scans)
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                Organic Avocado Oil Mayo
+              </h2>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> 100% Pure Avocado Oil
+                </span>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">egg</span> Cage-Free Eggs
+                </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
+                  Zero Soybean / Canola
+                </span>
+</div>
+<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
+<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
+<span>SPECTRAL INGREDIENT TELEMETRY</span>
+<span class="text-primary font-semibold">100% VERIFIED</span>
+</div>
+<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
+                  Avocado Oil, Organic Certified Cage-Free Eggs, Egg Yolks, Organic Vinegar, Salt.
+                </p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<span class="text-primary">● 0g Added Sugar</span>
+<span class="text-primary">● Glyphosate Residual: ND</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center gap-space-xs">
+<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">inventory_2</span>
+<span>Add to Vault</span>
+</button>
+<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-base">compare_arrows</span>
+</button>
+</div>
+</div>
+<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Chomps grass fed sea salt beef sticks package on deep graphite lab surface with subtle cyan rim reflection. Precision studio biological product aesthetic, zero clutter, high detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABqo3pgxoH6grE6iS46pvoh59pEYgZeReKAALUBz8faN6oytsDwkN93e7WaQDKbzJhAs6cSNAWd2zQdl_fAjVJdvXSHTCkp-bxFF8G8SzHvfmlZbT2yOic37EJp4WzBpBmsf4OTVmmLnTk0gRnPYgpfSRdbphwcdPHiM5v2oODpDwpVwpe5hK58s1RD_eOFbDUgBMchDG9UNt0Q3aGcF2QyWk0DyyJDEuZnAoAtd4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // PASTURE RAISED</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
+<div class="flex flex-col items-end">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
+<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">95</span>
+</div>
+<div class="relative w-7 h-7 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="4.4" stroke-width="3"></circle>
+</svg>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Chomps</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">grade</span> 4.9 (4.8k scans)
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                Grass-Fed Original Beef Sticks
+              </h2>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> Zero Sugar
+                </span>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">health_and_safety</span> Nitrite Free
+                </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
+                  Whole30 Approved
+                </span>
+</div>
+<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
+<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
+<span>SPECTRAL INGREDIENT TELEMETRY</span>
+<span class="text-primary font-semibold">BIO-OPTIMAL</span>
+</div>
+<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
+                  100% Grass-Fed &amp; Finished Beef, Water, Sea Salt, Encapsulated Lactic Acid, Celery Juice.
+                </p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<span class="text-primary">● 9g Bio-available Protein</span>
+<span class="text-primary">● 0 Synthetic Preservatives</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center gap-space-xs">
+<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">inventory_2</span>
+<span>Add to Vault</span>
+</button>
+<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-base">compare_arrows</span>
+</button>
+</div>
+</div>
+<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="LesserEvil Organic Himalayan Pink Salt Popcorn bag with soft pastel clean graphic layout standing on dark matte platform with glowing green diagnostic laboratory grid background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi0G0hD17s4xdtAVtpSENX66w1a33tJW1z88LI7RSN_BxdJ_fs25GnobF3bHcjdIU6nIw63HwNKPAF06YqzDg9lbRf4A4Erckka29rVlgAff0sJ9D2219qgYu6hHHsXWrTBY0UYGwb2i9yvIocrZp0ZVdL1ByyqoygLDU43dBwj7c80No84hQX1d1Ay0yvzEhsvsklMcfBVbT616WcPSSYyaQUxMbNLvIl_Av3LXU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // ORGANIC OIL</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
+<div class="flex flex-col items-end">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
+<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">94</span>
+</div>
+<div class="relative w-7 h-7 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="5.2" stroke-width="3"></circle>
+</svg>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">LesserEvil</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">grade</span> 4.7 (2.1k scans)
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                Organic Himalayan Pink Popcorn
+              </h2>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> Coconut Oil
+                </span>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">grain</span> Himalayan Pink Salt
+                </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
+                  Non-GMO Verified
+                </span>
+</div>
+<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
+<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
+<span>SPECTRAL INGREDIENT TELEMETRY</span>
+<span class="text-primary font-semibold">100% NON-INFLAMMATORY</span>
+</div>
+<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
+                  Organic Non-GMO Popcorn, Organic Extra Virgin Coconut Oil, Himalayan Salt.
+                </p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<span class="text-primary">● Zero Industrial Polyunsaturates</span>
+<span class="text-primary">● PFAS-Free Packaging</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center gap-space-xs">
+<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">inventory_2</span>
+<span>Add to Vault</span>
+</button>
+<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-base">compare_arrows</span>
+</button>
+</div>
+</div>
+<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Simple Mills Almond Flour Crackers box standing crisp on dark obsidian background with laboratory green highlights and technical light reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOOzN9tFtsjVilI61l_K6skcfamLLzvzpHkSX9y3uG3x3qE3JdIatsgx8p_iyJboUfiE6SBRi8QL_r4xjx62C2mlxvJl_caisCsk5hhlXC1vKJk9eD0F5X8HnsdZP7Qm1_URGGU5qANL4UNTqGJ4MfYQHAoYPfjcM4TpL6oKRRD02RViiJTAwXE4F4SKeEQ_EwJ-dwUOh-8ZP-sdHeVikHYjRHhCyJJRQeoFpGZ5Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // GRAIN FREE</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
+<div class="flex flex-col items-end">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
+<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">92</span>
+</div>
+<div class="relative w-7 h-7 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="7.0" stroke-width="3"></circle>
+</svg>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Simple Mills</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">grade</span> 4.8 (1.9k scans)
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                Almond Flour Sea Salt Crackers
+              </h2>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> Nut &amp; Seed Blend
+                </span>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">science</span> Cassava Flour
+                </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
+                  Zero Refined Starch
+                </span>
+</div>
+<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
+<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
+<span>SPECTRAL INGREDIENT TELEMETRY</span>
+<span class="text-primary font-semibold">CLEAN MATRIX</span>
+</div>
+<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
+                  Nut and Seed Flour Blend (Almonds, Sunflower Seeds, Flax), Tapioca, Cassava, Organic Sunflower Oil.
+                </p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<span class="text-primary">● No Bleached Flours</span>
+<span class="text-primary">● Certified Gluten-Free</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center gap-space-xs">
+<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">inventory_2</span>
+<span>Add to Vault</span>
+</button>
+<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-base">compare_arrows</span>
+</button>
+</div>
+</div>
+<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Canyon Bakehouse Ancient Grain Gluten Free Bread loaf in premium packaging on dark obsidian diagnostic surface with emerald laser scanning line overlay." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG-WC5YoLsYPOLn89f2stDgVibUnvNvpqVYs3ilh7BLzwvWtQEExKavC7kkJL0V0GGKA-9C7Pk5TEiVyixCe9ZZs4ds4vhXeM9MuB1crMrw96i5VshGZAXtgJk8Rw0gYx3LiIIDA6ykv1K5fPHTY8ieHEwLXYaFuZc3d_sWbozF4ovc4wvJWTINDYnm8aidm3tMHVoSl6CDoCRZ3Z5C23iRcizGnxiekcXgq2lNJE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // ANCIENT GRAIN</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
+<div class="flex flex-col items-end">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
+<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">90</span>
+</div>
+<div class="relative w-7 h-7 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="8.8" stroke-width="3"></circle>
+</svg>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Canyon Bakehouse</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">grade</span> 4.6 (1.5k scans)
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                Ancient Grain Gluten-Free Bread
+              </h2>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> Sorghum &amp; Millet
+                </span>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">shield</span> 100% Whole Grain
+                </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
+                  Dairy Free
+                </span>
+</div>
+<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
+<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
+<span>SPECTRAL INGREDIENT TELEMETRY</span>
+<span class="text-primary font-semibold">OPTIMIZED</span>
+</div>
+<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
+                  Water, Brown Rice Flour, Tapioca Flour, Whole Grain Sorghum, Cane Sugar, Extra Virgin Olive Oil.
+                </p>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<span class="text-primary">● 0 Soy Additives</span>
+<span class="text-primary">● Tested Zero Heavy Metals</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center gap-space-xs">
+<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">inventory_2</span>
+<span>Add to Vault</span>
+</button>
+<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-base">compare_arrows</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md p-space-md bg-surface-container-low/90 backdrop-blur-xl rounded-2xl shadow-lg">
+<div class="flex items-center gap-space-sm overflow-hidden">
+<div class="p-2 rounded-lg bg-primary-container/10 text-primary-container animate-pulse shrink-0">
+<span class="material-symbols-outlined text-xl">sensors</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold uppercase tracking-wider">LIVE TELEMETRY STREAM</span>
+<p class="font-label-mono text-label-mono text-on-surface-variant truncate">
+              User <span class="text-primary font-semibold">@alex_bio</span> just submitted lab report for <span class="text-on-surface font-semibold">Matcha Purity</span> (+50 verified scans).
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md self-end md:self-auto shrink-0">
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface-variant disabled:opacity-30 transition-colors" disabled="">
+<span class="material-symbols-outlined text-base">first_page</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface-variant disabled:opacity-30 transition-colors" disabled="">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<span class="px-space-sm font-label-mono text-label-mono text-on-surface font-semibold">Page 1 of 84</span>
+<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface transition-colors">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface transition-colors">
+<span class="material-symbols-outlined text-base">last_page</span>
+</button>
+</div>
+<button class="px-space-md py-2 bg-secondary text-on-secondary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(76,215,246,0.5)] transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">file_download</span>
+<span>Export Clean Shopping List</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const isSelected = this.classList.contains('active');
+      if (isSelected) {
+        this.classList.remove('active', 'bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_rgba(0,242,165,0.3)]', 'font-semibold');
+        this.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+      } else {
+        this.classList.add('active', 'bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_rgba(0,242,165,0.3)]', 'font-semibold');
+        this.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+      }
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><span class="font-label-mono text-label-mono tracking-wider text-on-surface">VERIDIS NUTRISCAN ARCHITECTURE</span></div><div class="flex items-center gap-space-lg"><span class="font-label-mono-xs text-label-mono-xs text-outline">TELEMETRY CORE: CALIBRATED</span><span class="font-label-mono-xs text-label-mono-xs text-outline">CLINICAL RECALL ENGINE v9.2</span></div><p class="font-label-mono-xs text-label-mono-xs text-outline">© 2025 VERIDIS BIO-DIAGNOSTICS LABS. ALL METRIC INTEL PROTECTED.</p></div></footer><script src="/site-interactions.js" defer></script></body></html>

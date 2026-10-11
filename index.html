@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>VERIDIS NutriScan - Biological Intelligence Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#ffefe0","tertiary-fixed-dim":"#ffb95f","inverse-on-surface":"#2b3139","surface-dim":"#0e141b","surface-variant":"#2f353d","surface":"#0e141b","surface-container-low":"#161c23","error":"#ffb4ab","primary-container":"#00f2a5","inverse-surface":"#dde3ed","secondary-fixed":"#acedff","surface-container":"#1a2027","background":"#0e141b","on-secondary-fixed":"#001f26","on-primary":"#003823","primary-fixed-dim":"#00e29a","surface-container-high":"#242a32","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","on-tertiary-fixed":"#2a1700","on-tertiary-container":"#825100","on-error":"#690005","on-error-container":"#ffdad6","outline":"#849589","on-primary-fixed":"#002113","primary-fixed":"#4affb4","tertiary-fixed":"#ffddb8","inverse-primary":"#006c47","secondary":"#4cd7f6","primary":"#c0ffdb","on-primary-fixed-variant":"#005235","surface-container-highest":"#2f353d","on-tertiary-fixed-variant":"#653e00","on-tertiary":"#472a00","surface-tint":"#00e29a","tertiary-container":"#ffcc90","on-surface":"#dde3ed","on-secondary-container":"#00424e","outline-variant":"#3b4a41","on-surface-variant":"#b9cbbe","on-primary-container":"#006945","on-secondary":"#003640","secondary-fixed-dim":"#4cd7f6","surface-bright":"#343a42","on-background":"#dde3ed","surface-container-lowest":"#090f16","error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"2rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter-mobile":"0.75rem","space-sm":"0.5rem"},fontFamily:{"data-display-md":["JetBrains Mono"],"label-mono-xs":["JetBrains Mono"],"body-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-display-lg":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"data-display-md":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"data-display-lg":["40px",{"lineHeight":"44px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm cursor-pointer" data-path="overview" href="#"><img alt="Veridis NutriScan Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase leading-none">VERIDIS NUTRISCAN</span><span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant tracking-widest mt-1">BIO-SPECTRAL ANALYSIS</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low border border-primary-container/20"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,242,165,0.8)]"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">SPECTRA v3.4 ONLINE</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container/60" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="overview" href="#">Overview</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="live-scanner" href="#">Live Scanner</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="ingredient-intel" href="#">Ingredient Intel</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="health-vault" href="#">Health Vault</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="clean-food-explorer" href="#">Clean Food Explorer</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container px-space-md py-space-xs rounded-xl transition-all cursor-pointer group"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-lg">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search matrix...</span><kbd class="px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-secondary">⌘K / Scan</kbd></div><nav class="flex items-center" data-active-classes="text-primary border-primary-container/60"><a class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface border border-outline-variant/30 hover:border-outline-variant/80 transition-all" data-path="auth-login" href="#">Sign In</a></nav><button class="relative p-space-xs rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden sm:flex flex-col text-right"><span class="font-label-mono text-label-mono text-on-surface">Dr. Elena Vance</span><span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-wider">Pro Bio-Tier</span></div><div class="relative ring-1 ring-primary-container/30 rounded-full p-0.5"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfYHjWGiIm2RsNaTVEu5XYRXJb83fhKz8fqz-JwjjFymWdmQQdzg16x7Oaegy9WBp82_GSodCHddes6_xHpkK_rWngrkwwAOTZouHupN8WHj0_dLBRG7OQifkTG0CP-0cML8eqy2dsjGmyrE9cZg1It_5yiFy_1w8fQyfM0fHHbuYLEdRtOZd8tcmaQmbfPvhHHG_g6nOylj31YLMBRSkKkdBzUGIY7EcLqQSlURw"/></div></div></div></div></div><div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/50 to-transparent shadow-[0_0_12px_rgba(0,242,165,0.4)]"></div></header><main class="w-full pt-20 bg-background relative min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow Aura -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[380px] bg-gradient-to-b from-primary-container/15 via-secondary/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute top-1/4 -left-48 w-96 h-96 bg-primary-container/10 blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute top-1/3 -right-48 w-96 h-96 bg-secondary/10 blur-3xl pointer-events-none rounded-full"></div>
+<!-- Section: Hero Core Forensics -->
+<section class="w-full px-gutter max-w-7xl mx-auto pt-space-xl pb-space-xl relative">
+<!-- Clinical Protocol Eyebrow -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-lg">
+<div class="inline-flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-high shadow-lg">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-widest">CLINICAL HYPERSPECTRAL ENGINE // ISO-22000 GRADE</span>
+</div>
+<div class="hidden sm:flex items-center gap-space-md font-label-mono-xs text-label-mono-xs text-on-surface-variant">
+<span>LATENCY: <span class="text-primary-container font-bold">11.4ms</span></span>
+<span>•</span>
+<span>DATABASE: <span class="text-secondary font-bold">54,120 FORMULATIONS</span></span>
+<span>•</span>
+<span>SPECTRAL RES: <span class="text-primary font-bold">0.12nm</span></span>
+</div>
+</div>
+<!-- Main Headline Lockup -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="font-label-mono text-label-mono text-secondary tracking-widest uppercase">Biological Precision In Every Bite</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-none uppercase">
+            The Hyperspectral <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-secondary to-primary">Nutrition Scanner</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-space-xs">
+            Deploy real-time molecular food forensics directly from your terminal. Intercept ultra-processed formulations, flag endocrine disruptors, identify petroleum dyes, and eliminate synthetic chemical matrices before ingestion.
+          </p>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="group relative inline-flex items-center gap-space-sm px-space-lg py-space-md rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-headline-sm transition-all duration-300 hover:scale-[1.02] shadow-[0_0_28px_rgba(0,242,165,0.4)]" data-path="auth-login" href="#">
+<span class="material-symbols-outlined text-xl">biotech</span>
+<span class="font-headline-sm text-headline-sm tracking-tight font-bold">Initiate Molecular Biopsy</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-sm px-space-lg py-space-md rounded-xl bg-surface-container-high text-secondary hover:text-primary transition-all duration-300 hover:bg-surface-container-highest shadow-md" href="#demo-reticle">
+<span class="material-symbols-outlined text-xl text-secondary">view_in_ar</span>
+<span class="font-label-mono text-label-mono uppercase tracking-wider font-semibold">View Live Reticle</span>
+</a>
+</div>
+<!-- Micro Spec Line -->
+<div class="flex items-center gap-space-lg pt-space-xs text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-sm">verified_user</span>
+<span>Zero Domestic Adware</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm">bolt</span>
+<span>HIPAA Vault Encrypted</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-sm">fingerprint</span>
+<span>Biometric Passkey Native</span>
+</div>
+</div>
+</div>
+<!-- Hero Centerpiece: Holographic Diagnostic Viewport -->
+<div class="lg:col-span-5 relative" id="demo-reticle">
+<div class="relative rounded-2xl bg-surface-container-lowest p-space-md shadow-2xl overflow-hidden group">
+<!-- Ambient Backdrop inside HUD -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 via-transparent to-secondary/10 pointer-events-none"></div>
+<!-- Optical Corner Brackets -->
+<div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-primary-container pointer-events-none"></div>
+<div class="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-primary-container pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-primary-container pointer-events-none"></div>
+<div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-primary-container pointer-events-none"></div>
+<!-- Header of HUD -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold uppercase tracking-wider">RETICLE: NIR SPECTRA-09</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary font-label-mono-xs text-label-mono-xs">ASSAY: LIVE SPECTRAL FEED</span>
+</div>
+<!-- Scanning Image Canvas with Laser Grid -->
+<div class="relative w-full h-80 rounded-xl overflow-hidden bg-surface-container-low flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700" data-alt="Futuristic dark laboratory product photography of an artisanal cold-pressed olive oil bottle made of dark frosted glass, scanned by vibrant glowing cyan laser grids, emerald volumetric light beams, obsidian shadows, cinematic laboratory diagnostics aesthetics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_ediqFQnw7ZDCul4o6X3HmTKj22bUMhp8HiNRyRpQHFf0kh6HAKchFnvrvNnQpf0-2wlfu8PviJ0ftvy6SW9x0YPC-yEShxvJ2BkyAwc0tRSTOD3ifX-AMCksPsjpPqdmZOZBRVO9HZyBpOMcKr532l1XG5c-ROQJZrnOmFmSXyiaSYeEP4WQ6TA-_l8n2stg-cCOhsb6OAbXQitp99YCo5xExYyVRhVPq8HoGzo"/>
+<!-- Laser Sweep Simulation -->
+<div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent shadow-[0_0_15px_#00f2a5] animate-[bounce_3.2s_infinite] pointer-events-none"></div>
+<!-- Floating Spectral Bounding Box -->
+<div class="absolute inset-8 rounded-lg pointer-events-none flex flex-col justify-between p-space-sm shadow-[inset_0_0_20px_rgba(76,215,246,0.15)]">
+<div class="self-start px-space-xs py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur font-label-mono-xs text-label-mono-xs text-secondary">
+                  λ: 780-1650nm // MOLECULAR LOCK
+                </div>
+<div class="self-end px-space-xs py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur font-label-mono-xs text-label-mono-xs text-primary-container">
+                  TARGET: MONO-ORIGIN LIPID MATRIX
+                </div>
+</div>
+</div>
+<!-- Lower Telemetry Score Card -->
+<div class="mt-space-md grid grid-cols-3 gap-space-sm">
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col items-start justify-center shadow-inner">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Purity Rating</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-data-display-md text-data-display-md text-primary-container font-bold">98.4</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary-container">%</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-primary mt-0.5">OPTIMAL GRADE</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col items-start justify-center shadow-inner">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Seed Oils</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-data-display-md text-data-display-md text-secondary font-bold">0.00</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary">mg</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary mt-0.5">UNDETECTED</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col items-start justify-center shadow-inner">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Matrix Cert</span>
+<div class="flex items-center gap-1 mt-1 text-primary-container">
+<span class="material-symbols-outlined text-lg">verified</span>
+<span class="font-label-mono text-label-mono font-bold">CLEAN</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant mt-0.5">NON-IND. LOT #88</span>
+</div>
+</div>
+<!-- Live Compound Intercept Readout -->
+<div class="mt-space-sm p-space-sm rounded-xl bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="font-label-mono-xs text-label-mono-xs uppercase tracking-wide">Synthetics Intercepted: 0/142</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">CONFIDENCE: 99.98%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Section: Clinical Stats Horizon Banner -->
+<section class="w-full bg-surface-container-lowest py-space-lg shadow-inner">
+<div class="w-full px-gutter max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-widest">Global Analyses</span>
+<span class="font-data-display-lg text-data-display-lg text-on-surface font-bold mt-1">1.48M+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Metabolic biopsies executed globally</span>
+</div>
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="font-label-mono-xs text-label-mono-xs text-primary-container uppercase tracking-widest">Molecular Precision</span>
+<span class="font-data-display-lg text-data-display-lg text-primary-container font-bold mt-1">99.84%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Chromatography-aligned baseline accuracy</span>
+</div>
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim uppercase tracking-widest">UPF Additives Intercepted</span>
+<span class="font-data-display-lg text-data-display-lg text-tertiary-fixed-dim font-bold mt-1">482,900</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Micro-ingredients blocked pre-consumption</span>
+</div>
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-widest">Compliance Protocol</span>
+<div class="flex items-center gap-space-xs mt-2 text-on-surface">
+<span class="font-headline-md text-headline-md font-bold">ISO-22000</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">HIPAA Title II cryptographic sandbox</span>
+</div>
+</div>
+</section>
+<!-- Section: Interactive Barcode Simulation Widget -->
+<section class="w-full px-gutter max-w-7xl mx-auto py-space-xl">
+<div class="p-space-lg rounded-2xl bg-surface-container shadow-2xl relative overflow-hidden">
+<!-- Glow ambient accent inside card -->
+<div class="absolute -top-24 -right-24 w-80 h-80 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg mb-space-lg">
+<div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-surface-container-high text-secondary font-label-mono-xs text-label-mono-xs uppercase tracking-widest mb-space-xs">
+            SANDBOX TELEMETRY MODULE
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+            Try Instant Barcode Simulation
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-xl">
+            Select an industrial grocery item below to test our neural spectral decoder and review its chemical profile prior to signing in.
+          </p>
+</div>
+<!-- Sample Switcher Buttons -->
+<div class="flex flex-wrap items-center gap-space-xs p-1 rounded-xl bg-surface-container-lowest" id="sim-controls">
+<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono transition-all bg-primary-container text-on-primary-container font-semibold" id="btn-snack" onclick="simulateScan('snack')">
+            Ultra-Processed Energy Bar
+          </button>
+<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-all" id="btn-beverage" onclick="simulateScan('beverage')">
+            Synthetic Sports Drink
+          </button>
+<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-all" id="btn-clean" onclick="simulateScan('clean')">
+            Wild Arctic Salmon Oil
+          </button>
+</div>
+</div>
+<!-- Simulation Dynamic Matrix Display -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md" id="sim-display">
+<!-- UPC Barcode Visual Block -->
+<div class="lg:col-span-4 p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase" id="sim-upc">UPC: 084920412894</span>
+<span class="px-space-xs py-0.5 rounded bg-error-container text-error font-label-mono-xs text-label-mono-xs font-bold" id="sim-flag-tag">FLAGGED: HIGH HAZARD</span>
+</div>
+<!-- Stylized Barcode SVG Representation -->
+<div class="my-space-md p-space-md rounded-lg bg-surface-container-lowest flex flex-col items-center justify-center">
+<div class="w-full flex items-center justify-center gap-1 h-14 overflow-hidden text-on-surface">
+<span class="w-1 h-full bg-on-surface"></span>
+<span class="w-2 h-full bg-on-surface"></span>
+<span class="w-0.5 h-full bg-on-surface"></span>
+<span class="w-1.5 h-full bg-on-surface"></span>
+<span class="w-3 h-full bg-on-surface"></span>
+<span class="w-0.5 h-full bg-on-surface"></span>
+<span class="w-2 h-full bg-on-surface"></span>
+<span class="w-1 h-full bg-on-surface"></span>
+<span class="w-3 h-full bg-on-surface"></span>
+<span class="w-0.5 h-full bg-on-surface"></span>
+<span class="w-1.5 h-full bg-on-surface"></span>
+<span class="w-2 h-full bg-on-surface"></span>
+<span class="w-1 h-full bg-on-surface"></span>
+<span class="w-2.5 h-full bg-on-surface"></span>
+<span class="w-0.5 h-full bg-on-surface"></span>
+<span class="w-1.5 h-full bg-on-surface"></span>
+<span class="w-2 h-full bg-on-surface"></span>
+</div>
+<span class="font-label-mono text-label-mono tracking-widest text-on-surface-variant mt-2" id="sim-sku">SKU-7729-UPF</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<span>SPECTRAL SCAN: COMPLETE</span>
+<span class="text-primary-container font-semibold">9.8ms RUNTIME</span>
+</div>
+</div>
+<!-- Telemetry Scores and Hazard Matrix -->
+<div class="lg:col-span-8 p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-sm">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold" id="sim-title">NeoFuel Crispy Protein Core</h3>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant" id="sim-category">INDUSTRIAL PACKAGED SNACK // NOVA CLASS 4</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="text-right">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Bio-Score</span>
+<div class="font-data-display-md text-data-display-md text-error font-bold leading-none" id="sim-score">28 / 100</div>
+</div>
+</div>
+</div>
+<!-- Hazard Pills List -->
+<div class="flex flex-wrap gap-space-xs my-space-md" id="sim-chips">
+<span class="px-space-sm py-1 rounded bg-error-container/40 text-error font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">warning</span> Sucralose (E955) [Endocrine]
+              </span>
+<span class="px-space-sm py-1 rounded bg-error-container/40 text-error font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">warning</span> Fractionated Palm Stearin
+              </span>
+<span class="px-space-sm py-1 rounded bg-error-container/40 text-error font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">warning</span> Red 40 Lacquer Dye (E129)
+              </span>
+<span class="px-space-sm py-1 rounded bg-surface-container text-tertiary-fixed-dim font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">info</span> Emulsifier Polysorbate 80
+              </span>
+</div>
+</div>
+<!-- Suggested Bio-Swap Strip -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm" id="sim-swap-card">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-xl">swap_horiz</span>
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-primary uppercase font-bold">Recommended Bio-Swap</span>
+<p class="font-body-sm text-body-sm text-on-surface" id="sim-swap-name">Raw Pasture-Raised Bone Broth + Wild Sprouted Seeds (+68 Score Delta)</p>
+</div>
+</div>
+<a class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-secondary font-label-mono-xs text-label-mono-xs transition-colors shrink-0" data-path="clean-food-explorer" href="#">
+              Inspect Swap →
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Core Pillars Bento Grid -->
+<section class="w-full px-gutter max-w-7xl mx-auto py-space-xl">
+<div class="flex flex-col items-start gap-space-xs mb-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-surface-container-high text-primary font-label-mono-xs text-label-mono-xs uppercase tracking-widest">
+        ARCHITECTURAL PILLARS
+      </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+        High-Fidelity Metabolic Intelligence
+      </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Designed from the ground up for bio-hackers, clinical researchers, and metabolically sovereign individuals demanding unfiltered food transparency.
+      </p>
+</div>
+<!-- Bento Grid Structure -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-md">
+<!-- Pillar 1: Sub-Nanometer Optical Spectrometry (Span 7) -->
+<div class="lg:col-span-7 p-space-lg rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col justify-between group shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="p-space-sm rounded-xl bg-primary-container/15 text-primary-container">
+<span class="material-symbols-outlined text-2xl">hub</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">PILLAR // 01</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Sub-Nanometer Optical Spectrometry</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Leveraging near-infrared multi-spectral photon scatter analysis to detect microplastics, glyphosate organophosphate residues, and industrial solvents in sub-12 milliseconds without chemical preparation.
+          </p>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex justify-between items-center font-label-mono-xs text-label-mono-xs">
+<span class="text-on-surface-variant">SPECTRAL DECOMPOSITION: GLYPHOSATE</span>
+<span class="text-primary-container font-semibold">0.02 PPM LIMIT</span>
+</div>
+<!-- Sparkline Telemetry Simulation -->
+<div class="w-full h-8 flex items-end gap-1">
+<div class="w-1/12 bg-secondary/30 h-2 rounded-xs"></div>
+<div class="w-1/12 bg-secondary/40 h-3 rounded-xs"></div>
+<div class="w-1/12 bg-secondary/50 h-5 rounded-xs"></div>
+<div class="w-1/12 bg-secondary h-7 rounded-xs"></div>
+<div class="w-1/12 bg-primary-container h-8 rounded-xs animate-pulse"></div>
+<div class="w-1/12 bg-secondary h-6 rounded-xs"></div>
+<div class="w-1/12 bg-secondary/70 h-4 rounded-xs"></div>
+<div class="w-1/12 bg-secondary/50 h-3 rounded-xs"></div>
+<div class="w-1/12 bg-secondary/30 h-2 rounded-xs"></div>
+<div class="w-1/12 bg-secondary/20 h-1.5 rounded-xs"></div>
+<div class="w-1/12 bg-secondary/20 h-2 rounded-xs"></div>
+<div class="w-1/12 bg-secondary/20 h-1 rounded-xs"></div>
+</div>
+</div>
+</div>
+<!-- Pillar 2: Algorithmic Bio-Swaps (Span 5) -->
+<div class="lg:col-span-5 p-space-lg rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="p-space-sm rounded-xl bg-secondary/15 text-secondary">
+<span class="material-symbols-outlined text-2xl">published_with_changes</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">PILLAR // 02</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Algorithmic Bio-Swaps</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Dynamic nutrient replacement engine. When an ultra-processed stabilizer or seed oil carrier is detected, the engine instantly computes cleaner, whole-matrix culinary equivalents.
+          </p>
+</div>
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-lowest flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-outline line-through">Canola / Soy Emulsion</span>
+<span class="font-label-mono text-label-mono text-primary-container font-bold mt-0.5">Cold Pressed Avocado Oil</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-primary-container/20 text-primary-container font-label-mono-xs text-label-mono-xs font-bold">
+            +91% OXIDATIVE STABILITY
+          </span>
+</div>
+</div>
+<!-- Pillar 3: Clean Food Repository (Span 5) -->
+<div class="lg:col-span-5 p-space-lg rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="p-space-sm rounded-xl bg-tertiary-fixed-dim/20 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-2xl">database</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">PILLAR // 03</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">The Clean Food Repository</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Over 54,000 clinically validated, non-industrialized formulation matrices. Continuously updated with peer-reviewed laboratory mass spectrometry results and verified by decentralized bio-inspectors.
+          </p>
+</div>
+<div class="mt-space-lg flex items-center justify-between pt-space-xs">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-label-mono-xs text-label-mono-xs text-primary font-bold">L1</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-label-mono-xs text-label-mono-xs text-secondary font-bold">L2</div>
+<div class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center font-label-mono-xs text-label-mono-xs text-primary-container font-bold">L3</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">PEER-VALIDATED METRICS</span>
+</div>
+</div>
+<!-- Pillar 4: Live Sensor Telemetry & Health Vault (Span 7) -->
+<div class="lg:col-span-7 p-space-lg rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="p-space-sm rounded-xl bg-primary/15 text-primary">
+<span class="material-symbols-outlined text-2xl">monitoring</span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">PILLAR // 04</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Live Sensor Telemetry &amp; Health Vault</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Chrono-metric tracking of your metabolic purity index. Watch systemic inflammatory load markers decrease over weeks as synthetic chemicals, artificial sweeteners, and solvent-extracted lipids are eradicated.
+          </p>
+</div>
+<!-- Metric Trend Line Card -->
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-lowest grid grid-cols-3 gap-space-sm">
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Inflammatory Delta</span>
+<div class="font-data-display-md text-data-display-md text-primary-container font-bold mt-1">-34.8%</div>
+<span class="font-label-mono-xs text-label-mono-xs text-primary">30-DAY ASSAY</span>
+</div>
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Clean Formulations</span>
+<div class="font-data-display-md text-data-display-md text-secondary font-bold mt-1">94.2%</div>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary">METABOLIC DIET</span>
+</div>
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase">Endocrine Shields</span>
+<div class="font-data-display-md text-data-display-md text-tertiary-fixed-dim font-bold mt-1">118</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">TOXINS BLOCKED</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Deep Molecular Forensic Showcase (Editorial Visual Richness) -->
+<section class="w-full bg-surface-container-lowest py-space-xl">
+<div class="w-full px-gutter max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Visual Forensic Image Card -->
+<div class="lg:col-span-6 relative">
+<div class="rounded-2xl overflow-hidden bg-surface-container shadow-2xl relative">
+<img class="w-full h-96 object-cover" data-alt="High tech dark obsidian bio-diagnostics lab workstation with close up of raw organic botanicals illuminated under ultraviolet and emerald laser scan grids, sterile clinical glassware, glowing digital HUD overlays, hyper-detailed textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuOK1xTwL_B6sHYxrFBw_G4xd6QcJk6pxgE9QcUBVWdzKk9tDVGuMGsFGsz-r8lt_ROvR0AVvkDJ9uYUM2P-goiERSK2zFCkLOd9Y4QM_dU3O6XXfmN-CoLiLz4jba222zcbtMK8YlZTdYTx3-v6Tqzp2l_YjRoaNxJ1KtrGBt7h-9TyPJh__KBRVNa8i89XsxsVnqGEW7GYA35XUsM2f-pEfzCytJxl8Whil9neE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 p-space-md rounded-xl bg-surface-container-lowest/90 backdrop-blur-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-primary uppercase">SPECTRUM REPORT: LOT #BIO-940</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">Zero Endocrine Disruptors Detected</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-mono-xs text-label-mono-xs font-bold">100% CLEAN MATRIX</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Diagnostic List & Philosophy -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-surface-container-high text-secondary font-label-mono-xs text-label-mono-xs uppercase tracking-widest self-start">
+            EXECUTIVE FORENSIC PROTOCOL
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+            Stop Consuming Industrial Experiments.
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Modern packaged food is engineered for shelf stability and hyper-palatability, not mitochondrial efficiency. VERIDIS NutriScan transforms standard optical devices into laboratory diagnostic instruments.
+          </p>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-xl bg-surface-container flex items-start gap-space-md">
+<span class="material-symbols-outlined text-primary-container text-2xl mt-0.5">security</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Decodes E-Numbers Instantly</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Translates obscure additive nomenclature into direct physiological impact indicators (gut microbiome damage, insulin spike vectors).</p>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex items-start gap-space-md">
+<span class="material-symbols-outlined text-secondary text-2xl mt-0.5">science</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Seed Oil Ratio Verification</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Detects deceptive labeling tactics masking high-linoleic oxidized oils like expeller-pressed canola, high-PUFA soy, and cottonseed distillates.</p>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex items-start gap-space-md">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-2xl mt-0.5">dataset</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Decentralized Formulation Registry</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Cross-referenced against verified independent laboratory assays from across the globe to prevent brand greenwashing.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Bottom Action Strip / Metabolic Audit Callout -->
+<section class="w-full px-gutter max-w-7xl mx-auto py-space-xl">
+<div class="relative rounded-2xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high p-space-xl shadow-2xl overflow-hidden">
+<!-- High-Intensity Neon Glow Aura -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -top-20 w-96 h-96 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+<div class="flex flex-col gap-space-sm max-w-2xl text-center lg:text-left">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-lowest text-primary font-label-mono-xs text-label-mono-xs uppercase tracking-widest self-center lg:self-start">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+            ZERO CONFIGURATION SETUP
+          </div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight uppercase leading-tight">
+            Begin Your Metabolic Audit Today.
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Connect your sensor terminal or authenticate via biometrics. Experience instant, lab-level spectral diagnostics on every product in your ecosystem.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row lg:flex-col items-center gap-space-md shrink-0">
+<a class="inline-flex items-center gap-space-md px-space-xl py-space-md rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-bold shadow-[0_0_32px_rgba(0,242,165,0.45)] hover:scale-105 transition-all" data-path="auth-login" href="#">
+<span class="material-symbols-outlined text-2xl">fingerprint</span>
+<span>Authorize Biometric Passkey</span>
+</a>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-mono-xs text-label-mono-xs">
+<span class="material-symbols-outlined text-primary text-sm">lock</span>
+<span>END-TO-END ZERO KNOWLEDGE PROOFS</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Script for Barcode Simulation Toggle -->
+<script>
+    const simData = {
+      snack: {
+        upc: "UPC: 084920412894",
+        flag: "FLAGGED: HIGH HAZARD",
+        flagClass: "bg-error-container text-error",
+        sku: "SKU-7729-UPF",
+        title: "NeoFuel Crispy Protein Core",
+        category: "INDUSTRIAL PACKAGED SNACK // NOVA CLASS 4",
+        score: "28 / 100",
+        scoreColor: "text-error",
+        chips: [
+          { text: "Sucralose (E955) [Endocrine]", icon: "warning", style: "bg-error-container/40 text-error" },
+          { text: "Fractionated Palm Stearin", icon: "warning", style: "bg-error-container/40 text-error" },
+          { text: "Red 40 Lacquer Dye (E129)", icon: "warning", style: "bg-error-container/40 text-error" },
+          { text: "Emulsifier Polysorbate 80", icon: "info", style: "bg-surface-container text-tertiary-fixed-dim" }
+        ],
+        swap: "Raw Pasture-Raised Bone Broth + Wild Sprouted Seeds (+68 Score Delta)"
+      },
+      beverage: {
+        upc: "UPC: 012000004129",
+        flag: "FLAGGED: MODERATE TOXIN LOAD",
+        flagClass: "bg-tertiary-container/30 text-tertiary-fixed-dim",
+        sku: "SKU-9941-CHEM",
+        title: "ElectroBlue Endurance Glaze",
+        category: "SYNTHETIC HYDRATION BEVERAGE // NOVA CLASS 4",
+        score: "41 / 100",
+        scoreColor: "text-tertiary-fixed-dim",
+        chips: [
+          { text: "Blue 1 Synthetic Triarylmethane", icon: "warning", style: "bg-error-container/40 text-error" },
+          { text: "High Fructose Corn Syrup 55", icon: "warning", style: "bg-error-container/40 text-error" },
+          { text: "Potassium Benzoate Stabilizer", icon: "warning", style: "bg-tertiary-container/30 text-tertiary-fixed-dim" },
+          { text: "Modified Food Starch (Waxy)", icon: "info", style: "bg-surface-container text-on-surface-variant" }
+        ],
+        swap: "Cold-Extracted Raw Coconut Electrolyte + Celtic Salt Matrix (+54 Delta)"
+      },
+      clean: {
+        upc: "UPC: 072412891044",
+        flag: "VERIFIED: CLEAN MATRIX",
+        flagClass: "bg-primary-container text-on-primary-container",
+        sku: "SKU-0012-PURE",
+        title: "Nordic Wild Arctic Salmon Lipids",
+        category: "SINGLE-ORIGIN WHOLE MATRIX // NOVA CLASS 1",
+        score: "99 / 100",
+        scoreColor: "text-primary-container",
+        chips: [
+          { text: "Zero Heavy Metals Detected (<0.001ppm)", icon: "check_circle", style: "bg-primary-container/20 text-primary-container" },
+          { text: "Zero Emulsifiers / No Carrageenan", icon: "check_circle", style: "bg-primary-container/20 text-primary-container" },
+          { text: "Naturally Retained Astaxanthin 4mg", icon: "verified", style: "bg-primary-container/20 text-primary-container" },
+          { text: "Cold Extracted Nitrogen Flush", icon: "eco", style: "bg-surface-container text-primary" }
+        ],
+        swap: "Optimal Formulation Maintained. No Substitution Needed (Clean Matrix)"
+      }
+    };
+
+    function simulateScan(type) {
+      const data = simData[type];
+      if (!data) return;
+
+      document.getElementById('sim-upc').innerText = data.upc;
+      const flagEl = document.getElementById('sim-flag-tag');
+      flagEl.innerText = data.flag;
+      flagEl.className = "px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs font-bold " + data.flagClass;
+
+      document.getElementById('sim-sku').innerText = data.sku;
+      document.getElementById('sim-title').innerText = data.title;
+      document.getElementById('sim-category').innerText = data.category;
+
+      const scoreEl = document.getElementById('sim-score');
+      scoreEl.innerText = data.score;
+      scoreEl.className = "font-data-display-md text-data-display-md font-bold leading-none " + data.scoreColor;
+
+      const chipsCont = document.getElementById('sim-chips');
+      chipsCont.innerHTML = '';
+      data.chips.forEach(c => {
+        const span = document.createElement('span');
+        span.className = "px-space-sm py-1 rounded font-label-mono-xs text-label-mono-xs font-semibold flex items-center gap-1 " + c.style;
+        span.innerHTML = `<span class="material-symbols-outlined text-sm">${c.icon}</span> ${c.text}`;
+        chipsCont.appendChild(span);
+      });
+
+      document.getElementById('sim-swap-name').innerText = data.swap;
+
+      // Update button active styles
+      ['snack', 'beverage', 'clean'].forEach(k => {
+        const btn = document.getElementById('btn-' + k);
+        if (k === type) {
+          btn.className = "px-space-md py-space-xs rounded-lg font-label-mono text-label-mono transition-all bg-primary-container text-on-primary-container font-semibold";
+        } else {
+          btn.className = "px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-all";
+        }
+      });
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><span class="font-label-mono text-label-mono tracking-wider text-on-surface">VERIDIS NUTRISCAN ARCHITECTURE</span></div><div class="flex items-center gap-space-lg"><span class="font-label-mono-xs text-label-mono-xs text-outline">TELEMETRY CORE: CALIBRATED</span><span class="font-label-mono-xs text-label-mono-xs text-outline">CLINICAL RECALL ENGINE v9.2</span></div><p class="font-label-mono-xs text-label-mono-xs text-outline">© 2025 VERIDIS BIO-DIAGNOSTICS LABS. ALL METRIC INTEL PROTECTED.</p></div></footer><script src="/site-interactions.js" defer></script></body></html>

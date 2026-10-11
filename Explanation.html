@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>VERIDIS NutriScan - Biological Intelligence Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#ffefe0","tertiary-fixed-dim":"#ffb95f","inverse-on-surface":"#2b3139","surface-dim":"#0e141b","surface-variant":"#2f353d","surface":"#0e141b","surface-container-low":"#161c23","error":"#ffb4ab","primary-container":"#00f2a5","inverse-surface":"#dde3ed","secondary-fixed":"#acedff","surface-container":"#1a2027","background":"#0e141b","on-secondary-fixed":"#001f26","on-primary":"#003823","primary-fixed-dim":"#00e29a","surface-container-high":"#242a32","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","on-tertiary-fixed":"#2a1700","on-tertiary-container":"#825100","on-error":"#690005","on-error-container":"#ffdad6","outline":"#849589","on-primary-fixed":"#002113","primary-fixed":"#4affb4","tertiary-fixed":"#ffddb8","inverse-primary":"#006c47","secondary":"#4cd7f6","primary":"#c0ffdb","on-primary-fixed-variant":"#005235","surface-container-highest":"#2f353d","on-tertiary-fixed-variant":"#653e00","on-tertiary":"#472a00","surface-tint":"#00e29a","tertiary-container":"#ffcc90","on-surface":"#dde3ed","on-secondary-container":"#00424e","outline-variant":"#3b4a41","on-surface-variant":"#b9cbbe","on-primary-container":"#006945","on-secondary":"#003640","secondary-fixed-dim":"#4cd7f6","surface-bright":"#343a42","on-background":"#dde3ed","surface-container-lowest":"#090f16","error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"2rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter-mobile":"0.75rem","space-sm":"0.5rem"},fontFamily:{"data-display-md":["JetBrains Mono"],"label-mono-xs":["JetBrains Mono"],"body-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-display-lg":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"data-display-md":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"data-display-lg":["40px",{"lineHeight":"44px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase leading-none">VERIDIS NUTRISCAN</span><span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant tracking-widest mt-1">BIO-SPECTRAL ANALYSIS</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low border border-primary-container/20"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,242,165,0.8)]"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">SPECTRA v3.4 ONLINE</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container/60" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="live-scanner" href="#">Live Scanner</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="ingredient-intel" href="#">Ingredient Intel</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="health-vault" href="#">Health Vault</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="clean-food-explorer" href="#">Clean Food Explorer</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container px-space-md py-space-xs rounded-xl transition-all cursor-pointer group"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-lg">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search matrix...</span><kbd class="px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-secondary">⌘K / Scan Barcode</kbd></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-mono-xs text-label-mono-xs text-primary tracking-wider uppercase">SENSOR ACTIVE</span></div><button class="relative p-space-xs rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden sm:flex flex-col text-right"><span class="font-label-mono text-label-mono text-on-surface">Dr. Elena Vance</span><span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-wider">Pro Bio-Tier</span></div><div class="relative ring-1 ring-primary-container/30 rounded-full p-0.5"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfYHjWGiIm2RsNaTVEu5XYRXJb83fhKz8fqz-JwjjFymWdmQQdzg16x7Oaegy9WBp82_GSodCHddes6_xHpkK_rWngrkwwAOTZouHupN8WHj0_dLBRG7OQifkTG0CP-0cML8eqy2dsjGmyrE9cZg1It_5yiFy_1w8fQyfM0fHHbuYLEdRtOZd8tcmaQmbfPvhHHG_g6nOylj31YLMBRSkKkdBzUGIY7EcLqQSlURw"/></div></div></div></div></div><div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/50 to-transparent shadow-[0_0_12px_rgba(0,242,165,0.4)]"></div></header><main class="w-full pt-20 bg-background relative min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Sub-Navigation & Telemetry Status Bar -->
+<div class="w-full px-gutter py-space-sm bg-surface-container-lowest flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-mono-xs text-label-mono-xs px-space-xs py-0.5 rounded bg-surface-container text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">qr_code_scanner</span>
+        SAMPLE #VDS-9042-B
+      </span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">|</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase tracking-wider">SPECTRAL ASSAY: MASS-SPEC DUAL-PULSE</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary-fixed-dim bg-primary-container/10 px-1.5 py-0.5 rounded">CALIBRATION ±0.01%</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-mono-xs text-label-mono-xs text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">database</span>
+        BIO-DB V14.8 SYNCHRONIZED
+      </span>
+<button class="font-label-mono-xs text-label-mono-xs text-on-surface hover:text-primary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm">share</span> EXPORT CLINICAL PDF
+      </button>
+</div>
+</div>
+<div class="w-full px-gutter py-space-lg flex flex-col gap-space-xl max-w-7xl mx-auto">
+<!-- 1. PRODUCT HERO CARD (BENTO SPLIT) -->
+<div class="w-full rounded-xl bg-surface-container-low shadow-xl p-space-lg relative overflow-hidden">
+<!-- Glow ambient backdrop element -->
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-error/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- Visual & Identity Column -->
+<div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-space-md items-center lg:items-start">
+<div class="relative w-44 h-44 sm:w-48 sm:h-48 rounded-lg overflow-hidden bg-surface-container shrink-0 shadow-md">
+<img class="w-full h-full object-cover" data-alt="Macro laboratory photograph of an artisan chocolate protein crunch bar sliced in half on an obsidian analytical scanner surface, showing dense nougat layers, artificial gloss coating, surrounded by faint cyan and green diagnostic reticle lasers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXbDfEYVxn91_H-63cL5q5lYNSpYbcuUhlhthodtsqlBw-Gjs5sFxPStNNlu55BEaJbCr_PmudJPUbDHgGbgGQ5sjLi9H2lUmr2Ucq6akSbYzDnSw4wyuDtSJ8UA9wrDYIpGRqFn82SNmH7HuEyBgi1ddMj4pFMQ_CpcTULR0dWMUHurTLB1zPZxITmnxQ4vUtpmBSh47XZihWPsr89IkborW3CSoCVVmtLWs1PY0"/>
+<div class="absolute top-2 left-2 px-space-xs py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md">
+<span class="font-label-mono-xs text-label-mono-xs text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">warning</span>
+                NOVA 4 ULTRA
+              </span>
+</div>
+<div class="absolute bottom-2 right-2 px-space-xs py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary">BARCODE 084221</span>
+</div>
+</div>
+<div class="flex flex-col text-center sm:text-left">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-widest">PROCESSED SNACK MATRIX</span>
+<h1 class="font-headline-md text-headline-md text-on-surface mt-1">Truffle Artisan Protein Crunch Bar</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Batch: EXP-2026.04 // Manufacturer: Apex Nutrition Labs Ltd.</p>
+<div class="mt-space-sm flex flex-wrap gap-space-xs justify-center sm:justify-start">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-high text-on-surface">65g NET WEIGHT</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-surface-container-high text-on-surface">CALORIES: 240 kcal</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-error-container/40 text-error">SYNTHETIC POLYOLS</span>
+</div>
+</div>
+</div>
+<!-- Telemetry Radial Index Meter Column -->
+<div class="lg:col-span-4 flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/70 backdrop-blur-md shadow-inner">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase tracking-widest mb-space-sm">BIOLOGICAL SAFETY INDEX</span>
+<div class="relative w-44 h-44 flex items-center justify-center">
+<!-- Concentric Telemetry SVG Rings -->
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 160 160">
+<!-- Outer calibration track -->
+<circle class="text-surface-variant opacity-40" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="2 4" stroke-width="2"></circle>
+<!-- Base background track -->
+<circle class="text-surface-variant opacity-30" cx="80" cy="80" fill="transparent" r="60" stroke="currentColor" stroke-width="10"></circle>
+<!-- Active sweep path (Score 48%) -->
+<circle class="transition-all duration-1000 ease-out" cx="80" cy="80" fill="transparent" r="60" stroke="#ffb4ab" stroke-dasharray="376.99" stroke-dashoffset="196.03" stroke-linecap="round" stroke-width="10"></circle>
+<!-- Clean Benchmark Reference Line (90% target) -->
+<circle class="opacity-80" cx="80" cy="80" fill="transparent" r="60" stroke="#00f2a5" stroke-dasharray="2 374.99" stroke-dashoffset="339.29" stroke-width="2"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-data-display-lg text-data-display-lg text-error tracking-tighter">48</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant -mt-1 uppercase tracking-widest">/ 100 PTS</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded-full bg-error-container text-on-error-container mt-1 font-semibold">CAUTION GRADE</span>
+</div>
+</div>
+<div class="mt-space-sm text-center">
+<span class="font-headline-sm text-headline-sm text-error block">Highly Processed Matrix</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">NOVA Class 4: Industrial Formulation with Multiple Additives</span>
+</div>
+<div class="w-full mt-space-md pt-space-sm flex items-center justify-between font-label-mono-xs text-label-mono-xs text-outline">
+<span>VERIDIS BENCHMARK: &gt;85</span>
+<span class="text-primary-fixed-dim">OPTIMAL CLEAN FOOD</span>
+</div>
+</div>
+<!-- Diagnostic Stat Matrix Breakdown Column -->
+<div class="lg:col-span-4 flex flex-col gap-space-sm">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase tracking-widest">SPECTRAL HAZARD TELEMETRY</span>
+<!-- Stat 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">science</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">24</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">TOTAL INGREDIENTS</div>
+</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-error font-semibold bg-error-container/30 px-2 py-1 rounded">COMPLEX FORMULA</span>
+</div>
+<!-- Stat 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-lg">flag</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-error leading-tight">07</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">FLAGGED FOOD ADDITIVES</div>
+</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-error font-semibold bg-error-container/40 px-2 py-1 rounded">CRITICAL AUDIT</span>
+</div>
+<!-- Stat 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-surface-container-high flex items-center justify-center text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-lg">water_drop</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-tertiary-fixed-dim leading-tight">03</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">INFLAMMATORY SEED/PALM OILS</div>
+</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim font-semibold bg-tertiary-container/30 px-2 py-1 rounded">SOLVENT EXTRACTED</span>
+</div>
+<!-- Stat 4 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">blur_on</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">14g</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">HIDDEN POLYOLS / SUGAR ALCOHOLS</div>
+</div>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-semibold bg-secondary-container/20 px-2 py-1 rounded">GI DISTRESS RISK</span>
+</div>
+</div>
+</div>
+<!-- Macro Spectrum Bar Breakdown -->
+<div class="mt-space-lg pt-space-md">
+<div class="flex items-center justify-between font-label-mono-xs text-label-mono-xs text-on-surface-variant mb-space-xs">
+<span>MOLECULAR DENSITY RATIO (PER 65G SERVING)</span>
+<span class="text-on-surface">PROTEIN: 20g | CARBS: 26g | LIPIDS: 12g | FIBER: 7g</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest flex overflow-hidden gap-0.5">
+<div class="h-full bg-primary-container" style="width: 30%;" title="Protein 20g"></div>
+<div class="h-full bg-error" style="width: 38%;" title="Carbohydrates &amp; Hidden Polyols 26g"></div>
+<div class="h-full bg-tertiary-fixed-dim" style="width: 20%;" title="Lipids &amp; Palm Oils 12g"></div>
+<div class="h-full bg-secondary" style="width: 12%;" title="Dietary Fiber 7g"></div>
+</div>
+<div class="flex items-center gap-space-md mt-space-xs font-label-mono-xs text-label-mono-xs text-outline">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary-container"></span> Isolate Peptide</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error"></span> Maltitol/Polyols</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span> Hydro-Lipids</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span> Soluble Corn Fiber</span>
+</div>
+</div>
+</div>
+<!-- 2. FILTER & CLASSIFICATION TABS -->
+<div class="w-full flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">biotech</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Ingredient Intel &amp; Clinical Assay</h2>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-outline tracking-wider uppercase">SORTED BY: TOXICITY VECTOR IMPACT DESC</span>
+</div>
+<!-- Segmented Tab Bar -->
+<div class="w-full overflow-x-auto pb-2">
+<div class="flex items-center gap-space-xs min-w-max p-1 bg-surface-container-low rounded-xl" id="tab-container">
+<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono bg-surface-container-highest text-on-surface font-semibold flex items-center gap-2 transition-all">
+<span>All Ingredients</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-bright text-xs text-on-surface">24</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center gap-2 transition-all">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span>Flagged Additives &amp; E-Numbers</span>
+<span class="px-1.5 py-0.2 rounded-full bg-error-container text-xs text-on-error-container font-bold">7</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-xs text-error">coronavirus</span>
+<span>Carcinogen &amp; Endocrine Risk</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-bright text-xs text-error font-semibold">2</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-xs text-tertiary-fixed-dim">microbiology</span>
+<span>Gut Microbiome Impact</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-bright text-xs text-tertiary-fixed-dim">5</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-xs text-secondary">shield_with_heart</span>
+<span>Allergens: Soy, Tree Nuts</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 3. DEEP INGREDIENT MATRIX & TOXICITY CARDS -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- CARD 1: RED FLAG (HIGH DANGER) -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-lg relative flex flex-col justify-between overflow-hidden group">
+<!-- Crimson Glow Ambient Indicator -->
+<div class="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-error/15 blur-2xl pointer-events-none"></div>
+<div>
+<!-- Header Bar -->
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-error-container text-on-error-container font-bold uppercase tracking-wider">
+                DANGER LEVEL: CRITICAL
+              </span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">CAS: 56038-13-2</span>
+</div>
+<!-- Compound Name & E-Number -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface">E955 Sucralose &amp; Maltitol Blend</h3>
+<span class="font-label-mono text-label-mono text-error font-medium block mt-0.5">Synthetic Organochlorine Sweetener + Disaccharide Sugar Alcohol</span>
+<!-- Hazard Description -->
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+            Directly impairs glucose homeostasis and dampens beneficial anaerobic flora (<em class="text-on-surface not-italic font-semibold">Bifidobacterium bifidum</em> and <em class="text-on-surface not-italic font-semibold">Akkermansia muciniphila</em> by ~38%). Thermal breakdown can yield chloropropanols under metabolic stress. Induces osmotic luminal pressure causing gastric hyper-motility.
+          </p>
+<!-- Biohazard Indicators Matrix -->
+<div class="mt-space-md grid grid-cols-2 gap-space-xs">
+<div class="p-space-xs rounded bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-base">emergency</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">INSULIN RESISTANCE PATHWAY</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-base">water_bottle</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">BARRIER HYPER-PERMEABILITY</span>
+</div>
+</div>
+</div>
+<!-- Footer With Clinical Citation Badge -->
+<div class="mt-space-lg pt-space-sm flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm">verified_user</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">
+              CLINICAL CITATION: Lancet Microbio 2023 (PMID: 37121409)
+            </span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-error font-semibold">CONCENTRATION: 380mg/bar</span>
+</div>
+</div>
+<!-- CARD 2: AMBER FLAG (MODERATE DANGER) -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-lg relative flex flex-col justify-between overflow-hidden group">
+<!-- Amber Glow Ambient Indicator -->
+<div class="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-tertiary-fixed-dim/15 blur-2xl pointer-events-none"></div>
+<div>
+<!-- Header Bar -->
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold uppercase tracking-wider">
+                DANGER LEVEL: MODERATE
+              </span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">LIPID CLASSIFICATION</span>
+</div>
+<!-- Compound Name -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hydrogenated Palm Kernel Oil</h3>
+<span class="font-label-mono text-label-mono text-tertiary-fixed-dim font-medium block mt-0.5">Chemically Fractionated Trans-Bond Ester</span>
+<!-- Hazard Description -->
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+            Processed via high-temperature nickel-catalytic hydrogenation leaving trace solvent residues (Hexane metabolites). Exhibits excessive saturation (82% palmitic acid chain) leading to upregulation of hepatic LDL-C and inflammatory cytokine expression (IL-6, TNF-alpha) in endothelial layers.
+          </p>
+<!-- Biohazard Indicators Matrix -->
+<div class="mt-space-md grid grid-cols-2 gap-space-xs">
+<div class="p-space-xs rounded bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-base">cardiology</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">VASCULAR PLAQUE RISK: +22%</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-base">precision_manufacturing</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">HEXANE EXTRACTION VECTOR</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-space-lg pt-space-sm flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm">verified_user</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">
+              EVIDENCE: WHO SFA/TFA Advisory 2024
+            </span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim font-semibold">SATURATED LIPID: 8.4g</span>
+</div>
+</div>
+<!-- CARD 3: AMBER FLAG (CAUTION NANO-PARTICLES) -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-lg relative flex flex-col justify-between overflow-hidden group">
+<!-- Amber-Orange Ambient Glow -->
+<div class="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-tertiary-fixed-dim/15 blur-2xl pointer-events-none"></div>
+<div>
+<!-- Header Bar -->
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold uppercase tracking-wider">
+                CAUTION LEVEL: RESTRICTED
+              </span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">EU BANNED ADJUVANT</span>
+</div>
+<!-- Compound Name -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Titanium Dioxide / E171 Nano-particles</h3>
+<span class="font-label-mono text-label-mono text-tertiary-fixed-dim font-medium block mt-0.5">Synthetic Whitening &amp; Opacifying Pigment</span>
+<!-- Hazard Description -->
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+            Particles &lt;100nm breach cellular mucosal junctions, accumulating systematically in liver and spleen tissues. Classified as genotoxic by the European Food Safety Authority (EFSA Journal 2021) due to reactive oxygen species (ROS) chromosomal damage generation in gut epithelium.
+          </p>
+<!-- Biohazard Indicators Matrix -->
+<div class="mt-space-md grid grid-cols-2 gap-space-xs">
+<div class="p-space-xs rounded bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-base">strikethrough_s</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">GENOTOXICITY SUSPECT</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-base">block</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">BANNED IN EU / REGULATION 2022</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-space-lg pt-space-sm flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm">verified_user</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">
+              EFSA JOURNAL ID: 19:6585
+            </span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim font-semibold">EST. NANO FRACTION: 34%</span>
+</div>
+</div>
+<!-- CARD 4: EMERALD CLEAN (CLEAN BENCHMARK INGREDIENT) -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-lg relative flex flex-col justify-between overflow-hidden group">
+<!-- Emerald Green Glow Ambient -->
+<div class="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-primary-container/20 blur-2xl pointer-events-none"></div>
+<div>
+<!-- Header Bar -->
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-primary-container/20 text-primary-fixed-dim font-bold uppercase tracking-wider">
+                PURITY RATING: 98% (CLEAN)
+              </span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">BIO-FERMENTED EXTRACT</span>
+</div>
+<!-- Compound Name -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hydrolyzed Pea Protein Isolate</h3>
+<span class="font-label-mono text-label-mono text-primary font-medium block mt-0.5">Non-GMO Cold-Enzyme Water Hydrolysis</span>
+<!-- Hazard Description -->
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+            High-bioavailability peptide matrix with 100% complete essential amino acid profile (BCAAs 4.8g per serving). Enzyme-extracted without chemical solvents or chemical bleaching. Negligible allergenicity, highly assimilable without systemic inflammation markers.
+          </p>
+<!-- Biohazard Indicators Matrix -->
+<div class="mt-space-md grid grid-cols-2 gap-space-xs">
+<div class="p-space-xs rounded bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed-dim text-base">check_circle</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">DIAAS SCORE: 1.14 (EXCELLENT)</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed-dim text-base">eco</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface">ZERO SOLVENT RESIDUE</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-space-lg pt-space-sm flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm">verified_user</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">
+              CERTIFIED: NON-GMO PROJECT
+            </span>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs text-primary-fixed-dim font-semibold">PEPTIDE INTEGRITY: 99.4%</span>
+</div>
+</div>
+</div>
+<!-- 4. SMART HEALTHY ALTERNATIVES & SWAP ENGINE -->
+<div class="w-full flex flex-col gap-space-md mt-space-sm">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">autorenew</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Veridis Clinical Swap Engine</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Algorithmic biological matching: Zero artificial polyols, non-solvent lipids, superior macro density.</p>
+</div>
+<span class="font-label-mono-xs text-label-mono-xs px-space-sm py-1 rounded bg-primary-container/10 text-primary-fixed-dim uppercase tracking-wider font-semibold">
+          ALGORITHM CONFIDENCE: 99.2%
+        </span>
+</div>
+<!-- Side-by-Side Matrix Comparison Panel -->
+<div class="w-full rounded-xl bg-surface-container-low shadow-xl p-space-lg relative overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- CURRENT SCANNED (LEFT) -->
+<div class="lg:col-span-5 p-space-md rounded-xl bg-surface-container/60 flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs text-error font-semibold uppercase">SCANNED FORMULATION</span>
+<span class="font-data-display-md text-data-display-md text-error">48/100</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Truffle Artisan Crunch Bar</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">NOVA 4 Ultra-Processed Snack</p>
+<div class="mt-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between py-1 border-b border-surface-variant/30">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hidden Sugar Alcohols</span>
+<span class="font-label-mono text-label-mono text-error font-semibold">14g (Maltitol / Sucralose)</span>
+</div>
+<div class="flex items-center justify-between py-1 border-b border-surface-variant/30">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Primary Lipid Carrier</span>
+<span class="font-label-mono text-label-mono text-error font-semibold">Hydrogenated Palm Kernel</span>
+</div>
+<div class="flex items-center justify-between py-1 border-b border-surface-variant/30">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Emulsifier System</span>
+<span class="font-label-mono text-label-mono text-error font-semibold">Soy Lecithin + Polysorbate 60</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Gut Inflammatory Load</span>
+<span class="font-label-mono text-label-mono text-error font-semibold">CRITICAL ELEVATION</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm">
+<span class="font-label-mono-xs text-label-mono-xs text-outline block">VERDICT: BIO-BARRIER DISRUPTION DETECTED</span>
+</div>
+</div>
+<!-- COMPARATIVE DELTA VECTOR (CENTER) -->
+<div class="lg:col-span-2 flex flex-col items-center justify-center gap-space-sm py-space-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-2xl font-bold">compare_arrows</span>
+</div>
+<div class="text-center">
+<span class="font-label-mono-xs text-label-mono-xs text-primary-fixed-dim uppercase tracking-wider block font-semibold">+48 PTS GAIN</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">DELTA INDEX</span>
+</div>
+<!-- Visual Delta Badges -->
+<div class="flex flex-col gap-1 w-full max-w-[140px]">
+<span class="font-label-mono-xs text-label-mono-xs py-0.5 px-1.5 rounded bg-surface-container text-primary text-center">-14g SUGAR ALCOHOLS</span>
+<span class="font-label-mono-xs text-label-mono-xs py-0.5 px-1.5 rounded bg-surface-container text-primary text-center">ZERO NANO-E171</span>
+<span class="font-label-mono-xs text-label-mono-xs py-0.5 px-1.5 rounded bg-surface-container text-primary text-center">100% ORGANIC RAW</span>
+</div>
+</div>
+<!-- SUGGESTED CLEAN SWAP (RIGHT) -->
+<div class="lg:col-span-5 p-space-md rounded-xl bg-surface-container/90 relative flex flex-col justify-between h-full shadow-lg">
+<!-- Glow Ambient Target -->
+<div class="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-primary-container/20 blur-xl pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-bold uppercase">
+                  RECOMMENDED SWAP
+                </span>
+<span class="font-data-display-md text-data-display-md text-primary-fixed-dim">96/100</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">RawRev Organic Dark Cacao Bar</h4>
+<p class="font-body-sm text-body-sm text-primary mt-1">NOVA 1 Minimally Processed Whole Food</p>
+<div class="mt-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between py-1 border-b border-surface-variant/30">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hidden Sugar Alcohols</span>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim font-semibold">0g Added (-14g Polyols)</span>
+</div>
+<div class="flex items-center justify-between py-1 border-b border-surface-variant/30">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Primary Lipid Carrier</span>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim font-semibold">Virgin Cold-Pressed Coconut</span>
+</div>
+<div class="flex items-center justify-between py-1 border-b border-surface-variant/30">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Emulsifier System</span>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim font-semibold">Sprouted Chia &amp; Flax Seeds</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Gut Inflammatory Load</span>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim font-semibold">OPTIMAL PREBIOTIC RATIO</span>
+</div>
+</div>
+</div>
+<!-- Swap Actions Button Group -->
+<div class="relative z-10 mt-space-lg flex flex-wrap gap-space-xs items-center">
+<button class="flex-1 py-space-xs px-space-sm rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-headline-sm text-body-md font-semibold flex items-center justify-center gap-1.5 transition-all shadow-md">
+<span class="material-symbols-outlined text-lg">shopping_cart</span>
+<span>Order via Clean Grocery</span>
+</button>
+<button class="py-space-xs px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-mono text-label-mono flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-lg text-primary">bookmark_add</span>
+<span>Save to Safe List</span>
+</button>
+<button class="py-space-xs px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-secondary font-label-mono text-label-mono flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-lg">analytics</span>
+<span>Full Matrix</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AUDIT FOOTER METRIC BANNER -->
+<div class="w-full rounded-xl bg-surface-container-lowest p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div>
+<span class="font-headline-sm text-body-lg text-on-surface block">Veridis Bio-Validation Engine Active</span>
+<span class="font-label-mono-xs text-label-mono-xs text-outline">ANALYZED AGAINST 42,000 PEER-REVIEWED CLINICAL METABOLOMIC PAPERS</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-mono text-label-mono transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">print</span> PRINT LAB SHEET
+        </button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary-container hover:bg-primary text-on-primary-container font-label-mono text-label-mono font-semibold transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">qr_code_scanner</span> SCAN NEW SAMPLE
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for tabs toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('#tab-container button');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('bg-surface-container-highest', 'text-on-surface', 'font-semibold');
+          t.classList.add('text-on-surface-variant');
+        });
+        tab.classList.add('bg-surface-container-highest', 'text-on-surface', 'font-semibold');
+        tab.classList.remove('text-on-surface-variant');
+      });
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><span class="font-label-mono text-label-mono tracking-wider text-on-surface">VERIDIS NUTRISCAN ARCHITECTURE</span></div><div class="flex items-center gap-space-lg"><span class="font-label-mono-xs text-label-mono-xs text-outline">TELEMETRY CORE: CALIBRATED</span><span class="font-label-mono-xs text-label-mono-xs text-outline">CLINICAL RECALL ENGINE v9.2</span></div><p class="font-label-mono-xs text-label-mono-xs text-outline">© 2025 VERIDIS BIO-DIAGNOSTICS LABS. ALL METRIC INTEL PROTECTED.</p></div></footer><script src="/site-interactions.js" defer></script></body></html>

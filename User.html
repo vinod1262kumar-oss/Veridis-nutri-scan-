@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>VERIDIS NutriScan - Biological Intelligence Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#ffefe0","tertiary-fixed-dim":"#ffb95f","inverse-on-surface":"#2b3139","surface-dim":"#0e141b","surface-variant":"#2f353d","surface":"#0e141b","surface-container-low":"#161c23","error":"#ffb4ab","primary-container":"#00f2a5","inverse-surface":"#dde3ed","secondary-fixed":"#acedff","surface-container":"#1a2027","background":"#0e141b","on-secondary-fixed":"#001f26","on-primary":"#003823","primary-fixed-dim":"#00e29a","surface-container-high":"#242a32","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","on-tertiary-fixed":"#2a1700","on-tertiary-container":"#825100","on-error":"#690005","on-error-container":"#ffdad6","outline":"#849589","on-primary-fixed":"#002113","primary-fixed":"#4affb4","tertiary-fixed":"#ffddb8","inverse-primary":"#006c47","secondary":"#4cd7f6","primary":"#c0ffdb","on-primary-fixed-variant":"#005235","surface-container-highest":"#2f353d","on-tertiary-fixed-variant":"#653e00","on-tertiary":"#472a00","surface-tint":"#00e29a","tertiary-container":"#ffcc90","on-surface":"#dde3ed","on-secondary-container":"#00424e","outline-variant":"#3b4a41","on-surface-variant":"#b9cbbe","on-primary-container":"#006945","on-secondary":"#003640","secondary-fixed-dim":"#4cd7f6","surface-bright":"#343a42","on-background":"#dde3ed","surface-container-lowest":"#090f16","error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"2rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter-mobile":"0.75rem","space-sm":"0.5rem"},fontFamily:{"data-display-md":["JetBrains Mono"],"label-mono-xs":["JetBrains Mono"],"body-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-display-lg":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"data-display-md":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"data-display-lg":["40px",{"lineHeight":"44px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase leading-none">VERIDIS NUTRISCAN</span><span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant tracking-widest mt-1">BIO-SPECTRAL ANALYSIS</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low border border-primary-container/20"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,242,165,0.8)]"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">SPECTRA v3.4 ONLINE</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container/60" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="live-scanner" href="#">Live Scanner</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="ingredient-intel" href="#">Ingredient Intel</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="health-vault" href="#">Health Vault</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="clean-food-explorer" href="#">Clean Food Explorer</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container px-space-md py-space-xs rounded-xl transition-all cursor-pointer group"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-lg">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search matrix...</span><kbd class="px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-secondary">⌘K / Scan Barcode</kbd></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-mono-xs text-label-mono-xs text-primary tracking-wider uppercase">SENSOR ACTIVE</span></div><button class="relative p-space-xs rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden sm:flex flex-col text-right"><span class="font-label-mono text-label-mono text-on-surface">Dr. Elena Vance</span><span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-wider">Pro Bio-Tier</span></div><div class="relative ring-1 ring-primary-container/30 rounded-full p-0.5"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfYHjWGiIm2RsNaTVEu5XYRXJb83fhKz8fqz-JwjjFymWdmQQdzg16x7Oaegy9WBp82_GSodCHddes6_xHpkK_rWngrkwwAOTZouHupN8WHj0_dLBRG7OQifkTG0CP-0cML8eqy2dsjGmyrE9cZg1It_5yiFy_1w8fQyfM0fHHbuYLEdRtOZd8tcmaQmbfPvhHHG_g6nOylj31YLMBRSkKkdBzUGIY7EcLqQSlURw"/></div></div></div></div></div><div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/50 to-transparent shadow-[0_0_12px_rgba(0,242,165,0.4)]"></div></header><main class="w-full pt-20 bg-background relative min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<div class="w-full px-gutter max-w-7xl mx-auto py-space-lg flex flex-col gap-space-xl">
+<!-- Top Telemetry Row: Status Overline + Quick Controls -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_10px_rgba(0,242,165,0.9)] animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">BIOLOGICAL REPOSITORY // ARCHIVE ID: VRD-9042</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">Metabolic Diagnostics &amp; Nutrition Vault</h1>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-xl">
+<button class="px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs text-on-surface hover:text-primary transition-all" id="btn-period-week">WEEKLY (7D)</button>
+<button class="px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-primary-container shadow-sm" id="btn-period-month">CYCLE (30D)</button>
+<button class="px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs text-on-surface-variant hover:text-on-surface transition-all" id="btn-period-year">YTD (2025)</button>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-primary-container text-on-primary font-headline-sm text-body-md font-semibold hover:shadow-[0_0_20px_rgba(0,242,165,0.4)] transition-all">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export Bio-Report</span>
+</button>
+</div>
+</div>
+<!-- 4 Primary Metric Telemetry Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="relative bg-surface-container-low/90 backdrop-blur-xl p-space-lg rounded-xl shadow-xl flex flex-col justify-between overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-primary-container/10 rounded-full blur-2xl group-hover:bg-primary-container/20 transition-all pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">TELEMETRY 01 // VOLUME</span>
+<span class="material-symbols-outlined text-primary-container text-lg">barcode_scanner</span>
+</div>
+<div class="my-space-md">
+<div class="font-label-mono text-label-mono text-on-surface-variant">Total Foods Scanned</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-data-display-lg text-data-display-lg text-on-surface">342</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary-container bg-surface-container-highest px-1.5 py-0.5 rounded-full">+18% MoM</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs">
+<span class="font-body-sm text-body-sm">30-day baseline pace</span>
+<span class="font-label-mono text-label-mono text-primary font-semibold">11.4 / day</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="relative bg-surface-container-low/90 backdrop-blur-xl p-space-lg rounded-xl shadow-xl flex flex-col justify-between overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/25 transition-all pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">TELEMETRY 02 // PURITY</span>
+<span class="material-symbols-outlined text-secondary text-lg">shield_with_heart</span>
+</div>
+<div class="my-space-md">
+<div class="font-label-mono text-label-mono text-on-surface-variant">Pantry Clean Purity Score</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-data-display-lg text-data-display-lg text-primary">88.4%</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary bg-surface-container-highest px-1.5 py-0.5 rounded-full">Top 5%</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs">
+<span class="font-body-sm text-body-sm">Benchmark Tier</span>
+<span class="font-label-mono text-label-mono text-secondary-fixed font-semibold uppercase">Elite Bio-Tier</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="relative bg-surface-container-low/90 backdrop-blur-xl p-space-lg rounded-xl shadow-xl flex flex-col justify-between overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-error/10 rounded-full blur-2xl group-hover:bg-error/25 transition-all pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">TELEMETRY 03 // INTERCEPT</span>
+<span class="material-symbols-outlined text-error text-lg">gpp_bad</span>
+</div>
+<div class="my-space-md">
+<div class="font-label-mono text-label-mono text-on-surface-variant">Ultra-Processed Avoided</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-data-display-lg text-data-display-lg text-on-surface">94</span>
+<span class="font-label-mono-xs text-label-mono-xs text-error bg-error-container/40 px-1.5 py-0.5 rounded-full">Intercepted</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs">
+<span class="font-body-sm text-body-sm">NOVA Class 4 Ingestion</span>
+<span class="font-label-mono text-label-mono text-error font-semibold">-42% vs Pop Avg</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="relative bg-surface-container-low/90 backdrop-blur-xl p-space-lg rounded-xl shadow-xl flex flex-col justify-between overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-tertiary-fixed-dim/10 rounded-full blur-2xl group-hover:bg-tertiary-fixed-dim/25 transition-all pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">TELEMETRY 04 // TOX-SCREEN</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">biotech</span>
+</div>
+<div class="my-space-md">
+<div class="font-label-mono text-label-mono text-on-surface-variant">Hidden Additives Dodged</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-data-display-lg text-data-display-lg text-on-surface">312</span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim bg-surface-container-highest px-1.5 py-0.5 rounded-full">E-Codes</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs">
+<span class="font-body-sm text-body-sm">Synthetic &amp; Seed Oils</span>
+<span class="font-label-mono text-label-mono text-tertiary-fixed font-semibold">~4.2kg Saved</span>
+</div>
+</div>
+</div>
+<!-- Main Content Grid: 65% Left / 35% Right -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT AREA (65% -> 8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- Interactive Macro & Clean Ratio Graph Card -->
+<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl relative overflow-hidden">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-widest">CHRONO-METRICS</span>
+<span class="text-outline text-xs">/</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">BIO-ACCUMULATIVE FLUX</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-0.5">Macro Intake &amp; Clean Purity Delta</h2>
+</div>
+<!-- Graph Legend -->
+<div class="flex items-center gap-space-md font-label-mono-xs text-label-mono-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-primary-container rounded shadow-[0_0_6px_rgba(0,242,165,0.8)]"></span>
+<span class="text-on-surface">Clean Ratio (%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-secondary rounded shadow-[0_0_6px_rgba(76,215,246,0.8)]"></span>
+<span class="text-on-surface">Macro Accuracy</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-on-surface-variant">UPF Anomaly</span>
+</div>
+</div>
+</div>
+<!-- Glowing SVG Multi-Series Waveform Graph -->
+<div class="relative w-full h-64 bg-surface-container-lowest/60 rounded-lg p-space-md flex flex-col justify-end">
+<!-- Grid Lines -->
+<div class="absolute inset-x-space-md top-space-md bottom-space-lg flex flex-col justify-between pointer-events-none opacity-20">
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+</div>
+<!-- SVG Curves -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 700 200">
+<defs>
+<lineargradient id="cleanGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00F2A5" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#00F2A5" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="macroGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#4CD7F6" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#4CD7F6" stop-opacity="0.0"></stop>
+</lineargradient>
+<filter height="140%" id="glowGreen" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<femerge>
+<femergenode in="blur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+<filter height="140%" id="glowCyan" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="2.5"></fegaussianblur>
+<femerge>
+<femergenode in="blur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<!-- Clean Ratio Area Fill -->
+<path d="M 0,160 Q 60,140 120,110 T 240,85 T 360,65 T 480,45 T 600,30 L 700,24 L 700,200 L 0,200 Z" fill="url(#cleanGrad)"></path>
+<!-- Macro Accuracy Area Fill -->
+<path d="M 0,170 Q 70,165 140,140 T 280,120 T 420,110 T 560,80 L 700,60 L 700,200 L 0,200 Z" fill="url(#macroGrad)"></path>
+<!-- Cyan Macro Stroke -->
+<path d="M 0,170 Q 70,165 140,140 T 280,120 T 420,110 T 560,80 L 700,60" fill="none" filter="url(#glowCyan)" stroke="#4CD7F6" stroke-width="2.5"></path>
+<!-- Green Clean Ratio Stroke -->
+<path d="M 0,160 Q 60,140 120,110 T 240,85 T 360,65 T 480,45 T 600,30 L 700,24" fill="none" filter="url(#glowGreen)" stroke="#00F2A5" stroke-width="3"></path>
+<!-- Data Anchors / Anomalies -->
+<circle cx="120" cy="110" fill="#00F2A5" r="4" stroke="#0E141B" stroke-width="2"></circle>
+<circle cx="280" cy="120" fill="#4CD7F6" r="4" stroke="#0E141B" stroke-width="2"></circle>
+<circle cx="360" cy="65" fill="#00F2A5" r="4" stroke="#0E141B" stroke-width="2"></circle>
+<!-- Anomaly Point (Energy Drink scan day) -->
+<circle class="animate-ping" cx="480" cy="150" fill="#FFB4AB" r="5" stroke="#93000A" stroke-width="2"></circle>
+<circle cx="480" cy="150" fill="#FFB4AB" r="4" stroke="#0E141B" stroke-width="2"></circle>
+<!-- Latest High Node -->
+<circle cx="700" cy="24" fill="#00F2A5" r="5" stroke="#003823" stroke-width="2"></circle>
+</svg>
+<!-- X-Axis Labels -->
+<div class="flex justify-between items-center pt-space-xs font-label-mono-xs text-label-mono-xs text-outline">
+<span>DAY 01 (NOV)</span>
+<span>DAY 07</span>
+<span>DAY 14</span>
+<span>DAY 21 [UPF SPIKE]</span>
+<span>DAY 28</span>
+<span class="text-primary-container font-semibold">TODAY (88.4%)</span>
+</div>
+</div>
+<!-- Bottom Telemetry Micro Stats inside graph container -->
+<div class="grid grid-cols-3 gap-space-md mt-space-md pt-space-md border-t border-outline-variant/20">
+<div class="flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Peak Clean Score</span>
+<span class="font-data-display-md text-data-display-md text-primary mt-0.5">94.2% <span class="text-xs text-outline">Day 26</span></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Saturated Fat Flux</span>
+<span class="font-data-display-md text-data-display-md text-secondary mt-0.5">-14.8g <span class="text-xs text-outline">Net</span></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Synthetic Chemical Load</span>
+<span class="font-data-display-md text-data-display-md text-on-surface mt-0.5">0.02% <span class="text-xs text-primary-container">Minimal</span></span>
+</div>
+</div>
+</div>
+<!-- Dietary Preference Compliance Matrix -->
+<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs mb-space-md">
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-primary-container uppercase tracking-wider">GUARDRAIL FILTERS ACTIVE</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Bio-Rule Compliance Matrix</h3>
+</div>
+<button class="flex items-center gap-1 font-label-mono-xs text-label-mono-xs text-secondary hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>CONFIGURE THRESHOLDS</span>
+</button>
+</div>
+<!-- Active Rules Badges Grid -->
+<div class="flex flex-wrap gap-space-sm">
+<!-- Badge 1 -->
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,242,165,0.7)]"></span>
+<span class="font-label-mono text-label-mono text-on-surface font-medium">Strict Gluten-Free</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary bg-surface-container-lowest px-1 rounded">100% PASS</span>
+</div>
+<!-- Badge 2 -->
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,242,165,0.7)]"></span>
+<span class="font-label-mono text-label-mono text-on-surface font-medium">Seed-Oil Free</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary bg-surface-container-lowest px-1 rounded">98% PASS</span>
+</div>
+<!-- Badge 3 -->
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.7)]"></span>
+<span class="font-label-mono text-label-mono text-on-surface font-medium">Keto (&lt;25g Net Carbs)</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-fixed bg-surface-container-lowest px-1 rounded">ACTIVE 21g</span>
+</div>
+<!-- Badge 4 -->
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,242,165,0.7)]"></span>
+<span class="font-label-mono text-label-mono text-on-surface font-medium">No Artificial Sweeteners</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary bg-surface-container-lowest px-1 rounded">0 DETECTED</span>
+</div>
+<!-- Badge 5 -->
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim shadow-[0_0_8px_rgba(255,185,95,0.7)]"></span>
+<span class="font-label-mono text-label-mono text-on-surface font-medium">Nitrate/Nitrite Free</span>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed bg-surface-container-lowest px-1 rounded">E249-E252 CLAMP</span>
+</div>
+</div>
+</div>
+<!-- Recent Scan Log Table -->
+<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl overflow-hidden flex flex-col">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">LOG JOURNAL</span>
+<span class="text-outline text-xs">/</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary-container">LIVE BIOPSIES</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Recent Food Scans &amp; NOVA Classifications</h3>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Showing latest 4 of 342</span>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-highest text-secondary font-label-mono-xs text-label-mono-xs transition-colors">VIEW ALL ARCHIVES</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest/80 text-on-surface-variant font-label-mono-xs text-label-mono-xs tracking-wider uppercase">
+<th class="py-space-sm px-space-md rounded-l">Product &amp; Brand</th>
+<th class="py-space-sm px-space-md">Timestamp</th>
+<th class="py-space-sm px-space-md">NOVA Rating</th>
+<th class="py-space-sm px-space-md">Purity Score</th>
+<th class="py-space-sm px-space-md">Diagnostic State</th>
+<th class="py-space-sm px-space-md text-right rounded-r">Telemetry</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10 font-body-md text-body-md">
+<!-- Item 1: Skyr -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-highest shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Close up clean studio photograph of organic thick Icelandic Skyr yogurt tub on dark reflective stone surface, dramatic cold laboratory rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn6e0zZ9SbtueWtIUq4M6Ye3vatexYE8tFcv3G9kmaXIGEW-Vu_DrtJ5NVuRU_id5pmRfSrR4QgxSjrUhkY7jxUEbaysh7BJ_ChqJw8AC47IA9PFB5JQutChIAShkm5zLnmUvgLU3QJVFFExnhOzfQjSDi9_Zutkc6PWOorlutr5o0Ymyal9OGe7Lh8XMH3-QcNuc7FfR3zh93Ukq5olV9BZPrd6boMkLAK1aZtBU"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Grass-Fed Icelandic Skyr</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Ísey Dairy // Unflavored 0%</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-label-mono text-label-mono text-on-surface-variant">
+<div>Today, 14:22</div>
+<span class="text-xs text-outline">LOC: Refrigerator Lab</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary-container/10">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-mono text-label-mono text-primary font-semibold">NOVA 1</span>
+</div>
+<div class="text-xs font-label-mono-xs text-outline mt-0.5">Unprocessed Food</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-display-md text-body-lg text-primary-container font-bold">98</span>
+<span class="text-xs font-label-mono-xs text-outline">/100</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/15 font-label-mono-xs text-label-mono-xs text-primary-container font-semibold">
+<span class="material-symbols-outlined text-xs">verified</span>
+                      Approved Clean
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-base">read_more</span>
+</button>
+</td>
+</tr>
+<!-- Item 2: Sourdough -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-highest shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Artisan wild fermented sourdough loaf sliced cleanly against dark basalt slate with visible airy crumb structure and golden crust" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGDDkOFqJGv2COlQ0L65SFacnES3BtFmYV3FhR0Kygr0CxtmUxIEJFzq-pNo6-13v991RKPiFXbFsvfp0dbMoBwHTXSKymmb3zKuFQbKV7Rzj9jsjYsVcWtaSDABIZrafJ0jioFXqUwgLsAu5ap0St23Zet_Lx3TaQEYEBTXy8z8p9wPCqqvl0hJiU7gjxcDZnpesppXPxnI9lrP4_HFYZ8LHKcGXCry9pPOUVA64"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Artisan Wild Ferment Sourdough</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Tartine Bakery // 3 Ingredients</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-label-mono text-label-mono text-on-surface-variant">
+<div>Yesterday, 09:15</div>
+<span class="text-xs text-outline">LOC: Pantry Zone A</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary/10">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-mono text-label-mono text-secondary font-semibold">NOVA 3</span>
+</div>
+<div class="text-xs font-label-mono-xs text-outline mt-0.5">Processed (Natural)</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-display-md text-body-lg text-primary font-bold">92</span>
+<span class="text-xs font-label-mono-xs text-outline">/100</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/15 font-label-mono-xs text-label-mono-xs text-primary font-semibold">
+<span class="material-symbols-outlined text-xs">verified</span>
+                      Approved Clean
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-base">read_more</span>
+</button>
+</td>
+</tr>
+<!-- Item 3: Energy Drink (Alert) -->
+<tr class="hover:bg-surface-container/60 transition-colors group bg-error/5">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-highest shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Matte black commercial energy drink can with neon warning graphics placed in diagnostic sterile scanning chamber with red laser crosshairs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO_-QKWuXSIstfVMQWXG3Yk3mW6Yc-rSbjMOFt5ZUrJ_H3ReNT70f_8bx-9C_sb-wTkDpOi_ZlkwGg3qzjbaxkw3_c6AjhlJSDkwswzVvVbsvzyP6vBoW8wi1vd6IHr2IJZM_oz3_hVgBojPohOivpQN8a151I15-Ntgt6wzWA9ix3LmuvjhP-JoBgXhb_qpep_7quHvkUgpVHSMA-KHgu7lHKmWm97-X1DjN0I0Q"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md text-error font-semibold truncate">Commercial Boost Energy Drink</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">MegaCharge // Sucralose + E150d</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-label-mono text-label-mono text-on-surface-variant">
+<div>Nov 21, 18:40</div>
+<span class="text-xs text-error">SCAN AT WORKPLACE</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-error/15">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+<span class="font-label-mono text-label-mono text-error font-semibold">NOVA 4</span>
+</div>
+<div class="text-xs font-label-mono-xs text-error mt-0.5">Ultra-Processed Food</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-display-md text-body-lg text-error font-bold">22</span>
+<span class="text-xs font-label-mono-xs text-outline">/100</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-error-container/40 font-label-mono-xs text-label-mono-xs text-error font-semibold">
+<span class="material-symbols-outlined text-xs">warning</span>
+                      Warning: Swap Recommended
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-1 rounded hover:bg-surface-container-highest text-error hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-base">emergency_share</span>
+</button>
+</td>
+</tr>
+<!-- Item 4: Pure Avocado Oil -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-highest shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Emerald green glass bottle containing cold-pressed extra virgin avocado oil with ambient luminescence and macro droplets on glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmFRxfj2-PbTA3n5r1nmqzPu4UiOLRDdBBPXNGYLRjavuPq_onP4FdB31zvqQ-k1f7CAf-kiYYuSDdDx0Ap_Iimyd8JtalNcZmKqjUcroENNbykvS9TPFT2qLgXR-J8v1Y-OXpTj9dCVro3W-E0Qz67Gb-ki7LHAKu3IT1Vs-EPN9WaNiN-Lh5zdvmHvBTiv5Im96NCW96jYznRPTfLg3rMKfJXQo-UZLbws00vAM"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Extra Virgin Avocado Oil</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Chosen Heritage // Cold-Pressed</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-label-mono text-label-mono text-on-surface-variant">
+<div>Nov 19, 11:04</div>
+<span class="text-xs text-outline">LOC: Olive &amp; Oil Rack</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary-container/10">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-mono text-label-mono text-primary font-semibold">NOVA 2</span>
+</div>
+<div class="text-xs font-label-mono-xs text-outline mt-0.5">Culinary Ingredient</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-display-md text-body-lg text-primary-container font-bold">100</span>
+<span class="text-xs font-label-mono-xs text-outline">/100</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/15 font-label-mono-xs text-label-mono-xs text-primary-container font-semibold">
+<span class="material-symbols-outlined text-xs">verified</span>
+                      Approved Clean
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-base">read_more</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- RIGHT AREA (35% -> 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-xl">
+<!-- Visual Pantry Breakdown Donut Card -->
+<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl relative overflow-hidden flex flex-col items-center">
+<div class="w-full flex items-center justify-between mb-space-md">
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">PANTRY VAULT COMPOSITION</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">NOVA Stratification</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-xl">pie_chart</span>
+</div>
+<!-- Dual Ring Circular SVG Donut -->
+<div class="relative w-48 h-48 my-space-md flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<!-- Background Ring -->
+<circle cx="50" cy="50" fill="none" r="40" stroke="#1A2027" stroke-width="12"></circle>
+<!-- Whole Food Segment: 72% (perimeter = 251.2, dash = 180.8, gap = 70.4) -->
+<circle class="transition-all duration-1000" cx="50" cy="50" fill="none" r="40" stroke="#00F2A5" stroke-dasharray="180.8 70.4" stroke-dashoffset="0" stroke-width="12"></circle>
+<!-- Processed NOVA 3: 16% (dash = 40.2) -->
+<circle class="transition-all duration-1000" cx="50" cy="50" fill="none" r="40" stroke="#4CD7F6" stroke-dasharray="40.2 211.0" stroke-dashoffset="-180.8" stroke-width="12"></circle>
+<!-- Ultra-Processed NOVA 4: 12% (dash = 30.1) -->
+<circle class="transition-all duration-1000" cx="50" cy="50" fill="none" r="40" stroke="#FFB4AB" stroke-dasharray="30.1 221.1" stroke-dashoffset="-221.0" stroke-width="12"></circle>
+</svg>
+<!-- Central HUD Core -->
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+<span class="font-data-display-lg text-data-display-md text-on-surface font-bold leading-none">88%</span>
+<span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-widest mt-1">CLEAN CAP</span>
+</div>
+</div>
+<!-- Donut Metric Key -->
+<div class="w-full flex flex-col gap-space-xs mt-space-sm pt-space-md border-t border-outline-variant/20">
+<div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,242,165,0.7)]"></span>
+<span>Whole Food / NOVA 1</span>
+</div>
+<span class="font-label-mono text-label-mono font-semibold text-primary">72% <span class="text-xs text-outline font-normal">(246 items)</span></span>
+</div>
+<div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>Processed / NOVA 3</span>
+</div>
+<span class="font-label-mono text-label-mono font-semibold text-secondary">16% <span class="text-xs text-outline font-normal">(55 items)</span></span>
+</div>
+<div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span>Ultra-Processed / NOVA 4</span>
+</div>
+<span class="font-label-mono text-label-mono font-semibold text-error">12% <span class="text-xs text-outline font-normal">(41 items)</span></span>
+</div>
+</div>
+</div>
+<!-- Actionable Health Goals Card -->
+<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim uppercase tracking-wider">BIO-DIAGNOSTIC ADVICE</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Target Interventions</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary-fixed-dim font-label-mono-xs text-label-mono-xs">2 ACTIVE</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Goal 1 -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-start gap-space-sm group hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="p-2 rounded bg-error-container/30 text-error shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg">pest_control</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Replace Glyphosate Rolled Oats</span>
+<span class="font-label-mono-xs text-label-mono-xs text-error font-medium">HIGH PRIORITY</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Breakfast brand tested positive for organophosphate traces. Recommended Swap: <span class="text-primary-container underline decoration-primary/40 underline-offset-2">Bio-Certified Sprouted Organic Oats</span>.
+                </p>
+<div class="flex items-center gap-space-xs mt-space-xs text-primary font-label-mono-xs text-label-mono-xs">
+<span>SWAP TO ELITE TIER</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Goal 2 -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-start gap-space-sm group hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="p-2 rounded bg-secondary-container/20 text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg">water_drop</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Reduce Emulsifier Ingestion by 15%</span>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-medium">IN PROGRESS (68%)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Gut microbiome integrity threshold exceeded due to Carrageenan (E407) and Soy Lecithin found in almond creamer.
+                </p>
+<!-- Mini Progress Bar -->
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden mt-space-xs">
+<div class="bg-secondary h-full rounded-full w-[68%] shadow-[0_0_8px_rgba(76,215,246,0.8)]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Scan Barcode Upload Drop-Zone -->
+<div class="relative rounded-xl p-space-lg bg-surface-container-low/95 backdrop-blur-xl shadow-xl flex flex-col items-center justify-center text-center cursor-pointer group hover:bg-surface-container transition-all" id="dropzone">
+<div class="w-14 h-14 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container mb-space-sm group-hover:scale-110 group-hover:bg-primary-container/20 transition-all shadow-[0_0_20px_rgba(0,242,165,0.2)]">
+<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Drop Barcode or Nutritional Label</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-xs">
+            Drag photo spectra, upload lab analysis PDF, or pair camera optical sensor.
+          </p>
+<div class="flex items-center gap-space-sm mt-space-md">
+<button class="px-space-md py-space-xs rounded bg-surface-container-highest hover:bg-primary-container hover:text-on-primary font-label-mono-xs text-label-mono-xs text-primary-container tracking-wider transition-all">
+              BROWSE FILE
+            </button>
+<button class="px-space-md py-space-xs rounded bg-primary-container/15 hover:bg-primary-container hover:text-on-primary font-label-mono-xs text-label-mono-xs text-primary tracking-wider transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+<span>LIVE RETICLE</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs mt-space-md font-label-mono-xs text-label-mono-xs text-outline">
+<span class="material-symbols-outlined text-xs">lock</span>
+<span>VERIDIS HIPAA &amp; ISO-27001 ENCRYPTED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Logic for Period Selector and Micro-Interactions -->
+<script>
+    (function() {
+      const btnWeek = document.getElementById('btn-period-week');
+      const btnMonth = document.getElementById('btn-period-month');
+      const btnYear = document.getElementById('btn-period-year');
+      const buttons = [btnWeek, btnMonth, btnYear];
+
+      buttons.forEach(btn => {
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => {
+            b.className = 'px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs text-on-surface-variant hover:text-on-surface transition-all';
+          });
+          btn.className = 'px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-primary-container shadow-sm';
+        });
+      });
+
+      const dropzone = document.getElementById('dropzone');
+      if (dropzone) {
+        dropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          dropzone.classList.add('bg-surface-container');
+        });
+        dropzone.addEventListener('dragleave', () => {
+          dropzone.classList.remove('bg-surface-container');
+        });
+        dropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropzone.classList.remove('bg-surface-container');
+          alert('VERIDIS Spectrometry Core: Ingesting image matrix for instant OCR hazard decoding...');
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><span class="font-label-mono text-label-mono tracking-wider text-on-surface">VERIDIS NUTRISCAN ARCHITECTURE</span></div><div class="flex items-center gap-space-lg"><span class="font-label-mono-xs text-label-mono-xs text-outline">TELEMETRY CORE: CALIBRATED</span><span class="font-label-mono-xs text-label-mono-xs text-outline">CLINICAL RECALL ENGINE v9.2</span></div><p class="font-label-mono-xs text-label-mono-xs text-outline">© 2025 VERIDIS BIO-DIAGNOSTICS LABS. ALL METRIC INTEL PROTECTED.</p></div></footer><script src="/site-interactions.js" defer></script></body></html>
