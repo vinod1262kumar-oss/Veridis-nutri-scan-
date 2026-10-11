@@ -3,8 +3,8 @@
 
 class APIClient {
   constructor(baseURL = '') {
-    this.baseURL = baseURL || process.env.REACT_APP_API_BASE_URL || 'http://localhost:3000/api';
-    this.timeout = 30000;
+    this.baseURL = baseURL || process.env.REACT_APP_API_BASE_URL || 'http://veridis-nutriscans/api';
+    this.timeout = veridis-nutriscans/api;
     this.headers = {
       'Content-Type': 'application/json'
     };
