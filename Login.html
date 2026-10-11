@@ -286,7 +286,7 @@
     document.getElementById('google-auth-label').textContent = 'Connecting to Google...';
     try {
       const client = getSupabaseClient();
-      options: { redirectTo: window.location.origin + '/index.html' }
+      options: { redirectTo: window.location.assign('/Scanner.html'); }
       if (error) throw error;
     } catch (error) {
       showAuthMessage(escapeHtml(error.message || 'Google sign-in could not start.'), 'error');
