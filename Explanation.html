@@ -1,213 +1,694 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0e141b">
+  <meta name="theme-color" content="#f5f3eb">
   <title>VERIDIS NutriScan — Ingredient Explanation</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
     tailwind.config = {
       darkMode: "class",
-      theme: { extend: {
-        colors: {
-          primary: "#c0ffdb", "primary-container": "#00f2a5", secondary: "#4cd7f6",
-          background: "#0e141b", surface: "#0e141b", "surface-container-lowest": "#090f16",
-          "surface-container-low": "#161c23", "surface-container": "#1a2027",
-          "surface-container-high": "#242a32", "surface-container-highest": "#2f353d",
-          "on-surface": "#dde3ed", "on-surface-variant": "#b9cbbe", outline: "#849589",
-          error: "#ffb4ab", "error-container": "#93000a", "tertiary-fixed-dim": "#ffb95f"
-        },
-        fontFamily: {
-          headline: ["Plus Jakarta Sans"], body: ["Inter"], mono: ["JetBrains Mono"]
+      theme: {
+        extend: {
+          colors: {
+            primary: "#124d35",
+            "primary-container": "#0b3926",
+            secondary: "#758075",
+            background: "#f5f3eb",
+            surface: "#fcfbf6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3eb",
+            "surface-container": "#e8eee5",
+            "surface-container-high": "#e3e5da",
+            "surface-container-highest": "#d8dfd4",
+            "on-surface": "#1d2b22",
+            "on-surface-variant": "#758075",
+            outline: "#c9d0c4",
+            error: "#a13c34",
+            "error-container": "#f7e6e3",
+            "tertiary-fixed-dim": "#e3bd72"
+          },
+          fontFamily: {
+            headline: ["DM Serif Display", "serif"],
+            body: ["DM Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
         }
-      }}
+      }
     };
   </script>
+
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: #0e141b; color: #dde3ed; font-family: Inter, sans-serif; }
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-thumb { background: #2f353d; border-radius: 8px; }
-    .mono { font-family: "JetBrains Mono", monospace; }
-    .glass { background: rgba(22,28,35,.88); border: 1px solid rgba(132,149,137,.16); }
-    .eyebrow { font: 500 10px/1.5 "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border-radius:10px; padding:.7rem 1rem; font:600 12px "JetBrains Mono",monospace; transition:.18s; cursor:pointer; }
-    .btn:disabled { opacity:.45; cursor:not-allowed; }
-    .btn-primary { background:#00f2a5; color:#003823; }
-    .btn-primary:hover:not(:disabled) { background:#4affb4; transform:translateY(-1px); }
-    .btn-secondary { background:#242a32; color:#dde3ed; border:1px solid #3b4a41; }
-    .btn-secondary:hover:not(:disabled) { background:#2f353d; }
-    .field { width:100%; color:#dde3ed; background:#090f16; border:1px solid #3b4a41; border-radius:10px; padding:.8rem .9rem; outline:none; }
-    .field:focus { border-color:#00f2a5; box-shadow:0 0 0 3px rgba(0,242,165,.1); }
-    .pill { display:inline-flex; align-items:center; gap:.35rem; padding:.3rem .55rem; border-radius:999px; font:500 10px "JetBrains Mono",monospace; }
-    .tab { padding:.65rem .9rem; border-radius:9px; font:500 11px "JetBrains Mono",monospace; white-space:nowrap; color:#b9cbbe; }
-    .tab.active { background:#2f353d; color:#dde3ed; box-shadow:inset 0 0 0 1px rgba(132,149,137,.16); }
-    .metric { background:#1a2027; border:1px solid rgba(132,149,137,.12); border-radius:12px; padding:1rem; }
-    .muted { color:#b9cbbe; }
-    .hidden-force { display:none !important; }
-    @media (max-width:640px) { .page-pad { padding-left:1rem; padding-right:1rem; } }
+    :root {
+      --bg: #f5f3eb;
+      --card: #fcfbf6;
+      --green: #124d35;
+      --green-dark: #0b3926;
+      --green-soft: #e8eee5;
+      --text: #1d2b22;
+      --muted: #758075;
+      --border: #e3e5da;
+      --error: #a13c34;
+      --warning: #95631d;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: #c9ddc9;
+      color: var(--green-dark);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c9d0c4;
+      border-radius: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #aab9a8;
+    }
+
+    .mono {
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 18px rgba(29, 43, 34, 0.035);
+    }
+
+    .eyebrow {
+      font: 600 10px/1.5 "JetBrains Mono", monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      font: 600 12px "JetBrains Mono", monospace;
+      transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.18s;
+      cursor: pointer;
+    }
+
+    .btn:focus-visible,
+    .tab:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #92b99d;
+      outline-offset: 3px;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--green-soft);
+      border-color: #c6d5c5;
+    }
+
+    .field {
+      width: 100%;
+      color: var(--text);
+      background: #ffffff;
+      border: 1px solid #d9ded3;
+      border-radius: 10px;
+      padding: 0.8rem 0.9rem;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .field::placeholder {
+      color: #929b8e;
+    }
+
+    .field:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(18, 77, 53, 0.09);
+    }
+
+    .field:disabled {
+      background: var(--bg);
+      cursor: not-allowed;
+    }
+
+    textarea.field {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      font: 500 10px "JetBrains Mono", monospace;
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .tab {
+      padding: 0.65rem 0.9rem;
+      border-radius: 9px;
+      font: 500 11px "JetBrains Mono", monospace;
+      white-space: nowrap;
+      color: var(--muted);
+      transition: background 0.18s, color 0.18s;
+      cursor: pointer;
+    }
+
+    .tab:hover {
+      background: #eef1e9;
+      color: var(--green);
+    }
+
+    .tab.active {
+      background: var(--green);
+      color: #ffffff;
+      box-shadow: 0 2px 5px rgba(18, 77, 53, 0.12);
+    }
+
+    .metric {
+      background: #f4f5ed;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hidden-force {
+      display: none !important;
+    }
+
+    #summaryText,
+    #productSub,
+    #notice {
+      overflow-wrap: anywhere;
+    }
+
+    .material-symbols-outlined {
+      vertical-align: middle;
+    }
+
+    #ingredientResults article {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    #ingredientResults .pill {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .page-pad {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      header .max-w-7xl {
+        height: 68px;
+      }
+
+      .btn {
+        min-height: 42px;
+      }
+
+      .metric {
+        padding: 0.8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      form,
+      aside,
+      #filterTabs,
+      button {
+        display: none !important;
+      }
+
+      body,
+      main,
+      section {
+        background: #ffffff !important;
+        color: #111111 !important;
+      }
+
+      .glass,
+      .metric {
+        background: #ffffff !important;
+        color: #111111 !important;
+        border: 1px solid #dddddd !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+
+      .muted,
+      .eyebrow {
+        color: #444444 !important;
+      }
+
+      main {
+        padding-top: 0 !important;
+      }
+
+      .text-white {
+        color: #111111 !important;
+      }
+    }
   </style>
-  <!-- Supabase's public browser client. Never place a service-role key in this file. -->
+
+  <!-- Supabase public browser client. Never put a service-role key here. -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body>
-<header class="fixed top-0 inset-x-0 z-40 border-b border-white/5 bg-[#090f16]/90 backdrop-blur-xl">
+
+<header class="fixed top-0 inset-x-0 z-40 border-b border-[#e3e5da] bg-[#fcfbf6]/95 backdrop-blur-xl">
   <div class="max-w-7xl mx-auto px-5 h-[76px] flex items-center justify-between gap-4">
+
     <a href="Index.html" class="flex items-center gap-3 min-w-0" aria-label="VERIDIS NutriScan home">
-      <div class="w-10 h-10 rounded-xl border border-[#00f2a5]/30 bg-[#00f2a5]/10 flex items-center justify-center text-[#00f2a5]">
+      <div class="w-10 h-10 rounded-xl border border-[#124d35]/20 bg-[#e8eee5] flex items-center justify-center text-[#124d35]">
         <span class="material-symbols-outlined text-2xl">biotech</span>
       </div>
+
       <div class="min-w-0">
-        <div class="font-headline font-extrabold tracking-tight text-sm sm:text-base">VERIDIS <span class="text-[#00f2a5]">NUTRISCAN</span></div>
-        <div class="eyebrow text-[#849589] mt-1">Ingredient intelligence</div>
+        <div class="font-headline font-extrabold tracking-tight text-sm sm:text-base">
+          VERIDIS <span class="text-[#124d35]">NUTRISCAN</span>
+        </div>
+        <div class="eyebrow text-[#758075] mt-1">Ingredient intelligence</div>
       </div>
     </a>
-    <nav class="hidden lg:flex items-center gap-1">
+
+    <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
       <a class="tab" href="Scanner.html">Live Scanner</a>
       <a class="tab active" href="Explanation.html" aria-current="page">Ingredient Intel</a>
       <a class="tab" href="User.html">Health Vault</a>
       <a class="tab" href="Analysis.html">Analysis</a>
     </nav>
+
     <div class="flex items-center gap-3">
-      <span id="authBadge" class="hidden sm:inline-flex pill bg-[#1a2027] text-[#849589]"><span class="w-1.5 h-1.5 rounded-full bg-[#849589]"></span>Checking session</span>
-      <button id="signOutBtn" class="btn btn-secondary hidden">Sign out</button>
+      <span id="authBadge" class="hidden sm:inline-flex pill">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#758075]"></span>
+        Checking session
+      </span>
+
+      <button id="signOutBtn" class="btn btn-secondary hidden" type="button">
+        Sign out
+      </button>
     </div>
   </div>
-  <div class="h-px bg-gradient-to-r from-transparent via-[#00f2a5]/50 to-transparent"></div>
+
+  <div class="h-px bg-gradient-to-r from-transparent via-[#124d35]/30 to-transparent"></div>
 </header>
 
 <main class="pt-[76px] min-h-screen">
-  <section class="border-b border-white/5 bg-[#090f16]">
+
+  <section class="border-b border-[#e3e5da] bg-[#f0f1e8]">
     <div class="max-w-7xl mx-auto page-pad px-5 py-5 flex flex-wrap items-center justify-between gap-3">
+
       <div class="flex flex-wrap items-center gap-2">
-        <span class="pill bg-[#1a2027] text-[#4cd7f6]"><span class="material-symbols-outlined text-sm">fact_check</span> LABEL-BASED REVIEW</span>
-        <span class="eyebrow text-[#849589]">Evidence-aware food explanation</span>
+        <span class="pill">
+          <span class="material-symbols-outlined text-sm">fact_check</span>
+          LABEL-BASED REVIEW
+        </span>
+
+        <span class="eyebrow text-[#758075]">
+          Evidence-aware food explanation
+        </span>
       </div>
-      <div class="flex items-center gap-2 text-[#849589] eyebrow"><span class="material-symbols-outlined text-sm text-[#4cd7f6]">database</span><span id="dataStatus">Waiting for product data</span></div>
+
+      <div class="flex items-center gap-2 text-[#758075] eyebrow">
+        <span class="material-symbols-outlined text-sm text-[#124d35]">database</span>
+        <span id="dataStatus">Waiting for product data</span>
+      </div>
+
     </div>
   </section>
 
   <div class="max-w-7xl mx-auto page-pad px-5 py-8 space-y-7">
+
     <section class="grid grid-cols-1 xl:grid-cols-12 gap-5">
+
       <div class="xl:col-span-8 glass rounded-2xl p-5 sm:p-7 relative overflow-hidden">
-        <div class="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-[#00f2a5]/5 blur-3xl pointer-events-none"></div>
+
+        <div class="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-[#124d35]/5 blur-3xl pointer-events-none"></div>
+
         <div class="relative">
+
           <div class="flex flex-wrap items-start justify-between gap-4">
+
             <div>
-              <div class="eyebrow text-[#4cd7f6]">PRODUCT EXPLANATION</div>
-              <h1 id="productName" class="font-headline text-2xl sm:text-3xl font-extrabold mt-3">No product selected</h1>
-              <p id="productSub" class="muted mt-2 max-w-2xl text-sm leading-6">Load one of your saved scans, or enter the label details below. Results will be based on the information you provide—not on a pretend laboratory test.</p>
+              <div class="eyebrow text-[#124d35]">PRODUCT EXPLANATION</div>
+
+              <h1 id="productName" class="font-headline text-2xl sm:text-3xl font-bold mt-3">
+                No product selected
+              </h1>
+
+              <p id="productSub" class="muted mt-2 max-w-2xl text-sm leading-6">
+                Load one of your saved scans, or enter the label details below. Results will be based on the information you provide—not on a pretend laboratory test.
+              </p>
             </div>
-            <span id="resultStatus" class="pill bg-[#242a32] text-[#b9cbbe]"><span class="w-1.5 h-1.5 rounded-full bg-[#849589]"></span> Not analysed</span>
+
+            <span id="resultStatus" class="pill">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#758075]"></span>
+              Not analysed
+            </span>
+
           </div>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-7">
-            <div class="metric"><div class="eyebrow text-[#849589]">Energy</div><div id="energyValue" class="font-headline text-xl font-bold mt-2">—</div><div class="text-xs muted mt-1">kcal / serving</div></div>
-            <div class="metric"><div class="eyebrow text-[#849589]">Protein</div><div id="proteinValue" class="font-headline text-xl font-bold mt-2">—</div><div class="text-xs muted mt-1">g / serving</div></div>
-            <div class="metric"><div class="eyebrow text-[#849589]">Sugar</div><div id="sugarValue" class="font-headline text-xl font-bold mt-2">—</div><div class="text-xs muted mt-1">g / serving</div></div>
-            <div class="metric"><div class="eyebrow text-[#849589]">Sodium</div><div id="sodiumValue" class="font-headline text-xl font-bold mt-2">—</div><div class="text-xs muted mt-1">mg / serving</div></div>
-          </div>
-          <div class="mt-5 p-4 rounded-xl bg-[#090f16] border border-white/5">
-            <div class="flex items-center justify-between gap-3">
-              <div class="eyebrow text-[#849589]">Overall summary</div>
-              <span id="scoreLabel" class="pill bg-[#242a32] text-[#b9cbbe]">No score available</span>
+
+            <div class="metric">
+              <div class="eyebrow text-[#758075]">Energy</div>
+              <div id="energyValue" class="font-headline text-xl font-bold mt-2">—</div>
+              <div class="text-xs muted mt-1">kcal / serving</div>
             </div>
-            <p id="summaryText" class="text-sm leading-6 muted mt-3">A score will not be invented. Submit readable ingredient and nutrition-label information to request an explanation.</p>
-            <p class="text-xs text-[#849589] mt-3">This is an informational label review, not a medical diagnosis, lab test, or proof that a food is safe or unsafe.</p>
+
+            <div class="metric">
+              <div class="eyebrow text-[#758075]">Protein</div>
+              <div id="proteinValue" class="font-headline text-xl font-bold mt-2">—</div>
+              <div class="text-xs muted mt-1">g / serving</div>
+            </div>
+
+            <div class="metric">
+              <div class="eyebrow text-[#758075]">Sugar</div>
+              <div id="sugarValue" class="font-headline text-xl font-bold mt-2">—</div>
+              <div class="text-xs muted mt-1">g / serving</div>
+            </div>
+
+            <div class="metric">
+              <div class="eyebrow text-[#758075]">Sodium</div>
+              <div id="sodiumValue" class="font-headline text-xl font-bold mt-2">—</div>
+              <div class="text-xs muted mt-1">mg / serving</div>
+            </div>
+
           </div>
+
+          <div class="mt-5 p-4 rounded-xl bg-[#f4f5ed] border border-[#e3e5da]">
+
+            <div class="flex items-center justify-between gap-3">
+              <div class="eyebrow text-[#758075]">Overall summary</div>
+              <span id="scoreLabel" class="pill">No score available</span>
+            </div>
+
+            <p id="summaryText" class="text-sm leading-6 muted mt-3">
+              A score will not be invented. Submit readable ingredient and nutrition-label information to request an explanation.
+            </p>
+
+            <p class="text-xs text-[#758075] mt-3">
+              This is an informational label review, not a medical diagnosis, lab test, or proof that a food is safe or unsafe.
+            </p>
+
+          </div>
+
         </div>
       </div>
 
       <aside class="xl:col-span-4 glass rounded-2xl p-5 sm:p-6">
-        <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[#00f2a5]">manage_search</span><h2 class="font-headline font-bold text-lg">Load a scan</h2></div>
-        <p class="muted text-sm leading-6 mt-2">Your saved scans are private to your signed-in account. You can also load a scan by its ID from the page URL.</p>
-        <label for="savedScans" class="eyebrow text-[#849589] block mt-5 mb-2">SAVED SCANS</label>
-        <select id="savedScans" class="field"><option value="">Sign in to load saved scans</option></select>
-        <button id="loadScanBtn" class="btn btn-secondary w-full mt-3"><span class="material-symbols-outlined text-base">download</span> Load selected scan</button>
-        <div class="h-px bg-white/10 my-5"></div>
-        <div class="eyebrow text-[#849589]">Quick actions</div>
-        <div class="grid grid-cols-2 gap-2 mt-3">
-          <button id="printBtn" class="btn btn-secondary"><span class="material-symbols-outlined text-base">print</span> Print report</button>
-          <button id="scanNewBtn" class="btn btn-primary"><span class="material-symbols-outlined text-base">qr_code_scanner</span> New scan</button>
+
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#124d35]">manage_search</span>
+          <h2 class="font-headline font-bold text-lg">Load a scan</h2>
         </div>
-        <p id="notice" role="status" aria-live="polite" class="text-xs muted mt-4">Connect Supabase settings to enable saved scans.</p>
+
+        <p class="muted text-sm leading-6 mt-2">
+          Your saved scans are private to your signed-in account. You can also load a scan by its ID from the page URL.
+        </p>
+
+        <label for="savedScans" class="eyebrow text-[#758075] block mt-5 mb-2">
+          SAVED SCANS
+        </label>
+
+        <select id="savedScans" class="field">
+          <option value="">Sign in to load saved scans</option>
+        </select>
+
+        <button id="loadScanBtn" class="btn btn-secondary w-full mt-3" type="button">
+          <span class="material-symbols-outlined text-base">download</span>
+          Load selected scan
+        </button>
+
+        <div class="h-px bg-[#e3e5da] my-5"></div>
+
+        <div class="eyebrow text-[#758075]">Quick actions</div>
+
+        <div class="grid grid-cols-2 gap-2 mt-3">
+          <button id="printBtn" class="btn btn-secondary" type="button">
+            <span class="material-symbols-outlined text-base">print</span>
+            Print report
+          </button>
+
+          <button id="scanNewBtn" class="btn btn-primary" type="button">
+            <span class="material-symbols-outlined text-base">qr_code_scanner</span>
+            New scan
+          </button>
+        </div>
+
+        <p id="notice" role="status" aria-live="polite" class="text-xs muted mt-4">
+          Connect Supabase settings to enable saved scans.
+        </p>
+
       </aside>
+
     </section>
 
     <section class="glass rounded-2xl p-5 sm:p-7">
+
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+
         <div>
-          <div class="eyebrow text-[#4cd7f6]">INPUT DATA</div>
-          <h2 class="font-headline text-xl sm:text-2xl font-bold mt-2">Explain a food label</h2>
-          <p class="muted text-sm mt-2 leading-6 max-w-3xl">Enter information copied from the package. For a reliable result, include the full ingredient list and the nutrition values shown on the label.</p>
+          <div class="eyebrow text-[#124d35]">INPUT DATA</div>
+
+          <h2 class="font-headline text-xl sm:text-2xl font-bold mt-2">
+            Explain a food label
+          </h2>
+
+          <p class="muted text-sm mt-2 leading-6 max-w-3xl">
+            Enter information copied from the package. For a reliable result, include the full ingredient list and the nutrition values shown on the label.
+          </p>
         </div>
-        <span class="pill bg-[#1a2027] text-[#849589]">No spectroscopy claimed</span>
+
+        <span class="pill">No spectroscopy claimed</span>
+
       </div>
+
       <form id="analysisForm" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+
         <div>
-          <label class="eyebrow text-[#849589] block mb-2" for="inputProduct">PRODUCT NAME</label>
+          <label class="eyebrow text-[#758075] block mb-2" for="inputProduct">
+            PRODUCT NAME
+          </label>
           <input id="inputProduct" class="field" maxlength="180" placeholder="e.g. Oat and cocoa snack bar">
         </div>
+
         <div>
-          <label class="eyebrow text-[#849589] block mb-2" for="inputBarcode">BARCODE (OPTIONAL)</label>
+          <label class="eyebrow text-[#758075] block mb-2" for="inputBarcode">
+            BARCODE (OPTIONAL)
+          </label>
           <input id="inputBarcode" class="field" inputmode="numeric" maxlength="80" placeholder="Enter digits printed below barcode">
         </div>
+
         <div class="md:col-span-2">
-          <label class="eyebrow text-[#849589] block mb-2" for="inputIngredients">INGREDIENTS AS PRINTED ON PACKAGE *</label>
+          <label class="eyebrow text-[#758075] block mb-2" for="inputIngredients">
+            INGREDIENTS AS PRINTED ON PACKAGE *
+          </label>
+
           <textarea id="inputIngredients" class="field min-h-32 resize-y" maxlength="12000" required placeholder="Paste the ingredients exactly as listed on the package..."></textarea>
-          <p class="text-xs text-[#849589] mt-2">Do not enter personal medical information. Check the package for allergens and cross-contamination statements.</p>
+
+          <p class="text-xs text-[#758075] mt-2">
+            Do not enter personal medical information. Check the package for allergens and cross-contamination statements.
+          </p>
         </div>
+
         <div class="md:col-span-2">
-          <label class="eyebrow text-[#849589] block mb-2" for="inputNutrition">NUTRITION LABEL (OPTIONAL)</label>
+          <label class="eyebrow text-[#758075] block mb-2" for="inputNutrition">
+            NUTRITION LABEL (OPTIONAL)
+          </label>
+
           <textarea id="inputNutrition" class="field min-h-24 resize-y" maxlength="6000" placeholder="Example: per 100 g — energy 450 kcal; protein 8 g; sugars 18 g; sodium 250 mg"></textarea>
         </div>
+
         <div class="md:col-span-2 flex flex-wrap gap-3 items-center">
-          <button id="analyseBtn" type="submit" class="btn btn-primary"><span class="material-symbols-outlined text-base">science</span> Analyse label</button>
-          <button id="clearBtn" type="button" class="btn btn-secondary"><span class="material-symbols-outlined text-base">restart_alt</span> Clear form</button>
-          <span class="text-xs muted">Analysis requires your server endpoint at <code class="mono text-[#4cd7f6]">/api/analyze-food</code>.</span>
+
+          <button id="analyseBtn" type="submit" class="btn btn-primary">
+            <span class="material-symbols-outlined text-base">science</span>
+            Analyse label
+          </button>
+
+          <button id="clearBtn" type="button" class="btn btn-secondary">
+            <span class="material-symbols-outlined text-base">restart_alt</span>
+            Clear form
+          </button>
+
+          <span class="text-xs muted">
+            Analysis requires your server endpoint at
+            <code class="mono text-[#124d35]">/api/analyze-food</code>.
+          </span>
+
         </div>
+
       </form>
+
     </section>
 
     <section class="space-y-4">
+
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-        <div><div class="eyebrow text-[#4cd7f6]">RESULTS</div><h2 class="font-headline text-xl sm:text-2xl font-bold mt-2">Ingredient explanation</h2></div>
-        <div id="filterTabs" class="flex flex-wrap gap-1 rounded-xl bg-[#090f16] p-1">
+
+        <div>
+          <div class="eyebrow text-[#124d35]">RESULTS</div>
+          <h2 class="font-headline text-xl sm:text-2xl font-bold mt-2">
+            Ingredient explanation
+          </h2>
+        </div>
+
+        <div id="filterTabs" class="flex flex-wrap gap-1 rounded-xl bg-[#f0f1e8] border border-[#e3e5da] p-1">
           <button class="tab active" data-filter="all" type="button">All</button>
           <button class="tab" data-filter="caution" type="button">Review notes</button>
           <button class="tab" data-filter="allergen" type="button">Allergens</button>
           <button class="tab" data-filter="positive" type="button">Potential positives</button>
         </div>
+
       </div>
+
       <div id="ingredientResults" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
         <div class="glass rounded-xl p-5 md:col-span-2">
-          <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4cd7f6]">info</span><div><h3 class="font-semibold">No ingredient results yet</h3><p class="muted text-sm leading-6 mt-1">Analyse a label or load a saved scan to display ingredient explanations here. Nothing on this page is presented as a real scan until data is supplied.</p></div></div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-[#124d35]">info</span>
+
+            <div>
+              <h3 class="font-semibold">No ingredient results yet</h3>
+              <p class="muted text-sm leading-6 mt-1">
+                Analyse a label or load a saved scan to display ingredient explanations here. Nothing on this page is presented as a real scan until data is supplied.
+              </p>
+            </div>
+          </div>
         </div>
+
       </div>
+
     </section>
 
     <section class="glass rounded-2xl p-5 sm:p-6">
+
       <div class="flex items-start gap-3">
-        <span class="material-symbols-outlined text-[#4cd7f6]">verified</span>
+        <span class="material-symbols-outlined text-[#124d35]">verified</span>
+
         <div>
           <h2 class="font-headline font-bold">How to read these results</h2>
-          <p class="muted text-sm leading-6 mt-2">VERIDIS can explain label terms and point out items worth checking, but a label alone cannot establish a person's biological response, prove an ingredient causes disease, or measure contaminants. An AI-generated explanation may be wrong; verify important claims with reliable sources and follow the product label. If you have an allergy, use the package's allergen statement and consult a qualified professional when needed.</p>
+
+          <p class="muted text-sm leading-6 mt-2">
+            VERIDIS can explain label terms and point out items worth checking, but a label alone cannot establish a person's biological response, prove an ingredient causes disease, or measure contaminants. An AI-generated explanation may be wrong; verify important claims with reliable sources and follow the product label. If you have an allergy, use the package's allergen statement and consult a qualified professional when needed.
+          </p>
         </div>
       </div>
+
     </section>
+
   </div>
 </main>
 
-<footer class="border-t border-white/5 bg-[#090f16]">
+<footer class="border-t border-[#e3e5da] bg-[#f0f1e8]">
   <div class="max-w-7xl mx-auto px-5 py-6 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
-    <div class="eyebrow text-[#849589]">VERIDIS NUTRISCAN · LABEL-BASED FOOD INFORMATION</div>
-    <div class="text-xs text-[#849589]">No fabricated laboratory measurements. No medical diagnosis.</div>
+
+    <div class="eyebrow text-[#758075]">
+      VERIDIS NUTRISCAN · LABEL-BASED FOOD INFORMATION
+    </div>
+
+    <div class="text-xs text-[#758075]">
+      No fabricated laboratory measurements. No medical diagnosis.
+    </div>
+
   </div>
 </footer>
 
@@ -216,50 +697,61 @@
   "use strict";
 
   /*
-   * SETUP:
-   * 1. Replace these two placeholders with your Supabase Project URL and anon/publishable key.
-   *    The anon/publishable key is intended for browser use when RLS is configured.
-   * 2. Never place your Supabase service_role key or Gemini API key in this HTML.
-   * 3. Your backend must implement POST /api/analyze-food and call Gemini server-side.
+   * SETUP
+   * 1. Replace the Supabase placeholders with your project URL and public anon/publishable key.
+   * 2. Never put a Supabase service_role key or Gemini API key in this HTML.
+   * 3. Your backend must implement POST /api/analyze-food.
    */
+
   const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
   const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_OR_PUBLISHABLE_KEY";
   const API_ANALYZE_URL = "/api/analyze-food";
 
   const $ = (id) => document.getElementById(id);
-  const state = { client: null, user: null, scanId: null, analysis: null, filter: "all" };
+
+  const state = {
+    client: null,
+    user: null,
+    scanId: null,
+    analysis: null,
+    filter: "all"
+  };
 
   function setNotice(message, isError = false) {
     $("notice").textContent = message;
-    $("notice").className = "text-xs mt-4 " + (isError ? "text-[#ffb4ab]" : "muted");
+    $("notice").className = "text-xs mt-4 " + (isError ? "text-[#a13c34]" : "muted");
   }
 
   function esc(value) {
     return String(value ?? "").replace(/[&<>"']/g, ch => ({
-      "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
     })[ch]);
-  }
-
-  function asText(value, fallback = "Not provided") {
-    if (value === null || value === undefined || value === "") return fallback;
-    if (typeof value === "object") return JSON.stringify(value);
-    return String(value);
   }
 
   function normaliseAnalysis(raw) {
     if (!raw || typeof raw !== "object") return {};
-    // Accept either { analysis: {...} } or the analysis object itself.
-    return raw.analysis && typeof raw.analysis === "object" ? raw.analysis : raw;
+
+    return raw.analysis && typeof raw.analysis === "object"
+      ? raw.analysis
+      : raw;
   }
 
   function getNutrition(analysis) {
     const n = analysis.nutrition || analysis.nutritionFacts || {};
+
     const value = (...keys) => {
       for (const key of keys) {
-        if (n[key] !== undefined && n[key] !== null && n[key] !== "") return n[key];
+        if (n[key] !== undefined && n[key] !== null && n[key] !== "") {
+          return n[key];
+        }
       }
       return "—";
     };
+
     $("energyValue").textContent = value("energy_kcal", "calories", "energy", "kcal");
     $("proteinValue").textContent = value("protein_g", "protein");
     $("sugarValue").textContent = value("sugars_g", "sugar_g", "sugar", "sugars");
@@ -267,141 +759,329 @@
   }
 
   function getItems(analysis) {
-    const items = analysis.ingredients || analysis.ingredientDetails || analysis.findings || [];
-    if (Array.isArray(items)) return items.map((item) => {
-      if (typeof item === "string") return { name: item, category: "neutral", explanation: "No further explanation was returned." };
-      return {
-        name: item.name || item.ingredient || item.title || "Ingredient",
-        category: String(item.category || item.type || item.status || "neutral").toLowerCase(),
-        explanation: item.explanation || item.description || item.reason || item.notes || "No explanation was returned.",
-        evidence: item.evidence || item.source || item.reference || "",
-        allergen: Boolean(item.allergen || item.isAllergen || String(item.category || "").toLowerCase().includes("allergen"))
-      };
-    });
-    if (items && typeof items === "object") return Object.entries(items).map(([name, details]) => ({
-      name,
-      category: String(details?.category || details?.status || "neutral").toLowerCase(),
-      explanation: typeof details === "string" ? details : (details?.explanation || details?.description || "No explanation was returned."),
-      evidence: details?.evidence || details?.source || "",
-      allergen: Boolean(details?.allergen)
-    }));
+    const items = analysis.ingredients ||
+      analysis.ingredientDetails ||
+      analysis.findings ||
+      [];
+
+    if (Array.isArray(items)) {
+      return items.map(item => {
+        if (typeof item === "string") {
+          return {
+            name: item,
+            category: "neutral",
+            explanation: "No further explanation was returned.",
+            evidence: "",
+            allergen: false
+          };
+        }
+
+        item = item || {};
+
+        return {
+          name: item.name || item.ingredient || item.title || "Ingredient",
+          category: String(item.category || item.type || item.status || "neutral").toLowerCase(),
+          explanation: item.explanation || item.description || item.reason || item.notes || "No explanation was returned.",
+          evidence: item.evidence || item.source || item.reference || "",
+          allergen: Boolean(
+            item.allergen ||
+            item.isAllergen ||
+            String(item.category || "").toLowerCase().includes("allergen")
+          )
+        };
+      });
+    }
+
+    if (items && typeof items === "object") {
+      return Object.entries(items).map(([name, details]) => ({
+        name,
+        category: String(details?.category || details?.status || "neutral").toLowerCase(),
+        explanation: typeof details === "string"
+          ? details
+          : details?.explanation || details?.description || "No explanation was returned.",
+        evidence: details?.evidence || details?.source || "",
+        allergen: Boolean(details?.allergen)
+      }));
+    }
+
     return [];
   }
 
   function classify(item) {
     const str = (item.category + " " + item.name).toLowerCase();
-    if (item.allergen || /allergen|contains|soy|milk|peanut|tree nut|wheat|gluten|sesame|egg|fish|shellfish/.test(str)) return "allergen";
-    if (/positive|benefit|fibre|fiber|whole grain|protein source|vitamin|mineral/.test(str)) return "positive";
-    if (/caution|review|high|limit|concern|warning|risk|flag|added sugar|sodium/.test(str)) return "caution";
+
+    if (
+      item.allergen ||
+      /allergen|contains|soy|milk|peanut|tree nut|wheat|gluten|sesame|egg|fish|shellfish/.test(str)
+    ) {
+      return "allergen";
+    }
+
+    if (/positive|benefit|fibre|fiber|whole grain|protein source|vitamin|mineral/.test(str)) {
+      return "positive";
+    }
+
+    if (/caution|review|high|limit|concern|warning|risk|flag|added sugar|sodium/.test(str)) {
+      return "caution";
+    }
+
     return "all";
   }
 
   function renderIngredients(analysis) {
     const container = $("ingredientResults");
     const items = getItems(analysis);
-    const filtered = items.filter(item => state.filter === "all" || classify(item) === state.filter);
+
+    const filtered = items.filter(item =>
+      state.filter === "all" || classify(item) === state.filter
+    );
+
     if (!items.length) {
-      container.innerHTML = `<div class="glass rounded-xl p-5 md:col-span-2"><div class="flex gap-3"><span class="material-symbols-outlined text-[#4cd7f6]">info</span><div><h3 class="font-semibold">No ingredient breakdown returned</h3><p class="muted text-sm leading-6 mt-1">The server returned no structured ingredient list. Check the API response format or analyse the label again.</p></div></div></div>`;
+      container.innerHTML = `
+        <div class="glass rounded-xl p-5 md:col-span-2">
+          <div class="flex gap-3">
+            <span class="material-symbols-outlined text-[#124d35]">info</span>
+            <div>
+              <h3 class="font-semibold">No ingredient breakdown returned</h3>
+              <p class="muted text-sm leading-6 mt-1">
+                The server returned no structured ingredient list. Check the API response format or analyse the label again.
+              </p>
+            </div>
+          </div>
+        </div>`;
       return;
     }
+
     if (!filtered.length) {
-      container.innerHTML = `<div class="glass rounded-xl p-5 md:col-span-2"><p class="muted text-sm">No items match this filter.</p></div>`;
+      container.innerHTML = `
+        <div class="glass rounded-xl p-5 md:col-span-2">
+          <p class="muted text-sm">No items match this filter.</p>
+        </div>`;
       return;
     }
+
     container.innerHTML = filtered.map(item => {
       const kind = classify(item);
-      const style = kind === "allergen" ? "text-[#ffb4ab] bg-[#93000a]/25" : kind === "caution" ? "text-[#ffb95f] bg-[#ffb95f]/10" : kind === "positive" ? "text-[#00f2a5] bg-[#00f2a5]/10" : "text-[#4cd7f6] bg-[#4cd7f6]/10";
-      const label = kind === "allergen" ? "CHECK ALLERGEN" : kind === "caution" ? "REVIEW NOTE" : kind === "positive" ? "POTENTIAL POSITIVE" : "INFORMATION";
-      return `<article class="glass rounded-xl p-5 flex flex-col gap-4">
-        <div class="flex items-start justify-between gap-3"><div><h3 class="font-headline font-bold text-lg">${esc(item.name)}</h3><div class="eyebrow text-[#849589] mt-2">${esc(item.category || "ingredient")}</div></div><span class="pill ${style}">${label}</span></div>
-        <p class="muted text-sm leading-6 whitespace-pre-wrap">${esc(item.explanation)}</p>
-        ${item.evidence ? `<div class="pt-3 border-t border-white/5 text-xs text-[#849589]"><span class="mono">SOURCE / NOTE:</span> ${esc(item.evidence)}</div>` : ""}
-      </article>`;
+
+      const style = kind === "allergen"
+        ? "text-[#a13c34] bg-[#f7e6e3]"
+        : kind === "caution"
+        ? "text-[#95631d] bg-[#f7efd9]"
+        : kind === "positive"
+        ? "text-[#124d35] bg-[#e8eee5]"
+        : "text-[#536b59] bg-[#edf0e7]";
+
+      const label = kind === "allergen"
+        ? "CHECK ALLERGEN"
+        : kind === "caution"
+        ? "REVIEW NOTE"
+        : kind === "positive"
+        ? "POTENTIAL POSITIVE"
+        : "INFORMATION";
+
+      return `
+        <article class="glass rounded-xl p-5 flex flex-col gap-4">
+
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-headline font-bold text-lg">${esc(item.name)}</h3>
+              <div class="eyebrow text-[#758075] mt-2">${esc(item.category || "ingredient")}</div>
+            </div>
+
+            <span class="pill ${style}">${label}</span>
+          </div>
+
+          <p class="muted text-sm leading-6 whitespace-pre-wrap">${esc(item.explanation)}</p>
+
+          ${item.evidence ? `
+            <div class="pt-3 border-t border-[#e3e5da] text-xs text-[#758075]">
+              <span class="mono">SOURCE / NOTE:</span> ${esc(item.evidence)}
+            </div>
+          ` : ""}
+
+        </article>`;
     }).join("");
   }
 
   function renderAnalysis(raw, productName, barcode) {
     const analysis = normaliseAnalysis(raw);
+
     state.analysis = analysis;
-    $("productName").textContent = productName || analysis.productName || analysis.product_name || "Food label analysis";
-    $("productSub").textContent = barcode ? `Barcode: ${barcode} · Analysis based on label information provided` : "Analysis based on the label information provided";
+
+    $("productName").textContent =
+      productName ||
+      analysis.productName ||
+      analysis.product_name ||
+      "Food label analysis";
+
+    $("productSub").textContent = barcode
+      ? `Barcode: ${barcode} · Analysis based on label information provided`
+      : "Analysis based on the label information provided";
+
     $("dataStatus").textContent = "Label data loaded";
-    $("resultStatus").innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[#00f2a5]"></span> Analysis returned`;
-    $("resultStatus").className = "pill bg-[#00f2a5]/10 text-[#00f2a5]";
-    const score = analysis.score ?? analysis.overallScore ?? analysis.nutritionScore;
-    $("scoreLabel").textContent = Number.isFinite(Number(score)) ? `Score: ${score}/100 (model estimate)` : "No validated score";
-    $("summaryText").textContent = analysis.summary || analysis.overallSummary || analysis.verdict || "Analysis completed, but the server did not return a summary. Review the ingredient explanations below.";
+
+    $("resultStatus").innerHTML = `
+      <span class="w-1.5 h-1.5 rounded-full bg-[#124d35]"></span>
+      Analysis returned`;
+
+    $("resultStatus").className = "pill";
+
+    const score = analysis.score ??
+      analysis.overallScore ??
+      analysis.nutritionScore;
+
+    $("scoreLabel").textContent =
+      score !== null &&
+      score !== undefined &&
+      score !== "" &&
+      Number.isFinite(Number(score))
+        ? `Score: ${score}/100 (model estimate)`
+        : "No validated score";
+
+    $("summaryText").textContent =
+      analysis.summary ||
+      analysis.overallSummary ||
+      analysis.verdict ||
+      "Analysis completed, but the server did not return a summary. Review the ingredient explanations below.";
+
     getNutrition(analysis);
     renderIngredients(analysis);
   }
 
   async function initSupabase() {
     const badge = $("authBadge");
-    if (SUPABASE_URL.startsWith("YOUR_") || SUPABASE_ANON_KEY.startsWith("YOUR_")) {
-      badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[#ffb95f]"></span> Supabase not configured`;
-      badge.className = "hidden sm:inline-flex pill bg-[#ffb95f]/10 text-[#ffb95f]";
-      $("savedScans").innerHTML = `<option value="">Add Supabase URL and anon key first</option>`;
+
+    if (
+      SUPABASE_URL.startsWith("YOUR_") ||
+      SUPABASE_ANON_KEY.startsWith("YOUR_")
+    ) {
+      badge.innerHTML = `
+        <span class="w-1.5 h-1.5 rounded-full bg-[#95631d]"></span>
+        Supabase not configured`;
+
+      badge.className = "hidden sm:inline-flex pill";
+      $("savedScans").innerHTML =
+        `<option value="">Add Supabase URL and anon key first</option>`;
+
+      setNotice("Add your Supabase project URL and public anon/publishable key to enable saved scans.");
       return;
     }
+
     if (!window.supabase?.createClient) {
       setNotice("Supabase client did not load. Check your internet connection.", true);
       return;
     }
-    state.client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    state.client = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_ANON_KEY
+    );
+
     const { data, error } = await state.client.auth.getSession();
+
     if (error) {
       setNotice("Could not check your login session: " + error.message, true);
       return;
     }
+
     state.user = data.session?.user || null;
+
     updateAuthBadge();
+
     state.client.auth.onAuthStateChange((_event, session) => {
       state.user = session?.user || null;
       updateAuthBadge();
-      if (state.user) loadSavedScans();
-      else $("savedScans").innerHTML = `<option value="">Sign in to load saved scans</option>`;
+
+      if (state.user) {
+        loadSavedScans();
+      } else {
+        $("savedScans").innerHTML =
+          `<option value="">Sign in to load saved scans</option>`;
+      }
     });
-    if (state.user) await loadSavedScans();
-    else {
-      $("savedScans").innerHTML = `<option value="">Please sign in to see your scans</option>`;
+
+    if (state.user) {
+      await loadSavedScans();
+    } else {
+      $("savedScans").innerHTML =
+        `<option value="">Please sign in to see your scans</option>`;
+
       setNotice("Sign in using your app's Supabase authentication to load private scans.");
     }
   }
 
   function updateAuthBadge() {
     const badge = $("authBadge");
+
     if (state.user) {
-      badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[#00f2a5]"></span> Signed in`;
-      badge.className = "hidden sm:inline-flex pill bg-[#00f2a5]/10 text-[#00f2a5]";
+      badge.innerHTML = `
+        <span class="w-1.5 h-1.5 rounded-full bg-[#124d35]"></span>
+        Signed in`;
+
+      badge.className = "hidden sm:inline-flex pill";
       $("signOutBtn").classList.remove("hidden");
+
       setNotice("Signed in. Saved scans are fetched under your account's row-level security policy.");
     } else {
-      badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[#ffb95f]"></span> Signed out`;
-      badge.className = "hidden sm:inline-flex pill bg-[#ffb95f]/10 text-[#ffb95f]";
+      badge.innerHTML = `
+        <span class="w-1.5 h-1.5 rounded-full bg-[#95631d]"></span>
+        Signed out`;
+
+      badge.className = "hidden sm:inline-flex pill";
       $("signOutBtn").classList.add("hidden");
     }
   }
 
   async function loadSavedScans() {
     if (!state.client || !state.user) return;
-    $("savedScans").innerHTML = `<option value="">Loading saved scans…</option>`;
-    const { data, error } = await state.client.from("food_scans")
+
+    $("savedScans").innerHTML =
+      `<option value="">Loading saved scans…</option>`;
+
+    const { data, error } = await state.client
+      .from("food_scans")
       .select("id,product_name,barcode,created_at,analysis")
       .eq("user_id", state.user.id)
       .order("created_at", { ascending: false })
       .limit(50);
+
     if (error) {
-      $("savedScans").innerHTML = `<option value="">Could not load scans</option>`;
-      setNotice("Could not load saved scans: " + error.message + ". Check the food_scans table and RLS policies.", true);
+      $("savedScans").innerHTML =
+        `<option value="">Could not load scans</option>`;
+
+      setNotice(
+        "Could not load saved scans: " + error.message +
+        ". Check the food_scans table and RLS policies.",
+        true
+      );
+
       return;
     }
+
     const rows = data || [];
+
     $("savedScans").innerHTML = rows.length
-      ? `<option value="">Choose a saved scan…</option>` + rows.map(row => `<option value="${esc(row.id)}">${esc(row.product_name || "Unnamed product")} — ${esc(new Date(row.created_at).toLocaleString())}</option>`).join("")
+      ? `<option value="">Choose a saved scan…</option>` +
+        rows.map(row => `
+          <option value="${esc(row.id)}">
+            ${esc(row.product_name || "Unnamed product")} — ${esc(
+              new Date(row.created_at).toLocaleString()
+            )}
+          </option>
+        `).join("")
       : `<option value="">No saved scans yet</option>`;
-    setNotice(rows.length ? `Loaded ${rows.length} recent saved scan(s).` : "No saved scans found for this account.");
+
+    setNotice(
+      rows.length
+        ? `Loaded ${rows.length} recent saved scan(s).`
+        : "No saved scans found for this account."
+    );
+
     const urlId = new URLSearchParams(location.search).get("id");
-    if (urlId) await loadScanById(urlId);
+
+    if (urlId) {
+      await loadScanById(urlId);
+    }
   }
 
   async function loadScanById(id) {
@@ -409,55 +1089,112 @@
       setNotice("Sign in first to load a saved scan.", true);
       return;
     }
-    const { data, error } = await state.client.from("food_scans")
+
+    const { data, error } = await state.client
+      .from("food_scans")
       .select("id,user_id,product_name,barcode,analysis,created_at")
       .eq("id", id)
       .eq("user_id", state.user.id)
       .maybeSingle();
+
     if (error || !data) {
-      setNotice("That scan could not be found for your account. Check the scan ID and your RLS policy.", true);
+      setNotice(
+        "That scan could not be found for your account. Check the scan ID and your RLS policy.",
+        true
+      );
       return;
     }
+
     state.scanId = data.id;
+
     $("inputProduct").value = data.product_name || "";
     $("inputBarcode").value = data.barcode || "";
+
     const analysis = data.analysis || {};
-    $("inputIngredients").value = analysis.inputIngredients || analysis.ingredientsText || "";
-    $("inputNutrition").value = analysis.inputNutrition || analysis.nutritionText || "";
+
+    $("inputIngredients").value =
+      analysis.inputIngredients ||
+      analysis.ingredientsText ||
+      "";
+
+    $("inputNutrition").value =
+      analysis.inputNutrition ||
+      analysis.nutritionText ||
+      "";
+
     renderAnalysis(analysis, data.product_name, data.barcode);
+
     setNotice("Saved scan loaded successfully.");
   }
 
   $("loadScanBtn").addEventListener("click", async () => {
     const id = $("savedScans").value;
-    if (!id) return setNotice("Choose a saved scan first.", true);
+
+    if (!id) {
+      setNotice("Choose a saved scan first.", true);
+      return;
+    }
+
     await loadScanById(id);
   });
 
-  $("analysisForm").addEventListener("submit", async (event) => {
+  $("analysisForm").addEventListener("submit", async event => {
     event.preventDefault();
+
     const productName = $("inputProduct").value.trim();
     const barcode = $("inputBarcode").value.trim();
     const ingredients = $("inputIngredients").value.trim();
     const nutrition = $("inputNutrition").value.trim();
-    if (!ingredients) return setNotice("Enter the ingredient list from the package first.", true);
+
+    if (!ingredients) {
+      setNotice("Enter the ingredient list from the package first.", true);
+      $("inputIngredients").focus();
+      return;
+    }
 
     const btn = $("analyseBtn");
+
     btn.disabled = true;
-    btn.innerHTML = `<span class="material-symbols-outlined text-base animate-spin">progress_activity</span> Analysing…`;
+
+    btn.innerHTML = `
+      <span class="material-symbols-outlined text-base animate-spin">progress_activity</span>
+      Analysing…`;
+
     setNotice("Sending label details to the server…");
+
     try {
       const response = await fetch(API_ANALYZE_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         credentials: "same-origin",
-        body: JSON.stringify({ productName, barcode, ingredients, nutrition })
+        body: JSON.stringify({
+          productName,
+          barcode,
+          ingredients,
+          nutrition
+        })
       });
+
       const body = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(body.error || body.message || `Analysis API returned HTTP ${response.status}`);
+
+      if (!response.ok) {
+        throw new Error(
+          body.error ||
+          body.message ||
+          `Analysis API returned HTTP ${response.status}`
+        );
+      }
+
       const analysis = normaliseAnalysis(body);
-      renderAnalysis(analysis, productName || analysis.productName, barcode);
-      // Persist only for a signed-in user. RLS protects each user's rows.
+
+      renderAnalysis(
+        analysis,
+        productName || analysis.productName,
+        barcode
+      );
+
       if (state.client && state.user) {
         const payload = {
           user_id: state.user.id,
@@ -470,56 +1207,126 @@
             analysisDisclaimer: "AI-generated label explanation; not a laboratory test or medical advice."
           }
         };
-        const { data, error } = await state.client.from("food_scans").insert(payload).select("id").single();
+
+        const { data, error } = await state.client
+          .from("food_scans")
+          .insert(payload)
+          .select("id")
+          .single();
+
         if (error) {
-          setNotice("Analysis returned, but saving failed: " + error.message, true);
+          setNotice(
+            "Analysis returned, but saving failed: " + error.message,
+            true
+          );
         } else {
           state.scanId = data.id;
-          history.replaceState({}, "", `${location.pathname}?id=${encodeURIComponent(data.id)}`);
+
+          history.replaceState(
+            {},
+            "",
+            `${location.pathname}?id=${encodeURIComponent(data.id)}`
+          );
+
           await loadSavedScans();
+
           setNotice("Analysis completed and saved to your account.");
         }
       } else {
-        setNotice("Analysis returned. Sign in to save it to your private scan history.");
+        setNotice(
+          "Analysis returned. Sign in to save it to your private scan history."
+        );
       }
     } catch (error) {
-      setNotice(`Could not analyse the label: ${error.message}. Ensure your backend is running and implements POST ${API_ANALYZE_URL}; the Gemini key belongs on the server, not in this page.`, true);
+      setNotice(
+        `Could not analyse the label: ${error.message}. Ensure your backend is running and implements POST ${API_ANALYZE_URL}; the Gemini key belongs on the server, not in this page.`,
+        true
+      );
     } finally {
       btn.disabled = false;
-      btn.innerHTML = `<span class="material-symbols-outlined text-base">science</span> Analyse label`;
+
+      btn.innerHTML = `
+        <span class="material-symbols-outlined text-base">science</span>
+        Analyse label`;
     }
   });
 
   $("clearBtn").addEventListener("click", () => {
     $("analysisForm").reset();
+
     state.scanId = null;
     state.analysis = null;
+
     $("productName").textContent = "No product selected";
-    $("productSub").textContent = "Load one of your saved scans, or enter the label details below. Results will be based on the information you provide—not on a pretend laboratory test.";
-    $("energyValue").textContent = $("proteinValue").textContent = $("sugarValue").textContent = $("sodiumValue").textContent = "—";
+
+    $("productSub").textContent =
+      "Load one of your saved scans, or enter the label details below. Results will be based on the information you provide—not on a pretend laboratory test.";
+
+    $("energyValue").textContent = "—";
+    $("proteinValue").textContent = "—";
+    $("sugarValue").textContent = "—";
+    $("sodiumValue").textContent = "—";
+
     $("scoreLabel").textContent = "No score available";
-    $("summaryText").textContent = "A score will not be invented. Submit readable ingredient and nutrition-label information to request an explanation.";
-    $("resultStatus").textContent = "Not analysed";
-    $("resultStatus").className = "pill bg-[#242a32] text-[#b9cbbe]";
-    $("ingredientResults").innerHTML = `<div class="glass rounded-xl p-5 md:col-span-2"><p class="muted text-sm">Form cleared. Enter label details to begin.</p></div>`;
+    $("summaryText").textContent =
+      "A score will not be invented. Submit readable ingredient and nutrition-label information to request an explanation.";
+
+    $("dataStatus").textContent = "Waiting for product data";
+
+    $("resultStatus").innerHTML = `
+      <span class="w-1.5 h-1.5 rounded-full bg-[#758075]"></span>
+      Not analysed`;
+
+    $("resultStatus").className = "pill";
+
+    $("ingredientResults").innerHTML = `
+      <div class="glass rounded-xl p-5 md:col-span-2">
+        <p class="muted text-sm">Form cleared. Enter label details to begin.</p>
+      </div>`;
+
     setNotice("Form cleared.");
   });
 
-  $("filterTabs").addEventListener("click", (event) => {
+  $("filterTabs").addEventListener("click", event => {
     const button = event.target.closest("button[data-filter]");
+
     if (!button) return;
+
     state.filter = button.dataset.filter;
-    $("filterTabs").querySelectorAll("button").forEach(tab => tab.classList.toggle("active", tab === button));
-    if (state.analysis) renderIngredients(state.analysis);
+
+    $("filterTabs").querySelectorAll("button").forEach(tab => {
+      tab.classList.toggle("active", tab === button);
+      tab.setAttribute("aria-pressed", String(tab === button));
+    });
+
+    if (state.analysis) {
+      renderIngredients(state.analysis);
+    }
   });
 
-  $("printBtn").addEventListener("click", () => window.print());
-  $("scanNewBtn").addEventListener("click", () => { location.href = "Scanner.html"; });
+  $("filterTabs").querySelectorAll("button[data-filter]").forEach(button => {
+    button.setAttribute(
+      "aria-pressed",
+      String(button.dataset.filter === state.filter)
+    );
+  });
+
+  $("printBtn").addEventListener("click", () => {
+    window.print();
+  });
+
+  $("scanNewBtn").addEventListener("click", () => {
+    location.href = "Scanner.html";
+  });
+
   $("signOutBtn").addEventListener("click", async () => {
     if (!state.client) return;
+
     const { error } = await state.client.auth.signOut();
-    if (error) setNotice("Sign out failed: " + error.message, true);
-    else {
+
+    if (error) {
+      setNotice("Sign out failed: " + error.message, true);
+    } else {
       state.user = null;
       updateAuthBadge();
       setNotice("Signed out.");
@@ -527,18 +1334,13 @@
     }
   });
 
-  // Support a direct link such as Explanation.html?id=<food_scans UUID>.
-  initSupabase();
+  // Supports Explanation.html?id=<food_scans UUID>.
+  initSupabase().catch(error => {
+    console.error("Supabase initialisation failed:", error);
+    setNotice("Could not initialise Supabase. Check the browser console and project settings.", true);
+  });
 })();
 </script>
-<style>
-@media print {
-  header, footer, form, aside, #filterTabs, button { display:none !important; }
-  body, main { background:#fff !important; color:#111 !important; }
-  .glass, .metric { background:#fff !important; border:1px solid #ddd !important; box-shadow:none !important; break-inside:avoid; }
-  .muted, .eyebrow { color:#333 !important; }
-  main { padding-top:0 !important; }
-}
-</style>
+
 </body>
-</html>
+  </html>
