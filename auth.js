@@ -1,228 +1,635 @@
-// Authentication Module
-// Handles user authentication, token management, and security
+/**
+ * VERIDIS NutriScan — Authentication Manager
+ * Version: 2.0.0
+ *
+ * Features:
+ * - Supabase authentication
+ * - Google OAuth support
+ * - Session persistence
+ * - Automatic token refresh
+ * - User profile management
+ * - Protected-page helpers
+ * - Secure logout
+ *
+ * IMPORTANT:
+ * Configure your Supabase URL and publishable/anon key
+ * in supabase-config.js before using this module.
+ */
 
 class AuthManager {
   constructor() {
-    this.tokenKey = 'authToken';
-    this.userKey = 'userProfile';
-    this.expirationKey = 'tokenExpiration';
-    this.refreshTokenKey = 'refreshToken';
+    this.client = null;
+    this.initialized = false;
+    this.currentUser = null;
+    this.currentSession = null;
+
+    this.listeners = new Set();
+    this.authSubscription = null;
+
+    this.configFile = "./supabase-config.js";
   }
 
   /**
-   * Store authentication token
+   * Initialize Supabase authentication.
+   *
+   * Requires:
+   * 1. Supabase JS client loaded in the browser.
+   * 2. A global supabaseClient created by supabase-config.js.
    */
-  setToken(token, expiresIn = 86400) {
-    const expirationTime = Date.now() + (expiresIn * 1000);
-    localStorage.setItem(this.tokenKey, token);
-    localStorage.setItem(this.expirationKey, expirationTime.toString());
-  }
-
-  /**
-   * Get stored authentication token
-   */
-  getToken() {
-    const token = localStorage.getItem(this.tokenKey);
-    const expiration = localStorage.getItem(this.expirationKey);
-
-    if (!token || !expiration) {
-      return null;
+  async init() {
+    if (this.initialized) {
+      return this.getSession();
     }
 
-    // Check if token has expired
-    if (Date.now() > parseInt(expiration)) {
-      this.clearAuth();
-      return null;
-    }
-
-    return token;
-  }
-
-  /**
-   * Store refresh token
-   */
-  setRefreshToken(refreshToken) {
-    localStorage.setItem(this.refreshTokenKey, refreshToken);
-  }
-
-  /**
-   * Get refresh token
-   */
-  getRefreshToken() {
-    return localStorage.getItem(this.refreshTokenKey);
-  }
-
-  /**
-   * Store user profile
-   */
-  setUserProfile(userProfile) {
-    localStorage.setItem(this.userKey, JSON.stringify(userProfile));
-  }
-
-  /**
-   * Get stored user profile
-   */
-  getUserProfile() {
-    const profile = localStorage.getItem(this.userKey);
-    return profile ? JSON.parse(profile) : null;
-  }
-
-  /**
-   * Check if user is authenticated
-   */
-  isAuthenticated() {
-    return !!this.getToken();
-  }
-
-  /**
-   * Clear all authentication data
-   */
-  clearAuth() {
-    localStorage.removeItem(this.tokenKey);
-    localStorage.removeItem(this.userKey);
-    localStorage.removeItem(this.expirationKey);
-    localStorage.removeItem(this.refreshTokenKey);
-  }
-
-  /**
-   * Decode JWT token (basic implementation)
-   */
-  decodeToken(token) {
     try {
-      const parts = token.split('.');
-      if (parts.length !== 3) return null;
+      const client = window.supabaseClient;
 
-      const decoded = JSON.parse(atob(parts[1]));
-      return decoded;
+      if (!client) {
+        throw new Error(
+          "Supabase is not configured. Check supabase-config.js."
+        );
+      }
+
+      if (
+        typeof client.auth?.getSession !== "function" ||
+        typeof client.auth?.signInWithOAuth !== "function"
+      ) {
+        throw new Error(
+          "The configured Supabase client is invalid."
+        );
+      }
+
+      this.client = client;
+
+      // Restore the existing session and let Supabase
+      // manage token expiration and refresh.
+      const {
+        data,
+        error
+      } = await this.client.auth.getSession();
+
+      if (error) {
+        throw error;
+      }
+
+      this.currentSession = data.session;
+      this.currentUser = data.session?.user ?? null;
+
+      // Listen for login, logout, token refresh and
+      // other authentication-state changes.
+      const {
+        data: subscription
+      } = this.client.auth.onAuthStateChange(
+        (event, session) => {
+          this.currentSession = session;
+          this.currentUser = session?.user ?? null;
+
+          this.notifyListeners({
+            event,
+            session,
+            user: this.currentUser
+          });
+        }
+      );
+
+      this.authSubscription = subscription.subscription;
+      this.initialized = true;
+
+      return data.session;
     } catch (error) {
-      console.error('Token decode error:', error);
+      console.error(
+        "[VERIDIS Auth] Initialization failed:",
+        error.message
+      );
+
+      throw error;
+    }
+  }
+
+  /**
+   * Ensure authentication has been initialized.
+   */
+  async ensureInitialized() {
+    if (!this.initialized) {
+      await this.init();
+    }
+
+    return this.client;
+  }
+
+  /**
+   * Get the current Supabase session.
+   */
+  async getSession() {
+    await this.ensureInitialized();
+
+    const {
+      data,
+      error
+    } = await this.client.auth.getSession();
+
+    if (error) {
+      throw error;
+    }
+
+    this.currentSession = data.session;
+    this.currentUser = data.session?.user ?? null;
+
+    return data.session;
+  }
+
+  /**
+   * Get the currently authenticated user.
+   */
+  async getUser() {
+    await this.ensureInitialized();
+
+    const {
+      data,
+      error
+    } = await this.client.auth.getUser();
+
+    if (error) {
+      throw error;
+    }
+
+    this.currentUser = data.user;
+
+    return data.user;
+  }
+
+  /**
+   * Check whether a valid authenticated session exists.
+   */
+  async isAuthenticated() {
+    try {
+      const session = await this.getSession();
+
+      return Boolean(
+        session?.access_token &&
+        session?.user?.id
+      );
+    } catch (error) {
+      console.error(
+        "[VERIDIS Auth] Authentication check failed:",
+        error.message
+      );
+
+      return false;
+    }
+  }
+
+  /**
+   * Sign in using Google OAuth.
+   *
+   * The redirect URL should be registered in:
+   * Supabase Dashboard → Authentication → URL Configuration.
+   */
+  async signInWithGoogle() {
+    await this.ensureInitialized();
+
+    try {
+      const redirectTo = new URL(
+        "Index.html",
+        window.location.href
+      ).href;
+
+      const {
+        data,
+        error
+      } = await this.client.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo
+        }
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      return data;
+    } catch (error) {
+      console.error(
+        "[VERIDIS Auth] Google login failed:",
+        error.message
+      );
+
+      throw new Error(
+        this.getFriendlyError(error)
+      );
+    }
+  }
+
+  /**
+   * Sign in using email and password.
+   */
+  async signInWithEmail(email, password) {
+    await this.ensureInitialized();
+
+    if (!email || !password) {
+      throw new Error(
+        "Please enter your email and password."
+      );
+    }
+
+    try {
+      const {
+        data,
+        error
+      } = await this.client.auth.signInWithPassword({
+        email: email.trim(),
+        password
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      this.currentSession = data.session;
+      this.currentUser = data.user;
+
+      return data;
+    } catch (error) {
+      throw new Error(
+        this.getFriendlyError(error)
+      );
+    }
+  }
+
+  /**
+   * Register a new user using email and password.
+   */
+  async signUpWithEmail(email, password) {
+    await this.ensureInitialized();
+
+    if (!email || !password) {
+      throw new Error(
+        "Please enter your email and password."
+      );
+    }
+
+    if (password.length < 8) {
+      throw new Error(
+        "Your password must contain at least 8 characters."
+      );
+    }
+
+    try {
+      const {
+        data,
+        error
+      } = await this.client.auth.signUp({
+        email: email.trim(),
+        password
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      return data;
+    } catch (error) {
+      throw new Error(
+        this.getFriendlyError(error)
+      );
+    }
+  }
+
+  /**
+   * Send a password-reset email.
+   */
+  async resetPassword(email) {
+    await this.ensureInitialized();
+
+    if (!email) {
+      throw new Error(
+        "Please enter your email address."
+      );
+    }
+
+    try {
+      const redirectTo = new URL(
+        "Login.html",
+        window.location.href
+      ).href;
+
+      const {
+        data,
+        error
+      } = await this.client.auth.resetPasswordForEmail(
+        email.trim(),
+        {
+          redirectTo
+        }
+      );
+
+      if (error) {
+        throw error;
+      }
+
+      return data;
+    } catch (error) {
+      throw new Error(
+        this.getFriendlyError(error)
+      );
+    }
+  }
+
+  /**
+   * Sign out the current user.
+   */
+  async signOut() {
+    await this.ensureInitialized();
+
+    try {
+      const {
+        error
+      } = await this.client.auth.signOut();
+
+      if (error) {
+        throw error;
+      }
+
+      this.currentSession = null;
+      this.currentUser = null;
+
+      return true;
+    } catch (error) {
+      console.error(
+        "[VERIDIS Auth] Logout failed:",
+        error.message
+      );
+
+      throw new Error(
+        this.getFriendlyError(error)
+      );
+    }
+  }
+
+  /**
+   * Require authentication before showing a private page.
+   *
+   * Example:
+   * await authManager.requireAuth("Login.html");
+   */
+  async requireAuth(loginPage = "Login.html") {
+    const authenticated = await this.isAuthenticated();
+
+    if (!authenticated) {
+      const returnTo =
+        window.location.pathname +
+        window.location.search;
+
+      const loginURL = new URL(
+        loginPage,
+        window.location.href
+      );
+
+      loginURL.searchParams.set(
+        "returnTo",
+        returnTo
+      );
+
+      window.location.replace(loginURL.href);
+
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * Return the user's public-facing profile information.
+   *
+   * This does not query the database or expose private
+   * application data.
+   */
+  async getUserProfile() {
+    const user = await this.getUser();
+
+    if (!user) {
       return null;
     }
+
+    return {
+      id: user.id,
+      email: user.email ?? null,
+      name:
+        user.user_metadata?.full_name ??
+        user.user_metadata?.name ??
+        null,
+      avatar:
+        user.user_metadata?.avatar_url ??
+        user.user_metadata?.picture ??
+        null,
+      provider:
+        user.app_metadata?.provider ?? null,
+      createdAt: user.created_at ?? null,
+      emailVerified: Boolean(
+        user.email_confirmed_at
+      )
+    };
   }
 
   /**
-   * Get token expiration time
+   * Subscribe to authentication-state changes.
+   *
+   * Example:
+   * const unsubscribe = authManager.onAuthStateChange(
+   *   ({ event, user }) => console.log(event, user)
+   * );
    */
-  getTokenExpiration() {
-    const expiration = localStorage.getItem(this.expirationKey);
-    return expiration ? new Date(parseInt(expiration)) : null;
+  onAuthStateChange(callback) {
+    if (typeof callback !== "function") {
+      throw new TypeError(
+        "The authentication listener must be a function."
+      );
+    }
+
+    this.listeners.add(callback);
+
+    return () => {
+      this.listeners.delete(callback);
+    };
   }
 
   /**
-   * Check if token is expired
+   * Notify registered listeners.
    */
-  isTokenExpired() {
-    const expiration = this.getTokenExpiration();
-    if (!expiration) return true;
-    return Date.now() > expiration.getTime();
-  }
-
-  /**
-   * Get time until token expiration
-   */
-  getTimeUntilExpiration() {
-    const expiration = this.getTokenExpiration();
-    if (!expiration) return 0;
-    
-    const timeLeft = expiration.getTime() - Date.now();
-    return Math.max(0, timeLeft);
-  }
-
-  /**
-   * Check if token needs refresh
-   */
-  shouldRefreshToken() {
-    const timeLeft = this.getTimeUntilExpiration();
-    // Refresh if less than 5 minutes left
-    return timeLeft < (5 * 60 * 1000);
-  }
-
-  /**
-   * Set up auto-refresh
-   */
-  setupAutoRefresh(refreshCallback) {
-    setInterval(() => {
-      if (this.isAuthenticated() && this.shouldRefreshToken()) {
-        console.log('Auto-refreshing token...');
-        if (typeof refreshCallback === 'function') {
-          refreshCallback();
-        }
+  notifyListeners(payload) {
+    for (const callback of this.listeners) {
+      try {
+        callback(payload);
+      } catch (error) {
+        console.error(
+          "[VERIDIS Auth] Listener error:",
+          error
+        );
       }
-    }, 60000); // Check every minute
+    }
   }
 
   /**
-   * Validate token structure
+   * Read the current access token when needed.
+   *
+   * Do not save a separate copy of this token in localStorage.
    */
-  validateToken(token) {
-    if (!token || typeof token !== 'string') {
+  async getAccessToken() {
+    const session = await this.getSession();
+
+    return session?.access_token ?? null;
+  }
+
+  /**
+   * Ask Supabase to refresh the session if necessary.
+   *
+   * Supabase normally refreshes tokens automatically.
+   * This method is provided for explicit refresh requests.
+   */
+  async refreshSession() {
+    await this.ensureInitialized();
+
+    try {
+      const {
+        data,
+        error
+      } = await this.client.auth.refreshSession();
+
+      if (error) {
+        throw error;
+      }
+
+      this.currentSession = data.session;
+      this.currentUser = data.session?.user ?? null;
+
+      return data.session;
+    } catch (error) {
+      console.error(
+        "[VERIDIS Auth] Session refresh failed:",
+        error.message
+      );
+
+      throw new Error(
+        this.getFriendlyError(error)
+      );
+    }
+  }
+
+  /**
+   * Check whether a user has an application role.
+   *
+   * This only reads role information from JWT claims.
+   * It does not grant permissions.
+   */
+  async hasRole(role) {
+    const session = await this.getSession();
+
+    if (!session || !role) {
       return false;
     }
 
-    const decoded = this.decodeToken(token);
-    if (!decoded) {
-      return false;
-    }
+    const claims =
+      session.user?.app_metadata ?? {};
 
-    // Check required fields
-    return !!(decoded.sub || decoded.id) && decoded.exp;
-  }
+    const roles = Array.isArray(claims.roles)
+      ? claims.roles
+      : claims.role
+        ? [claims.role]
+        : [];
 
-  /**
-   * Get user permissions
-   */
-  getUserPermissions() {
-    const token = this.getToken();
-    if (!token) return [];
-
-    const decoded = this.decodeToken(token);
-    return decoded?.permissions || [];
-  }
-
-  /**
-   * Check user permission
-   */
-  hasPermission(permission) {
-    const permissions = this.getUserPermissions();
-    return permissions.includes(permission);
-  }
-
-  /**
-   * Get user roles
-   */
-  getUserRoles() {
-    const token = this.getToken();
-    if (!token) return [];
-
-    const decoded = this.decodeToken(token);
-    return decoded?.roles || [];
-  }
-
-  /**
-   * Check user role
-   */
-  hasRole(role) {
-    const roles = this.getUserRoles();
     return roles.includes(role);
+  }
+
+  /**
+   * Translate common authentication errors.
+   */
+  getFriendlyError(error) {
+    const message = String(
+      error?.message ?? ""
+    ).toLowerCase();
+
+    if (
+      message.includes("invalid login credentials")
+    ) {
+      return "Incorrect email or password.";
+    }
+
+    if (
+      message.includes("email not confirmed")
+    ) {
+      return "Please verify your email before signing in.";
+    }
+
+    if (
+      message.includes("user already registered")
+    ) {
+      return "An account with this email may already exist.";
+    }
+
+    if (
+      message.includes("network") ||
+      message.includes("fetch")
+    ) {
+      return "Connection failed. Check your internet and try again.";
+    }
+
+    if (
+      message.includes("redirect") &&
+      message.includes("allow")
+    ) {
+      return "The login redirect URL is not configured in Supabase.";
+    }
+
+    return error?.message ||
+      "Authentication failed. Please try again.";
+  }
+
+  /**
+   * Remove this module's event listener and subscriptions.
+   */
+  destroy() {
+    this.authSubscription?.unsubscribe();
+
+    this.authSubscription = null;
+    this.listeners.clear();
+    this.client = null;
+    this.currentSession = null;
+    this.currentUser = null;
+    this.initialized = false;
   }
 }
 
-// Create singleton instance
+/**
+ * Create one shared authentication manager.
+ */
 const authManager = new AuthManager();
 
-// Set up auto-refresh when page loads
-if (typeof window !== 'undefined') {
-  window.addEventListener('load', () => {
-    if (authManager.isAuthenticated()) {
-      authManager.setupAutoRefresh(() => {
-        // Refresh token logic here
-        console.log('Token auto-refresh triggered');
-      });
-    }
+/**
+ * Expose the manager for existing HTML pages and scripts.
+ */
+if (typeof window !== "undefined") {
+  window.authManager = authManager;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    authManager.init().catch((error) => {
+      console.error(
+        "[VERIDIS Auth] Startup error:",
+        error.message
+      );
+    });
   });
 }
 
-// Export
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { AuthManager, authManager };
-}
+/**
+ * Optional CommonJS export for Node-based tests.
+ */
+if (
+  typeof module !== "undefined" &&
+  module.exports
+) {
+  module.exports = {
+    AuthManager,
+    authManager
+  };
+  }
