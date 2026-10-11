@@ -1,266 +1,918 @@
-<script>
-  let authMode = 'signin';
-  let supabaseClient = null;
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  function showAuthMessage(message, kind = 'info') {
-    const bar = document.getElementById('auth-status-bar');
-    if (!bar) return;
+  <title>VERIDIS NutriScan | Secure Login</title>
+  <meta name="theme-color" content="#0e141b">
+  <meta name="description" content="Securely access VERIDIS NutriScan food intelligence.">
 
-    const colors = {
-      error: 'text-error',
-      success: 'text-primary-container',
-      info: 'text-secondary'
-    };
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    bar.classList.remove('hidden');
-    bar.classList.add('flex');
-    bar.replaceChildren();
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
-    const messageElement = document.createElement('span');
-    messageElement.className = colors[kind] || colors.info;
-    messageElement.setAttribute('role', 'status');
-    messageElement.textContent = message;
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
-    bar.appendChild(messageElement);
-  }
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #0e141b;
+      --surface: #161c23;
+      --panel: #090f16;
+      --primary: #00f2a5;
+      --cyan: #4cd7f6;
+      --text: #dde3ed;
+      --muted: #849589;
+      --border: #303a42;
+      --error: #ffb4ab;
+    }
 
-  function setBusy(busy, labelText) {
-    const submitButton = document.getElementById('auth-submit-btn');
-    const googleButtons = document.querySelectorAll('.google-auth-btn');
+    * {
+      box-sizing: border-box;
+    }
 
-    submitButton.disabled = busy;
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 28px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at top, rgba(0,242,165,.09), transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(76,215,246,.06), transparent 45%),
+        var(--background);
+    }
 
-    googleButtons.forEach((button) => {
-      button.disabled = busy;
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: .6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      font: 11px "JetBrains Mono", monospace;
+    }
+
+    .topbar a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .topbar a:hover {
+      color: var(--primary);
+    }
+
+    .online {
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border: 1px solid rgba(132,149,137,.18);
+      border-radius: 18px;
+      background: rgba(9,15,22,.95);
+      box-shadow: 0 25px 80px rgba(0,0,0,.35);
+    }
+
+    .card::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      content: "";
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 28px;
+    }
+
+    .brand-icon {
+      width: 49px;
+      height: 49px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(0,242,165,.2);
+      border-radius: 13px;
+      background: #17251f;
+      color: var(--primary);
+      font-size: 28px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font: 800 20px "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -.6px;
+    }
+
+    .brand h1 span {
+      color: var(--primary);
+    }
+
+    .brand p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .eyebrow {
+      margin-bottom: 10px;
+      color: var(--primary);
+      font: 11px "JetBrains Mono", monospace;
+      letter-spacing: 1.4px;
+    }
+
+    .heading {
+      margin: 0;
+      font: 800 28px "Plus Jakarta Sans", sans-serif;
+    }
+
+    .description {
+      margin: 10px 0 24px;
+      color: #9ba8b5;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      padding: 5px;
+      margin-bottom: 22px;
+      border-radius: 10px;
+      background: #161c23;
+    }
+
+    .tab {
+      padding: 12px 8px;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: #8995a2;
+      font: 600 11px "JetBrains Mono", monospace;
+    }
+
+    .tab.active {
+      background: #090f16;
+      color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+
+    .status {
+      margin-bottom: 18px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #131a20;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .status:empty,
+    .hidden {
+      display: none !important;
+    }
+
+    .status.error {
+      border-color: rgba(255,100,100,.35);
+      color: var(--error);
+    }
+
+    .status.success {
+      border-color: rgba(0,242,165,.3);
+      color: var(--primary);
+    }
+
+    .field {
+      margin-bottom: 19px;
+    }
+
+    .field label,
+    .label-row label {
+      display: block;
+      margin-bottom: 9px;
+      color: #c3ccd5;
+      font: 11px "JetBrains Mono", monospace;
+      letter-spacing: .5px;
+    }
+
+    .label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+
+    .label-row label {
+      margin-bottom: 0;
+    }
+
+    .text-button {
+      padding: 0;
+      border: 0;
+      background: none;
+      color: var(--cyan);
+      font-size: 11px;
+    }
+
+    .text-button:hover {
+      text-decoration: underline;
+    }
+
+    .input {
+      width: 100%;
+      padding: 14px;
+      outline: none;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0,242,165,.09);
+    }
+
+    .input::placeholder {
+      color: #687680;
+    }
+
+    .primary-button,
+    .google-button {
+      width: 100%;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: transform .2s, opacity .2s, background .2s;
+    }
+
+    .primary-button {
+      border: 0;
+      background: var(--primary);
+      color: #003823;
+    }
+
+    .primary-button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      opacity: .9;
+    }
+
+    .google-button {
+      border: 1px solid #39454d;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .google-button:hover:not(:disabled) {
+      background: #242c34;
+    }
+
+    .google-mark {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 23px 0;
+      color: #77838d;
+      font: 10px "JetBrains Mono", monospace;
+      white-space: nowrap;
+    }
+
+    .divider::before,
+    .divider::after {
+      height: 1px;
+      flex: 1;
+      content: "";
+      background: #303840;
+    }
+
+    .footer-note {
+      margin-top: 23px;
+      color: #84919b;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer-note a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    .security-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid #252e35;
+      color: #84919b;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .security-note .material-symbols-outlined {
+      color: var(--primary);
+      font-size: 19px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 23px 19px;
+      }
+
+      .heading {
+        font-size: 25px;
+      }
+
+      .brand h1 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="topbar">
+      <a href="/">← VERIDIS // MAIN PORTAL</a>
+      <span class="online">● AUTH GATEWAY</span>
+    </div>
+
+    <section class="card">
+
+      <header>
+        <div class="brand">
+          <div class="brand-icon">
+            <span class="material-symbols-outlined">biotech</span>
+          </div>
+
+          <div>
+            <h1>VERIDIS <span>NutriScan</span></h1>
+            <p>Your food intelligence dashboard</p>
+          </div>
+        </div>
+
+        <div class="eyebrow">AUTHENTICATION GATEWAY</div>
+
+        <h2 class="heading" id="page-heading">Welcome back</h2>
+
+        <p class="description" id="page-description">
+          Sign in to continue to your nutrition scanning workspace.
+        </p>
+      </header>
+
+      <div class="tabs">
+        <button type="button" id="tab-signin" class="tab active">
+          SIGN IN
+        </button>
+
+        <button type="button" id="tab-signup" class="tab">
+          CREATE ACCOUNT
+        </button>
+      </div>
+
+      <div
+        id="auth-status"
+        class="status hidden"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <form id="auth-form">
+
+        <div class="field">
+          <label for="email">EMAIL ADDRESS</label>
+
+          <input
+            id="email"
+            class="input"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="password">PASSWORD</label>
+
+            <button
+              type="button"
+              id="forgot-password"
+              class="text-button"
+            >
+              Forgot password?
+            </button>
+          </div>
+
+          <input
+            id="password"
+            class="input"
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            minlength="6"
+            required
+          >
+        </div>
+
+        <button
+          id="auth-submit"
+          class="primary-button"
+          type="submit"
+        >
+          <span class="material-symbols-outlined">lock_open</span>
+          <span id="submit-label">SIGN IN</span>
+        </button>
+      </form>
+
+      <div class="divider">OR CONTINUE WITH</div>
+
+      <button
+        id="google-auth-btn"
+        class="google-button"
+        type="button"
+      >
+        <svg class="google-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.76 7.18l7.73 6C44.42 37.94 46.98 31.76 46.98 24.55z"/>
+          <path fill="#FBBC05" d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.87.93 7.52 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.18 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+
+        <span>Continue with Google</span>
+      </button>
+
+      <div class="security-note">
+        <span class="material-symbols-outlined">shield_lock</span>
+
+        <span>
+          Your account is authenticated through Supabase.
+          Never share your password or private API keys.
+        </span>
+      </div>
+
+      <p class="footer-note">
+        By continuing, you agree to use VERIDIS NutriScan responsibly.
+        <br>
+        <a href="/">Return to main portal</a>
+      </p>
+
+    </section>
+  </main>
+
+  <!-- Supabase JavaScript SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Your existing public Supabase configuration -->
+  <script src="/supabase-config.js"></script>
+
+  <script>
+    "use strict";
+
+    /*
+      VERIDIS NutriScan authentication
+
+      Required file:
+      /supabase-config.js
+
+      Expected configuration:
+      window.VERIDIS_SUPABASE_CONFIG = {
+        url: "YOUR_SUPABASE_PROJECT_URL",
+        anonKey: "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY"
+      };
+
+      Never put a Supabase service_role key in browser code.
+    */
+
+    const SCANNER_PATH = "/Scanner.html";
+    const LOGIN_PATH = "/Login.html";
+
+    let authMode = "signin";
+    let supabaseClient = null;
+    let busy = false;
+
+    const form = document.getElementById("auth-form");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const submitButton = document.getElementById("auth-submit");
+    const submitLabel = document.getElementById("submit-label");
+    const statusBox = document.getElementById("auth-status");
+    const googleButton = document.getElementById("google-auth-btn");
+    const forgotButton = document.getElementById("forgot-password");
+
+    const signinTab = document.getElementById("tab-signin");
+    const signupTab = document.getElementById("tab-signup");
+
+    function showMessage(message, type = "info") {
+      statusBox.textContent = message;
+      statusBox.className = "status";
+
+      if (type === "error") {
+        statusBox.classList.add("error");
+      } else if (type === "success") {
+        statusBox.classList.add("success");
+      }
+
+      statusBox.classList.remove("hidden");
+    }
+
+    function hideMessage() {
+      statusBox.textContent = "";
+      statusBox.className = "status hidden";
+    }
+
+    function getSupabaseClient() {
+      if (supabaseClient) {
+        return supabaseClient;
+      }
+
+      if (!window.supabase || !window.supabase.createClient) {
+        throw new Error(
+          "The Supabase SDK could not load. Check your internet connection and refresh."
+        );
+      }
+
+      const config = window.VERIDIS_SUPABASE_CONFIG;
+
+      if (!config || !config.url || !config.anonKey) {
+        throw new Error(
+          "Supabase is not configured. Check supabase-config.js and ensure it contains your project URL and publishable/anon key."
+        );
+      }
+
+      if (
+        config.url.includes("YOUR_SUPABASE") ||
+        config.anonKey.includes("YOUR_SUPABASE")
+      ) {
+        throw new Error(
+          "Replace the placeholder values in supabase-config.js with your actual Supabase configuration."
+        );
+      }
+
+      supabaseClient = window.supabase.createClient(
+        config.url,
+        config.anonKey,
+        {
+          auth: {
+            persistSession: true,
+            autoRefreshToken: true,
+            detectSessionInUrl: true
+          }
+        }
+      );
+
+      return supabaseClient;
+    }
+
+    function setBusy(value, message) {
+      busy = value;
+
+      submitButton.disabled = value;
+      googleButton.disabled = value;
+      forgotButton.disabled = value;
+      signinTab.disabled = value;
+      signupTab.disabled = value;
+
+      if (value) {
+        submitLabel.textContent = message || "PLEASE WAIT...";
+        googleButton.textContent = "Connecting to Google...";
+      } else {
+        submitLabel.textContent =
+          authMode === "signin" ? "SIGN IN" : "CREATE ACCOUNT";
+
+        googleButton.innerHTML = `
+          <svg class="google-mark" viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.76 7.18l7.73 6C44.42 37.94 46.98 31.76 46.98 24.55z"/>
+            <path fill="#FBBC05" d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.87.93 7.52 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.18 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span>Continue with Google</span>
+        `;
+      }
+    }
+
+    function setMode(mode) {
+      authMode = mode;
+      hideMessage();
+
+      const signingIn = mode === "signin";
+
+      signinTab.classList.toggle("active", signingIn);
+      signupTab.classList.toggle("active", !signingIn);
+
+      document.getElementById("page-heading").textContent =
+        signingIn ? "Welcome back" : "Create your account";
+
+      document.getElementById("page-description").textContent =
+        signingIn
+          ? "Sign in to continue to your nutrition scanning workspace."
+          : "Create an account to start exploring your food intelligence dashboard.";
+
+      submitLabel.textContent =
+        signingIn ? "SIGN IN" : "CREATE ACCOUNT";
+
+      passwordInput.autocomplete =
+        signingIn ? "current-password" : "new-password";
+
+      forgotButton.classList.toggle("hidden", !signingIn);
+    }
+
+    function friendlyError(error) {
+      const message = error && error.message
+        ? error.message
+        : "Something went wrong. Please try again.";
+
+      if (/invalid login credentials/i.test(message)) {
+        return "Email or password is incorrect. Check your details or create an account.";
+      }
+
+      if (/email not confirmed/i.test(message)) {
+        return "Please verify your email using the confirmation link sent to you.";
+      }
+
+      if (/user already registered/i.test(message)) {
+        return "This email already has an account. Select Sign In instead.";
+      }
+
+      if (/password should be at least/i.test(message)) {
+        return "Your password does not meet the minimum length requirements.";
+      }
+
+      if (/rate limit/i.test(message)) {
+        return "Too many attempts. Please wait a little before trying again.";
+      }
+
+      if (/network|fetch failed|failed to fetch/i.test(message)) {
+        return "Unable to connect. Check your internet connection and Supabase configuration.";
+      }
+
+      return message;
+    }
+
+    async function redirectToScanner() {
+      showMessage("Login successful. Opening your scanner...", "success");
+
+      // Give the success message a moment to appear.
+      await new Promise(resolve => setTimeout(resolve, 350));
+
+      // Use a relative URL so this works on your deployed domain.
+      window.location.replace(SCANNER_PATH);
+    }
+
+    async function checkExistingSession() {
+      try {
+        const client = getSupabaseClient();
+
+        // If the browser returns from Google OAuth, Supabase processes
+        // the callback and restores the session.
+        const { data, error } = await client.auth.getSession();
+
+        if (error) {
+          throw error;
+        }
+
+        if (data.session) {
+          await redirectToScanner();
+        }
+      } catch (error) {
+        console.error("Session check failed:", error);
+
+        showMessage(
+          friendlyError(error),
+          "error"
+        );
+      }
+    }
+
+    // Change between sign-in and account creation.
+    signinTab.addEventListener("click", () => {
+      if (!busy) {
+        setMode("signin");
+      }
     });
 
-    submitButton.classList.toggle('opacity-60', busy);
-    document.getElementById('submit-label').textContent = labelText;
-  }
-
-  function togglePasskeyVisibility() {
-    const input = document.getElementById('passkey-input');
-    const icon = document.getElementById('passkey-toggle-icon');
-    const visible = input.type === 'password';
-
-    input.type = visible ? 'text' : 'password';
-    icon.textContent = visible ? 'visibility_off' : 'visibility';
-  }
-
-  function setMode(mode) {
-    authMode = mode;
-
-    const signin = document.getElementById('tab-signin');
-    const signup = document.getElementById('tab-signup');
-
-    signin.classList.remove(
-      'bg-surface-container-lowest',
-      'text-primary-container',
-      'shadow-md'
-    );
-
-    signup.classList.remove(
-      'bg-surface-container-lowest',
-      'text-primary-container',
-      'shadow-md'
-    );
-
-    const activeTab = mode === 'signin' ? signin : signup;
-    activeTab.classList.add(
-      'bg-surface-container-lowest',
-      'text-primary-container',
-      'shadow-md'
-    );
-
-    document.getElementById('submit-label').textContent =
-      mode === 'signin' ? 'AUTHORIZE VAULT SESSION' : 'CREATE ACCOUNT';
-
-    document.getElementById('passkey-input').autocomplete =
-      mode === 'signin' ? 'current-password' : 'new-password';
-
-    document.getElementById('auth-status-bar').classList.add('hidden');
-  }
-
-  function getSupabaseClient() {
-    if (supabaseClient) return supabaseClient;
-
-    const config = window.VERIDIS_SUPABASE_CONFIG;
-
-    if (!window.supabase?.createClient) {
-      throw new Error(
-        'Supabase library did not load. Refresh the page and try again.'
-      );
-    }
-
-    if (!config?.url || !config?.anonKey) {
-      throw new Error(
-        'Supabase is not configured. Check supabase-config.js.'
-      );
-    }
-
-    supabaseClient = window.supabase.createClient(
-      config.url,
-      config.anonKey,
-      {
-        auth: {
-          persistSession: true,
-          autoRefreshToken: true,
-          detectSessionInUrl: true
-        }
+    signupTab.addEventListener("click", () => {
+      if (!busy) {
+        setMode("signup");
       }
-    );
+    });
 
-    return supabaseClient;
-  }
-
-  function openScanner() {
-    // Scanner.html is in the root of your deployed website.
-    window.location.assign('/Scanner.html');
-  }
-
-  // Email/password authentication
-  document.getElementById('auth-form').addEventListener(
-    'submit',
-    async (event) => {
+    // Email/password sign-in and registration.
+    form.addEventListener("submit", async event => {
       event.preventDefault();
 
-      const email = document.getElementById('clinical-id').value.trim();
-      const password = document.getElementById('passkey-input').value;
+      if (busy) {
+        return;
+      }
 
-      setBusy(
-        true,
-        authMode === 'signin' ? 'SIGNING IN...' : 'CREATING ACCOUNT...'
-      );
+      hideMessage();
 
-      showAuthMessage('Connecting to authentication service...');
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        showMessage("Enter your email address and password.", "error");
+        return;
+      }
+
+      if (password.length < 6) {
+        showMessage("Your password must contain at least 6 characters.", "error");
+        return;
+      }
+
+      setBusy(true, authMode === "signin" ? "SIGNING IN..." : "CREATING ACCOUNT...");
 
       try {
         const client = getSupabaseClient();
 
-        const result =
-          authMode === 'signin'
-            ? await client.auth.signInWithPassword({ email, password })
-            : await client.auth.signUp({
-                email,
-                password,
-                options: {
-                  emailRedirectTo:
-                    window.location.origin + '/Login.html'
-                }
-              });
+        if (authMode === "signin") {
+          const { data, error } = await client.auth.signInWithPassword({
+            email,
+            password
+          });
 
-        if (result.error) throw result.error;
+          if (error) {
+            throw error;
+          }
 
-        if (authMode === 'signup' && !result.data.session) {
-          setMode('signin');
+          if (!data.session) {
+            throw new Error("Login completed, but no session was returned.");
+          }
 
-          showAuthMessage(
-            'Account created. Check your email to confirm your account before signing in.',
-            'success'
-          );
+          await redirectToScanner();
+        } else {
+          const { data, error } = await client.auth.signUp({
+            email,
+            password,
+            options: {
+              emailRedirectTo: window.location.origin + LOGIN_PATH
+            }
+          });
 
-          return;
+          if (error) {
+            throw error;
+          }
+
+          if (data.session) {
+            await redirectToScanner();
+          } else {
+            showMessage(
+              "Account created. Check your email for a confirmation link, then return here to sign in.",
+              "success"
+            );
+
+            setMode("signin");
+          }
         }
-
-        showAuthMessage('Login successful. Opening scanner...', 'success');
-
-        openScanner();
-
       } catch (error) {
-        showAuthMessage(
-          error.message || 'Sign-in failed. Please try again.',
-          'error'
-        );
+        console.error("Email authentication failed:", error);
+
+        showMessage(friendlyError(error), "error");
       } finally {
-        setBusy(
-          false,
-          authMode === 'signin'
-            ? 'AUTHORIZE VAULT SESSION'
-            : 'CREATE ACCOUNT'
-        );
+        setBusy(false);
       }
-    }
-  );
+    });
 
-  // Google OAuth authentication
-  async function signInWithGoogle() {
-    setBusy(true, 'CONNECTING TO GOOGLE...');
+    // Google OAuth.
+    googleButton.addEventListener("click", async () => {
+      if (busy) {
+        return;
+      }
 
-    showAuthMessage('Opening Google sign-in...');
+      hideMessage();
+      setBusy(true, "CONNECTING...");
 
-    try {
-      const client = getSupabaseClient();
+      try {
+        const client = getSupabaseClient();
 
-      const { error } = await client.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: window.location.origin + '/Login.html'
+        const { error } = await client.auth.signInWithOAuth({
+          provider: "google",
+          options: {
+            // Google returns to Login.html first.
+            // checkExistingSession() then opens Scanner.html.
+            redirectTo: window.location.origin + LOGIN_PATH
+          }
+        });
+
+        if (error) {
+          throw error;
         }
-      });
 
-      if (error) throw error;
+        // Supabase normally redirects the browser automatically.
+        // Do not redirect to Scanner.html here before OAuth completes.
+      } catch (error) {
+        console.error("Google OAuth failed:", error);
 
-      // Supabase redirects the browser to Google.
-      // Do not navigate away manually before OAuth finishes.
-
-    } catch (error) {
-      showAuthMessage(
-        error.message || 'Google sign-in could not start.',
-        'error'
-      );
-
-      setBusy(
-        false,
-        authMode === 'signin'
-          ? 'AUTHORIZE VAULT SESSION'
-          : 'CREATE ACCOUNT'
-      );
-    }
-  }
-
-  // Attach the same handler to both Google buttons.
-  document.querySelectorAll('#google-auth-btn').forEach((button) => {
-    button.addEventListener('click', signInWithGoogle);
-  });
-
-  // Check whether this page was opened after Google's OAuth callback.
-  async function checkExistingSession() {
-    try {
-      const client = getSupabaseClient();
-
-      const { data, error } = await client.auth.getSession();
-
-      if (error) throw error;
-
-      if (data.session) {
-        showAuthMessage('Session restored. Opening scanner...', 'success');
-        openScanner();
+        showMessage(friendlyError(error), "error");
+        setBusy(false);
       }
-    } catch (error) {
-      showAuthMessage(
-        error.message || 'Unable to verify your login session.',
-        'error'
-      );
-    }
-  }
+    });
 
-  document.getElementById('tab-signin').addEventListener(
-    'click',
-    () => setMode('signin')
-  );
+    // Password recovery.
+    forgotButton.addEventListener("click", async () => {
+      if (busy) {
+        return;
+      }
 
-  document.getElementById('tab-signup').addEventListener(
-    'click',
-    () => setMode('signup')
-  );
+      hideMessage();
 
-  function simulateBiometricAuth() {
-    showAuthMessage(
-      'Biometric sign-in is a demo only. Use email/password or Google.',
-      'info'
-    );
-  }
+      const email = emailInput.value.trim();
 
-  // Run after the Supabase SDK and configuration script have loaded.
-  window.addEventListener('load', checkExistingSession);
-              </script>
+      if (!email) {
+        showMessage(
+          "Enter your email address above, then select Forgot password again.",
+          "error"
+        );
+
+        emailInput.focus();
+        return;
+      }
+
+      setBusy(true, "SENDING LINK...");
+
+      try {
+        const client = getSupabaseClient();
+
+        const { error } = await client.auth.resetPasswordForEmail(email, {
+          redirectTo: window.location.origin + LOGIN_PATH
+        });
+
+        if (error) {
+          throw error;
+        }
+
+        showMessage(
+          "If an account exists for that address, a password-reset email will be sent. Check your inbox.",
+          "success"
+        );
+      } catch (error) {
+        console.error("Password reset failed:", error);
+        showMessage(friendlyError(error), "error");
+      } finally {
+        setBusy(false);
+      }
+    });
+
+    // Restore an existing session after the page and Supabase SDK load.
+    window.addEventListener("load", checkExistingSession);
+  </script>
+</body>
+    </html>
