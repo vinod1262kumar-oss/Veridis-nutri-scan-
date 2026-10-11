@@ -1,421 +1,368 @@
-// VERIDIS NutriScan
-// Supabase Authentication Manager
-// Requires: @supabase/supabase-js v2
-// Requires: supabase client initialized in supabase-config.js
+// VERIDIS NutriScan — Supabase Authentication Manager
+// Requires supabase-config.js to initialize window.supabaseClient.
 
-class AuthManager {
-  constructor() {
-    this.client = null;
-    this.currentUser = null;
-    this.authSubscription = null;
-    this.initializationPromise = null;
-  }
+(function (global) {
+  "use strict";
 
-  /**
-   * Initialize using the existing Supabase client.
-   * supabase-config.js must expose window.supabaseClient.
-   */
-  async init() {
-    if (this.initializationPromise) {
-      return this.initializationPromise;
+  class AuthManager {
+    constructor() {
+      this.client = null;
+      this.currentUser = null;
+      this.authSubscription = null;
+      this.initializationPromise = null;
     }
 
-    this.initializationPromise = (async () => {
-      this.client = window.supabaseClient || null;
-
-      if (!this.client) {
-        throw new Error(
-          "Supabase client not found. Check supabase-config.js."
-        );
+    async init() {
+      if (this.initializationPromise) {
+        return this.initializationPromise;
       }
 
-      const { data, error } = await this.client.auth.getSession();
+      this.initializationPromise = (async () => {
+        const client = global.supabaseClient;
+
+        if (!client?.auth) {
+          throw new Error(
+            "Supabase client unavailable. Check script order and supabase-config.js."
+          );
+        }
+
+        this.client = client;
+
+        const { data, error } = await client.auth.getSession();
+
+        if (error) throw error;
+
+        this.currentUser = data.session?.user || null;
+
+        if (!this.authSubscription) {
+          const { data: subscriptionData } =
+            client.auth.onAuthStateChange((event, session) => {
+              this.currentUser = session?.user || null;
+
+              global.dispatchEvent(
+                new CustomEvent("veridis:auth-state-changed", {
+                  detail: {
+                    event,
+                    user: this.currentUser
+                  }
+                })
+              );
+            });
+
+          this.authSubscription =
+            subscriptionData.subscription;
+        }
+
+        return this.currentUser;
+      })();
+
+      try {
+        return await this.initializationPromise;
+      } catch (error) {
+        this.initializationPromise = null;
+        this.client = null;
+        throw error;
+      }
+    }
+
+    async getSession() {
+      await this.init();
+
+      const { data, error } =
+        await this.client.auth.getSession();
+
+      if (error) throw error;
+
+      return data.session;
+    }
+
+    async getUser() {
+      await this.init();
+
+      const { data, error } =
+        await this.client.auth.getUser();
+
+      if (error) throw error;
+
+      this.currentUser = data.user || null;
+      return this.currentUser;
+    }
+
+    async getToken() {
+      const session = await this.getSession();
+      return session?.access_token || null;
+    }
+
+    // Supabase manages session storage and refresh.
+    setToken() {
+      console.warn(
+        "Manual token storage is disabled. Use Supabase Auth."
+      );
+    }
+
+    async isAuthenticated() {
+      const session = await this.getSession();
+      return Boolean(session?.user);
+    }
+
+    async signInWithGoogle(redirectTo) {
+      await this.init();
+
+      const destination =
+        redirectTo || `${global.location.origin}/`;
+
+      const { data, error } =
+        await this.client.auth.signInWithOAuth({
+          provider: "google",
+          options: {
+            redirectTo: destination
+          }
+        });
+
+      if (error) throw error;
+
+      return data;
+    }
+
+    async signInWithPassword(email, password) {
+      await this.init();
+
+      const { data, error } =
+        await this.client.auth.signInWithPassword({
+          email: String(email).trim(),
+          password
+        });
+
+      if (error) throw error;
+
+      this.currentUser = data.user || null;
+      return data;
+    }
+
+    async signUp(email, password, options = {}) {
+      await this.init();
+
+      const { data, error } =
+        await this.client.auth.signUp({
+          email: String(email).trim(),
+          password,
+          options
+        });
+
+      if (error) throw error;
+
+      this.currentUser = data.user || null;
+      return data;
+    }
+
+    async signOut() {
+      await this.init();
+
+      const { error } = await this.client.auth.signOut();
+
+      if (error) throw error;
+
+      this.currentUser = null;
+      return true;
+    }
+
+    async clearAuth() {
+      return this.signOut();
+    }
+
+    async refreshSession() {
+      await this.init();
+
+      const { data, error } =
+        await this.client.auth.refreshSession();
+
+      if (error) throw error;
+
+      this.currentUser = data.session?.user || null;
+      return data.session;
+    }
+
+    async getUserProfile() {
+      const user = await this.getUser();
+
+      if (!user) return null;
+
+      const { data, error } = await this.client
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .maybeSingle();
 
       if (error) {
+        console.error("Profile lookup failed:", error.message);
         throw error;
       }
 
-      this.currentUser = data.session?.user || null;
+      return {
+        ...(data || {}),
+        id: user.id,
+        email: user.email,
+        full_name:
+          data?.full_name ||
+          user.user_metadata?.full_name ||
+          user.user_metadata?.name ||
+          "",
+        avatar_url:
+          data?.avatar_url ||
+          user.user_metadata?.avatar_url ||
+          user.user_metadata?.picture ||
+          null,
+        created_at: data?.created_at || user.created_at
+      };
+    }
 
-      if (!this.authSubscription) {
-        const { data: subscriptionData } =
-          this.client.auth.onAuthStateChange((event, session) => {
-            this.currentUser = session?.user || null;
+    async setUserProfile(profile = {}) {
+      const user = await this.getUser();
 
-            window.dispatchEvent(
-              new CustomEvent("veridis:auth-state-changed", {
-                detail: {
-                  event,
-                  user: this.currentUser
-                }
-              })
-            );
-          });
-
-        this.authSubscription =
-          subscriptionData.subscription;
+      if (!user) {
+        throw new Error("Please sign in before saving your profile.");
       }
 
-      return this.currentUser;
-    })();
+      const fullName =
+        profile.full_name ??
+        profile.fullName ??
+        user.user_metadata?.full_name ??
+        user.user_metadata?.name ??
+        "";
 
-    try {
-      return await this.initializationPromise;
-    } catch (error) {
-      this.initializationPromise = null;
-      throw error;
+      const { data, error } = await this.client
+        .from("profiles")
+        .upsert(
+          {
+            id: user.id,
+            email: user.email,
+            full_name: fullName,
+            updated_at: new Date().toISOString()
+          },
+          { onConflict: "id" }
+        )
+        .select()
+        .single();
+
+      if (error) {
+        console.error("Profile save failed:", error.message);
+        throw error;
+      }
+
+      return data;
     }
-  }
 
-  /**
-   * Get the active session.
-   */
-  async getSession() {
-    await this.init();
+    decodeToken(token) {
+      try {
+        if (typeof token !== "string") return null;
 
-    const { data, error } =
-      await this.client.auth.getSession();
+        const parts = token.split(".");
+        if (parts.length !== 3) return null;
 
-    if (error) throw error;
+        const base64 = parts[1]
+          .replace(/-/g, "+")
+          .replace(/_/g, "/");
 
-    return data.session;
-  }
+        const padded = base64.padEnd(
+          Math.ceil(base64.length / 4) * 4,
+          "="
+        );
 
-  /**
-   * Get the authenticated user.
-   */
-  async getUser() {
-    await this.init();
+        const bytes = Uint8Array.from(
+          global.atob(padded),
+          character => character.charCodeAt(0)
+        );
 
-    const { data, error } =
-      await this.client.auth.getUser();
+        return JSON.parse(
+          new TextDecoder().decode(bytes)
+        );
+      } catch {
+        return null;
+      }
+    }
 
-    if (error) throw error;
+    async getTokenExpiration() {
+      const session = await this.getSession();
 
-    this.currentUser = data.user;
-    return data.user;
-  }
+      return session?.expires_at
+        ? new Date(session.expires_at * 1000)
+        : null;
+    }
 
-  /**
-   * Return the current access token.
-   * Supabase manages refreshing the session.
-   */
-  async getToken() {
-    const session = await this.getSession();
-    return session?.access_token || null;
-  }
+    async isTokenExpired() {
+      const expiration = await this.getTokenExpiration();
 
-  /**
-   * Compatibility method.
-   * New code should use getToken() instead.
-   */
-  setToken() {
-    console.warn(
-      "Do not store tokens manually. Supabase manages sessions."
-    );
-  }
+      return !expiration || Date.now() >= expiration.getTime();
+    }
 
-  /**
-   * Get the current user's profile.
-   */
-  async getUserProfile() {
-    const user = await this.getUser();
+    async getTimeUntilExpiration() {
+      const expiration = await this.getTokenExpiration();
 
-    if (!user) return null;
+      return expiration
+        ? Math.max(0, expiration.getTime() - Date.now())
+        : 0;
+    }
 
-    const { data, error } = await this.client
-      .from("profiles")
-      .select("*")
-      .eq("id", user.id)
-      .maybeSingle();
-
-    if (error) {
-      console.error(
-        "Could not fetch user profile:",
-        error.message
+    setupAutoRefresh() {
+      console.info(
+        "Supabase Auth handles session refresh automatically."
       );
-      throw error;
     }
 
-    return {
-      id: user.id,
-      email: user.email,
-      full_name:
-        data?.full_name ||
-        user.user_metadata?.full_name ||
-        user.user_metadata?.name ||
-        "",
-      avatar_url:
-        user.user_metadata?.avatar_url ||
-        user.user_metadata?.picture ||
-        null,
-      created_at: data?.created_at || user.created_at
+    validateToken(token) {
+      const decoded = this.decodeToken(token);
+
+      // This is only a structural check, not signature verification.
+      return Boolean(
+        decoded &&
+        (decoded.sub || decoded.id) &&
+        decoded.exp
+      );
+    }
+
+    async getUserPermissions() {
+      const user = await this.getUser();
+      return user?.app_metadata?.permissions || [];
+    }
+
+    async hasPermission(permission) {
+      const permissions = await this.getUserPermissions();
+      return permissions.includes(permission);
+    }
+
+    async getUserRoles() {
+      const user = await this.getUser();
+      const role = user?.app_metadata?.role;
+
+      return role ? [role] : [];
+    }
+
+    async hasRole(role) {
+      const roles = await this.getUserRoles();
+      return roles.includes(role);
+    }
+
+    destroy() {
+      if (this.authSubscription) {
+        this.authSubscription.unsubscribe();
+        this.authSubscription = null;
+      }
+
+      this.client = null;
+      this.currentUser = null;
+      this.initializationPromise = null;
+    }
+  }
+
+  const authManager = new AuthManager();
+
+  global.AuthManager = AuthManager;
+  global.authManager = authManager;
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = {
+      AuthManager,
+      authManager
     };
   }
-
-  /**
-   * Save or update the current user's profile.
-   */
-  async setUserProfile(profile = {}) {
-    const user = await this.getUser();
-
-    if (!user) {
-      throw new Error("Please log in first.");
-    }
-
-    const fullName =
-      profile.full_name ||
-      profile.fullName ||
-      user.user_metadata?.full_name ||
-      user.user_metadata?.name ||
-      "";
-
-    const { data, error } = await this.client
-      .from("profiles")
-      .upsert(
-        {
-          id: user.id,
-          email: user.email,
-          full_name: fullName,
-          updated_at: new Date().toISOString()
-        },
-        { onConflict: "id" }
-      )
-      .select()
-      .single();
-
-    if (error) {
-      console.error(
-        "Could not save profile:",
-        error.message
-      );
-      throw error;
-    }
-
-    return data;
-  }
-
-  /**
-   * Check authentication.
-   * Returns a Promise<boolean>.
-   */
-  async isAuthenticated() {
-    const session = await this.getSession();
-    return !!session?.user;
-  }
-
-  /**
-   * Sign in with Google.
-   */
-  async signInWithGoogle() {
-    await this.init();
-
-    const redirectTo = window.location.origin;
-
-    const { data, error } =
-      await this.client.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo
-        }
-      });
-
-    if (error) throw error;
-
-    return data;
-  }
-
-  /**
-   * Sign out the current user.
-   */
-  async signOut() {
-    await this.init();
-
-    const { error } = await this.client.auth.signOut();
-
-    if (error) throw error;
-
-    this.currentUser = null;
-    return true;
-  }
-
-  /**
-   * Clear the Supabase session.
-   * Retained for compatibility with older code.
-   */
-  async clearAuth() {
-    return this.signOut();
-  }
-
-  /**
-   * Refresh the Supabase session when necessary.
-   */
-  async refreshSession() {
-    await this.init();
-
-    const { data, error } =
-      await this.client.auth.refreshSession();
-
-    if (error) throw error;
-
-    this.currentUser = data.session?.user || null;
-    return data.session;
-  }
-
-  /**
-   * Decode JWT payload for informational purposes only.
-   * Decoding does NOT verify the token's authenticity.
-   */
-  decodeToken(token) {
-    try {
-      const parts = token.split(".");
-
-      if (parts.length !== 3) return null;
-
-      const base64 = parts[1]
-        .replace(/-/g, "+")
-        .replace(/_/g, "/");
-
-      const padded = base64.padEnd(
-        Math.ceil(base64.length / 4) * 4,
-        "="
-      );
-
-      const bytes = Uint8Array.from(
-        atob(padded),
-        char => char.charCodeAt(0)
-      );
-
-      const payload = new TextDecoder().decode(bytes);
-
-      return JSON.parse(payload);
-    } catch (error) {
-      console.error("Token decode error:", error);
-      return null;
-    }
-  }
-
-  /**
-   * Token expiry information.
-   */
-  async getTokenExpiration() {
-    const session = await this.getSession();
-
-    if (!session?.expires_at) return null;
-
-    return new Date(session.expires_at * 1000);
-  }
-
-  async isTokenExpired() {
-    const expiration = await this.getTokenExpiration();
-
-    if (!expiration) return true;
-
-    return Date.now() >= expiration.getTime();
-  }
-
-  async getTimeUntilExpiration() {
-    const expiration = await this.getTokenExpiration();
-
-    if (!expiration) return 0;
-
-    return Math.max(
-      0,
-      expiration.getTime() - Date.now()
-    );
-  }
-
-  /**
-   * Supabase automatically refreshes sessions.
-   * This method is retained for compatibility.
-   */
-  setupAutoRefresh() {
-    console.info(
-      "Supabase Auth manages session refresh automatically."
-    );
-  }
-
-  /**
-   * Validate basic token structure.
-   * This does not replace server-side verification.
-   */
-  validateToken(token) {
-    if (!token || typeof token !== "string") {
-      return false;
-    }
-
-    const decoded = this.decodeToken(token);
-
-    return !!(
-      decoded &&
-      (decoded.sub || decoded.id) &&
-      decoded.exp
-    );
-  }
-
-  /**
-   * Read permissions from user app metadata.
-   * Never trust client-side permissions for authorization.
-   */
-  async getUserPermissions() {
-    const user = await this.getUser();
-
-    return user?.app_metadata?.permissions || [];
-  }
-
-  async hasPermission(permission) {
-    const permissions = await this.getUserPermissions();
-
-    return permissions.includes(permission);
-  }
-
-  /**
-   * Read roles from user app metadata.
-   */
-  async getUserRoles() {
-    const user = await this.getUser();
-
-    const role = user?.app_metadata?.role;
-
-    return role ? [role] : [];
-  }
-
-  async hasRole(role) {
-    const roles = await this.getUserRoles();
-
-    return roles.includes(role);
-  }
-
-  /**
-   * Unsubscribe from authentication events.
-   */
-  destroy() {
-    if (this.authSubscription) {
-      this.authSubscription.unsubscribe();
-      this.authSubscription = null;
-    }
-
-    this.client = null;
-    this.currentUser = null;
-    this.initializationPromise = null;
-  }
-}
-
-// Create the singleton.
-const authManager = new AuthManager();
-
-// Keep compatibility with browser scripts.
-if (typeof window !== "undefined") {
-  window.authManager = authManager;
-}
-
-// Support CommonJS environments where applicable.
-if (
-  typeof module !== "undefined" &&
-  module.exports
-) {
-  module.exports = {
-    AuthManager,
-    authManager
-  };
-      }
+})(window);
