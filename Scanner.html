@@ -1,454 +1,1701 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>VERIDIS NutriScan - Biological Intelligence Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#ffefe0","tertiary-fixed-dim":"#ffb95f","inverse-on-surface":"#2b3139","surface-dim":"#0e141b","surface-variant":"#2f353d","surface":"#0e141b","surface-container-low":"#161c23","error":"#ffb4ab","primary-container":"#00f2a5","inverse-surface":"#dde3ed","secondary-fixed":"#acedff","surface-container":"#1a2027","background":"#0e141b","on-secondary-fixed":"#001f26","on-primary":"#003823","primary-fixed-dim":"#00e29a","surface-container-high":"#242a32","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","on-tertiary-fixed":"#2a1700","on-tertiary-container":"#825100","on-error":"#690005","on-error-container":"#ffdad6","outline":"#849589","on-primary-fixed":"#002113","primary-fixed":"#4affb4","tertiary-fixed":"#ffddb8","inverse-primary":"#006c47","secondary":"#4cd7f6","primary":"#c0ffdb","on-primary-fixed-variant":"#005235","surface-container-highest":"#2f353d","on-tertiary-fixed-variant":"#653e00","on-tertiary":"#472a00","surface-tint":"#00e29a","tertiary-container":"#ffcc90","on-surface":"#dde3ed","on-secondary-container":"#00424e","outline-variant":"#3b4a41","on-surface-variant":"#b9cbbe","on-primary-container":"#006945","on-secondary":"#003640","secondary-fixed-dim":"#4cd7f6","surface-bright":"#343a42","on-background":"#dde3ed","surface-container-lowest":"#090f16","error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"2rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter-mobile":"0.75rem","space-sm":"0.5rem"},fontFamily:{"data-display-md":["JetBrains Mono"],"label-mono-xs":["JetBrains Mono"],"body-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-display-lg":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"data-display-md":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"data-display-lg":["40px",{"lineHeight":"44px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase leading-none">VERIDIS NUTRISCAN</span><span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant tracking-widest mt-1">BIO-SPECTRAL ANALYSIS</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low border border-primary-container/20"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,242,165,0.8)]"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">SPECTRA v3.4 ONLINE</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container/60" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="live-scanner" href="#">Live Scanner</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="ingredient-intel" href="#">Ingredient Intel</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="health-vault" href="#">Health Vault</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="clean-food-explorer" href="#">Clean Food Explorer</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container px-space-md py-space-xs rounded-xl transition-all cursor-pointer group" id="nav-scan-trigger"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-lg">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search matrix...</span><kbd class="px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-secondary">⌘K / Scan Barcode</kbd></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-mono-xs text-label-mono-xs text-primary tracking-wider uppercase">SENSOR ACTIVE</span></div><button class="relative p-space-xs rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden sm:flex flex-col text-right"><span class="font-label-mono text-label-mono text-on-surface">Dr. Elena Vance</span><span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-wider">Pro Bio-Tier</span></div><div class="relative ring-1 ring-primary-container/30 rounded-full p-0.5"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfYHjWGiIm2RsNaTVEu5XYRXJb83fhKz8fqz-JwjjFymWdmQQdzg16x7Oaegy9WBp82_GSodCHddes6_xHpkK_rWngrkwwAOTZouHupN8WHj0_dLBRG7OQifkTG0CP-0cML8eqy2dsjGmyrE9cZg1It_5yiFy_1w8fQyfM0fHHbuYLEdRtOZd8tcmaQmbfPvhHHG_g6nOylj31YLMBRSkKkdBzUGIY7EcLqQSlURw"/></div></div></div></div></div><div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/50 to-transparent shadow-[0_0_12px_rgba(0,242,165,0.4)]"></div></header><main class="w-full pt-20 bg-background relative min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
-<div class="w-full px-gutter-mobile lg:px-gutter py-space-md max-w-[1540px] mx-auto flex flex-col gap-space-lg">
-<!-- Top HUD Navigation & Control Strip -->
-<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md bg-surface-container-low/70 backdrop-blur-xl p-space-md rounded-xl shadow-xl">
-<div class="flex flex-col md:flex-row md:items-center gap-space-md">
-<div class="flex items-center gap-space-sm">
-<div class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_12px_rgba(0,242,165,0.9)] animate-pulse"></div>
-<div>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary tracking-widest uppercase block">DIAGNOSTIC MATRIX // ACTIVE VIEWPORT</span>
-<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-none mt-0.5">Real-Time Food Spectrometer &amp; Barcode Scanner</h1>
-</div>
-</div>
-<div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-lg">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">FREQ:</span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">915nm NIR / HYPERSPECTRAL</span>
-</div>
-</div>
-<!-- Mode Switcher Pill Group -->
-<div class="flex items-center overflow-x-auto gap-space-xs bg-surface-container-lowest/80 p-1 rounded-xl">
-<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono bg-primary-container text-on-primary-container font-semibold transition-all shadow-[0_0_16px_rgba(0,242,165,0.35)] flex items-center gap-space-xs" id="mode-opt">
-<span class="material-symbols-outlined text-base">center_focus_strong</span>
-<span>Optical Camera</span>
-</button>
-<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-space-xs" id="mode-bar">
-<span class="material-symbols-outlined text-base">barcode_scanner</span>
-<span>Barcode Beam</span>
-</button>
-<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-space-xs" id="mode-nir">
-<span class="material-symbols-outlined text-base">graphic_eq</span>
-<span>Spectro-NIR Sensor</span>
-</button>
-<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-space-xs" id="mode-upl">
-<span class="material-symbols-outlined text-base">cloud_upload</span>
-<span>Upload Package</span>
-</button>
-</div>
-</div>
-<!-- Main Viewport & Telemetry Grid (60 / 40 Split) -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-<!-- LEFT COLUMN: SCAN VIEWPORT & INTERACTIVE HUD (7 of 12 cols = ~58-60%) -->
-<div class="lg:col-span-7 flex flex-col gap-space-md">
-<!-- Viewport Chamber -->
-<div class="relative w-full aspect-[4/3] sm:aspect-[16/11] bg-surface-container-lowest rounded-xl overflow-hidden shadow-2xl flex flex-col justify-between p-space-md sm:p-space-lg group">
-<!-- Background Product Simulation Image -->
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover opacity-80 filter contrast-125 brightness-90 group-hover:scale-105 transition-transform duration-700" data-alt="High-end organic cold-pressed almond and macadamia beverage carton on laboratory slate counter with botanical glass apparatus, soft cinematic teal and emerald rim illumination, hyper-detailed clean food packaging, dark futuristic bio-tech laboratory vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlWSkRtnuf2pYzxjvLjpqsjFp5E-C2oiTnxKOZxCKVm8A7L_YmmWCDfBC4oQUI60n-qkfxSQwg3cQzJa45utSrd2l4HBDlK1c_ik6WhiQ0iTZSXWtymty9FkUs1bjC9eBdnksZOfFSRfMdqXfISmLfc6Y0CsJV04QEjuVBXP2kE4N6v3iXvvPEZx3PY-S2I_OlDyo_ANn6N60TkqM2b6hu7DXjbQR2OxVjFL1Bgcc"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-surface-container-lowest/70 pointer-events-none"></div>
-<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(9,15,22,0.85)_100%)] pointer-events-none"></div>
-</div>
-<!-- Animated Sweeping Laser Ray -->
-<div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-95 shadow-[0_0_24px_rgba(0,242,165,1)] z-10 pointer-events-none animate-[scanLaser_3.2s_ease-in-out_infinite]" style="animation: scanLaser 3.5s ease-in-out infinite;"></div>
-<style>
-            @keyframes scanLaser {
-              0% { top: 6%; opacity: 0.1; }
-              15% { opacity: 0.95; }
-              85% { opacity: 0.95; }
-              100% { top: 92%; opacity: 0.1; }
-            }
-          </style>
-<!-- Holographic Targeting HUD Reticle Overlay -->
-<div class="relative z-20 flex flex-col justify-between h-full pointer-events-none">
-<!-- Top Reticle & Sensor Telemetry Badges -->
-<div class="flex items-start justify-between gap-space-md">
-<div class="flex flex-col gap-space-xs pointer-events-auto">
-<div class="flex items-center gap-space-xs bg-surface-container-high/90 backdrop-blur-md px-space-sm py-1 rounded shadow-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider">LOCKED // SPECTRUM ACQUIRED</span>
-</div>
-<div class="bg-surface-container-lowest/90 backdrop-blur-md p-space-sm rounded-lg max-w-xs shadow-lg">
-<span class="font-label-mono-xs text-label-mono-xs text-secondary block">TARGET MATRIX ID</span>
-<p class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate leading-tight">Almond &amp; Macadamia Mylk</p>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">BARCODE: 890412891044</span>
-</div>
-</div>
-<!-- Reticle System Benchmarks -->
-<div class="flex flex-col items-end gap-1 pointer-events-auto">
-<div class="bg-surface-container-high/90 backdrop-blur-md px-space-sm py-0.5 rounded flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">OPTICAL FIDELITY:</span>
-<span class="font-label-mono text-label-mono text-primary font-bold">99.4%</span>
-</div>
-<div class="bg-surface-container-high/90 backdrop-blur-md px-space-sm py-0.5 rounded flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">SPECTRA LATENCY:</span>
-<span class="font-label-mono text-label-mono text-secondary font-bold">14ms</span>
-</div>
-<div class="bg-surface-container-high/90 backdrop-blur-md px-space-sm py-0.5 rounded flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">TEMPERATURE:</span>
-<span class="font-label-mono text-label-mono text-on-surface font-semibold">4.2°C (CHILLED)</span>
-</div>
-</div>
-</div>
-<!-- Central Scanning Reticle Corner Brackets -->
-<div class="relative w-full max-w-md mx-auto aspect-square max-h-60 sm:max-h-72 flex items-center justify-center pointer-events-none">
-<!-- Top-Left Corner -->
-<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary-container shadow-[0_0_12px_rgba(0,242,165,0.7)]"></div>
-<!-- Top-Right Corner -->
-<div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary-container shadow-[0_0_12px_rgba(0,242,165,0.7)]"></div>
-<!-- Bottom-Left Corner -->
-<div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary-container shadow-[0_0_12px_rgba(0,242,165,0.7)]"></div>
-<!-- Bottom-Right Corner -->
-<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary-container shadow-[0_0_12px_rgba(0,242,165,0.7)]"></div>
-<!-- Subtle Reticle Center Target Crosshair -->
-<div class="relative w-16 h-16 flex items-center justify-center">
-<div class="w-full h-px bg-secondary/50"></div>
-<div class="h-full w-px bg-secondary/50 absolute"></div>
-<div class="w-6 h-6 rounded-full border border-secondary/70 animate-pulse absolute"></div>
-</div>
-<!-- Monospace Bounding Metadata Card inside Target -->
-<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs text-primary shadow-sm pointer-events-auto">
-                BIO-SIG: UNADULTERATED [TAG: #412]
-              </div>
-</div>
-<!-- Viewport Bottom Status Bar -->
-<div class="flex items-end justify-between gap-space-md">
-<div class="flex items-center gap-space-sm bg-surface-container-high/90 backdrop-blur-md px-space-sm py-1 rounded">
-<span class="material-symbols-outlined text-secondary text-sm">filter_vintage</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface">COLLOIDAL NUTRITION PROFILE LOCKED</span>
-</div>
-<div class="flex items-center gap-space-xs bg-surface-container-lowest/90 px-space-sm py-1 rounded">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary-fixed">LIVE 4K SENSOR FEED</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Viewport Interactive Action Control Bar -->
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs bg-surface-container-low p-space-xs rounded-xl shadow-md">
-<button class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95 group" id="torch-btn">
-<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-lg">flashlight_on</span>
-<span class="font-label-mono text-label-mono font-medium">Spectro Torch</span>
-</button>
-<button class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95 group" id="lens-btn">
-<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-lg">lens</span>
-<span class="font-label-mono text-label-mono font-medium">Macro / NIR</span>
-</button>
-<button class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95 group" id="freeze-btn">
-<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-lg">pause_circle</span>
-<span class="font-label-mono text-label-mono font-medium">Freeze Matrix</span>
-</button>
-<button class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg bg-surface-container-highest hover:bg-surface-bright text-primary font-semibold transition-all active:scale-95">
-<span class="material-symbols-outlined text-primary-container text-lg">playlist_play</span>
-<span class="font-label-mono text-label-mono">Batch Scan (4/12)</span>
-</button>
-</div>
-<!-- Rapid-Scan Roll Thumbnail Strip -->
-<div class="flex flex-col gap-space-xs bg-surface-container-low/60 p-space-md rounded-xl">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-outline text-base">history</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase tracking-wider">SESSION SCAN AUDIT LOG</span>
-</div>
-<a class="font-label-mono-xs text-label-mono-xs text-secondary hover:underline" href="#">VIEW ALL 18 SCANS →</a>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm mt-1">
-<!-- Item 1 (Active) -->
-<div class="flex items-center gap-space-xs p-1.5 rounded-lg bg-surface-container-highest shadow-sm relative overflow-hidden">
-<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
-<div class="w-10 h-10 rounded bg-surface-dim overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Close up photograph of organic almond macadamia milk bottle on laboratory black granite" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc0YapM5AIwCdJxM512Zdv7h7JNIXqT9CMbXrqQFQIpRd5KoQNeT-IiSwvYMYf_xNjbY18N4PD-uBqEJrHWy7xYr8VzXwHz5aQPfvVF6ul8xrPPjkIydMT9fVFTyFtMj_mOWpK1B-6WIW0BzeA6l69Mx4wUK-OGuPsPf0PgxwazHjt3IAz8BhPRsYqiWaPxTXKvsMV_Z4vUBujKHGRdmyNBN2vg7_JCpwuo4TeUuw"/>
-</div>
-<div class="flex flex-col min-w-0 pr-1">
-<span class="font-label-mono text-label-mono text-on-surface truncate font-semibold">Almond Mylk</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">94 OPTIMAL</span>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="flex items-center gap-space-xs p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
-<div class="w-10 h-10 rounded bg-surface-dim overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Artisanal raw Greek sourdough bread loaf textured macro shot under cool spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADZ2MdMBInZqyHQk4eh02O1fPmqd-nS6obGWLYnyFrEgYDD8gAOiMqf-VzZDo2rex41N8u9ZBBPQD8DGgoAygat6smfyp2rQcq18ZVEY99UxApPLQCCrt35w_ic3CzE15bj5ocMkgalVKwGpwUAn7cIiPXabb4QsdHoF1AHTDuvmolrHrekETtX6bw9TGet0VDlEi7jKe3Hd-rjTrOHdqPDf_Z6AmQ77Iq8iB4HW8"/>
-</div>
-<div class="flex flex-col min-w-0 pr-1">
-<span class="font-label-mono text-label-mono text-on-surface-variant truncate">Raw Sourdough</span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary-fixed font-bold">88 EXCELLENT</span>
-</div>
-</div>
-<!-- Item 3 (Warning) -->
-<div class="flex items-center gap-space-xs p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
-<div class="w-10 h-10 rounded bg-surface-dim overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Commercial chocolate protein bar wrapper on dark reflective tech backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh3JtaECxBdU6TuQe4Pvfw0q8UeiOQ_GSOHlEu-I67U097H5nW-oim-kKEPQT6vCgFFrVep6iYlwVywFtwUdM4zzN8CZFi78Gm79eUCrhVvHatIIDHLDCaJ2iPwhxtrurZ1wCOj4FmH3BLfMwoiammmL53yEN2boSBx1o2C_fsdqnmyG1ivjUMddPJJRiOEUbRrxYbnd1cBNuuBD3aTCSsdZiJDOOe4xZYRrEbKAE"/>
-</div>
-<div class="flex flex-col min-w-0 pr-1">
-<span class="font-label-mono text-label-mono text-on-surface-variant truncate">Crunch Bar</span>
-<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim font-bold">54 MODERATE</span>
-</div>
-</div>
-<!-- Item 4 (Critical) -->
-<div class="flex items-center gap-space-xs p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
-<div class="w-10 h-10 rounded bg-surface-dim overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Can of synthetic energy drink with neon artificial branding on laboratory slate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb0gQ42drb1THPRs2KDDRAt6AP5lSwSc7OqhHwzsYGtM1VThc41uKwhYXeWxogiLsAv3f7IFfKUpNVv-l5hVEl4kKPkkSw8Yszakb1fkjmuusJCVMYOobvTRxAnACGx_FP2Cw3jxPJtNyMk9MWFoaGhclg6B0q7wLCtMUyDfQf7_7J465PmZBfNEjQga7LoDbnkFLoIFI3h7OjFVyOo26nXK8Nf_5Mg7CrMSU4vFk"/>
-</div>
-<div class="flex flex-col min-w-0 pr-1">
-<span class="font-label-mono text-label-mono text-on-surface-variant truncate">Nitro Energy</span>
-<span class="font-label-mono-xs text-label-mono-xs text-error font-bold">22 HAZARD</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- RIGHT COLUMN: INSTANT TELEMETRY & HEALTH INTELLIGENCE (5 of 12 cols = ~40-42%) -->
-<div class="lg:col-span-5 flex flex-col gap-space-md">
-<!-- Score Card & Classification Hero Panel -->
-<div class="p-space-lg rounded-xl bg-surface-container-low shadow-xl relative overflow-hidden flex flex-col gap-space-md">
-<!-- Subtle Glow Halo in Corner -->
-<div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-primary-container/10 filter blur-3xl pointer-events-none"></div>
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-widest">BIOLOGICAL PURITY INDEX</span>
-<div class="flex items-center gap-1 bg-surface-container-highest px-space-xs py-0.5 rounded">
-<span class="material-symbols-outlined text-primary text-xs">verified</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">ISO 22000 CERTIFIED</span>
-</div>
-</div>
-<!-- Score Dial Lockup -->
-<div class="flex flex-col sm:flex-row items-center gap-space-lg py-space-xs">
-<!-- SVG Radial Telemetry Meter -->
-<div class="relative w-36 h-36 flex-shrink-0 flex items-center justify-center">
-<svg class="w-full h-full transform -rotate-90" viewbox="0 0 120 120">
-<!-- Track Ring -->
-<circle class="text-surface-container-highest" cx="60" cy="60" fill="transparent" r="48" stroke="currentColor" stroke-width="8"></circle>
-<!-- Secondary Baseline Glow Ring -->
-<circle class="text-primary-container/20 filter blur-[2px]" cx="60" cy="60" fill="transparent" r="48" stroke="currentColor" stroke-dasharray="301.59" stroke-dashoffset="18" stroke-linecap="round" stroke-width="8"></circle>
-<!-- Active Sweep Ring: 94% of 301.59 = 283.49 -> offset = 301.59 * 0.06 = 18.09 -->
-<circle class="text-primary-container shadow-[0_0_16px_rgba(0,242,165,0.8)]" cx="60" cy="60" fill="transparent" r="48" stroke="currentColor" stroke-dasharray="301.59" stroke-dashoffset="18.09" stroke-linecap="round" stroke-width="8"></circle>
-</svg>
-<!-- Center Metric Text -->
-<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-<span class="font-data-display-lg text-data-display-lg text-primary-container font-extrabold leading-none tracking-tighter">94</span>
-<span class="font-label-mono-xs text-label-mono-xs text-outline font-semibold tracking-wider">/ 100</span>
-</div>
-</div>
-<!-- Metric Summary Breakdown -->
-<div class="flex flex-col gap-space-xs text-center sm:text-left">
-<span class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-primary-container/15 text-primary font-label-mono text-label-mono font-bold tracking-wider w-fit mx-auto sm:mx-0">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                EXEMPLARY - BIO-OPTIMAL
-              </span>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Clean, unadulterated cold-pressed macro profile. Contains zero synthetics, gums, or high-fructose compounds.
+  <title>Food Scanner | VERIDIS NutriScan</title>
+
+  <meta
+    name="description"
+    content="Scan food labels and understand ingredients with VERIDIS NutriScan."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+    rel="stylesheet"
+  >
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    :root {
+      --background: #f5f3eb;
+      --surface: #fcfbf6;
+      --surface-green: #e8eee5;
+      --green: #124d35;
+      --green-hover: #0b3926;
+      --text: #1d2b22;
+      --muted: #758075;
+      --border: #e3e5da;
+      --white: #ffffff;
+      --danger: #a13c34;
+      --shadow: 0 12px 35px rgba(25, 55, 37, 0.07);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 17px 6%;
+      background: rgba(252, 251, 246, 0.92);
+      border-bottom: 1px solid rgba(18, 77, 53, 0.09);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-family: "DM Serif Display", serif;
+      font-size: 22px;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.4px;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .navigation a {
+      color: #58665b;
+    }
+
+    .navigation a.active,
+    .navigation a:hover {
+      color: var(--green);
+    }
+
+    .user-pill {
+      max-width: 180px;
+      overflow: hidden;
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: var(--surface);
+      color: var(--green);
+      font-size: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(1180px, 90%);
+      margin: 0 auto;
+      padding: 42px 0 80px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+    }
+
+    h1,
+    .serif {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      letter-spacing: -1.2px;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.05;
+    }
+
+    h2 {
+      font-size: 25px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .hero-copy p {
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-note {
+      padding: 24px;
+      border: 1px solid #dce4d9;
+      border-radius: var(--radius);
+      background: var(--surface-green);
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green);
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: #607064;
+      font-size: 13px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(290px, 0.85fr);
+      align-items: start;
+      gap: 24px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .card-heading h2 {
+      margin-bottom: 5px;
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 11px;
+      border-radius: 30px;
+      background: #e8eee5;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #40845b;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin: 23px 0 18px;
+      padding: 5px;
+      border-radius: 15px;
+      background: #f0f0e8;
+    }
+
+    .tab {
+      padding: 11px 7px;
+      border: 0;
+      border-radius: 11px;
+      background: transparent;
+      color: #687267;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tab.active {
+      background: var(--surface);
+      color: var(--green);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .camera-box {
+      position: relative;
+      display: grid;
+      min-height: 270px;
+      overflow: hidden;
+      place-items: center;
+      border: 1px dashed #bfcbbd;
+      border-radius: 19px;
+      background: #edf0e8;
+    }
+
+    .camera-placeholder {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .camera-icon {
+      display: grid;
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 15px;
+      place-items: center;
+      border-radius: 50%;
+      background: white;
+      color: var(--green);
+      font-size: 27px;
+    }
+
+    .camera-placeholder strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    video,
+    .preview-image {
+      display: none;
+      width: 100%;
+      max-height: 390px;
+      object-fit: contain;
+      background: #17251d;
+    }
+
+    .camera-box.camera-active video,
+    .camera-box.image-active .preview-image {
+      display: block;
+    }
+
+    .camera-box.camera-active .camera-placeholder,
+    .camera-box.image-active .camera-placeholder {
+      display: none;
+    }
+
+    .upload-zone {
+      display: grid;
+      min-height: 270px;
+      padding: 22px;
+      place-items: center;
+      border: 1px dashed #bfcbbd;
+      border-radius: 19px;
+      background: #edf0e8;
+      text-align: center;
+    }
+
+    .upload-zone input {
+      width: 100%;
+      max-width: 290px;
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .barcode-field {
+      width: 100%;
+      margin: 14px 0;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      outline: none;
+      background: white;
+    }
+
+    .barcode-field:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(18, 77, 53, 0.08);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 45px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 19px;
+      border: 1px solid transparent;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform 0.18s, background 0.18s;
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--green-hover);
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      background: white;
+      color: var(--green);
+    }
+
+    .btn-danger {
+      border-color: #e9d6d2;
+      background: #fff6f4;
+      color: var(--danger);
+    }
+
+    .btn-full {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .notice {
+      display: none;
+      margin: 16px 0 0;
+      padding: 13px 15px;
+      border-radius: 13px;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .notice.show {
+      display: block;
+    }
+
+    .notice.info {
+      background: #edf1e8;
+      color: var(--green);
+    }
+
+    .notice.error {
+      background: #fff0ee;
+      color: #922f28;
+    }
+
+    .notice.success {
+      background: #e5f3e7;
+      color: #245c32;
+    }
+
+    .result-card {
+      margin-top: 22px;
+      padding-top: 23px;
+      border-top: 1px solid var(--border);
+    }
+
+    .result-card h3 {
+      margin-bottom: 7px;
+      font-family: "DM Serif Display", serif;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .result-empty {
+      padding: 25px 15px;
+      border-radius: 17px;
+      background: #f1f1e9;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .result-summary {
+      margin: 12px 0;
+      color: #59665b;
+      font-size: 13px;
+    }
+
+    .result-section {
+      margin-top: 17px;
+    }
+
+    .result-section h4 {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .result-section ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #58645a;
+      font-size: 12px;
+    }
+
+    .result-section li {
+      margin-bottom: 5px;
+    }
+
+    .result-tag {
+      display: inline-block;
+      margin: 3px 4px 3px 0;
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: #e8eee5;
+      color: var(--green);
+      font-size: 11px;
+    }
+
+    .history-card {
+      margin-top: 24px;
+    }
+
+    .history-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: white;
+    }
+
+    .history-item strong {
+      display: block;
+      font-size: 12px;
+    }
+
+    .history-item small {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .history-empty {
+      padding: 20px 12px;
+      border-radius: 14px;
+      background: #f1f1e9;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .loading {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    footer {
+      padding: 27px 5%;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-note {
+        padding: 18px;
+      }
+
+      .navigation {
+        gap: 12px;
+      }
+
+      .navigation a:not(.active) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .topbar {
+        padding: 13px 5%;
+      }
+
+      .brand {
+        font-size: 12px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .user-pill {
+        max-width: 115px;
+        padding: 8px 10px;
+      }
+
+      main {
+        width: 92%;
+        padding-top: 30px;
+      }
+
+      .card {
+        padding: 19px;
+        border-radius: 20px;
+      }
+
+      .button-row .btn {
+        flex: 1;
+      }
+
+      .tabs {
+        gap: 3px;
+      }
+
+      .tab {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/Index.html" aria-label="VERIDIS home">
+    <span class="brand-mark">V</span>
+    <span>
+      VERIDIS NutriScan
+      <small>FOOD CLARITY, REDEFINED</small>
+    </span>
+  </a>
+
+  <nav class="navigation" aria-label="Main navigation">
+    <a href="/Index.html">Home</a>
+    <a class="active" href="/Scanner.html">Scanner</a>
+    <a href="/Analysis.html">Analysis</a>
+    <a href="/User.html">Profile</a>
+  </nav>
+
+  <div id="userPill" class="user-pill">Checking session…</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Your personal food intelligence</p>
+
+      <h1>Look beyond<br>the label.</h1>
+
+      <p>
+        Scan a food package, examine its ingredients, and understand
+        what the available nutrition information actually tells you.
+      </p>
+    </div>
+
+    <aside class="hero-note">
+      <strong>Clear information. Better decisions.</strong>
+      <p>
+        VERIDIS analyzes the information you provide. Results depend
+        on image quality and the details printed on the packaging.
+      </p>
+    </aside>
+  </section>
+
+  <section class="layout">
+
+    <div>
+      <section class="card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Food scanner</p>
+            <h2>Start a new scan</h2>
+            <p class="muted">Choose how you want to provide your food label.</p>
+          </div>
+
+          <span class="status">
+            <span class="status-dot"></span>
+            READY
+          </span>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Scanner modes">
+          <button class="tab active" data-tab="cameraPanel" role="tab">
+            Camera
+          </button>
+
+          <button class="tab" data-tab="uploadPanel" role="tab">
+            Upload
+          </button>
+
+          <button class="tab" data-tab="barcodePanel" role="tab">
+            Barcode
+          </button>
+        </div>
+
+        <!-- CAMERA PANEL -->
+        <div class="panel active" id="cameraPanel">
+          <div class="camera-box" id="cameraBox">
+            <div class="camera-placeholder">
+              <div class="camera-icon">⌁</div>
+              <strong>Your camera preview will appear here</strong>
+              <p class="muted">
+                Allow camera access when your browser asks.
               </p>
-<div class="flex items-center gap-space-sm justify-center sm:justify-start pt-1">
-<div class="flex flex-col">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">METABOLIC LOAD</span>
-<span class="font-label-mono text-label-mono text-on-surface font-semibold">MINIMAL (0.4%)</span>
-</div>
-<div class="w-px h-6 bg-surface-container-highest"></div>
-<div class="flex flex-col">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">GUT TOXICITY RISK</span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">0.00% UNDETECTED</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Grade Classification Two-Column Tiles -->
-<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
-<div class="p-space-sm rounded-lg bg-surface-container flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-data-display-md text-data-display-md font-bold shadow-md">
-                A
-              </div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">NUTRI-SCORE</span>
-<span class="font-label-mono text-label-mono text-on-surface font-semibold">GRADE A ELITE</span>
-</div>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-mono text-label-mono font-bold shadow-md">
-                NV-1
-              </div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">NOVA CATEGORY</span>
-<span class="font-label-mono text-label-mono text-secondary font-semibold truncate">Minimally Processed</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Ultra-Processed Shield & Safety Banner -->
-<div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-md shadow-md">
-<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center flex-shrink-0 text-primary shadow-[0_0_12px_rgba(0,242,165,0.3)]">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center gap-space-xs">
-<span class="font-label-mono text-label-mono text-primary font-bold tracking-wide">CLEAN MATRIX VERIFIED</span>
-<span class="px-1.5 py-0.2 rounded font-label-mono-xs text-label-mono-xs bg-primary-container/25 text-primary">ZERO SEED OILS</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-              Tested zero industrial emulsifiers (no polysorbate-80, no guar gum), zero inflammatory sunflower/canola lipid vehicles.
-            </p>
-</div>
-</div>
-<!-- Macro Telemetry Gauges HUD -->
-<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-widest">SPECTRAL MACRO ASSAY // 240ML SERVING</span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary">CALORIE DENSITY: 120 KCAL</span>
-</div>
-<div class="flex flex-col gap-space-sm">
-<!-- Metric 1: Protein -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-baseline font-label-mono text-label-mono">
-<span class="text-on-surface flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                  Plant Protein (Almond isolate)
-                </span>
-<span class="text-primary font-bold">4.2g <span class="text-on-surface-variant font-normal text-body-sm">(8% DV)</span></span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-<div class="h-full bg-primary-container rounded-full shadow-[0_0_8px_rgba(0,242,165,0.7)]" style="width: 48%;"></div>
-</div>
-</div>
-<!-- Metric 2: Net Carbs -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-baseline font-label-mono text-label-mono">
-<span class="text-on-surface flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-secondary"></span>
-                  Net Carbs (Low Glycemic)
-                </span>
-<span class="text-secondary font-bold">2.1g <span class="text-on-surface-variant font-normal text-body-sm">(GI &lt; 15)</span></span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-<div class="h-full bg-secondary rounded-full shadow-[0_0_8px_rgba(76,215,246,0.7)]" style="width: 22%;"></div>
-</div>
-</div>
-<!-- Metric 3: Healthy Fats -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-baseline font-label-mono text-label-mono">
-<span class="text-on-surface flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
-                  Lipids / Monounsaturated (Omega-9)
-                </span>
-<span class="text-secondary-fixed font-bold">8.5g <span class="text-on-surface-variant font-normal text-body-sm">(Macadamia rich)</span></span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-<div class="h-full bg-secondary-fixed rounded-full shadow-[0_0_8px_rgba(172,237,255,0.7)]" style="width: 65%;"></div>
-</div>
-</div>
-<!-- Metric 4: Added Sugars -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-baseline font-label-mono text-label-mono">
-<span class="text-on-surface flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-outline"></span>
-                  Refined / Added Sugars
-                </span>
-<span class="text-primary font-bold">0.0g <span class="text-primary font-semibold text-body-sm">(100% PURE)</span></span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 0%;"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- Bio-Chemical Marker Badges Micro-Chips -->
-<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl shadow-md">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">LABORATORY BIO-VERIFIED PURITY CHIPS</span>
-<div class="flex flex-wrap gap-space-xs mt-1">
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">eco</span>
-              Non-GMO Project
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">ac_unit</span>
-              Cold-Pressed Expeller
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">shield</span>
-              Glyphosate Residue Free
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span>
-              No Carrageenan
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">recycling</span>
-              BPA-Free Packaging
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-secondary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">water_drop</span>
-              Filtered Mountain Spring
-            </span>
-</div>
-</div>
-<!-- Direct CTA Action Hub -->
-<div class="flex flex-col sm:flex-row items-center gap-space-sm">
-<button class="w-full sm:flex-1 py-space-sm px-space-md rounded-lg bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-space-xs shadow-[0_0_20px_rgba(0,242,165,0.4)] hover:shadow-[0_0_28px_rgba(0,242,165,0.6)] hover:scale-[1.01] transition-all" id="deep-intel-btn">
-<span>Deep Ingredient Intel</span>
-<span class="material-symbols-outlined text-lg">arrow_forward</span>
-</button>
-<button class="w-full sm:w-auto py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-secondary font-label-mono text-label-mono font-semibold flex items-center justify-center gap-space-xs transition-all active:scale-95" id="vault-btn">
-<span class="material-symbols-outlined text-base">bookmark</span>
-<span>Save to Vault</span>
-</button>
-<button class="w-full sm:w-auto py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-mono text-label-mono transition-all flex items-center justify-center gap-space-xs" id="alt-btn">
-<span class="material-symbols-outlined text-base">swap_horizontal_circle</span>
-<span>Alternatives</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+            </div>
+
+            <video id="cameraVideo" autoplay playsinline></video>
+            <img id="cameraPreview" class="preview-image" alt="Captured food label">
+          </div>
+
+          <div class="button-row">
+            <button class="btn btn-primary" id="startCameraBtn">
+              Open camera
+            </button>
+
+            <button class="btn btn-secondary" id="captureBtn" disabled>
+              Capture photo
+            </button>
+
+            <button class="btn btn-danger" id="stopCameraBtn" disabled>
+              Stop
+            </button>
+          </div>
+
+          <p class="muted">
+            Tip: keep the ingredient list and nutrition panel in focus.
+          </p>
+        </div>
+
+        <!-- UPLOAD PANEL -->
+        <div class="panel" id="uploadPanel">
+          <div class="upload-zone">
+            <div>
+              <div class="camera-icon">↑</div>
+              <strong>Upload a food label</strong>
+              <p class="muted">
+                Choose a clear JPG, PNG, or WebP image.
+              </p>
+
+              <input
+                id="imageInput"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                aria-label="Upload food package image"
+              >
+            </div>
+          </div>
+
+          <div id="uploadPreviewWrap" hidden>
+            <p class="muted">Selected image preview</p>
+            <img
+              id="uploadPreview"
+              class="preview-image"
+              style="display:block;max-height:300px;border-radius:15px;background:#edf0e8"
+              alt="Selected food label"
+            >
+
+            <button class="btn btn-secondary btn-full" id="clearImageBtn">
+              Remove image
+            </button>
+          </div>
+        </div>
+
+        <!-- BARCODE PANEL -->
+        <div class="panel" id="barcodePanel">
+          <div class="upload-zone">
+            <div style="width:100%;max-width:340px">
+              <div class="camera-icon">▥</div>
+              <strong>Look up a product</strong>
+
+              <p class="muted">
+                Enter the barcode printed on the package.
+              </p>
+
+              <form id="barcodeForm">
+                <label for="barcodeInput" class="muted">
+                  Product barcode
+                </label>
+
+                <input
+                  class="barcode-field"
+                  id="barcodeInput"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  maxlength="32"
+                  placeholder="Enter barcode number"
+                  required
+                >
+
+                <button class="btn btn-primary btn-full" type="submit">
+                  Find product
+                </button>
+              </form>
+
+              <p class="muted">
+                Product information may be unavailable for some barcodes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="messageBox" class="notice" role="status" aria-live="polite"></div>
+
+        <button class="btn btn-primary btn-full" id="analyzeBtn">
+          Analyze food label
+        </button>
+
+        <p class="muted" style="text-align:center;margin-bottom:0">
+          Your image is sent to the configured backend for analysis.
+        </p>
+      </section>
+
+      <!-- RESULTS -->
+      <section class="card result-card" id="resultCard">
+        <p class="eyebrow">Your results</p>
+        <h3>Food intelligence report</h3>
+
+        <div id="resultContent" aria-live="polite">
+          <div class="result-empty">
+            Your analysis will appear here after you scan a label.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- HISTORY -->
+    <aside>
+      <section class="card">
+        <p class="eyebrow">A little more clarity</p>
+        <h2 class="serif">Read the whole story.</h2>
+
+        <p class="muted">
+          Ingredient lists, serving sizes, nutrition values, and package
+          claims each provide different information. Consider them together.
+        </p>
+
+        <div class="result-section">
+          <h4>What this scanner can help with</h4>
+          <ul>
+            <li>Reading visible ingredient lists.</li>
+            <li>Summarizing nutrition values printed on labels.</li>
+            <li>Explaining unfamiliar ingredients.</li>
+            <li>Comparing package claims with visible label details.</li>
+          </ul>
+        </div>
+
+        <div class="result-section">
+          <h4>What it cannot confirm from a photo alone</h4>
+          <ul>
+            <li>Exact nutrient quantities missing from the label.</li>
+            <li>Laboratory purity or contamination.</li>
+            <li>Actual molecular or hyperspectral measurements.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card history-card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Your activity</p>
+            <h2 class="serif">Recent scans</h2>
+          </div>
+
+          <button
+            class="btn btn-secondary"
+            id="refreshHistoryBtn"
+            style="padding:8px 12px;min-height:auto"
+          >
+            Refresh
+          </button>
+        </div>
+
+        <div id="historyList" class="history-list">
+          <div class="history-empty">
+            Loading your scan history…
+          </div>
+        </div>
+      </section>
+    </aside>
+
+  </section>
+</main>
+
+<footer>
+  VERIDIS NutriScan · Understand the label, not just the packaging.
+  <br>
+  AI-generated results may contain errors and are not medical advice.
+</footer>
+
 <script>
-  // Simple micro-interactions for scanner hub
-  const torchBtn = document.getElementById('torch-btn');
-  let torchActive = false;
-  if (torchBtn) {
-    torchBtn.addEventListener('click', () => {
-      torchActive = !torchActive;
-      torchBtn.classList.toggle('bg-primary-container', torchActive);
-      torchBtn.classList.toggle('text-on-primary-container', torchActive);
-      torchBtn.classList.toggle('shadow-[0_0_16px_rgba(0,242,165,0.5)]', torchActive);
+(() => {
+  "use strict";
+
+  const API = {
+    analyze: "/api/analyze-food",
+    scans: "/api/scans",
+    barcode: "/api/barcode"
+  };
+
+  const state = {
+    supabase: null,
+    user: null,
+    cameraStream: null,
+    selectedImage: null,
+    lastResult: null
+  };
+
+  const $ = (id) => document.getElementById(id);
+
+  const elements = {
+    userPill: $("userPill"),
+    cameraBox: $("cameraBox"),
+    cameraVideo: $("cameraVideo"),
+    cameraPreview: $("cameraPreview"),
+    imageInput: $("imageInput"),
+    uploadPreview: $("uploadPreview"),
+    uploadPreviewWrap: $("uploadPreviewWrap"),
+    analyzeBtn: $("analyzeBtn"),
+    messageBox: $("messageBox"),
+    resultContent: $("resultContent"),
+    historyList: $("historyList"),
+    captureBtn: $("captureBtn"),
+    startCameraBtn: $("startCameraBtn"),
+    stopCameraBtn: $("stopCameraBtn")
+  };
+
+  function showMessage(message, type = "info") {
+    elements.messageBox.textContent = message;
+    elements.messageBox.className = "notice show " + type;
+  }
+
+  function clearMessage() {
+    elements.messageBox.textContent = "";
+    elements.messageBox.className = "notice";
+  }
+
+  function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (character) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    })[character]);
+  }
+
+  function formatDate(value) {
+    if (!value) return "Date unavailable";
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+      return "Date unavailable";
+    }
+
+    return date.toLocaleString(undefined, {
+      dateStyle: "medium",
+      timeStyle: "short"
     });
   }
 
-  const freezeBtn = document.getElementById('freeze-btn');
-  let isFrozen = false;
-  if (freezeBtn) {
-    freezeBtn.addEventListener('click', () => {
-      isFrozen = !isFrozen;
-      const text = freezeBtn.querySelector('span:last-child');
-      if (text) text.innerText = isFrozen ? 'Unfreeze Stream' : 'Freeze Matrix';
-      freezeBtn.classList.toggle('bg-secondary', isFrozen);
-      freezeBtn.classList.toggle('text-on-secondary', isFrozen);
-    });
-  }
+  function normalizeTextList(value) {
+    if (Array.isArray(value)) {
+      return value.map((item) => {
+        if (typeof item === "string") return item;
 
-  // Vault notification trigger
-  const vaultBtn = document.getElementById('vault-btn');
-  if (vaultBtn) {
-    vaultBtn.addEventListener('click', () => {
-      const origText = vaultBtn.innerHTML;
-      vaultBtn.innerHTML = '<span class="material-symbols-outlined text-base text-primary">done_all</span><span class="text-primary font-bold">Stored in Vault</span>';
-      setTimeout(() => {
-        vaultBtn.innerHTML = origText;
-      }, 2000);
-    });
-  }
+        if (item && typeof item === "object") {
+          return item.name || item.description || JSON.stringify(item);
+        }
 
-  // Interactive Switchers
-  const modes = ['mode-opt', 'mode-bar', 'mode-nir', 'mode-upl'];
-  modes.forEach(id => {
-    const btn = document.getElementById(id);
-    if (btn) {
-      btn.addEventListener('click', () => {
-        modes.forEach(otherId => {
-          const other = document.getElementById(otherId);
-          if (other) {
-            other.className = 'px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-space-xs';
-          }
-        });
-        btn.className = 'px-space-md py-space-xs rounded-lg font-label-mono text-label-mono bg-primary-container text-on-primary-container font-semibold transition-all shadow-[0_0_16px_rgba(0,242,165,0.35)] flex items-center gap-space-xs';
+        return String(item);
       });
     }
+
+    if (typeof value === "string" && value.trim()) {
+      return [value];
+    }
+
+    return [];
+  }
+
+  function renderList(items) {
+    const values = normalizeTextList(items);
+
+    if (!values.length) {
+      return "<p class='muted'>No information provided.</p>";
+    }
+
+    return "<ul>" + values.map((item) =>
+      "<li>" + escapeHTML(item) + "</li>"
+    ).join("") + "</ul>";
+  }
+
+  function renderAnalysis(data) {
+    const product = data.product || {};
+    const nutrition = data.nutrition || {};
+    const ingredients = data.ingredients || {};
+
+    const productName =
+      product.name ||
+      data.product_name ||
+      "Food product";
+
+    const summary =
+      data.summary ||
+      data.explanation ||
+      "Analysis completed. Review the available label information below.";
+
+    const claims = data.claims || data.claim_check || [];
+    const positives = data.positives || [];
+    const concerns = data.considerations || data.concerns || [];
+
+    let html = `
+      <h3>${escapeHTML(productName)}</h3>
+      <p class="result-summary">${escapeHTML(summary)}</p>
+    `;
+
+    if (data.disclaimer) {
+      html += `
+        <p class="muted">${escapeHTML(data.disclaimer)}</p>
+      `;
+    }
+
+    const nutritionEntries =
+      nutrition && typeof nutrition === "object"
+        ? Object.entries(nutrition)
+        : [];
+
+    if (nutritionEntries.length) {
+      html += `
+        <div class="result-section">
+          <h4>Nutrition information</h4>
+          <div>
+            ${nutritionEntries.map(([key, value]) => `
+              <span class="result-tag">
+                ${escapeHTML(key)}: ${escapeHTML(
+                  typeof value === "object"
+                    ? JSON.stringify(value)
+                    : value
+                )}
+              </span>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    html += `
+      <div class="result-section">
+        <h4>Ingredients</h4>
+        ${
+          typeof ingredients === "string"
+            ? `<p class="muted">${escapeHTML(ingredients)}</p>`
+            : renderList(
+                ingredients.detected ||
+                ingredients.list ||
+                data.ingredient_list ||
+                []
+              )
+        }
+      </div>
+
+      <div class="result-section">
+        <h4>Positive observations</h4>
+        ${renderList(positives)}
+      </div>
+
+      <div class="result-section">
+        <h4>Things to consider</h4>
+        ${renderList(concerns)}
+      </div>
+
+      <div class="result-section">
+        <h4>Package claims</h4>
+        ${
+          typeof claims === "string"
+            ? `<p class="muted">${escapeHTML(claims)}</p>`
+            : renderList(
+                claims.items ||
+                claims.results ||
+                claims
+              )
+        }
+      </div>
+    `;
+
+    elements.resultContent.innerHTML = html;
+  }
+
+  async function getAccessToken() {
+    if (!state.supabase) {
+      throw new Error(
+        "Supabase is not configured. Check your existing Supabase setup."
+      );
+    }
+
+    const {
+      data,
+      error
+    } = await state.supabase.auth.getSession();
+
+    if (error) {
+      throw new Error("Unable to verify your login session.");
+    }
+
+    const session = data?.session;
+
+    if (!session?.access_token) {
+      throw new Error(
+        "Your session has expired. Please sign in again."
+      );
+    }
+
+    return session.access_token;
+  }
+
+  async function apiRequest(url, options = {}) {
+    const token = await getAccessToken();
+
+    const response = await fetch(url, {
+      ...options,
+      headers: {
+        ...(options.headers || {}),
+        "Authorization": "Bearer " + token
+      }
+    });
+
+    let data;
+
+    try {
+      data = await response.json();
+    } catch {
+      data = {};
+    }
+
+    if (!response.ok) {
+      throw new Error(
+        data.error ||
+        data.message ||
+        "The request failed. Please try again."
+      );
+    }
+
+    return data;
+  }
+
+  function setLoading(loading, label = "Analyzing label…") {
+    elements.analyzeBtn.disabled = loading;
+
+    elements.analyzeBtn.innerHTML = loading
+      ? `<span class="loading"></span> ${escapeHTML(label)}`
+      : "Analyze food label";
+  }
+
+  function fileToDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(
+        new Error("Unable to read this image.")
+      );
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function validateImage(file) {
+    const supported = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+    if (!supported.includes(file.type)) {
+      throw new Error("Choose a JPG, PNG, or WebP image.");
+    }
+
+    if (file.size > 8 * 1024 * 1024) {
+      throw new Error("The image must be smaller than 8 MB.");
+    }
+  }
+
+  async function stopCamera() {
+    if (state.cameraStream) {
+      state.cameraStream.getTracks().forEach((track) => track.stop());
+      state.cameraStream = null;
+    }
+
+    elements.cameraVideo.srcObject = null;
+    elements.cameraBox.classList.remove("camera-active");
+
+    elements.startCameraBtn.disabled = false;
+    elements.captureBtn.disabled = true;
+    elements.stopCameraBtn.disabled = true;
+  }
+
+  async function startCamera() {
+    clearMessage();
+
+    if (!navigator.mediaDevices?.getUserMedia) {
+      showMessage(
+        "Camera access is unavailable. Open the website over HTTPS or upload an image instead.",
+        "error"
+      );
+      return;
+    }
+
+    try {
+      await stopCamera();
+
+      state.cameraStream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: { ideal: "environment" }
+        },
+        audio: false
+      });
+
+      elements.cameraVideo.srcObject = state.cameraStream;
+      elements.cameraBox.classList.add("camera-active");
+
+      await elements.cameraVideo.play();
+
+      elements.startCameraBtn.disabled = true;
+      elements.captureBtn.disabled = false;
+      elements.stopCameraBtn.disabled = false;
+
+      showMessage(
+        "Camera ready. Position the food label inside the frame.",
+        "success"
+      );
+    } catch (error) {
+      console.error("Camera error:", error);
+
+      showMessage(
+        "Camera could not start. Check browser permissions or upload a photo instead.",
+        "error"
+      );
+    }
+  }
+
+  async function capturePhoto() {
+    const video = elements.cameraVideo;
+
+    if (!video.videoWidth || !video.videoHeight) {
+      showMessage("Wait until the camera preview is ready.", "error");
+      return;
+    }
+
+    const canvas = document.createElement("canvas");
+
+    const scale = Math.min(
+      1,
+      1600 / Math.max(video.videoWidth, video.videoHeight)
+    );
+
+    canvas.width = Math.round(video.videoWidth * scale);
+    canvas.height = Math.round(video.videoHeight * scale);
+
+    const context = canvas.getContext("2d");
+
+    context.drawImage(
+      video,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    canvas.toBlob(async (blob) => {
+      if (!blob) {
+        showMessage("Could not capture the image.", "error");
+        return;
+      }
+
+      state.selectedImage = new File(
+        [blob],
+        "food-label.jpg",
+        { type: "image/jpeg" }
+      );
+
+      const imageURL = URL.createObjectURL(state.selectedImage);
+
+      elements.cameraPreview.src = imageURL;
+      elements.cameraBox.classList.add("image-active");
+
+      await stopCamera();
+
+      showMessage(
+        "Photo captured. You can now analyze the label.",
+        "success"
+      );
+    }, "image/jpeg", 0.88);
+  }
+
+  async function analyzeImage() {
+    clearMessage();
+
+    if (!state.selectedImage) {
+      showMessage(
+        "Open the camera and capture a photo, or select an image from the Upload tab.",
+        "error"
+      );
+      return;
+    }
+
+    try {
+      validateImage(state.selectedImage);
+
+      setLoading(true);
+
+      showMessage(
+        "Sending the image securely to the analysis service…",
+        "info"
+      );
+
+      const imageData = await fileToDataURL(state.selectedImage);
+
+      const response = await apiRequest(API.analyze, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          image: imageData
+        })
+      });
+
+      const result = response.analysis || response.result || response;
+
+      state.lastResult = result;
+
+      renderAnalysis(result);
+
+      showMessage(
+        "Analysis completed. Review the result and its limitations.",
+        "success"
+      );
+
+      await loadHistory();
+    } catch (error) {
+      console.error("Food analysis failed:", error);
+
+      showMessage(
+        error.message || "Analysis failed. Please try again.",
+        "error"
+      );
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function renderHistory(items) {
+    if (!Array.isArray(items) || !items.length) {
+      elements.historyList.innerHTML = `
+        <div class="history-empty">
+          No saved scans yet. Your completed scans will appear here.
+        </div>
+      `;
+      return;
+    }
+
+    elements.historyList.innerHTML = items.map((item) => {
+      const title =
+        item.product_name ||
+        item.title ||
+        item.product?.name ||
+        "Food scan";
+
+      const date =
+        item.created_at ||
+        item.createdAt ||
+        item.date;
+
+      return `
+        <div class="history-item">
+          <div>
+            <strong>${escapeHTML(title)}</strong>
+            <small>${escapeHTML(formatDate(date))}</small>
+          </div>
+          <span class="result-tag">Saved</span>
+        </div>
+      `;
+    }).join("");
+  }
+
+  async function loadHistory() {
+    try {
+      const response = await apiRequest(API.scans);
+
+      renderHistory(response.scans || response.data || []);
+    } catch (error) {
+      console.error("History loading failed:", error);
+
+      elements.historyList.innerHTML = `
+        <div class="history-empty">
+          Unable to load scan history.
+          Check your backend connection and Supabase configuration.
+        </div>
+      `;
+    }
+  }
+
+  async function lookupBarcode(event) {
+    event.preventDefault();
+    clearMessage();
+
+    const barcode = $("barcodeInput").value.trim();
+
+    if (!/^[0-9]{8,32}$/.test(barcode)) {
+      showMessage(
+        "Enter a valid barcode containing 8–32 digits.",
+        "error"
+      );
+      return;
+    }
+
+    const button = event.currentTarget.querySelector("button[type=submit]");
+
+    button.disabled = true;
+    button.textContent = "Looking up…";
+
+    try {
+      const response = await apiRequest(API.barcode, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ barcode })
+      });
+
+      const product = response.product || response;
+
+      if (response.found === false || response.notFound === true) {
+        showMessage(
+          "No product was found for that barcode. Try uploading the food label.",
+          "error"
+        );
+        return;
+      }
+
+      state.lastResult = {
+        product: {
+          name: product.name || product.product_name || "Product found"
+        },
+        summary: product.summary ||
+          "Product information retrieved. Review the available data.",
+        ingredients: product.ingredients_text || product.ingredients || [],
+        nutrition: product.nutrition || {
+          "Energy": product.energy || "Not provided",
+          "Serving size": product.serving_size || "Not provided"
+        },
+        positives: [],
+        considerations: [],
+        claims: []
+      };
+
+      renderAnalysis(state.lastResult);
+
+      showMessage(
+        "Product lookup completed. Some barcode records may be incomplete.",
+        "success"
+      );
+    } catch (error) {
+      console.error("Barcode lookup failed:", error);
+
+      showMessage(
+        error.message || "Barcode lookup failed.",
+        "error"
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = "Find product";
+    }
+  }
+
+  function setupTabs() {
+    document.querySelectorAll(".tab").forEach((button) => {
+      button.addEventListener("click", async () => {
+        document.querySelectorAll(".tab").forEach((tab) => {
+          tab.classList.toggle("active", tab === button);
+          tab.setAttribute(
+            "aria-selected",
+            tab === button ? "true" : "false"
+          );
+        });
+
+        document.querySelectorAll(".panel").forEach((panel) => {
+          panel.classList.toggle(
+            "active",
+            panel.id === button.dataset.tab
+          );
+        });
+
+        clearMessage();
+
+        if (button.dataset.tab !== "cameraPanel") {
+          await stopCamera();
+        }
+      });
+    });
+  }
+
+  function setupUpload() {
+    elements.imageInput.addEventListener("change", async (event) => {
+      clearMessage();
+
+      const file = event.target.files?.[0];
+
+      if (!file) return;
+
+      try {
+        validateImage(file);
+
+        state.selectedImage = file;
+
+        elements.uploadPreview.src = await fileToDataURL(file);
+        elements.uploadPreviewWrap.hidden = false;
+
+        elements.cameraBox.classList.remove("image-active");
+
+        showMessage(
+          "Image selected. Press Analyze food label when ready.",
+          "success"
+        );
+      } catch (error) {
+        state.selectedImage = null;
+        event.target.value = "";
+
+        showMessage(error.message, "error");
+      }
+    });
+
+    $("clearImageBtn").addEventListener("click", () => {
+      state.selectedImage = null;
+      elements.imageInput.value = "";
+      elements.uploadPreview.src = "";
+      elements.uploadPreviewWrap.hidden = true;
+
+      showMessage("Selected image removed.", "info");
+    });
+  }
+
+  async function initializeSupabase() {
+    /*
+      Your existing Supabase configuration should initialize the client
+      and expose it as window.supabaseClient.
+
+      Example:
+      window.supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+      );
+
+      Never place your service-role key in this HTML file.
+    */
+
+    if (!window.supabaseClient) {
+      elements.userPill.textContent = "Authentication unavailable";
+
+      showMessage(
+        "Supabase client not found. Connect your existing Supabase configuration before using the scanner.",
+        "error"
+      );
+
+      elements.historyList.innerHTML = `
+        <div class="history-empty">
+          Supabase authentication is not configured on this page.
+        </div>
+      `;
+
+      return;
+    }
+
+    state.supabase = window.supabaseClient;
+
+    try {
+      const {
+        data,
+        error
+      } = await state.supabase.auth.getSession();
+
+      if (error) throw error;
+
+      if (!data.session) {
+        elements.userPill.textContent = "Sign in required";
+
+        showMessage(
+          "Please sign in to use the scanner and save your history.",
+          "error"
+        );
+
+        setTimeout(() => {
+          window.location.assign("/Login.html");
+        }, 1200);
+
+        return;
+      }
+
+      state.user = data.session.user;
+
+      elements.userPill.textContent =
+        state.user.email || "Signed in";
+
+      await loadHistory();
+    } catch (error) {
+      console.error("Authentication initialization failed:", error);
+
+      elements.userPill.textContent = "Session unavailable";
+
+      showMessage(
+        "Unable to verify your session. Please sign in again.",
+        "error"
+      );
+    }
+
+    state.supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_OUT" || !session) {
+        window.location.assign("/Login.html");
+      }
+    });
+  }
+
+  elements.startCameraBtn.addEventListener("click", startCamera);
+
+  elements.captureBtn.addEventListener("click", capturePhoto);
+
+  elements.stopCameraBtn.addEventListener("click", async () => {
+    await stopCamera();
+    showMessage("Camera stopped.", "info");
   });
-</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><span class="font-label-mono text-label-mono tracking-wider text-on-surface">VERIDIS NUTRISCAN ARCHITECTURE</span></div><div class="flex items-center gap-space-lg"><span class="font-label-mono-xs text-label-mono-xs text-outline">TELEMETRY CORE: CALIBRATED</span><span class="font-label-mono-xs text-label-mono-xs text-outline">CLINICAL RECALL ENGINE v9.2</span></div><p class="font-label-mono-xs text-label-mono-xs text-outline">© 2025 VERIDIS BIO-DIAGNOSTICS LABS. ALL METRIC INTEL PROTECTED.</p></div></footer><div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-surface-container-lowest/80 backdrop-blur-md transition-all duration-300 opacity-100" id="telemetry-modal" role="dialog"><div class="relative w-full max-w-3xl bg-surface-container-low/95 border border-primary-container/30 rounded-2xl shadow-[0_0_50px_rgba(0,242,165,0.18)] overflow-hidden flex flex-col max-h-[92vh]"><div class="flex items-center justify-between px-space-md py-space-sm bg-surface-container-lowest/90 border-b border-primary-container/20"><div class="flex items-center gap-space-sm"><span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_12px_rgba(0,242,165,0.9)]"></span><div class="flex flex-col"><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">TELEMETRY SCAN PORTAL // BIO-SPECTRAL INPUT</span><span class="font-label-mono-xs text-[10px] text-secondary">SENSOR ONLINE (915nm NIR CALIBRATED)</span></div></div><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-surface-container text-primary font-label-mono-xs text-[10px]"><span class="material-symbols-outlined text-xs text-primary">verified</span><span>ISO 22000 FILTERED</span></div><button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center" id="close-modal-btn"><span class="material-symbols-outlined text-xl">close</span></button></div></div><div class="flex items-center px-space-md pt-space-xs border-b border-surface-container-highest bg-surface-container-lowest/50 gap-space-xs"><button class="py-2.5 px-space-md font-label-mono text-label-mono font-semibold text-on-primary-container bg-primary-container rounded-t-lg transition-all flex items-center gap-2 shadow-[0_0_12px_rgba(0,242,165,0.3)]" id="tab-btn-scan"><span class="material-symbols-outlined text-base">barcode_scanner</span><span>Live Optical &amp; Barcode Scanner</span></button><button class="py-2.5 px-space-md font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 rounded-t-lg transition-all flex items-center gap-2" id="tab-btn-upload"><span class="material-symbols-outlined text-base">upload_file</span><span>Lab File / Label Biopsy Upload</span></button></div><div class="p-space-md sm:p-space-lg overflow-y-auto flex-1 flex flex-col gap-space-md"><div class="flex flex-col gap-space-md" id="panel-scan"><div class="relative w-full aspect-[16/9] sm:h-64 bg-surface-container-lowest rounded-xl overflow-hidden border border-primary-container/20 shadow-inner flex items-center justify-center"><img alt="Scanner Camera Stream" class="w-full h-full object-cover opacity-60 filter contrast-125 brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlWSkRtnuf2pYzxjvLjpqsjFp5E-C2oiTnxKOZxCKVm8A7L_YmmWCDfBC4oQUI60n-qkfxSQwg3cQzJa45utSrd2l4HBDlK1c_ik6WhiQ0iTZSXWtymty9FkUs1bjC9eBdnksZOfFSRfMdqXfISmLfc6Y0CsJV04QEjuVBXP2kE4N6v3iXvvPEZx3PY-S2I_OlDyo_ANn6N60TkqM2b6hu7DXjbQR2OxVjFL1Bgcc"/><div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/80 pointer-events-none"></div><div class="absolute inset-x-4 sm:inset-x-12 inset-y-6 border-2 border-dashed border-primary-container/40 rounded-lg pointer-events-none flex items-center justify-center"><div class="w-full h-0.5 bg-gradient-to-r from-transparent via-primary-container to-transparent shadow-[0_0_16px_rgba(0,242,165,1)] animate-[scanLaser_2.4s_ease-in-out_infinite]"></div><div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary-container"></div><div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary-container"></div><div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary-container"></div><div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary-container"></div></div><div class="absolute top-2 left-2 flex items-center gap-1.5 bg-surface-container-high/90 backdrop-blur-md px-2 py-0.5 rounded"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold">ALIGN BARCODE OR PRODUCT IN BOX</span></div><div class="absolute bottom-2 inset-x-2 flex items-center justify-between text-[11px] font-label-mono text-on-surface-variant bg-surface-container-lowest/90 px-space-sm py-1 rounded"><span class="text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-xs">videocam</span>OPTICAL FEED: 60 FPS</span><span class="text-outline">LATENCY: 12ms</span><span class="text-primary font-semibold">NIR BEAM: ACTIVE</span></div></div><div class="flex flex-col gap-1.5"><label class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider" for="manual-barcode-input">Manual Barcode / UPC / Matrix Identifier Entry</label><div class="flex items-center gap-space-xs"><div class="relative flex-1"><span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg">barcode</span><input class="w-full bg-surface-container rounded-lg pl-10 pr-space-md py-2 font-label-mono text-label-mono text-on-surface border border-outline-variant/30 focus:border-primary-container focus:outline-none transition-colors" id="manual-barcode-input" placeholder="Enter UPC / EAN e.g. 890412891044..." type="text" value="890412891044"/></div><button class="px-space-md py-2 bg-primary-container text-on-primary-container font-headline-sm text-sm font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.5)] transition-all flex items-center gap-1.5" id="btn-analyze-barcode"><span class="material-symbols-outlined text-base">search_check</span><span>Analyze Barcode</span></button></div></div><div class="flex flex-col gap-1.5"><span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">Instant Sample Quick-Picks (Click to load)</span><div class="grid grid-cols-1 sm:grid-cols-3 gap-2"><button class="preset-chip p-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-primary-container/20 hover:border-primary-container transition-all text-left flex flex-col" data-barcode="890412891044"><span class="font-label-mono text-xs text-on-surface font-semibold truncate">Almond &amp; Macadamia Mylk</span><span class="font-label-mono-xs text-[10px] text-primary">UPC: 890412891044 • Grade A</span></button><button class="preset-chip p-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/20 hover:border-secondary transition-all text-left flex flex-col" data-barcode="084221004123"><span class="font-label-mono text-xs text-on-surface font-semibold truncate">Artisan Crunch Bar</span><span class="font-label-mono-xs text-[10px] text-tertiary-fixed-dim">UPC: 084221004123 • Mod (54)</span></button><button class="preset-chip p-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/20 hover:border-primary transition-all text-left flex flex-col" data-barcode="741829104882"><span class="font-label-mono text-xs text-on-surface font-semibold truncate">Grass-Fed Beef Sticks</span><span class="font-label-mono-xs text-[10px] text-secondary">UPC: 741829104882 • Elite</span></button></div></div><div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between border border-primary-container/30" id="scan-feedback-banner"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">check_circle</span><span class="font-label-mono text-xs text-on-surface"><strong class="text-primary">Spectrum Match Confirmed:</strong> Almond &amp; Macadamia Mylk (Purity Index 94/100)</span></div><span class="font-label-mono-xs text-[10px] text-primary font-bold px-1.5 py-0.5 rounded bg-primary-container/15">VERIFIED BIO-MATRIX</span></div></div><div class="hidden flex-col gap-space-md" id="panel-upload"><div class="border-2 border-dashed border-primary-container/40 hover:border-primary-container rounded-xl p-space-lg flex flex-col items-center justify-center text-center bg-surface-container-lowest/60 hover:bg-surface-container-lowest transition-all cursor-pointer group" id="drop-zone"><div class="w-12 h-12 rounded-xl bg-primary-container/15 text-primary flex items-center justify-center group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,242,165,0.4)] transition-all mb-2"><span class="material-symbols-outlined text-2xl">cloud_upload</span></div><h4 class="font-headline-sm text-sm text-on-surface font-semibold">Drop high-resolution label biopsy, lab PDF, or package image</h4><p class="font-body-sm text-xs text-on-surface-variant max-w-sm mt-1">Drag &amp; drop file here, or click to inspect device storage. VERIDIS Optical OCR Engine v4.2 extracts full micro-spectral data.</p><div class="flex items-center gap-2 mt-3"><span class="px-2 py-0.5 rounded bg-surface-container text-outline font-label-mono-xs text-[10px]">PNG</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline font-label-mono-xs text-[10px]">JPG</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline font-label-mono-xs text-[10px]">WEBP</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline font-label-mono-xs text-[10px]">PDF (Max 25MB)</span></div></div><div class="p-space-sm rounded-lg bg-surface-container border border-primary-container/20 flex flex-col gap-2"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">description</span><div class="flex flex-col"><span class="font-label-mono text-xs text-on-surface font-semibold">lab_assay_spectral_batch_904.pdf</span><span class="font-label-mono-xs text-[10px] text-on-surface-variant">2.4 MB • 100% Extracted • Ready to Ingest</span></div></div><span class="font-label-mono-xs text-[10px] text-primary font-bold px-2 py-0.5 rounded bg-primary-container/15">OCR READY</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary-container rounded-full shadow-[0_0_8px_rgba(0,242,165,0.7)]" style="width: 100%;"></div></div></div><div class="flex flex-col sm:flex-row items-center justify-end gap-space-sm pt-2"><button class="w-full sm:w-auto px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-mono text-label-mono transition-colors" id="btn-browse-local">Browse Local Storage</button><button class="w-full sm:w-auto px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container font-headline-sm text-sm font-semibold flex items-center justify-center gap-1.5 shadow-[0_0_16px_rgba(0,242,165,0.35)] hover:shadow-[0_0_24px_rgba(0,242,165,0.6)] transition-all" id="btn-run-ocr"><span class="material-symbols-outlined text-base">biotech</span><span>Run Optical OCR Biopsy</span></button></div></div></div><div class="px-space-md py-2.5 bg-surface-container-lowest/90 border-t border-outline-variant/20 flex items-center justify-between"><span class="font-label-mono-xs text-[10px] text-outline">VERIDIS BIO-SPECTRAL ENGINE v3.4 • TELEMETRY LINK ACTIVE</span><button class="font-label-mono-xs text-label-mono-xs text-secondary hover:underline flex items-center gap-1" id="close-bottom-btn"><span class="material-symbols-outlined text-xs">keyboard_return</span><span>Dismiss Portal [Esc]</span></button></div></div></div><script>/* Modal toggle & interactive handling */(function(){const modal=document.getElementById('telemetry-modal');const openTriggers=[document.getElementById('nav-scan-trigger'),document.getElementById('mode-upl'),document.getElementById('mode-bar')];const closeButtons=[document.getElementById('close-modal-btn'),document.getElementById('close-bottom-btn')];const tabScan=document.getElementById('tab-btn-scan');const tabUpload=document.getElementById('tab-btn-upload');const panelScan=document.getElementById('panel-scan');const panelUpload=document.getElementById('panel-upload');const input=document.getElementById('manual-barcode-input');const analyzeBtn=document.getElementById('btn-analyze-barcode');const feedbackBanner=document.getElementById('scan-feedback-banner');const presetChips=document.querySelectorAll('.preset-chip');function showModal(){if(modal){modal.classList.remove('hidden');modal.classList.add('flex');}}function hideModal(){if(modal){modal.classList.add('hidden');modal.classList.remove('flex');}}openTriggers.forEach(btn=>{if(btn)btn.addEventListener('click',showModal);});closeButtons.forEach(btn=>{if(btn)btn.addEventListener('click',hideModal);});if(modal){modal.addEventListener('click',function(e){if(e.target===modal)hideModal();});}document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal&&!modal.classList.contains('hidden')){hideModal();}});if(tabScan&&tabUpload&&panelScan&&panelUpload){tabScan.addEventListener('click',()=>{tabScan.className='py-2.5 px-space-md font-label-mono text-label-mono font-semibold text-on-primary-container bg-primary-container rounded-t-lg transition-all flex items-center gap-2 shadow-[0_0_12px_rgba(0,242,165,0.3)]';tabUpload.className='py-2.5 px-space-md font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 rounded-t-lg transition-all flex items-center gap-2';panelScan.classList.remove('hidden');panelScan.classList.add('flex');panelUpload.classList.add('hidden');panelUpload.classList.remove('flex');});tabUpload.addEventListener('click',()=>{tabUpload.className='py-2.5 px-space-md font-label-mono text-label-mono font-semibold text-on-primary-container bg-primary-container rounded-t-lg transition-all flex items-center gap-2 shadow-[0_0_12px_rgba(0,242,165,0.3)]';tabScan.className='py-2.5 px-space-md font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 rounded-t-lg transition-all flex items-center gap-2';panelUpload.classList.remove('hidden');panelUpload.classList.add('flex');panelScan.classList.add('hidden');panelScan.classList.remove('flex');});}presetChips.forEach(chip=>{chip.addEventListener('click',()=>{const code=chip.getAttribute('data-barcode');if(input&&code){input.value=code;if(feedbackBanner){feedbackBanner.classList.remove('bg-surface-container');feedbackBanner.classList.add('bg-primary-container/20');feedbackBanner.innerHTML='<div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">sync</span><span class="font-label-mono text-xs text-on-surface"><strong class="text-primary">Loaded Barcode:</strong> '+code+' (Re-synthesizing Bio-Telemetry...)</span></div><span class="font-label-mono-xs text-[10px] text-primary font-bold px-1.5 py-0.5 rounded bg-primary-container/15 animate-pulse">ACQUIRING</span>';setTimeout(()=>{feedbackBanner.classList.remove('bg-primary-container/20');feedbackBanner.classList.add('bg-surface-container');feedbackBanner.innerHTML='<div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">check_circle</span><span class="font-label-mono text-xs text-on-surface"><strong class="text-primary">Spectrum Match Confirmed:</strong> '+chip.querySelector('span:first-child').innerText+'</span></div><span class="font-label-mono-xs text-[10px] text-primary font-bold px-1.5 py-0.5 rounded bg-primary-container/15">VERIFIED</span>';},700);}}});});if(analyzeBtn){analyzeBtn.addEventListener('click',()=>{if(feedbackBanner&&input){const orig=analyzeBtn.innerHTML;analyzeBtn.innerHTML='<span class="material-symbols-outlined text-base animate-spin">rotate_right</span><span>Analyzing...</span>';setTimeout(()=>{analyzeBtn.innerHTML=orig;feedbackBanner.innerHTML='<div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">check_circle</span><span class="font-label-mono text-xs text-on-surface"><strong class="text-primary">Bio-Assay Indexed:</strong> Code '+input.value+'</span></div><span class="font-label-mono-xs text-[10px] text-primary font-bold px-1.5 py-0.5 rounded bg-primary-container/15">ACTIVE CALIBRATION</span>';},600);}});}})();</script><script src="/site-interactions.js" defer></script></body></html>
+
+  elements.analyzeBtn.addEventListener("click", analyzeImage);
+
+  $("barcodeForm").addEventListener("submit", lookupBarcode);
+
+  $("refreshHistoryBtn").addEventListener("click", loadHistory);
+
+  window.addEventListener("pagehide", () => {
+    if (state.cameraStream) {
+      state.cameraStream.getTracks().forEach((track) => track.stop());
+    }
+  });
+
+  setupTabs();
+  setupUpload();
+  initializeSupabase();
+})();
+</script>
+
+<!--
+IMPORTANT:
+Load your existing Supabase configuration before the application script.
+
+If your current project initializes window.supabaseClient inside
+supabase-config.js, add this line BEFORE the inline application script:
+
+<script src="/supabase-config.js"></script>
+
+Only add it if that file exists and initializes window.supabaseClient.
+-->
+
+</body>
+            </html>
