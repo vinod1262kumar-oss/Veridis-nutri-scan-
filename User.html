@@ -1,630 +1,1693 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>VERIDIS NutriScan - Biological Intelligence Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#ffefe0","tertiary-fixed-dim":"#ffb95f","inverse-on-surface":"#2b3139","surface-dim":"#0e141b","surface-variant":"#2f353d","surface":"#0e141b","surface-container-low":"#161c23","error":"#ffb4ab","primary-container":"#00f2a5","inverse-surface":"#dde3ed","secondary-fixed":"#acedff","surface-container":"#1a2027","background":"#0e141b","on-secondary-fixed":"#001f26","on-primary":"#003823","primary-fixed-dim":"#00e29a","surface-container-high":"#242a32","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","on-tertiary-fixed":"#2a1700","on-tertiary-container":"#825100","on-error":"#690005","on-error-container":"#ffdad6","outline":"#849589","on-primary-fixed":"#002113","primary-fixed":"#4affb4","tertiary-fixed":"#ffddb8","inverse-primary":"#006c47","secondary":"#4cd7f6","primary":"#c0ffdb","on-primary-fixed-variant":"#005235","surface-container-highest":"#2f353d","on-tertiary-fixed-variant":"#653e00","on-tertiary":"#472a00","surface-tint":"#00e29a","tertiary-container":"#ffcc90","on-surface":"#dde3ed","on-secondary-container":"#00424e","outline-variant":"#3b4a41","on-surface-variant":"#b9cbbe","on-primary-container":"#006945","on-secondary":"#003640","secondary-fixed-dim":"#4cd7f6","surface-bright":"#343a42","on-background":"#dde3ed","surface-container-lowest":"#090f16","error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"2rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter-mobile":"0.75rem","space-sm":"0.5rem"},fontFamily:{"data-display-md":["JetBrains Mono"],"label-mono-xs":["JetBrains Mono"],"body-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-display-lg":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"data-display-md":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"data-display-lg":["40px",{"lineHeight":"44px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase leading-none">VERIDIS NUTRISCAN</span><span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant tracking-widest mt-1">BIO-SPECTRAL ANALYSIS</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low border border-primary-container/20"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,242,165,0.8)]"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">SPECTRA v3.4 ONLINE</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container/60" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="live-scanner" href="#">Live Scanner</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="ingredient-intel" href="#">Ingredient Intel</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="health-vault" href="#">Health Vault</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="clean-food-explorer" href="#">Clean Food Explorer</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container px-space-md py-space-xs rounded-xl transition-all cursor-pointer group"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-lg">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search matrix...</span><kbd class="px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-secondary">⌘K / Scan Barcode</kbd></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-mono-xs text-label-mono-xs text-primary tracking-wider uppercase">SENSOR ACTIVE</span></div><button class="relative p-space-xs rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden sm:flex flex-col text-right"><span class="font-label-mono text-label-mono text-on-surface">Dr. Elena Vance</span><span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-wider">Pro Bio-Tier</span></div><div class="relative ring-1 ring-primary-container/30 rounded-full p-0.5"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfYHjWGiIm2RsNaTVEu5XYRXJb83fhKz8fqz-JwjjFymWdmQQdzg16x7Oaegy9WBp82_GSodCHddes6_xHpkK_rWngrkwwAOTZouHupN8WHj0_dLBRG7OQifkTG0CP-0cML8eqy2dsjGmyrE9cZg1It_5yiFy_1w8fQyfM0fHHbuYLEdRtOZd8tcmaQmbfPvhHHG_g6nOylj31YLMBRSkKkdBzUGIY7EcLqQSlURw"/></div></div></div></div></div><div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/50 to-transparent shadow-[0_0_12px_rgba(0,242,165,0.4)]"></div></header><main class="w-full pt-20 bg-background relative min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
-<div class="w-full px-gutter max-w-7xl mx-auto py-space-lg flex flex-col gap-space-xl">
-<!-- Top Telemetry Row: Status Overline + Quick Controls -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div class="flex flex-col">
-<div class="flex items-center gap-space-xs">
-<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_10px_rgba(0,242,165,0.9)] animate-pulse"></span>
-<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">BIOLOGICAL REPOSITORY // ARCHIVE ID: VRD-9042</span>
-</div>
-<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">Metabolic Diagnostics &amp; Nutrition Vault</h1>
-</div>
-<div class="flex items-center gap-space-sm">
-<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-xl">
-<button class="px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs text-on-surface hover:text-primary transition-all" id="btn-period-week">WEEKLY (7D)</button>
-<button class="px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-primary-container shadow-sm" id="btn-period-month">CYCLE (30D)</button>
-<button class="px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs text-on-surface-variant hover:text-on-surface transition-all" id="btn-period-year">YTD (2025)</button>
-</div>
-<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-primary-container text-on-primary font-headline-sm text-body-md font-semibold hover:shadow-[0_0_20px_rgba(0,242,165,0.4)] transition-all">
-<span class="material-symbols-outlined text-lg">download</span>
-<span>Export Bio-Report</span>
-</button>
-</div>
-</div>
-<!-- 4 Primary Metric Telemetry Cards -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
-<!-- Card 1 -->
-<div class="relative bg-surface-container-low/90 backdrop-blur-xl p-space-lg rounded-xl shadow-xl flex flex-col justify-between overflow-hidden group hover:bg-surface-container transition-all">
-<div class="absolute -top-12 -right-12 w-28 h-28 bg-primary-container/10 rounded-full blur-2xl group-hover:bg-primary-container/20 transition-all pointer-events-none"></div>
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">TELEMETRY 01 // VOLUME</span>
-<span class="material-symbols-outlined text-primary-container text-lg">barcode_scanner</span>
-</div>
-<div class="my-space-md">
-<div class="font-label-mono text-label-mono text-on-surface-variant">Total Foods Scanned</div>
-<div class="flex items-baseline gap-space-sm mt-1">
-<span class="font-data-display-lg text-data-display-lg text-on-surface">342</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary-container bg-surface-container-highest px-1.5 py-0.5 rounded-full">+18% MoM</span>
-</div>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant pt-space-xs">
-<span class="font-body-sm text-body-sm">30-day baseline pace</span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">11.4 / day</span>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="relative bg-surface-container-low/90 backdrop-blur-xl p-space-lg rounded-xl shadow-xl flex flex-col justify-between overflow-hidden group hover:bg-surface-container transition-all">
-<div class="absolute -top-12 -right-12 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/25 transition-all pointer-events-none"></div>
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">TELEMETRY 02 // PURITY</span>
-<span class="material-symbols-outlined text-secondary text-lg">shield_with_heart</span>
-</div>
-<div class="my-space-md">
-<div class="font-label-mono text-label-mono text-on-surface-variant">Pantry Clean Purity Score</div>
-<div class="flex items-baseline gap-space-sm mt-1">
-<span class="font-data-display-lg text-data-display-lg text-primary">88.4%</span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary bg-surface-container-highest px-1.5 py-0.5 rounded-full">Top 5%</span>
-</div>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant pt-space-xs">
-<span class="font-body-sm text-body-sm">Benchmark Tier</span>
-<span class="font-label-mono text-label-mono text-secondary-fixed font-semibold uppercase">Elite Bio-Tier</span>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="relative bg-surface-container-low/90 backdrop-blur-xl p-space-lg rounded-xl shadow-xl flex flex-col justify-between overflow-hidden group hover:bg-surface-container transition-all">
-<div class="absolute -top-12 -right-12 w-28 h-28 bg-error/10 rounded-full blur-2xl group-hover:bg-error/25 transition-all pointer-events-none"></div>
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">TELEMETRY 03 // INTERCEPT</span>
-<span class="material-symbols-outlined text-error text-lg">gpp_bad</span>
-</div>
-<div class="my-space-md">
-<div class="font-label-mono text-label-mono text-on-surface-variant">Ultra-Processed Avoided</div>
-<div class="flex items-baseline gap-space-sm mt-1">
-<span class="font-data-display-lg text-data-display-lg text-on-surface">94</span>
-<span class="font-label-mono-xs text-label-mono-xs text-error bg-error-container/40 px-1.5 py-0.5 rounded-full">Intercepted</span>
-</div>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant pt-space-xs">
-<span class="font-body-sm text-body-sm">NOVA Class 4 Ingestion</span>
-<span class="font-label-mono text-label-mono text-error font-semibold">-42% vs Pop Avg</span>
-</div>
-</div>
-<!-- Card 4 -->
-<div class="relative bg-surface-container-low/90 backdrop-blur-xl p-space-lg rounded-xl shadow-xl flex flex-col justify-between overflow-hidden group hover:bg-surface-container transition-all">
-<div class="absolute -top-12 -right-12 w-28 h-28 bg-tertiary-fixed-dim/10 rounded-full blur-2xl group-hover:bg-tertiary-fixed-dim/25 transition-all pointer-events-none"></div>
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">TELEMETRY 04 // TOX-SCREEN</span>
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">biotech</span>
-</div>
-<div class="my-space-md">
-<div class="font-label-mono text-label-mono text-on-surface-variant">Hidden Additives Dodged</div>
-<div class="flex items-baseline gap-space-sm mt-1">
-<span class="font-data-display-lg text-data-display-lg text-on-surface">312</span>
-<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim bg-surface-container-highest px-1.5 py-0.5 rounded-full">E-Codes</span>
-</div>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant pt-space-xs">
-<span class="font-body-sm text-body-sm">Synthetic &amp; Seed Oils</span>
-<span class="font-label-mono text-label-mono text-tertiary-fixed font-semibold">~4.2kg Saved</span>
-</div>
-</div>
-</div>
-<!-- Main Content Grid: 65% Left / 35% Right -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-<!-- LEFT AREA (65% -> 8 cols) -->
-<div class="lg:col-span-8 flex flex-col gap-space-xl">
-<!-- Interactive Macro & Clean Ratio Graph Card -->
-<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl relative overflow-hidden">
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-lg">
-<div>
-<div class="flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-widest">CHRONO-METRICS</span>
-<span class="text-outline text-xs">/</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">BIO-ACCUMULATIVE FLUX</span>
-</div>
-<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-0.5">Macro Intake &amp; Clean Purity Delta</h2>
-</div>
-<!-- Graph Legend -->
-<div class="flex items-center gap-space-md font-label-mono-xs text-label-mono-xs">
-<div class="flex items-center gap-1.5">
-<span class="w-3 h-0.5 bg-primary-container rounded shadow-[0_0_6px_rgba(0,242,165,0.8)]"></span>
-<span class="text-on-surface">Clean Ratio (%)</span>
-</div>
-<div class="flex items-center gap-1.5">
-<span class="w-3 h-0.5 bg-secondary rounded shadow-[0_0_6px_rgba(76,215,246,0.8)]"></span>
-<span class="text-on-surface">Macro Accuracy</span>
-</div>
-<div class="flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-error"></span>
-<span class="text-on-surface-variant">UPF Anomaly</span>
-</div>
-</div>
-</div>
-<!-- Glowing SVG Multi-Series Waveform Graph -->
-<div class="relative w-full h-64 bg-surface-container-lowest/60 rounded-lg p-space-md flex flex-col justify-end">
-<!-- Grid Lines -->
-<div class="absolute inset-x-space-md top-space-md bottom-space-lg flex flex-col justify-between pointer-events-none opacity-20">
-<div class="w-full h-px bg-outline"></div>
-<div class="w-full h-px bg-outline"></div>
-<div class="w-full h-px bg-outline"></div>
-<div class="w-full h-px bg-outline"></div>
-</div>
-<!-- SVG Curves -->
-<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 700 200">
-<defs>
-<lineargradient id="cleanGrad" x1="0%" x2="0%" y1="0%" y2="100%">
-<stop offset="0%" stop-color="#00F2A5" stop-opacity="0.35"></stop>
-<stop offset="100%" stop-color="#00F2A5" stop-opacity="0.0"></stop>
-</lineargradient>
-<lineargradient id="macroGrad" x1="0%" x2="0%" y1="0%" y2="100%">
-<stop offset="0%" stop-color="#4CD7F6" stop-opacity="0.2"></stop>
-<stop offset="100%" stop-color="#4CD7F6" stop-opacity="0.0"></stop>
-</lineargradient>
-<filter height="140%" id="glowGreen" width="140%" x="-20%" y="-20%">
-<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
-<femerge>
-<femergenode in="blur"></femergenode>
-<femergenode in="SourceGraphic"></femergenode>
-</femerge>
-</filter>
-<filter height="140%" id="glowCyan" width="140%" x="-20%" y="-20%">
-<fegaussianblur result="blur" stddeviation="2.5"></fegaussianblur>
-<femerge>
-<femergenode in="blur"></femergenode>
-<femergenode in="SourceGraphic"></femergenode>
-</femerge>
-</filter>
-</defs>
-<!-- Clean Ratio Area Fill -->
-<path d="M 0,160 Q 60,140 120,110 T 240,85 T 360,65 T 480,45 T 600,30 L 700,24 L 700,200 L 0,200 Z" fill="url(#cleanGrad)"></path>
-<!-- Macro Accuracy Area Fill -->
-<path d="M 0,170 Q 70,165 140,140 T 280,120 T 420,110 T 560,80 L 700,60 L 700,200 L 0,200 Z" fill="url(#macroGrad)"></path>
-<!-- Cyan Macro Stroke -->
-<path d="M 0,170 Q 70,165 140,140 T 280,120 T 420,110 T 560,80 L 700,60" fill="none" filter="url(#glowCyan)" stroke="#4CD7F6" stroke-width="2.5"></path>
-<!-- Green Clean Ratio Stroke -->
-<path d="M 0,160 Q 60,140 120,110 T 240,85 T 360,65 T 480,45 T 600,30 L 700,24" fill="none" filter="url(#glowGreen)" stroke="#00F2A5" stroke-width="3"></path>
-<!-- Data Anchors / Anomalies -->
-<circle cx="120" cy="110" fill="#00F2A5" r="4" stroke="#0E141B" stroke-width="2"></circle>
-<circle cx="280" cy="120" fill="#4CD7F6" r="4" stroke="#0E141B" stroke-width="2"></circle>
-<circle cx="360" cy="65" fill="#00F2A5" r="4" stroke="#0E141B" stroke-width="2"></circle>
-<!-- Anomaly Point (Energy Drink scan day) -->
-<circle class="animate-ping" cx="480" cy="150" fill="#FFB4AB" r="5" stroke="#93000A" stroke-width="2"></circle>
-<circle cx="480" cy="150" fill="#FFB4AB" r="4" stroke="#0E141B" stroke-width="2"></circle>
-<!-- Latest High Node -->
-<circle cx="700" cy="24" fill="#00F2A5" r="5" stroke="#003823" stroke-width="2"></circle>
-</svg>
-<!-- X-Axis Labels -->
-<div class="flex justify-between items-center pt-space-xs font-label-mono-xs text-label-mono-xs text-outline">
-<span>DAY 01 (NOV)</span>
-<span>DAY 07</span>
-<span>DAY 14</span>
-<span>DAY 21 [UPF SPIKE]</span>
-<span>DAY 28</span>
-<span class="text-primary-container font-semibold">TODAY (88.4%)</span>
-</div>
-</div>
-<!-- Bottom Telemetry Micro Stats inside graph container -->
-<div class="grid grid-cols-3 gap-space-md mt-space-md pt-space-md border-t border-outline-variant/20">
-<div class="flex flex-col">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Peak Clean Score</span>
-<span class="font-data-display-md text-data-display-md text-primary mt-0.5">94.2% <span class="text-xs text-outline">Day 26</span></span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Saturated Fat Flux</span>
-<span class="font-data-display-md text-data-display-md text-secondary mt-0.5">-14.8g <span class="text-xs text-outline">Net</span></span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Synthetic Chemical Load</span>
-<span class="font-data-display-md text-data-display-md text-on-surface mt-0.5">0.02% <span class="text-xs text-primary-container">Minimal</span></span>
-</div>
-</div>
-</div>
-<!-- Dietary Preference Compliance Matrix -->
-<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl">
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs mb-space-md">
-<div>
-<span class="font-label-mono-xs text-label-mono-xs text-primary-container uppercase tracking-wider">GUARDRAIL FILTERS ACTIVE</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Bio-Rule Compliance Matrix</h3>
-</div>
-<button class="flex items-center gap-1 font-label-mono-xs text-label-mono-xs text-secondary hover:text-secondary-fixed transition-colors">
-<span class="material-symbols-outlined text-sm">tune</span>
-<span>CONFIGURE THRESHOLDS</span>
-</button>
-</div>
-<!-- Active Rules Badges Grid -->
-<div class="flex flex-wrap gap-space-sm">
-<!-- Badge 1 -->
-<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
-<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,242,165,0.7)]"></span>
-<span class="font-label-mono text-label-mono text-on-surface font-medium">Strict Gluten-Free</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary bg-surface-container-lowest px-1 rounded">100% PASS</span>
-</div>
-<!-- Badge 2 -->
-<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
-<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,242,165,0.7)]"></span>
-<span class="font-label-mono text-label-mono text-on-surface font-medium">Seed-Oil Free</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary bg-surface-container-lowest px-1 rounded">98% PASS</span>
-</div>
-<!-- Badge 3 -->
-<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
-<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.7)]"></span>
-<span class="font-label-mono text-label-mono text-on-surface font-medium">Keto (&lt;25g Net Carbs)</span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary-fixed bg-surface-container-lowest px-1 rounded">ACTIVE 21g</span>
-</div>
-<!-- Badge 4 -->
-<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
-<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,242,165,0.7)]"></span>
-<span class="font-label-mono text-label-mono text-on-surface font-medium">No Artificial Sweeteners</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary bg-surface-container-lowest px-1 rounded">0 DETECTED</span>
-</div>
-<!-- Badge 5 -->
-<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest transition-all group cursor-default">
-<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim shadow-[0_0_8px_rgba(255,185,95,0.7)]"></span>
-<span class="font-label-mono text-label-mono text-on-surface font-medium">Nitrate/Nitrite Free</span>
-<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed bg-surface-container-lowest px-1 rounded">E249-E252 CLAMP</span>
-</div>
-</div>
-</div>
-<!-- Recent Scan Log Table -->
-<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl overflow-hidden flex flex-col">
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-md">
-<div>
-<div class="flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">LOG JOURNAL</span>
-<span class="text-outline text-xs">/</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary-container">LIVE BIOPSIES</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Recent Food Scans &amp; NOVA Classifications</h3>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Showing latest 4 of 342</span>
-<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-highest text-secondary font-label-mono-xs text-label-mono-xs transition-colors">VIEW ALL ARCHIVES</button>
-</div>
-</div>
-<!-- Table Container -->
-<div class="w-full overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-surface-container-lowest/80 text-on-surface-variant font-label-mono-xs text-label-mono-xs tracking-wider uppercase">
-<th class="py-space-sm px-space-md rounded-l">Product &amp; Brand</th>
-<th class="py-space-sm px-space-md">Timestamp</th>
-<th class="py-space-sm px-space-md">NOVA Rating</th>
-<th class="py-space-sm px-space-md">Purity Score</th>
-<th class="py-space-sm px-space-md">Diagnostic State</th>
-<th class="py-space-sm px-space-md text-right rounded-r">Telemetry</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-outline-variant/10 font-body-md text-body-md">
-<!-- Item 1: Skyr -->
-<tr class="hover:bg-surface-container/60 transition-colors group">
-<td class="py-space-md px-space-md">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-highest shrink-0 relative">
-<img class="w-full h-full object-cover" data-alt="Close up clean studio photograph of organic thick Icelandic Skyr yogurt tub on dark reflective stone surface, dramatic cold laboratory rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn6e0zZ9SbtueWtIUq4M6Ye3vatexYE8tFcv3G9kmaXIGEW-Vu_DrtJ5NVuRU_id5pmRfSrR4QgxSjrUhkY7jxUEbaysh7BJ_ChqJw8AC47IA9PFB5JQutChIAShkm5zLnmUvgLU3QJVFFExnhOzfQjSDi9_Zutkc6PWOorlutr5o0Ymyal9OGe7Lh8XMH3-QcNuc7FfR3zh93Ukq5olV9BZPrd6boMkLAK1aZtBU"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Grass-Fed Icelandic Skyr</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Ísey Dairy // Unflavored 0%</span>
-</div>
-</div>
-</td>
-<td class="py-space-md px-space-md font-label-mono text-label-mono text-on-surface-variant">
-<div>Today, 14:22</div>
-<span class="text-xs text-outline">LOC: Refrigerator Lab</span>
-</td>
-<td class="py-space-md px-space-md">
-<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary-container/10">
-<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">NOVA 1</span>
-</div>
-<div class="text-xs font-label-mono-xs text-outline mt-0.5">Unprocessed Food</div>
-</td>
-<td class="py-space-md px-space-md">
-<div class="flex items-center gap-space-xs">
-<span class="font-data-display-md text-body-lg text-primary-container font-bold">98</span>
-<span class="text-xs font-label-mono-xs text-outline">/100</span>
-</div>
-</td>
-<td class="py-space-md px-space-md">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/15 font-label-mono-xs text-label-mono-xs text-primary-container font-semibold">
-<span class="material-symbols-outlined text-xs">verified</span>
-                      Approved Clean
-                    </span>
-</td>
-<td class="py-space-md px-space-md text-right">
-<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
-<span class="material-symbols-outlined text-base">read_more</span>
-</button>
-</td>
-</tr>
-<!-- Item 2: Sourdough -->
-<tr class="hover:bg-surface-container/60 transition-colors group">
-<td class="py-space-md px-space-md">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-highest shrink-0 relative">
-<img class="w-full h-full object-cover" data-alt="Artisan wild fermented sourdough loaf sliced cleanly against dark basalt slate with visible airy crumb structure and golden crust" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGDDkOFqJGv2COlQ0L65SFacnES3BtFmYV3FhR0Kygr0CxtmUxIEJFzq-pNo6-13v991RKPiFXbFsvfp0dbMoBwHTXSKymmb3zKuFQbKV7Rzj9jsjYsVcWtaSDABIZrafJ0jioFXqUwgLsAu5ap0St23Zet_Lx3TaQEYEBTXy8z8p9wPCqqvl0hJiU7gjxcDZnpesppXPxnI9lrP4_HFYZ8LHKcGXCry9pPOUVA64"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Artisan Wild Ferment Sourdough</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Tartine Bakery // 3 Ingredients</span>
-</div>
-</div>
-</td>
-<td class="py-space-md px-space-md font-label-mono text-label-mono text-on-surface-variant">
-<div>Yesterday, 09:15</div>
-<span class="text-xs text-outline">LOC: Pantry Zone A</span>
-</td>
-<td class="py-space-md px-space-md">
-<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary/10">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-<span class="font-label-mono text-label-mono text-secondary font-semibold">NOVA 3</span>
-</div>
-<div class="text-xs font-label-mono-xs text-outline mt-0.5">Processed (Natural)</div>
-</td>
-<td class="py-space-md px-space-md">
-<div class="flex items-center gap-space-xs">
-<span class="font-data-display-md text-body-lg text-primary font-bold">92</span>
-<span class="text-xs font-label-mono-xs text-outline">/100</span>
-</div>
-</td>
-<td class="py-space-md px-space-md">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/15 font-label-mono-xs text-label-mono-xs text-primary font-semibold">
-<span class="material-symbols-outlined text-xs">verified</span>
-                      Approved Clean
-                    </span>
-</td>
-<td class="py-space-md px-space-md text-right">
-<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
-<span class="material-symbols-outlined text-base">read_more</span>
-</button>
-</td>
-</tr>
-<!-- Item 3: Energy Drink (Alert) -->
-<tr class="hover:bg-surface-container/60 transition-colors group bg-error/5">
-<td class="py-space-md px-space-md">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-highest shrink-0 relative">
-<img class="w-full h-full object-cover" data-alt="Matte black commercial energy drink can with neon warning graphics placed in diagnostic sterile scanning chamber with red laser crosshairs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO_-QKWuXSIstfVMQWXG3Yk3mW6Yc-rSbjMOFt5ZUrJ_H3ReNT70f_8bx-9C_sb-wTkDpOi_ZlkwGg3qzjbaxkw3_c6AjhlJSDkwswzVvVbsvzyP6vBoW8wi1vd6IHr2IJZM_oz3_hVgBojPohOivpQN8a151I15-Ntgt6wzWA9ix3LmuvjhP-JoBgXhb_qpep_7quHvkUgpVHSMA-KHgu7lHKmWm97-X1DjN0I0Q"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-headline-sm text-body-md text-error font-semibold truncate">Commercial Boost Energy Drink</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">MegaCharge // Sucralose + E150d</span>
-</div>
-</div>
-</td>
-<td class="py-space-md px-space-md font-label-mono text-label-mono text-on-surface-variant">
-<div>Nov 21, 18:40</div>
-<span class="text-xs text-error">SCAN AT WORKPLACE</span>
-</td>
-<td class="py-space-md px-space-md">
-<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-error/15">
-<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
-<span class="font-label-mono text-label-mono text-error font-semibold">NOVA 4</span>
-</div>
-<div class="text-xs font-label-mono-xs text-error mt-0.5">Ultra-Processed Food</div>
-</td>
-<td class="py-space-md px-space-md">
-<div class="flex items-center gap-space-xs">
-<span class="font-data-display-md text-body-lg text-error font-bold">22</span>
-<span class="text-xs font-label-mono-xs text-outline">/100</span>
-</div>
-</td>
-<td class="py-space-md px-space-md">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-error-container/40 font-label-mono-xs text-label-mono-xs text-error font-semibold">
-<span class="material-symbols-outlined text-xs">warning</span>
-                      Warning: Swap Recommended
-                    </span>
-</td>
-<td class="py-space-md px-space-md text-right">
-<button class="p-1 rounded hover:bg-surface-container-highest text-error hover:text-on-surface transition-colors">
-<span class="material-symbols-outlined text-base">emergency_share</span>
-</button>
-</td>
-</tr>
-<!-- Item 4: Pure Avocado Oil -->
-<tr class="hover:bg-surface-container/60 transition-colors group">
-<td class="py-space-md px-space-md">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-highest shrink-0 relative">
-<img class="w-full h-full object-cover" data-alt="Emerald green glass bottle containing cold-pressed extra virgin avocado oil with ambient luminescence and macro droplets on glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmFRxfj2-PbTA3n5r1nmqzPu4UiOLRDdBBPXNGYLRjavuPq_onP4FdB31zvqQ-k1f7CAf-kiYYuSDdDx0Ap_Iimyd8JtalNcZmKqjUcroENNbykvS9TPFT2qLgXR-J8v1Y-OXpTj9dCVro3W-E0Qz67Gb-ki7LHAKu3IT1Vs-EPN9WaNiN-Lh5zdvmHvBTiv5Im96NCW96jYznRPTfLg3rMKfJXQo-UZLbws00vAM"/>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Extra Virgin Avocado Oil</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">Chosen Heritage // Cold-Pressed</span>
-</div>
-</div>
-</td>
-<td class="py-space-md px-space-md font-label-mono text-label-mono text-on-surface-variant">
-<div>Nov 19, 11:04</div>
-<span class="text-xs text-outline">LOC: Olive &amp; Oil Rack</span>
-</td>
-<td class="py-space-md px-space-md">
-<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary-container/10">
-<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">NOVA 2</span>
-</div>
-<div class="text-xs font-label-mono-xs text-outline mt-0.5">Culinary Ingredient</div>
-</td>
-<td class="py-space-md px-space-md">
-<div class="flex items-center gap-space-xs">
-<span class="font-data-display-md text-body-lg text-primary-container font-bold">100</span>
-<span class="text-xs font-label-mono-xs text-outline">/100</span>
-</div>
-</td>
-<td class="py-space-md px-space-md">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/15 font-label-mono-xs text-label-mono-xs text-primary-container font-semibold">
-<span class="material-symbols-outlined text-xs">verified</span>
-                      Approved Clean
-                    </span>
-</td>
-<td class="py-space-md px-space-md text-right">
-<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors">
-<span class="material-symbols-outlined text-base">read_more</span>
-</button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<!-- RIGHT AREA (35% -> 4 cols) -->
-<div class="lg:col-span-4 flex flex-col gap-space-xl">
-<!-- Visual Pantry Breakdown Donut Card -->
-<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl relative overflow-hidden flex flex-col items-center">
-<div class="w-full flex items-center justify-between mb-space-md">
-<div>
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">PANTRY VAULT COMPOSITION</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">NOVA Stratification</h3>
-</div>
-<span class="material-symbols-outlined text-primary text-xl">pie_chart</span>
-</div>
-<!-- Dual Ring Circular SVG Donut -->
-<div class="relative w-48 h-48 my-space-md flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
-<!-- Background Ring -->
-<circle cx="50" cy="50" fill="none" r="40" stroke="#1A2027" stroke-width="12"></circle>
-<!-- Whole Food Segment: 72% (perimeter = 251.2, dash = 180.8, gap = 70.4) -->
-<circle class="transition-all duration-1000" cx="50" cy="50" fill="none" r="40" stroke="#00F2A5" stroke-dasharray="180.8 70.4" stroke-dashoffset="0" stroke-width="12"></circle>
-<!-- Processed NOVA 3: 16% (dash = 40.2) -->
-<circle class="transition-all duration-1000" cx="50" cy="50" fill="none" r="40" stroke="#4CD7F6" stroke-dasharray="40.2 211.0" stroke-dashoffset="-180.8" stroke-width="12"></circle>
-<!-- Ultra-Processed NOVA 4: 12% (dash = 30.1) -->
-<circle class="transition-all duration-1000" cx="50" cy="50" fill="none" r="40" stroke="#FFB4AB" stroke-dasharray="30.1 221.1" stroke-dashoffset="-221.0" stroke-width="12"></circle>
-</svg>
-<!-- Central HUD Core -->
-<div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-<span class="font-data-display-lg text-data-display-md text-on-surface font-bold leading-none">88%</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-widest mt-1">CLEAN CAP</span>
-</div>
-</div>
-<!-- Donut Metric Key -->
-<div class="w-full flex flex-col gap-space-xs mt-space-sm pt-space-md border-t border-outline-variant/20">
-<div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
-<div class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,242,165,0.7)]"></span>
-<span>Whole Food / NOVA 1</span>
-</div>
-<span class="font-label-mono text-label-mono font-semibold text-primary">72% <span class="text-xs text-outline font-normal">(246 items)</span></span>
-</div>
-<div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
-<div class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
-<span>Processed / NOVA 3</span>
-</div>
-<span class="font-label-mono text-label-mono font-semibold text-secondary">16% <span class="text-xs text-outline font-normal">(55 items)</span></span>
-</div>
-<div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
-<div class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
-<span>Ultra-Processed / NOVA 4</span>
-</div>
-<span class="font-label-mono text-label-mono font-semibold text-error">12% <span class="text-xs text-outline font-normal">(41 items)</span></span>
-</div>
-</div>
-</div>
-<!-- Actionable Health Goals Card -->
-<div class="bg-surface-container-low/95 backdrop-blur-xl rounded-xl p-space-lg shadow-xl flex flex-col">
-<div class="flex items-center justify-between mb-space-md">
-<div>
-<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim uppercase tracking-wider">BIO-DIAGNOSTIC ADVICE</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Target Interventions</h3>
-</div>
-<span class="px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary-fixed-dim font-label-mono-xs text-label-mono-xs">2 ACTIVE</span>
-</div>
-<div class="flex flex-col gap-space-sm">
-<!-- Goal 1 -->
-<div class="p-space-md rounded-lg bg-surface-container flex items-start gap-space-sm group hover:bg-surface-container-high transition-all cursor-pointer">
-<div class="p-2 rounded bg-error-container/30 text-error shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-lg">pest_control</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center justify-between gap-1">
-<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Replace Glyphosate Rolled Oats</span>
-<span class="font-label-mono-xs text-label-mono-xs text-error font-medium">HIGH PRIORITY</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
-                  Breakfast brand tested positive for organophosphate traces. Recommended Swap: <span class="text-primary-container underline decoration-primary/40 underline-offset-2">Bio-Certified Sprouted Organic Oats</span>.
-                </p>
-<div class="flex items-center gap-space-xs mt-space-xs text-primary font-label-mono-xs text-label-mono-xs">
-<span>SWAP TO ELITE TIER</span>
-<span class="material-symbols-outlined text-xs">arrow_forward</span>
-</div>
-</div>
-</div>
-<!-- Goal 2 -->
-<div class="p-space-md rounded-lg bg-surface-container flex items-start gap-space-sm group hover:bg-surface-container-high transition-all cursor-pointer">
-<div class="p-2 rounded bg-secondary-container/20 text-secondary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-lg">water_drop</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center justify-between gap-1">
-<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Reduce Emulsifier Ingestion by 15%</span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary font-medium">IN PROGRESS (68%)</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
-                  Gut microbiome integrity threshold exceeded due to Carrageenan (E407) and Soy Lecithin found in almond creamer.
-                </p>
-<!-- Mini Progress Bar -->
-<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden mt-space-xs">
-<div class="bg-secondary h-full rounded-full w-[68%] shadow-[0_0_8px_rgba(76,215,246,0.8)]"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Quick Scan Barcode Upload Drop-Zone -->
-<div class="relative rounded-xl p-space-lg bg-surface-container-low/95 backdrop-blur-xl shadow-xl flex flex-col items-center justify-center text-center cursor-pointer group hover:bg-surface-container transition-all" id="dropzone">
-<div class="w-14 h-14 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container mb-space-sm group-hover:scale-110 group-hover:bg-primary-container/20 transition-all shadow-[0_0_20px_rgba(0,242,165,0.2)]">
-<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
-</div>
-<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Drop Barcode or Nutritional Label</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-xs">
-            Drag photo spectra, upload lab analysis PDF, or pair camera optical sensor.
-          </p>
-<div class="flex items-center gap-space-sm mt-space-md">
-<button class="px-space-md py-space-xs rounded bg-surface-container-highest hover:bg-primary-container hover:text-on-primary font-label-mono-xs text-label-mono-xs text-primary-container tracking-wider transition-all">
-              BROWSE FILE
+  <title>Food Scanner | VERIDIS NutriScan</title>
+
+  <meta
+    name="description"
+    content="Understand food labels, ingredients and nutrition information with VERIDIS NutriScan."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+    rel="stylesheet"
+  >
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-config.js"></script>
+
+  <style>
+    :root {
+      --bg: #f5f3eb;
+      --card: #fcfbf6;
+      --green: #124d35;
+      --green-dark: #0b3926;
+      --green-soft: #e8eee5;
+      --text: #1d2b22;
+      --muted: #758075;
+      --border: #e3e5da;
+      --red: #a13c34;
+      --radius: 23px;
+      --shadow: 0 12px 35px rgba(25, 55, 37, .06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: .55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px 5%;
+      background: rgba(252, 251, 246, .94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font: 23px "DM Serif Display", serif;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: #647064;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--green);
+    }
+
+    #accountStatus {
+      max-width: 170px;
+      overflow: hidden;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: white;
+      color: var(--green);
+      font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(1160px, 91%);
+      margin: auto;
+      padding: 40px 0 75px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    h1, .serif {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      letter-spacing: -1px;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: clamp(39px, 6vw, 65px);
+      line-height: 1.04;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      font-size: 25px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 32px;
+    }
+
+    .hero-copy > p:last-child {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-note {
+      padding: 23px;
+      border: 1px solid #dce4d9;
+      border-radius: var(--radius);
+      background: var(--green-soft);
+    }
+
+    .hero-note strong {
+      color: var(--green);
+    }
+
+    .hero-note p {
+      margin-bottom: 0;
+      color: #607064;
+      font-size: 12px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(270px, .9fr);
+      align-items: start;
+      gap: 22px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .card + .card {
+      margin-top: 22px;
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-heading h2 {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+    }
+
+    .status {
+      padding: 6px 10px;
+      border-radius: 30px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      margin: 20px 0 17px;
+      padding: 5px;
+      border-radius: 14px;
+      background: #eff0e8;
+    }
+
+    .tab {
+      padding: 10px 5px;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      color: #647064;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .tab.active {
+      background: white;
+      color: var(--green);
+      box-shadow: 0 2px 7px #0000000a;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .preview-box {
+      display: grid;
+      min-height: 260px;
+      overflow: hidden;
+      place-items: center;
+      border: 1px dashed #bdc9bb;
+      border-radius: 17px;
+      background: #edf0e8;
+    }
+
+    .placeholder {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .icon {
+      display: grid;
+      width: 59px;
+      height: 59px;
+      margin: 0 auto 13px;
+      place-items: center;
+      border-radius: 50%;
+      background: white;
+      color: var(--green);
+      font-size: 26px;
+    }
+
+    .placeholder strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    video, .preview-image {
+      display: none;
+      width: 100%;
+      max-height: 370px;
+      object-fit: contain;
+      background: #17251d;
+    }
+
+    .preview-box.camera-active video,
+    .preview-box.image-active .preview-image {
+      display: block;
+    }
+
+    .preview-box.camera-active .placeholder,
+    .preview-box.image-active .placeholder {
+      display: none;
+    }
+
+    .upload-area {
+      display: grid;
+      min-height: 260px;
+      padding: 22px;
+      place-items: center;
+      border: 1px dashed #bdc9bb;
+      border-radius: 17px;
+      background: #edf0e8;
+      text-align: center;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      max-width: 280px;
+      margin-top: 15px;
+      font-size: 11px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      margin: 12px 0;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      background: white;
+    }
+
+    input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px #124d3510;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 43px;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 17px;
+      border: 1px solid transparent;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: background .2s, transform .2s;
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    .primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .primary:hover:not(:disabled) {
+      background: var(--green-dark);
+    }
+
+    .secondary {
+      border-color: var(--border);
+      background: white;
+      color: var(--green);
+    }
+
+    .danger {
+      border-color: #ead7d3;
+      background: #fff5f3;
+      color: var(--red);
+    }
+
+    .full {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .notice {
+      display: none;
+      margin-top: 15px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .notice.show {
+      display: block;
+    }
+
+    .notice.info {
+      background: #edf1e8;
+      color: var(--green);
+    }
+
+    .notice.error {
+      background: #fff0ee;
+      color: #922f28;
+    }
+
+    .notice.success {
+      background: #e5f3e7;
+      color: #245c32;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .result h3 {
+      margin-bottom: 6px;
+      font: 25px "DM Serif Display", serif;
+    }
+
+    .empty {
+      padding: 20px 12px;
+      border-radius: 13px;
+      background: #f0f0e8;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .result-section {
+      margin-top: 18px;
+    }
+
+    .result-section h4 {
+      margin: 0 0 7px;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .result-section ul {
+      padding-left: 19px;
+      color: #59665b;
+      font-size: 12px;
+    }
+
+    .result-section li {
+      margin-bottom: 5px;
+    }
+
+    .nutrition-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .nutrition-item {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: white;
+      overflow-wrap: anywhere;
+    }
+
+    .nutrition-item small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .nutrition-item strong {
+      font-size: 12px;
+    }
+
+    .history-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .history-item {
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: white;
+    }
+
+    .history-item strong {
+      display: block;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .history-item small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .history-item button {
+      margin-top: 8px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 25px 5%;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero, .layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a:not(.active) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .topbar {
+        padding: 12px 4%;
+      }
+
+      .brand {
+        font-size: 11px;
+      }
+
+      .brand-mark {
+        width: 33px;
+        height: 33px;
+      }
+
+      #accountStatus {
+        max-width: 100px;
+      }
+
+      main {
+        width: 92%;
+        padding-top: 28px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .btn-row .btn {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/Index.html">
+    <span class="brand-mark">V</span>
+    <span>
+      VERIDIS NutriScan
+      <small>FOOD CLARITY, REDEFINED</small>
+    </span>
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/Index.html">Home</a>
+    <a class="active" href="/Scanner.html">Scanner</a>
+    <a href="/Analysis.html">Analysis</a>
+    <a href="/User.html">Profile</a>
+  </nav>
+
+  <div id="accountStatus">Checking login…</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Your personal food intelligence</p>
+
+      <h1>Look beyond<br>the label.</h1>
+
+      <p>
+        Upload a food label or use your camera to examine visible
+        ingredients and nutrition information.
+      </p>
+    </div>
+
+    <aside class="hero-note">
+      <strong>Evidence before assumptions.</strong>
+      <p>
+        Results depend on the information available. The scanner does
+        not measure nutrients directly or perform laboratory testing.
+      </p>
+    </aside>
+  </section>
+
+  <section class="layout">
+    <div>
+      <section class="card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Food scanner</p>
+            <h2>Start a new scan</h2>
+            <p class="muted">Choose your preferred input method.</p>
+          </div>
+
+          <span class="status">READY</span>
+        </div>
+
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-panel="cameraPanel" type="button">
+            Camera
+          </button>
+
+          <button class="tab" data-panel="uploadPanel" type="button">
+            Upload
+          </button>
+
+          <button class="tab" data-panel="barcodePanel" type="button">
+            Barcode
+          </button>
+        </div>
+
+        <!-- CAMERA -->
+        <div class="panel active" id="cameraPanel">
+          <div class="preview-box" id="cameraBox">
+            <div class="placeholder">
+              <div class="icon">⌁</div>
+              <strong>Camera preview</strong>
+              <p class="muted">
+                Your browser will ask for camera permission.
+              </p>
+            </div>
+
+            <video id="cameraVideo" autoplay playsinline></video>
+
+            <img
+              id="cameraPreview"
+              class="preview-image"
+              alt="Captured food label"
+            >
+          </div>
+
+          <div class="btn-row">
+            <button class="btn primary" id="startCamera" type="button">
+              Open camera
             </button>
-<button class="px-space-md py-space-xs rounded bg-primary-container/15 hover:bg-primary-container hover:text-on-primary font-label-mono-xs text-label-mono-xs text-primary tracking-wider transition-all flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">photo_camera</span>
-<span>LIVE RETICLE</span>
-</button>
-</div>
-<div class="flex items-center gap-space-xs mt-space-md font-label-mono-xs text-label-mono-xs text-outline">
-<span class="material-symbols-outlined text-xs">lock</span>
-<span>VERIDIS HIPAA &amp; ISO-27001 ENCRYPTED</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Interactive Logic for Period Selector and Micro-Interactions -->
-<script>
-    (function() {
-      const btnWeek = document.getElementById('btn-period-week');
-      const btnMonth = document.getElementById('btn-period-month');
-      const btnYear = document.getElementById('btn-period-year');
-      const buttons = [btnWeek, btnMonth, btnYear];
 
-      buttons.forEach(btn => {
-        if (!btn) return;
-        btn.addEventListener('click', () => {
-          buttons.forEach(b => {
-            b.className = 'px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs text-on-surface-variant hover:text-on-surface transition-all';
-          });
-          btn.className = 'px-space-md py-1 rounded-lg font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-primary-container shadow-sm';
-        });
+            <button class="btn secondary" id="capturePhoto" type="button" disabled>
+              Capture photo
+            </button>
+
+            <button class="btn danger" id="stopCamera" type="button" disabled>
+              Stop camera
+            </button>
+          </div>
+        </div>
+
+        <!-- IMAGE UPLOAD -->
+        <div class="panel" id="uploadPanel">
+          <div class="upload-area">
+            <div>
+              <div class="icon">↑</div>
+              <strong>Upload a food package image</strong>
+
+              <p class="muted">
+                JPG, PNG or WebP; maximum 8 MB.
+              </p>
+
+              <input
+                id="imageInput"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                aria-label="Select a food label image"
+              >
+            </div>
+          </div>
+
+          <div id="uploadPreviewArea" hidden>
+            <p class="muted">Selected image</p>
+
+            <img
+              id="uploadPreview"
+              class="preview-image"
+              style="display:block;max-height:300px;border-radius:14px;background:#edf0e8"
+              alt="Selected food label"
+            >
+
+            <button class="btn secondary full" id="removeImage" type="button">
+              Remove image
+            </button>
+          </div>
+        </div>
+
+        <!-- BARCODE -->
+        <div class="panel" id="barcodePanel">
+          <div class="upload-area">
+            <div style="width:100%;max-width:340px">
+              <div class="icon">▥</div>
+
+              <strong>Find a product by barcode</strong>
+
+              <p class="muted">
+                Searches the Open Food Facts product database.
+                Not every product has a record.
+              </p>
+
+              <form id="barcodeForm">
+                <label for="barcodeInput" class="muted">
+                  Barcode number
+                </label>
+
+                <input
+                  id="barcodeInput"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  maxlength="32"
+                  placeholder="Enter barcode digits"
+                  required
+                >
+
+                <button
+                  class="btn primary full"
+                  id="barcodeButton"
+                  type="submit"
+                >
+                  Look up product
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="message" class="notice" role="status" aria-live="polite"></div>
+
+        <button class="btn primary full" id="analyzeButton" type="button">
+          Analyze food label
+        </button>
+
+        <p class="muted" style="text-align:center">
+          AI analysis requires your configured backend and Gemini API.
+        </p>
+
+        <div class="result">
+          <p class="eyebrow">Your results</p>
+          <h3>Food intelligence report</h3>
+
+          <div id="resultContent" aria-live="polite">
+            <div class="empty">
+              Your results will appear here after a successful analysis
+              or product lookup.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <section class="card">
+        <p class="eyebrow">Understand the label</p>
+        <h2 class="serif">What can we learn?</h2>
+
+        <p class="muted">
+          A food package can provide useful information, but it does
+          not tell the whole story.
+        </p>
+
+        <div class="result-section">
+          <h4>Information this app can examine</h4>
+          <ul>
+            <li>Visible ingredients and nutrition values.</li>
+            <li>Serving sizes and declared nutrient amounts.</li>
+            <li>Possible meanings of unfamiliar ingredients.</li>
+            <li>Whether package claims are supported by the supplied label.</li>
+          </ul>
+        </div>
+
+        <div class="result-section">
+          <h4>What it cannot verify from a photo</h4>
+          <ul>
+            <li>Unlisted ingredients or exact missing nutrient values.</li>
+            <li>Laboratory purity or contamination.</li>
+            <li>Actual hyperspectral or molecular measurements.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Saved activity</p>
+            <h2 class="serif">Recent scans</h2>
+          </div>
+
+          <button class="btn secondary" id="refreshHistory" type="button">
+            Refresh
+          </button>
+        </div>
+
+        <div id="historyList" class="history-list">
+          <div class="empty">Loading saved scans…</div>
+        </div>
+      </section>
+    </aside>
+  </section>
+</main>
+
+<footer>
+  VERIDIS NutriScan · Understand the label, not just the packaging.
+  <br>
+  AI results may be inaccurate and are not medical advice.
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  const ANALYZE_ENDPOINT = "/api/analyze-food";
+
+  const state = {
+    supabase: null,
+    user: null,
+    cameraStream: null,
+    imageFile: null,
+    scans: []
+  };
+
+  const $ = (id) => document.getElementById(id);
+
+  function showMessage(text, type = "info") {
+    $("message").textContent = text;
+    $("message").className = "notice show " + type;
+  }
+
+  function clearMessage() {
+    $("message").textContent = "";
+    $("message").className = "notice";
+  }
+
+  function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, character => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    })[character]);
+  }
+
+  function formatDate(value) {
+    if (!value) return "Date unavailable";
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+      return "Date unavailable";
+    }
+
+    return date.toLocaleString();
+  }
+
+  function getList(value) {
+    if (Array.isArray(value)) {
+      return value.map(item => {
+        if (typeof item === "string") return item;
+
+        if (item && typeof item === "object") {
+          return item.name || item.description || JSON.stringify(item);
+        }
+
+        return String(item);
+      });
+    }
+
+    if (typeof value === "string" && value.trim()) {
+      return [value];
+    }
+
+    return [];
+  }
+
+  function listHTML(value) {
+    const list = getList(value);
+
+    if (!list.length) {
+      return "<p class='muted'>No information provided.</p>";
+    }
+
+    return "<ul>" + list.map(item =>
+      "<li>" + escapeHTML(item) + "</li>"
+    ).join("") + "</ul>";
+  }
+
+  function renderReport(data) {
+    const product = data.product || {};
+
+    const name =
+      product.name ||
+      data.product_name ||
+      "Food product";
+
+    const summary =
+      data.summary ||
+      data.explanation ||
+      "Review the available information below.";
+
+    const nutrition = data.nutrition || {};
+    const ingredients = data.ingredients || {};
+
+    const ingredientList =
+      typeof ingredients === "string"
+        ? null
+        : ingredients.detected ||
+          ingredients.list ||
+          data.ingredient_list ||
+          [];
+
+    const positives = data.positives || [];
+    const concerns = data.considerations || data.concerns || [];
+
+    const claims = data.claims || data.claim_check || [];
+
+    let html = `
+      <h3>${escapeHTML(name)}</h3>
+      <p class="muted">${escapeHTML(summary)}</p>
+    `;
+
+    if (data.disclaimer) {
+      html += `
+        <p class="muted">${escapeHTML(data.disclaimer)}</p>
+      `;
+    }
+
+    if (nutrition && typeof nutrition === "object" &&
+        !Array.isArray(nutrition)) {
+      const entries = Object.entries(nutrition);
+
+      if (entries.length) {
+        html += `
+          <div class="result-section">
+            <h4>Nutrition information</h4>
+            <div class="nutrition-grid">
+              ${entries.map(([key, value]) => `
+                <div class="nutrition-item">
+                  <small>${escapeHTML(key)}</small>
+                  <strong>${escapeHTML(
+                    typeof value === "object"
+                      ? JSON.stringify(value)
+                      : value
+                  )}</strong>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    html += `
+      <div class="result-section">
+        <h4>Ingredients</h4>
+        ${
+          ingredientList === null
+            ? `<p class="muted">${escapeHTML(ingredients)}</p>`
+            : listHTML(ingredientList)
+        }
+      </div>
+
+      <div class="result-section">
+        <h4>Positive observations</h4>
+        ${listHTML(positives)}
+      </div>
+
+      <div class="result-section">
+        <h4>Things to consider</h4>
+        ${listHTML(concerns)}
+      </div>
+
+      <div class="result-section">
+        <h4>Package claims</h4>
+        ${
+          typeof claims === "string"
+            ? `<p class="muted">${escapeHTML(claims)}</p>`
+            : listHTML(
+                claims.items ||
+                claims.results ||
+                claims
+              )
+        }
+      </div>
+    `;
+
+    $("resultContent").innerHTML = html;
+  }
+
+  async function requireSession() {
+    if (!state.supabase) {
+      throw new Error(
+        "Supabase is not configured. Check supabase-config.js."
+      );
+    }
+
+    const { data, error } = await state.supabase.auth.getSession();
+
+    if (error) {
+      throw new Error("Unable to check your login session.");
+    }
+
+    if (!data.session || !data.session.user) {
+      throw new Error("Please sign in before using the scanner.");
+    }
+
+    state.user = data.session.user;
+
+    return data.session;
+  }
+
+  async function readImageAsDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => resolve(reader.result);
+
+      reader.onerror = () => {
+        reject(new Error("The selected image could not be read."));
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function validateImage(file) {
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      throw new Error("Select a JPG, PNG, or WebP image.");
+    }
+
+    if (file.size > 8 * 1024 * 1024) {
+      throw new Error("The image must be smaller than 8 MB.");
+    }
+  }
+
+  async function startCamera() {
+    clearMessage();
+
+    if (!navigator.mediaDevices?.getUserMedia) {
+      showMessage(
+        "Camera access requires HTTPS or localhost. Upload a photo instead.",
+        "error"
+      );
+      return;
+    }
+
+    try {
+      await stopCamera();
+
+      state.cameraStream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: { ideal: "environment" }
+        },
+        audio: false
       });
 
-      const dropzone = document.getElementById('dropzone');
-      if (dropzone) {
-        dropzone.addEventListener('dragover', (e) => {
-          e.preventDefault();
-          dropzone.classList.add('bg-surface-container');
-        });
-        dropzone.addEventListener('dragleave', () => {
-          dropzone.classList.remove('bg-surface-container');
-        });
-        dropzone.addEventListener('drop', (e) => {
-          e.preventDefault();
-          dropzone.classList.remove('bg-surface-container');
-          alert('VERIDIS Spectrometry Core: Ingesting image matrix for instant OCR hazard decoding...');
-        });
+      $("cameraVideo").srcObject = state.cameraStream;
+      $("cameraBox").classList.add("camera-active");
+
+      await $("cameraVideo").play();
+
+      $("startCamera").disabled = true;
+      $("capturePhoto").disabled = false;
+      $("stopCamera").disabled = false;
+
+      showMessage("Camera ready. Position the label in the frame.", "success");
+    } catch (error) {
+      console.error(error);
+
+      showMessage(
+        "Could not open the camera. Check browser permissions or upload an image.",
+        "error"
+      );
+    }
+  }
+
+  async function stopCamera() {
+    if (state.cameraStream) {
+      state.cameraStream.getTracks().forEach(track => track.stop());
+      state.cameraStream = null;
+    }
+
+    $("cameraVideo").srcObject = null;
+    $("cameraBox").classList.remove("camera-active");
+
+    $("startCamera").disabled = false;
+    $("capturePhoto").disabled = true;
+    $("stopCamera").disabled = true;
+  }
+
+  async function capturePhoto() {
+    const video = $("cameraVideo");
+
+    if (!video.videoWidth || !video.videoHeight) {
+      showMessage("Wait until the camera preview is ready.", "error");
+      return;
+    }
+
+    const canvas = document.createElement("canvas");
+
+    const scale = Math.min(
+      1,
+      1600 / Math.max(video.videoWidth, video.videoHeight)
+    );
+
+    canvas.width = Math.round(video.videoWidth * scale);
+    canvas.height = Math.round(video.videoHeight * scale);
+
+    canvas.getContext("2d").drawImage(
+      video,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    canvas.toBlob(async blob => {
+      if (!blob) {
+        showMessage("Unable to capture this photo.", "error");
+        return;
       }
-    })();
-  </script>
-</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><span class="font-label-mono text-label-mono tracking-wider text-on-surface">VERIDIS NUTRISCAN ARCHITECTURE</span></div><div class="flex items-center gap-space-lg"><span class="font-label-mono-xs text-label-mono-xs text-outline">TELEMETRY CORE: CALIBRATED</span><span class="font-label-mono-xs text-label-mono-xs text-outline">CLINICAL RECALL ENGINE v9.2</span></div><p class="font-label-mono-xs text-label-mono-xs text-outline">© 2025 VERIDIS BIO-DIAGNOSTICS LABS. ALL METRIC INTEL PROTECTED.</p></div></footer><script src="/site-interactions.js" defer></script></body></html>
+
+      state.imageFile = new File(
+        [blob],
+        "food-label.jpg",
+        { type: "image/jpeg" }
+      );
+
+      $("cameraPreview").src = URL.createObjectURL(state.imageFile);
+      $("cameraBox").classList.add("image-active");
+
+      await stopCamera();
+
+      showMessage("Photo captured. You can analyze it now.", "success");
+    }, "image/jpeg", 0.9);
+  }
+
+  async function saveScan(productName, analysis, barcode = null) {
+    const { error } = await state.supabase
+      .from("food_scans")
+      .insert({
+        user_id: state.user.id,
+        product_name: productName || "Food scan",
+        barcode: barcode,
+        analysis: analysis
+      });
+
+    if (error) {
+      console.error("Saving scan failed:", error);
+
+      showMessage(
+        "The analysis completed, but the scan could not be saved. Check your Supabase table and policies.",
+        "error"
+      );
+
+      return false;
+    }
+
+    await loadHistory();
+
+    return true;
+  }
+
+  async function analyzeImage() {
+    clearMessage();
+
+    if (!state.imageFile) {
+      showMessage(
+        "Capture a photo or select an image before analyzing.",
+        "error"
+      );
+      return;
+    }
+
+    const button = $("analyzeButton");
+
+    button.disabled = true;
+    button.textContent = "Analyzing…";
+
+    try {
+      validateImage(state.imageFile);
+
+      await requireSession();
+
+      const image = await readImageAsDataURL(state.imageFile);
+
+      const { data: { session } } =
+        await state.supabase.auth.getSession();
+
+      const response = await fetch(ANALYZE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + session.access_token
+        },
+        body: JSON.stringify({ image })
+      });
+
+      let payload;
+
+      try {
+        payload = await response.json();
+      } catch {
+        throw new Error("The analysis server returned an invalid response.");
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          payload.error ||
+          payload.message ||
+          "The analysis service failed."
+        );
+      }
+
+      const result = payload.analysis || payload.result || payload;
+
+      if (!result || typeof result !== "object") {
+        throw new Error("No valid analysis was returned.");
+      }
+
+      renderReport(result);
+
+      const productName =
+        result.product?.name ||
+        result.product_name ||
+        "Food scan";
+
+      const saved = await saveScan(productName, result);
+
+      if (saved) {
+        showMessage(
+          "Analysis completed and saved to your scan history.",
+          "success"
+        );
+      }
+    } catch (error) {
+      console.error("Analysis error:", error);
+
+      showMessage(
+        error.message || "Analysis failed. Please try again.",
+        "error"
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = "Analyze food label";
+    }
+  }
+
+  async function lookupBarcode(event) {
+    event.preventDefault();
+    clearMessage();
+
+    const barcode = $("barcodeInput").value.trim();
+
+    if (!/^[0-9]{8,32}$/.test(barcode)) {
+      showMessage("Enter a barcode containing 8–32 digits.", "error");
+      return;
+    }
+
+    const button = $("barcodeButton");
+
+    button.disabled = true;
+    button.textContent = "Searching…";
+
+    try {
+      await requireSession();
+
+      const response = await fetch(
+        "https://world.openfoodfacts.org/api/v2/product/" +
+        encodeURIComponent(barcode) +
+        ".json",
+        {
+          headers: {
+            "Accept": "application/json"
+          }
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          "The product database is currently unavailable."
+        );
+      }
+
+      const payload = await response.json();
+
+      if (payload.status !== 1 || !payload.product) {
+        showMessage(
+          "No product was found for that barcode. Try uploading its label.",
+          "error"
+        );
+        return;
+      }
+
+      const product = payload.product;
+
+      const nutrition = product.nutriments || {};
+
+      const nutritionFields = {
+        "Energy per 100 g": nutrition["energy-kcal_100g"] != null
+          ? nutrition["energy-kcal_100g"] + " kcal"
+          : "Not available",
+
+        "Fat per 100 g": nutrition.fat_100g != null
+          ? nutrition.fat_100g + " g"
+          : "Not available",
+
+        "Saturated fat per 100 g": nutrition["saturated-fat_100g"] != null
+          ? nutrition["saturated-fat_100g"] + " g"
+          : "Not available",
+
+        "Carbohydrates per 100 g": nutrition.carbohydrates_100g != null
+          ? nutrition.carbohydrates_100g + " g"
+          : "Not available",
+
+        "Sugars per 100 g": nutrition.sugars_100g != null
+          ? nutrition.sugars_100g + " g"
+          : "Not available",
+
+        "Protein per 100 g": nutrition.proteins_100g != null
+          ? nutrition.proteins_100g + " g"
+          : "Not available",
+
+        "Salt per 100 g": nutrition.salt_100g != null
+          ? nutrition.salt_100g + " g"
+          : "Not available"
+      };
+
+      const result = {
+        product: {
+          name: product.product_name || "Unnamed product"
+        },
+
+        summary:
+          "Product data was retrieved from Open Food Facts. " +
+          "Check the original packaging because database entries may be incomplete or outdated.",
+
+        ingredients:
+          product.ingredients_text ||
+          "Ingredient information is not available in this record.",
+
+        nutrition: nutritionFields,
+
+        positives: [
+          product.nutriscore_grade
+            ? "Recorded Nutri-Score: " + product.nutriscore_grade.toUpperCase()
+            : "No Nutri-Score is available in this record."
+        ],
+
+        considerations: [
+          "Missing values are not zero; they mean data was unavailable.",
+          "This lookup is not a laboratory test or a personalized health assessment."
+        ],
+
+        claims: product.labels
+          ? "Recorded product labels: " + product.labels
+          : "No product-label claims were provided in this record.",
+
+        source: "Open Food Facts",
+        barcode: barcode
+      };
+
+      renderReport(result);
+
+      const saved = await saveScan(
+        product.product_name || "Unnamed product",
+        result,
+        barcode
+      );
+
+      if (saved) {
+        showMessage(
+          "Product found and saved to your scan history.",
+          "success"
+        );
+      }
+    } catch (error) {
+      console.error("Barcode lookup error:", error);
+
+      showMessage(
+        error.message || "Product lookup failed. Please try again.",
+        "error"
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = "Look up product";
+    }
+  }
+
+  async function loadHistory() {
+    if (!state.supabase || !state.user) {
+      $("historyList").innerHTML =
+        "<div class='empty'>Sign in to view your saved scans.</div>";
+      return;
+    }
+
+    $("historyList").innerHTML =
+      "<div class='empty'>Loading your scans…</div>";
+
+    const { data, error } = await state.supabase
+      .from("food_scans")
+      .select("id, product_name, barcode, analysis, created_at")
+      .order("created_at", { ascending: false })
+      .limit(10);
+
+    if (error) {
+      console.error("History retrieval failed:", error);
+
+      $("historyList").innerHTML = `
+        <div class="empty">
+          Could not load scan history.
+          Check the table name and Supabase SELECT policy.
+        </div>
+      `;
+
+      return;
+    }
+
+    state.scans = data || [];
+
+    if (!state.scans.length) {
+      $("historyList").innerHTML = `
+        <div class="empty">
+          No saved scans yet. Your completed scans will appear here.
+        </div>
+      `;
+
+      return;
+    }
+
+    $("historyList").innerHTML = state.scans.map(scan => `
+      <div class="history-item">
+        <strong>${escapeHTML(scan.product_name || "Food scan")}</strong>
+
+        <small>${escapeHTML(formatDate(scan.created_at))}</small>
+
+        ${
+          scan.barcode
+            ? `<small>Barcode: ${escapeHTML(scan.barcode)}</small>`
+            : ""
+        }
+
+        <button type="button" data-scan-id="${escapeHTML(scan.id)}">
+          View saved report
+        </button>
+      </div>
+    `).join("");
+
+    $("historyList").querySelectorAll("[data-scan-id]").forEach(button => {
+      button.addEventListener("click", () => {
+        const scan = state.scans.find(
+          item => item.id === button.dataset.scanId
+        );
+
+        if (!scan) return;
+
+        renderReport(scan.analysis || {});
+
+        showMessage(
+          "Showing your previously saved report.",
+          "success"
+        );
+
+        $("resultContent").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
+  }
+
+  function setupTabs() {
+    document.querySelectorAll(".tab").forEach(button => {
+      button.addEventListener("click", async () => {
+        document.querySelectorAll(".tab").forEach(tab => {
+          tab.classList.toggle("active", tab === button);
+        });
+
+        document.querySelectorAll(".panel").forEach(panel => {
+          panel.classList.toggle(
+            "active",
+            panel.id === button.dataset.panel
+          );
+        });
+
+        clearMessage();
+
+        if (button.dataset.panel !== "cameraPanel") {
+          await stopCamera();
+        }
+      });
+    });
+  }
+
+  function setupUpload() {
+    $("imageInput").addEventListener("change", async event => {
+      clearMessage();
+
+      const file = event.target.files?.[0];
+
+      if (!file) return;
+
+      try {
+        validateImage(file);
+
+        state.imageFile = file;
+
+        $("uploadPreview").src = await readImageAsDataURL(file);
+        $("uploadPreviewArea").hidden = false;
+
+        $("cameraBox").classList.remove("image-active");
+
+        showMessage(
+          "Image selected. Press Analyze food label when ready.",
+          "success"
+        );
+      } catch (error) {
+        state.imageFile = null;
+        event.target.value = "";
+
+        showMessage(error.message, "error");
+      }
+    });
+
+    $("removeImage").addEventListener("click", () => {
+      state.imageFile = null;
+
+      $("imageInput").value = "";
+      $("uploadPreview").src = "";
+      $("uploadPreviewArea").hidden = true;
+
+      showMessage("Selected image removed.", "info");
+    });
+  }
+
+  async function initialize() {
+    if (!window.supabaseClient) {
+      $("accountStatus").textContent = "Auth not configured";
+
+      $("historyList").innerHTML = `
+        <div class="empty">
+          Supabase client not found. Check supabase-config.js.
+        </div>
+      `;
+
+      showMessage(
+        "Authentication is not configured on this page. Your existing Supabase setup must expose window.supabaseClient.",
+        "error"
+      );
+
+      return;
+    }
+
+    state.supabase = window.supabaseClient;
+
+    try {
+      const { data, error } = await state.supabase.auth.getSession();
+
+      if (error) throw error;
+
+      if (!data.session) {
+        $("accountStatus").textContent = "Sign in required";
+
+        showMessage(
+          "Please sign in to analyze food and save scans.",
+          "error"
+        );
+
+        return;
+      }
+
+      state.user = data.session.user;
+
+      $("accountStatus").textContent =
+        state.user.email || "Signed in";
+
+      await loadHistory();
+    } catch (error) {
+      console.error("Initialization error:", error);
+
+      $("accountStatus").textContent = "Session unavailable";
+
+      showMessage(
+        "Unable to verify your session. Please try signing in again.",
+        "error"
+      );
+    }
+
+    state.supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_OUT") {
+        window.location.assign("/Login.html");
+      } else if (event === "SIGNED_IN" && session) {
+        state.user = session.user;
+
+        $("accountStatus").textContent =
+          session.user.email || "Signed in";
+
+        loadHistory();
+      }
+    });
+  }
+
+  $("startCamera").addEventListener("click", startCamera);
+  $("capturePhoto").addEventListener("click", capturePhoto);
+
+  $("stopCamera").addEventListener("click", async () => {
+    await stopCamera();
+    showMessage("Camera stopped.", "info");
+  });
+
+  $("analyzeButton").addEventListener("click", analyzeImage);
+  $("barcodeForm").addEventListener("submit", lookupBarcode);
+  $("refreshHistory").addEventListener("click", loadHistory);
+
+  window.addEventListener("pagehide", () => {
+    if (state.cameraStream) {
+      state.cameraStream.getTracks().forEach(track => track.stop());
+    }
+  });
+
+  setupTabs();
+  setupUpload();
+  initialize();
+})();
+</script>
+
+</body>
+  </html>
