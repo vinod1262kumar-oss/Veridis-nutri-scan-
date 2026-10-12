@@ -1,627 +1,2305 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>VERIDIS NutriScan - Biological Intelligence Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#ffefe0","tertiary-fixed-dim":"#ffb95f","inverse-on-surface":"#2b3139","surface-dim":"#0e141b","surface-variant":"#2f353d","surface":"#0e141b","surface-container-low":"#161c23","error":"#ffb4ab","primary-container":"#00f2a5","inverse-surface":"#dde3ed","secondary-fixed":"#acedff","surface-container":"#1a2027","background":"#0e141b","on-secondary-fixed":"#001f26","on-primary":"#003823","primary-fixed-dim":"#00e29a","surface-container-high":"#242a32","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","on-tertiary-fixed":"#2a1700","on-tertiary-container":"#825100","on-error":"#690005","on-error-container":"#ffdad6","outline":"#849589","on-primary-fixed":"#002113","primary-fixed":"#4affb4","tertiary-fixed":"#ffddb8","inverse-primary":"#006c47","secondary":"#4cd7f6","primary":"#c0ffdb","on-primary-fixed-variant":"#005235","surface-container-highest":"#2f353d","on-tertiary-fixed-variant":"#653e00","on-tertiary":"#472a00","surface-tint":"#00e29a","tertiary-container":"#ffcc90","on-surface":"#dde3ed","on-secondary-container":"#00424e","outline-variant":"#3b4a41","on-surface-variant":"#b9cbbe","on-primary-container":"#006945","on-secondary":"#003640","secondary-fixed-dim":"#4cd7f6","surface-bright":"#343a42","on-background":"#dde3ed","surface-container-lowest":"#090f16","error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"2rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter-mobile":"0.75rem","space-sm":"0.5rem"},fontFamily:{"data-display-md":["JetBrains Mono"],"label-mono-xs":["JetBrains Mono"],"body-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-display-lg":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"data-display-md":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"data-display-lg":["40px",{"lineHeight":"44px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase leading-none">VERIDIS NUTRISCAN</span><span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant tracking-widest mt-1">BIO-SPECTRAL ANALYSIS</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low border border-primary-container/20"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,242,165,0.8)]"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">SPECTRA v3.4 ONLINE</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container/60" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="live-scanner" href="#">Live Scanner</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="ingredient-intel" href="#">Ingredient Intel</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="health-vault" href="#">Health Vault</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="clean-food-explorer" href="#">Clean Food Explorer</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container px-space-md py-space-xs rounded-xl transition-all cursor-pointer group"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-lg">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search matrix...</span><kbd class="px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-secondary">⌘K / Scan Barcode</kbd></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-mono-xs text-label-mono-xs text-primary tracking-wider uppercase">SENSOR ACTIVE</span></div><button class="relative p-space-xs rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden sm:flex flex-col text-right"><span class="font-label-mono text-label-mono text-on-surface">Dr. Elena Vance</span><span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-wider">Pro Bio-Tier</span></div><div class="relative ring-1 ring-primary-container/30 rounded-full p-0.5"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfYHjWGiIm2RsNaTVEu5XYRXJb83fhKz8fqz-JwjjFymWdmQQdzg16x7Oaegy9WBp82_GSodCHddes6_xHpkK_rWngrkwwAOTZouHupN8WHj0_dLBRG7OQifkTG0CP-0cML8eqy2dsjGmyrE9cZg1It_5yiFy_1w8fQyfM0fHHbuYLEdRtOZd8tcmaQmbfPvhHHG_g6nOylj31YLMBRSkKkdBzUGIY7EcLqQSlURw"/></div></div></div></div></div><div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/50 to-transparent shadow-[0_0_12px_rgba(0,242,165,0.4)]"></div></header><main class="w-full pt-20 bg-background relative min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
-<div class="relative w-full overflow-hidden pb-space-xl">
-<div class="absolute -top-32 left-1/4 w-[600px] h-[350px] bg-primary-container/10 blur-[130px] rounded-full pointer-events-none"></div>
-<div class="absolute top-20 right-10 w-[420px] h-[280px] bg-secondary/10 blur-[110px] rounded-full pointer-events-none"></div>
-<div class="w-full px-gutter max-w-7xl mx-auto flex flex-col gap-space-lg pt-space-lg">
-<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
-<div class="flex flex-col">
-<div class="flex items-center gap-space-xs mb-1">
-<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_10px_rgba(0,242,165,0.8)]"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-widest">VERIFIED PURITY REPOSITORY // v4.12</span>
-<span class="text-outline-variant font-label-mono-xs text-label-mono-xs px-2">|</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">54,291 PRODUCTS VALIDATED</span>
-</div>
-<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight uppercase">
-            Clean Food Explorer
-          </h1>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
-            Crowdsourced clinical spectrometry database. Filter non-industrialized nourishment through high-tier metabolic scores, heavy metal assays, and seed oil exclusion protocols.
-          </p>
-</div>
-<div class="flex items-center gap-space-sm self-start lg:self-auto">
-<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-xl shadow-inner">
-<span class="material-symbols-outlined text-primary text-base">verified_user</span>
-<div class="flex flex-col">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">COMMUNITY ACCURACY</span>
-<span class="font-label-mono text-label-mono text-on-surface font-semibold">99.84% CERTIFIED</span>
-</div>
-</div>
-<button class="bg-surface-container-high hover:bg-surface-variant text-on-surface p-space-xs rounded-lg transition-colors flex items-center justify-center" id="view-mode-toggle">
-<span class="material-symbols-outlined text-lg">grid_view</span>
-</button>
-</div>
-</div>
-<div class="bg-surface-container/90 backdrop-blur-2xl rounded-2xl p-space-md shadow-xl flex flex-col gap-space-md">
-<div class="flex flex-col md:flex-row items-center gap-space-sm">
-<div class="relative flex-1 w-full group">
-<div class="absolute inset-y-0 left-0 pl-space-md flex items-center pointer-events-none text-outline group-focus-within:text-primary-container transition-colors">
-<span class="material-symbols-outlined text-xl">biotech</span>
-</div>
-<input class="w-full pl-11 pr-32 py-space-sm bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md rounded-xl transition-all outline-none focus:shadow-[0_0_20px_rgba(0,242,165,0.35)]" id="search-input" placeholder="Search by ingredient, barcode, clean brand, or additive E-number (e.g. E250, Glyphosate)..." type="text"/>
-<div class="absolute inset-y-0 right-0 pr-space-sm flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs bg-surface-container px-2 py-0.5 rounded text-outline uppercase tracking-wider">RETICLE SCAN ACTIVE</span>
-<button class="bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold px-space-sm py-1.5 rounded-lg hover:shadow-[0_0_12px_rgba(0,242,165,0.5)] transition-all flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">qr_code_scanner</span>
-<span>SCAN</span>
-</button>
-</div>
-</div>
-<div class="flex items-center gap-space-xs w-full md:w-auto">
-<div class="relative w-full md:w-64">
-<select class="w-full appearance-none bg-surface-container-lowest text-on-surface font-label-mono text-label-mono px-space-md py-space-sm rounded-xl focus:outline-none focus:shadow-[0_0_16px_rgba(76,215,246,0.3)] transition-all cursor-pointer">
-<option selected="">Sort: Highest Purity Score</option>
-<option>Sort: Most Scanned Today</option>
-<option>Sort: Community Verified</option>
-<option>Sort: Lowest Heavy Metal Content</option>
-<option>Sort: Lowest Microplastic Index</option>
-</select>
-<span class="material-symbols-outlined pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-outline text-lg">expand_more</span>
-</div>
-</div>
-</div>
-<div class="flex items-center gap-space-xs overflow-x-auto pb-1 no-scrollbar text-nowrap">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider mr-1">METRIC FILTERS:</span>
-<button class="filter-chip active flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-mono-xs text-label-mono-xs font-semibold shadow-[0_0_12px_rgba(0,242,165,0.3)] transition-all">
-<span class="material-symbols-outlined text-xs">verified</span>
-<span>Veridis Score 90+</span>
-</button>
-<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
-<span class="material-symbols-outlined text-xs text-secondary">block</span>
-<span>Zero Seed Oils</span>
-</button>
-<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
-<span class="material-symbols-outlined text-xs text-primary">eco</span>
-<span>100% Organic</span>
-</button>
-<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
-<span class="material-symbols-outlined text-xs text-tertiary-fixed-dim">grain</span>
-<span>Gluten-Free</span>
-</button>
-<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
-<span class="material-symbols-outlined text-xs text-secondary-fixed">water_drop</span>
-<span>No Added Sugar</span>
-</button>
-<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
-<span class="material-symbols-outlined text-xs text-primary-fixed">psychiatry</span>
-<span>Regenerative Agriculture</span>
-</button>
-<button class="filter-chip flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant font-label-mono-xs text-label-mono-xs transition-all">
-<span class="material-symbols-outlined text-xs text-secondary">smb_share</span>
-<span>Microplastic Tested</span>
-</button>
-</div>
-</div>
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-widest">ACTIVE CATEGORIES</span>
-<div class="flex items-center gap-1">
-<button class="p-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined text-sm">chevron_left</span>
-</button>
-<button class="p-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined text-sm">chevron_right</span>
-</button>
-</div>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm">
-<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
-<div class="p-2 rounded-lg bg-surface-container-highest text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-lg">water_bottle</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Plant Mylks</span>
-<span class="font-label-mono-xs text-label-mono-xs text-outline">1,402 verified</span>
-</div>
-</div>
-<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
-<div class="p-2 rounded-lg bg-surface-container-highest text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
-<span class="material-symbols-outlined text-lg">fitness_center</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Protein &amp; Snacks</span>
-<span class="font-label-mono-xs text-label-mono-xs text-outline">3,890 verified</span>
-</div>
-</div>
-<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
-<div class="p-2 rounded-lg bg-surface-container-highest text-tertiary-fixed-dim group-hover:bg-tertiary-fixed-dim group-hover:text-on-tertiary transition-colors">
-<span class="material-symbols-outlined text-lg">oil_barrel</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Pantry &amp; Oils</span>
-<span class="font-label-mono-xs text-label-mono-xs text-outline">2,115 verified</span>
-</div>
-</div>
-<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
-<div class="p-2 rounded-lg bg-surface-container-highest text-primary-fixed group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
-<span class="material-symbols-outlined text-lg">child_care</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Baby &amp; Infant</span>
-<span class="font-label-mono-xs text-label-mono-xs text-outline">842 verified</span>
-</div>
-</div>
-<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
-<div class="p-2 rounded-lg bg-surface-container-highest text-secondary-fixed-dim group-hover:bg-secondary-fixed-dim group-hover:text-on-secondary-fixed transition-colors">
-<span class="material-symbols-outlined text-lg">electric_bolt</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Electrolytes</span>
-<span class="font-label-mono-xs text-label-mono-xs text-outline">1,029 verified</span>
-</div>
-</div>
-<div class="group cursor-pointer bg-surface-container-low hover:bg-surface-container p-space-sm rounded-xl transition-all shadow-md flex items-center gap-space-xs">
-<div class="p-2 rounded-lg bg-surface-container-highest text-primary-container group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
-<span class="material-symbols-outlined text-lg">spa</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono text-label-mono text-on-surface font-semibold truncate">Superfoods</span>
-<span class="font-label-mono-xs text-label-mono-xs text-outline">984 verified</span>
-</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg mt-space-sm">
-<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
-<div>
-<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Malk pure organic unsweetened almond milk minimalist bottle standing on a dark obsidian clinical slate illuminated by subtle emerald backlight with pure droplets of water. Clean laboratory lighting, dark background, sharp high-fidelity photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-noJ3pY3JlNBVmiX-4M-BY0gCWfvd-dA5U9qEaGOSXFIl6_Eo9W35JhAgnz_l0VEGWGnvnaeK1HuAoWgfoR0B59YZzie-UhTI7muIW9xPlkpNxX9QOh97SKBvW-6uAKCzNOAaS0thX9Cjdr9taM3vlYM8n2d9OkXI_rwnWKYJJTDwkNWyqIL7jNL_gnqa3GLYffyC6Rkrf8j25eEncIpXrpAeEin-q31fVG6UfUg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
-<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // NOVA 1</span>
-</div>
-<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
-<div class="flex flex-col items-end">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
-<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">99</span>
-</div>
-<div class="relative w-7 h-7 flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
-<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
-<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="0.8" stroke-width="3"></circle>
-</svg>
-</div>
-</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Malk Organics</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">grade</span> 4.9 (1.2k scans)
-                </span>
-</div>
-</div>
-<div class="p-space-md flex flex-col gap-space-sm">
-<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
-                Organic Pure Almond Milk
-              </h2>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span> 3 Ingredients Only
-                </span>
-<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">shield</span> Gum Free
-                </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
-                  Clean Label Certified
-                </span>
-</div>
-<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
-<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
-<span>SPECTRAL INGREDIENT TELEMETRY</span>
-<span class="text-primary font-semibold">100% CLEAN</span>
-</div>
-<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
-                  Filtered Water, Organic Almonds, Himalayan Pink Salt.
-                </p>
-<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
-<span class="text-primary">● 0% Carrageenan</span>
-<span class="text-primary">● 0% Gellan Gum</span>
-<span class="text-primary">● 0% Industrial Emulsifiers</span>
-</div>
-</div>
-</div>
-</div>
-<div class="p-space-md pt-0 flex items-center gap-space-xs">
-<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-base">inventory_2</span>
-<span>Add to Vault</span>
-</button>
-<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
-<span class="material-symbols-outlined text-base">compare_arrows</span>
-</button>
-</div>
-</div>
-<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
-<div>
-<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Primal Kitchen organic avocado oil mayonnaise jar positioned on a dark textured obsidian table surface with micro green highlights and dark moody atmospheric laboratory rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsMI0VVTct62lMuhJGFsxc-qSAB9ZAzPXyHkpO8WPMLNevgp3o6VETRhp4jC-w5xoTcsv3Y4tp177im4z5dsLPRdtkJATR8JWEKSbjG5T3gBTv4zLmGgC7-xjYb6X5RFiuZftaYhn2_yIiyInBFeKki75nI9qK-4dqrNds8u3I7pPxlORG_mX0TWK4DWN2Yu_t_HC_Mgv85pd2P41YkZnAoW9CfbfGK61fj9JVx2E"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
-<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // NON-SEED OIL</span>
-</div>
-<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
-<div class="flex flex-col items-end">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
-<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">97</span>
-</div>
-<div class="relative w-7 h-7 flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
-<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
-<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="2.6" stroke-width="3"></circle>
-</svg>
-</div>
-</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Primal Kitchen</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">grade</span> 4.8 (3.4k scans)
-                </span>
-</div>
-</div>
-<div class="p-space-md flex flex-col gap-space-sm">
-<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
-                Organic Avocado Oil Mayo
-              </h2>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span> 100% Pure Avocado Oil
-                </span>
-<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">egg</span> Cage-Free Eggs
-                </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
-                  Zero Soybean / Canola
-                </span>
-</div>
-<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
-<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
-<span>SPECTRAL INGREDIENT TELEMETRY</span>
-<span class="text-primary font-semibold">100% VERIFIED</span>
-</div>
-<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
-                  Avocado Oil, Organic Certified Cage-Free Eggs, Egg Yolks, Organic Vinegar, Salt.
-                </p>
-<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
-<span class="text-primary">● 0g Added Sugar</span>
-<span class="text-primary">● Glyphosate Residual: ND</span>
-</div>
-</div>
-</div>
-</div>
-<div class="p-space-md pt-0 flex items-center gap-space-xs">
-<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-base">inventory_2</span>
-<span>Add to Vault</span>
-</button>
-<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
-<span class="material-symbols-outlined text-base">compare_arrows</span>
-</button>
-</div>
-</div>
-<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
-<div>
-<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Chomps grass fed sea salt beef sticks package on deep graphite lab surface with subtle cyan rim reflection. Precision studio biological product aesthetic, zero clutter, high detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABqo3pgxoH6grE6iS46pvoh59pEYgZeReKAALUBz8faN6oytsDwkN93e7WaQDKbzJhAs6cSNAWd2zQdl_fAjVJdvXSHTCkp-bxFF8G8SzHvfmlZbT2yOic37EJp4WzBpBmsf4OTVmmLnTk0gRnPYgpfSRdbphwcdPHiM5v2oODpDwpVwpe5hK58s1RD_eOFbDUgBMchDG9UNt0Q3aGcF2QyWk0DyyJDEuZnAoAtd4"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
-<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // PASTURE RAISED</span>
-</div>
-<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
-<div class="flex flex-col items-end">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
-<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">95</span>
-</div>
-<div class="relative w-7 h-7 flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
-<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
-<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="4.4" stroke-width="3"></circle>
-</svg>
-</div>
-</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Chomps</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">grade</span> 4.9 (4.8k scans)
-                </span>
-</div>
-</div>
-<div class="p-space-md flex flex-col gap-space-sm">
-<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
-                Grass-Fed Original Beef Sticks
-              </h2>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span> Zero Sugar
-                </span>
-<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">health_and_safety</span> Nitrite Free
-                </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
-                  Whole30 Approved
-                </span>
-</div>
-<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
-<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
-<span>SPECTRAL INGREDIENT TELEMETRY</span>
-<span class="text-primary font-semibold">BIO-OPTIMAL</span>
-</div>
-<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
-                  100% Grass-Fed &amp; Finished Beef, Water, Sea Salt, Encapsulated Lactic Acid, Celery Juice.
-                </p>
-<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
-<span class="text-primary">● 9g Bio-available Protein</span>
-<span class="text-primary">● 0 Synthetic Preservatives</span>
-</div>
-</div>
-</div>
-</div>
-<div class="p-space-md pt-0 flex items-center gap-space-xs">
-<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-base">inventory_2</span>
-<span>Add to Vault</span>
-</button>
-<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
-<span class="material-symbols-outlined text-base">compare_arrows</span>
-</button>
-</div>
-</div>
-<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
-<div>
-<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="LesserEvil Organic Himalayan Pink Salt Popcorn bag with soft pastel clean graphic layout standing on dark matte platform with glowing green diagnostic laboratory grid background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi0G0hD17s4xdtAVtpSENX66w1a33tJW1z88LI7RSN_BxdJ_fs25GnobF3bHcjdIU6nIw63HwNKPAF06YqzDg9lbRf4A4Erckka29rVlgAff0sJ9D2219qgYu6hHHsXWrTBY0UYGwb2i9yvIocrZp0ZVdL1ByyqoygLDU43dBwj7c80No84hQX1d1Ay0yvzEhsvsklMcfBVbT616WcPSSYyaQUxMbNLvIl_Av3LXU"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
-<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // ORGANIC OIL</span>
-</div>
-<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
-<div class="flex flex-col items-end">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
-<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">94</span>
-</div>
-<div class="relative w-7 h-7 flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
-<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
-<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="5.2" stroke-width="3"></circle>
-</svg>
-</div>
-</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">LesserEvil</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">grade</span> 4.7 (2.1k scans)
-                </span>
-</div>
-</div>
-<div class="p-space-md flex flex-col gap-space-sm">
-<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
-                Organic Himalayan Pink Popcorn
-              </h2>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span> Coconut Oil
-                </span>
-<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">grain</span> Himalayan Pink Salt
-                </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
-                  Non-GMO Verified
-                </span>
-</div>
-<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
-<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
-<span>SPECTRAL INGREDIENT TELEMETRY</span>
-<span class="text-primary font-semibold">100% NON-INFLAMMATORY</span>
-</div>
-<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
-                  Organic Non-GMO Popcorn, Organic Extra Virgin Coconut Oil, Himalayan Salt.
-                </p>
-<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
-<span class="text-primary">● Zero Industrial Polyunsaturates</span>
-<span class="text-primary">● PFAS-Free Packaging</span>
-</div>
-</div>
-</div>
-</div>
-<div class="p-space-md pt-0 flex items-center gap-space-xs">
-<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-base">inventory_2</span>
-<span>Add to Vault</span>
-</button>
-<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
-<span class="material-symbols-outlined text-base">compare_arrows</span>
-</button>
-</div>
-</div>
-<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
-<div>
-<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Simple Mills Almond Flour Crackers box standing crisp on dark obsidian background with laboratory green highlights and technical light reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOOzN9tFtsjVilI61l_K6skcfamLLzvzpHkSX9y3uG3x3qE3JdIatsgx8p_iyJboUfiE6SBRi8QL_r4xjx62C2mlxvJl_caisCsk5hhlXC1vKJk9eD0F5X8HnsdZP7Qm1_URGGU5qANL4UNTqGJ4MfYQHAoYPfjcM4TpL6oKRRD02RViiJTAwXE4F4SKeEQ_EwJ-dwUOh-8ZP-sdHeVikHYjRHhCyJJRQeoFpGZ5Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
-<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // GRAIN FREE</span>
-</div>
-<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
-<div class="flex flex-col items-end">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
-<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">92</span>
-</div>
-<div class="relative w-7 h-7 flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
-<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
-<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="7.0" stroke-width="3"></circle>
-</svg>
-</div>
-</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Simple Mills</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">grade</span> 4.8 (1.9k scans)
-                </span>
-</div>
-</div>
-<div class="p-space-md flex flex-col gap-space-sm">
-<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
-                Almond Flour Sea Salt Crackers
-              </h2>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span> Nut &amp; Seed Blend
-                </span>
-<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">science</span> Cassava Flour
-                </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
-                  Zero Refined Starch
-                </span>
-</div>
-<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
-<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
-<span>SPECTRAL INGREDIENT TELEMETRY</span>
-<span class="text-primary font-semibold">CLEAN MATRIX</span>
-</div>
-<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
-                  Nut and Seed Flour Blend (Almonds, Sunflower Seeds, Flax), Tapioca, Cassava, Organic Sunflower Oil.
-                </p>
-<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
-<span class="text-primary">● No Bleached Flours</span>
-<span class="text-primary">● Certified Gluten-Free</span>
-</div>
-</div>
-</div>
-</div>
-<div class="p-space-md pt-0 flex items-center gap-space-xs">
-<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-base">inventory_2</span>
-<span>Add to Vault</span>
-</button>
-<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
-<span class="material-symbols-outlined text-base">compare_arrows</span>
-</button>
-</div>
-</div>
-<div class="group bg-surface-container/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_28px_rgba(0,242,165,0.18)] transition-all duration-300 flex flex-col justify-between">
-<div>
-<div class="relative w-full h-52 bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" data-alt="Canyon Bakehouse Ancient Grain Gluten Free Bread loaf in premium packaging on dark obsidian diagnostic surface with emerald laser scanning line overlay." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG-WC5YoLsYPOLn89f2stDgVibUnvNvpqVYs3ilh7BLzwvWtQEExKavC7kkJL0V0GGKA-9C7Pk5TEiVyixCe9ZZs4ds4vhXeM9MuB1crMrw96i5VshGZAXtgJk8Rw0gYx3LiIIDA6ykv1K5fPHTY8ieHEwLXYaFuZc3d_sWbozF4ovc4wvJWTINDYnm8aidm3tMHVoSl6CDoCRZ3Z5C23iRcizGnxiekcXgq2lNJE"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
-<div class="absolute top-3 left-3 flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">GRADE A // ANCIENT GRAIN</span>
-</div>
-<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg">
-<div class="flex flex-col items-end">
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">VERIDIS</span>
-<span class="font-data-display-md text-data-display-md text-primary-container leading-none font-bold">90</span>
-</div>
-<div class="relative w-7 h-7 flex items-center justify-center">
-<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
-<circle class="text-surface-variant" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3"></circle>
-<circle class="text-primary-container" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="87.96" stroke-dashoffset="8.8" stroke-width="3"></circle>
-</svg>
-</div>
-</div>
-<div class="absolute bottom-3 left-3 flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-mono-xs text-label-mono-xs">Canyon Bakehouse</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-0.5">
-<span class="material-symbols-outlined text-xs">grade</span> 4.6 (1.5k scans)
-                </span>
-</div>
-</div>
-<div class="p-space-md flex flex-col gap-space-sm">
-<h2 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
-                Ancient Grain Gluten-Free Bread
-              </h2>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span> Sorghum &amp; Millet
-                </span>
-<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-label-mono-xs text-label-mono-xs flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">shield</span> 100% Whole Grain
-                </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-mono-xs text-label-mono-xs">
-                  Dairy Free
-                </span>
-</div>
-<div class="bg-surface-container-lowest/80 p-2.5 rounded-xl flex flex-col gap-1">
-<div class="flex justify-between items-center text-outline font-label-mono-xs text-label-mono-xs">
-<span>SPECTRAL INGREDIENT TELEMETRY</span>
-<span class="text-primary font-semibold">OPTIMIZED</span>
-</div>
-<p class="font-label-mono text-label-mono text-on-surface-variant line-clamp-1">
-                  Water, Brown Rice Flour, Tapioca Flour, Whole Grain Sorghum, Cane Sugar, Extra Virgin Olive Oil.
-                </p>
-<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-mono-xs text-label-mono-xs">
-<span class="text-primary">● 0 Soy Additives</span>
-<span class="text-primary">● Tested Zero Heavy Metals</span>
-</div>
-</div>
-</div>
-</div>
-<div class="p-space-md pt-0 flex items-center gap-space-xs">
-<button class="flex-1 py-2 px-space-sm bg-primary-container text-on-primary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(0,242,165,0.4)] transition-all flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-base">inventory_2</span>
-<span>Add to Vault</span>
-</button>
-<button class="p-2 bg-surface-container-high hover:bg-surface-variant text-secondary rounded-lg transition-colors flex items-center justify-center">
-<span class="material-symbols-outlined text-base">compare_arrows</span>
-</button>
-</div>
-</div>
-</div>
-<div class="mt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md p-space-md bg-surface-container-low/90 backdrop-blur-xl rounded-2xl shadow-lg">
-<div class="flex items-center gap-space-sm overflow-hidden">
-<div class="p-2 rounded-lg bg-primary-container/10 text-primary-container animate-pulse shrink-0">
-<span class="material-symbols-outlined text-xl">sensors</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold uppercase tracking-wider">LIVE TELEMETRY STREAM</span>
-<p class="font-label-mono text-label-mono text-on-surface-variant truncate">
-              User <span class="text-primary font-semibold">@alex_bio</span> just submitted lab report for <span class="text-on-surface font-semibold">Matcha Purity</span> (+50 verified scans).
-            </p>
-</div>
-</div>
-<div class="flex items-center gap-space-md self-end md:self-auto shrink-0">
-<div class="flex items-center gap-1">
-<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface-variant disabled:opacity-30 transition-colors" disabled="">
-<span class="material-symbols-outlined text-base">first_page</span>
-</button>
-<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface-variant disabled:opacity-30 transition-colors" disabled="">
-<span class="material-symbols-outlined text-base">chevron_left</span>
-</button>
-<span class="px-space-sm font-label-mono text-label-mono text-on-surface font-semibold">Page 1 of 84</span>
-<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface transition-colors">
-<span class="material-symbols-outlined text-base">chevron_right</span>
-</button>
-<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface transition-colors">
-<span class="material-symbols-outlined text-base">last_page</span>
-</button>
-</div>
-<button class="px-space-md py-2 bg-secondary text-on-secondary font-label-mono text-label-mono font-semibold rounded-lg hover:shadow-[0_0_16px_rgba(76,215,246,0.5)] transition-all flex items-center gap-1.5">
-<span class="material-symbols-outlined text-base">file_download</span>
-<span>Export Clean Shopping List</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script>
-  document.querySelectorAll('.filter-chip').forEach(chip => {
-    chip.addEventListener('click', function() {
-      const isSelected = this.classList.contains('active');
-      if (isSelected) {
-        this.classList.remove('active', 'bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_rgba(0,242,165,0.3)]', 'font-semibold');
-        this.classList.add('bg-surface-container-high', 'text-on-surface-variant');
-      } else {
-        this.classList.add('active', 'bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_rgba(0,242,165,0.3)]', 'font-semibold');
-        this.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+  <title>Clean Food Explorer | VERIDIS NutriScan</title>
+
+  <meta
+    name="description"
+    content="Explore food products, review ingredient labels, and save products with VERIDIS NutriScan."
+  >
+
+  <meta name="theme-color" content="#f5f3eb">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #f5f3eb;
+      --card: #fcfbf6;
+      --green: #124d35;
+      --green-dark: #0b3926;
+      --green-soft: #e8eee5;
+      --green-light: #d7e8d7;
+      --text: #1d2b22;
+      --muted: #758075;
+      --border: #e3e5da;
+      --white-glass: rgba(255, 255, 255, 0.58);
+      --shadow: 0 12px 35px rgba(25, 56, 38, 0.08);
+      --radius: 22px;
+      --red: #a13c34;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(201, 221, 194, 0.40),
+          transparent 30%
+        ),
+        var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .material-symbols-outlined {
+      font-size: 21px;
+      vertical-align: middle;
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 450,
+        "GRAD" 0,
+        "opsz" 24;
+    }
+
+    .container {
+      width: min(1240px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* HEADER */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245, 243, 235, 0.82);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(18, 77, 53, 0.10);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #1c6847, #0b3926);
+      color: #fff;
+      border-radius: 15px;
+      font-family: "DM Serif Display", serif;
+      font-size: 26px;
+      box-shadow: 0 7px 18px rgba(18, 77, 53, 0.19);
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1.6px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-link {
+      padding: 10px 13px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    /* GLASS BUTTONS */
+
+    .glass-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 15px;
+      border: 1px solid rgba(18, 77, 53, 0.15);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 5px 16px rgba(18, 77, 53, 0.05);
+      transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .glass-btn:hover {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 9px 22px rgba(18, 77, 53, 0.11);
+      transform: translateY(-2px);
+    }
+
+    .glass-btn:active {
+      transform: translateY(0);
+    }
+
+    .glass-btn.primary {
+      color: #fff;
+      background: rgba(18, 77, 53, 0.92);
+      border-color: rgba(18, 77, 53, 0.8);
+    }
+
+    .glass-btn.primary:hover {
+      background: var(--green-dark);
+    }
+
+    .glass-btn:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #91b99b;
+      outline-offset: 3px;
+    }
+
+    .icon-btn {
+      width: 43px;
+      height: 43px;
+      padding: 0;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 55px 0 32px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      background: #57966a;
+      border-radius: 50%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      margin-top: 15px;
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      font-size: clamp(36px, 5vw, 58px);
+      letter-spacing: -1.5px;
+      line-height: 1.08;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .notice {
+      margin-top: 25px;
+      padding: 13px 16px;
+      border: 1px solid #e1dfcf;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.45);
+      color: #666a59;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .notice strong {
+      color: var(--green);
+    }
+
+    /* SEARCH PANEL */
+
+    .search-panel {
+      margin-top: 26px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.60);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px auto;
+      gap: 12px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap .material-symbols-outlined {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .search-input,
+    .sort-select {
+      width: 100%;
+      min-height: 47px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(252, 251, 246, 0.92);
+      color: var(--text);
+      outline: none;
+    }
+
+    .search-input {
+      padding-left: 45px;
+    }
+
+    .search-input:focus,
+    .sort-select:focus {
+      border-color: #7da58a;
+      box-shadow: 0 0 0 3px rgba(18, 77, 53, 0.08);
+    }
+
+    .filter-heading {
+      margin: 21px 0 11px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-chip {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.55);
+      color: #667267;
+      font-size: 12px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .filter-chip:hover {
+      border-color: #a5bea8;
+      color: var(--green);
+    }
+
+    .filter-chip.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+
+    /* SECTION HEADER */
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 37px 0 18px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 6px;
+      font-family: "DM Serif Display", serif;
+      font-size: 29px;
+      font-weight: 400;
+    }
+
+    .section-heading p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .result-count {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    /* PRODUCT CARDS */
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(18, 77, 53, 0.09);
+      border-radius: var(--radius);
+      background: rgba(252, 251, 246, 0.86);
+      box-shadow: 0 7px 24px rgba(30, 58, 39, 0.045);
+      transition:
+        transform 0.22s,
+        box-shadow 0.22s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 17px 35px rgba(30, 58, 39, 0.10);
+    }
+
+    .product-visual {
+      min-height: 175px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(255, 255, 255, 0.9),
+          transparent 50%
+        ),
+        linear-gradient(145deg, #e7eddf, #d4e2d0);
+    }
+
+    .product-visual::before,
+    .product-visual::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(18, 77, 53, 0.10);
+      border-radius: 50%;
+    }
+
+    .product-visual::after {
+      width: 240px;
+      height: 240px;
+    }
+
+    .product-emoji {
+      position: relative;
+      z-index: 1;
+      font-size: 68px;
+      filter: drop-shadow(0 12px 9px rgba(30, 58, 39, 0.13));
+    }
+
+    .sample-badge {
+      position: absolute;
+      z-index: 2;
+      top: 12px;
+      left: 12px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+      backdrop-filter: blur(12px);
+    }
+
+    .product-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 19px;
+    }
+
+    .product-category {
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .product-title {
+      margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .product-description {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .product-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      padding: 6px 8px;
+      border: 1px solid #e2e7dc;
+      border-radius: 8px;
+      background: #f0f3eb;
+      color: #536556;
+      font-size: 10px;
+    }
+
+    .ingredient-box {
+      padding: 12px;
+      margin-top: auto;
+      border: 1px solid #e7e8de;
+      border-radius: 13px;
+      background: rgba(242, 243, 234, 0.75);
+    }
+
+    .ingredient-label {
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+    }
+
+    .ingredient-text {
+      margin-bottom: 0;
+      font-size: 12px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .data-note {
+      margin-top: 9px;
+      color: #777d70;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 8px;
+      padding: 0 19px 19px;
+    }
+
+    .product-actions .glass-btn:first-child {
+      flex: 1;
+    }
+
+    .saved-indicator {
+      color: var(--green);
+    }
+
+    /* EMPTY STATE */
+
+    .empty-state {
+      display: none;
+      padding: 50px 20px;
+      border: 1px dashed #ccd5c9;
+      border-radius: var(--radius);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-state .material-symbols-outlined {
+      font-size: 42px;
+      color: #8ba28e;
+    }
+
+    .empty-state h3 {
+      margin: 12px 0 8px;
+      color: var(--text);
+    }
+
+    /* VAULT */
+
+    .vault-section {
+      margin-top: 38px;
+      padding: 24px;
+      border: 1px solid rgba(18, 77, 53, 0.10);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.42);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .vault-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .vault-header h2 {
+      margin-bottom: 6px;
+      font-family: "DM Serif Display", serif;
+      font-size: 26px;
+      font-weight: 400;
+    }
+
+    .vault-header p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .vault-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .vault-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .vault-item .vault-emoji {
+      font-size: 27px;
+    }
+
+    .vault-item strong {
+      display: block;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .vault-item small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .vault-empty {
+      grid-column: 1 / -1;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      margin-top: 55px;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .footer-note {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    /* TOAST MESSAGE */
+
+    .toast {
+      position: fixed;
+      z-index: 200;
+      right: 20px;
+      bottom: 20px;
+      width: min(370px, calc(100% - 40px));
+      padding: 15px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      background: rgba(11, 57, 38, 0.94);
+      color: white;
+      font-size: 13px;
+      line-height: 1.6;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(18px);
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.error {
+      background: rgba(126, 42, 36, 0.96);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* COMPARISON DIALOG */
+
+    dialog {
+      width: min(600px, calc(100% - 30px));
+      max-height: 80vh;
+      padding: 25px;
+      overflow-y: auto;
+      border: 1px solid rgba(18, 77, 53, 0.17);
+      border-radius: 22px;
+      background: var(--card);
+      color: var(--text);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.18);
+    }
+
+    dialog::backdrop {
+      background: rgba(19, 39, 26, 0.35);
+      backdrop-filter: blur(5px);
+    }
+
+    .dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .dialog-header h2 {
+      margin: 0;
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+    }
+
+    .comparison-list {
+      display: grid;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .comparison-item {
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #f4f4ec;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .nav-links {
+        display: none;
       }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .search-row {
+        grid-template-columns: minmax(0, 1fr) 190px;
+      }
+
+      .search-row > .glass-btn {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .nav {
+        min-height: 69px;
+      }
+
+      .brand-name {
+        font-size: 12px;
+      }
+
+      .brand-subtitle {
+        font-size: 9px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .nav-actions .desktop-action {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .nav-links.mobile-open {
+        position: absolute;
+        top: 68px;
+        left: 14px;
+        right: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 17px;
+        background: rgba(252, 251, 246, 0.97);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+      }
+
+      .nav-links.mobile-open .nav-link {
+        padding: 13px;
+      }
+
+      .hero {
+        padding-top: 35px;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .search-panel {
+        padding: 14px;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .search-row > .glass-btn {
+        grid-column: auto;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-visual {
+        min-height: 200px;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .vault-section {
+        padding: 17px;
+      }
+
+      .vault-header {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .vault-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="header">
+    <div class="container nav">
+
+      <a class="brand" href="Index.html" aria-label="VERIDIS NutriScan home">
+        <div class="brand-mark">V</div>
+
+        <div>
+          <div class="brand-name">VERIDIS NUTRISCAN</div>
+          <div class="brand-subtitle">FOOD LABEL INTELLIGENCE</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a class="nav-link" href="Index.html">Overview</a>
+        <a class="nav-link" href="Scanner.html">Live Scanner</a>
+        <a class="nav-link" href="Explanation.html">Ingredient Intel</a>
+        <a class="nav-link" href="User.html">Health Vault</a>
+        <a class="nav-link active" href="#explorer">Food Explorer</a>
+      </nav>
+
+      <div class="nav-actions">
+
+        <button
+          class="glass-btn icon-btn desktop-action"
+          id="vaultShortcut"
+          type="button"
+          aria-label="Open saved products"
+          title="Saved products"
+        >
+          <span class="material-symbols-outlined">bookmark</span>
+        </button>
+
+        <a class="glass-btn primary desktop-action" href="Scanner.html">
+          <span class="material-symbols-outlined">document_scanner</span>
+          Scan Food
+        </a>
+
+        <button
+          class="glass-btn icon-btn mobile-menu-btn"
+          id="mobileMenuBtn"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+
+  <main class="container">
+
+    <!-- INTRODUCTION -->
+
+    <section class="hero" id="explorer">
+
+      <div class="hero-layout">
+
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            YOUR FOOD, BETTER UNDERSTOOD
+          </div>
+
+          <h1>Clean Food<br>Explorer.</h1>
+
+          <p class="hero-description">
+            Explore food products, search ingredient lists, and save items
+            you want to review later. Use the information on the package
+            to make a more informed choice.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="glass-btn primary" href="Scanner.html">
+            <span class="material-symbols-outlined">photo_camera</span>
+            Scan a Label
+          </a>
+
+          <button class="glass-btn" id="exportBtn" type="button">
+            <span class="material-symbols-outlined">download</span>
+            Export List
+          </button>
+        </div>
+
+      </div>
+
+      <div class="notice">
+        <strong>Transparency notice:</strong>
+        The products and ingredient lists below are illustrative demo
+        entries. They have not been independently verified, lab-tested,
+        or assigned scientifically validated health scores. Check the
+        actual package for current ingredients, nutrition facts, allergens,
+        and certification details.
+      </div>
+
+    </section>
+
+
+    <!-- SEARCH AND FILTERS -->
+
+    <section class="search-panel" aria-label="Search food products">
+
+      <div class="search-row">
+
+        <div class="input-wrap">
+          <span class="material-symbols-outlined">search</span>
+
+          <input
+            class="search-input"
+            id="searchInput"
+            type="search"
+            placeholder="Search products, ingredients, or categories..."
+            autocomplete="off"
+            aria-label="Search products and ingredients"
+          >
+        </div>
+
+        <select
+          class="sort-select"
+          id="sortSelect"
+          aria-label="Sort products"
+        >
+          <option value="default">Sort: Default</option>
+          <option value="name">Sort: Name A–Z</option>
+          <option value="category">Sort: Category</option>
+        </select>
+
+        <button class="glass-btn" id="clearFiltersBtn" type="button">
+          <span class="material-symbols-outlined">filter_alt_off</span>
+          Clear Filters
+        </button>
+
+      </div>
+
+      <div class="filter-heading">FILTER BY CATEGORY</div>
+
+      <div class="filters" id="filters">
+
+        <button
+          class="filter-chip active"
+          data-category="all"
+          type="button"
+          aria-pressed="true"
+        >
+          All Products
+        </button>
+
+        <button
+          class="filter-chip"
+          data-category="plant-based"
+          type="button"
+          aria-pressed="false"
+        >
+          Plant-Based
+        </button>
+
+        <button
+          class="filter-chip"
+          data-category="snacks"
+          type="button"
+          aria-pressed="false"
+        >
+          Snacks
+        </button>
+
+        <button
+          class="filter-chip"
+          data-category="pantry"
+          type="button"
+          aria-pressed="false"
+        >
+          Pantry
+        </button>
+
+        <button
+          class="filter-chip"
+          data-category="drinks"
+          type="button"
+          aria-pressed="false"
+        >
+          Drinks
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section aria-labelledby="productsHeading">
+
+      <div class="section-heading">
+
+        <div>
+          <h2 id="productsHeading">Explore Products</h2>
+          <p>Review the sample information and save products for later.</p>
+        </div>
+
+        <span class="result-count" id="resultCount" aria-live="polite">
+          6 products
+        </span>
+
+      </div>
+
+      <div class="product-grid" id="productGrid">
+
+        <!-- Product 1 -->
+
+        <article
+          class="product-card"
+          data-id="almond-drink"
+          data-category="plant-based drinks"
+        >
+          <div class="product-visual">
+            <span class="sample-badge">DEMO PRODUCT</span>
+            <span class="product-emoji" aria-hidden="true">🥛</span>
+          </div>
+
+          <div class="product-body">
+
+            <div class="product-category">Plant-Based · Drinks</div>
+
+            <h3 class="product-title">Almond Drink</h3>
+
+            <p class="product-description">
+              A sample plant-based beverage entry for exploring ingredient
+              lists and product labels.
+            </p>
+
+            <div class="product-tags">
+              <span class="tag">Plant-Based</span>
+              <span class="tag">Label Review</span>
+            </div>
+
+            <div class="ingredient-box">
+              <div class="ingredient-label">SAMPLE INGREDIENT LIST</div>
+
+              <p class="ingredient-text">
+                Example only: water, almonds, salt.
+              </p>
+
+              <p class="data-note">
+                This is not a verified ingredient list for any specific brand.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="product-actions">
+            <button class="glass-btn primary save-btn" type="button">
+              <span class="material-symbols-outlined">bookmark_add</span>
+              <span class="save-label">Add to Vault</span>
+            </button>
+
+            <button
+              class="glass-btn icon-btn compare-btn"
+              type="button"
+              aria-label="Compare Almond Drink"
+              title="Compare"
+            >
+              <span class="material-symbols-outlined">compare_arrows</span>
+            </button>
+          </div>
+        </article>
+
+
+        <!-- Product 2 -->
+
+        <article
+          class="product-card"
+          data-id="oat-drink"
+          data-category="plant-based drinks"
+        >
+          <div class="product-visual">
+            <span class="sample-badge">DEMO PRODUCT</span>
+            <span class="product-emoji" aria-hidden="true">🌾</span>
+          </div>
+
+          <div class="product-body">
+
+            <div class="product-category">Plant-Based · Drinks</div>
+
+            <h3 class="product-title">Oat Drink</h3>
+
+            <p class="product-description">
+              An example product used to demonstrate searching and comparing
+              ingredient information.
+            </p>
+
+            <div class="product-tags">
+              <span class="tag">Plant-Based</span>
+              <span class="tag">Nutrition Label</span>
+            </div>
+
+            <div class="ingredient-box">
+              <div class="ingredient-label">SAMPLE INGREDIENT LIST</div>
+
+              <p class="ingredient-text">
+                Example only: water, oats, optional oil or other ingredients.
+              </p>
+
+              <p class="data-note">
+                Recipes vary by brand. Check the actual product package.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="product-actions">
+            <button class="glass-btn primary save-btn" type="button">
+              <span class="material-symbols-outlined">bookmark_add</span>
+              <span class="save-label">Add to Vault</span>
+            </button>
+
+            <button
+              class="glass-btn icon-btn compare-btn"
+              type="button"
+              aria-label="Compare Oat Drink"
+              title="Compare"
+            >
+              <span class="material-symbols-outlined">compare_arrows</span>
+            </button>
+          </div>
+        </article>
+
+
+        <!-- Product 3 -->
+
+        <article
+          class="product-card"
+          data-id="nut-mix"
+          data-category="snacks"
+        >
+          <div class="product-visual">
+            <span class="sample-badge">DEMO PRODUCT</span>
+            <span class="product-emoji" aria-hidden="true">🥜</span>
+          </div>
+
+          <div class="product-body">
+
+            <div class="product-category">Snacks</div>
+
+            <h3 class="product-title">Mixed Nuts</h3>
+
+            <p class="product-description">
+              A sample snack entry for reviewing ingredients, serving sizes,
+              and allergen information.
+            </p>
+
+            <div class="product-tags">
+              <span class="tag">Snack</span>
+              <span class="tag">Allergen Review</span>
+            </div>
+
+            <div class="ingredient-box">
+              <div class="ingredient-label">SAMPLE INGREDIENT LIST</div>
+
+              <p class="ingredient-text">
+                Example only: almonds, cashews, walnuts.
+              </p>
+
+              <p class="data-note">
+                Nuts are allergens for some people. Check the package for
+                the complete ingredient and allergen declaration.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="product-actions">
+            <button class="glass-btn primary save-btn" type="button">
+              <span class="material-symbols-outlined">bookmark_add</span>
+              <span class="save-label">Add to Vault</span>
+            </button>
+
+            <button
+              class="glass-btn icon-btn compare-btn"
+              type="button"
+              aria-label="Compare Mixed Nuts"
+              title="Compare"
+            >
+              <span class="material-symbols-outlined">compare_arrows</span>
+            </button>
+          </div>
+        </article>
+
+
+        <!-- Product 4 -->
+
+        <article
+          class="product-card"
+          data-id="popcorn"
+          data-category="snacks"
+        >
+          <div class="product-visual">
+            <span class="sample-badge">DEMO PRODUCT</span>
+            <span class="product-emoji" aria-hidden="true">🍿</span>
+          </div>
+
+          <div class="product-body">
+
+            <div class="product-category">Snacks</div>
+
+            <h3 class="product-title">Popcorn</h3>
+
+            <p class="product-description">
+              A sample snack product for exploring cooking oils, seasonings,
+              sodium, and serving sizes.
+            </p>
+
+            <div class="product-tags">
+              <span class="tag">Snack</span>
+              <span class="tag">Serving Size</span>
+            </div>
+
+            <div class="ingredient-box">
+              <div class="ingredient-label">SAMPLE INGREDIENT LIST</div>
+
+              <p class="ingredient-text">
+                Example only: corn, cooking oil, salt.
+              </p>
+
+              <p class="data-note">
+                Flavoured and packaged versions may contain additional
+                ingredients. Check the package.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="product-actions">
+            <button class="glass-btn primary save-btn" type="button">
+              <span class="material-symbols-outlined">bookmark_add</span>
+              <span class="save-label">Add to Vault</span>
+            </button>
+
+            <button
+              class="glass-btn icon-btn compare-btn"
+              type="button"
+              aria-label="Compare Popcorn"
+              title="Compare"
+            >
+              <span class="material-symbols-outlined">compare_arrows</span>
+            </button>
+          </div>
+        </article>
+
+
+        <!-- Product 5 -->
+
+        <article
+          class="product-card"
+          data-id="olive-oil"
+          data-category="pantry"
+        >
+          <div class="product-visual">
+            <span class="sample-badge">DEMO PRODUCT</span>
+            <span class="product-emoji" aria-hidden="true">🫒</span>
+          </div>
+
+          <div class="product-body">
+
+            <div class="product-category">Pantry</div>
+
+            <h3 class="product-title">Olive Oil</h3>
+
+            <p class="product-description">
+              A sample pantry entry for comparing product labels and checking
+              the stated oil type.
+            </p>
+
+            <div class="product-tags">
+              <span class="tag">Pantry</span>
+              <span class="tag">Ingredient Review</span>
+            </div>
+
+            <div class="ingredient-box">
+              <div class="ingredient-label">SAMPLE INGREDIENT LIST</div>
+
+              <p class="ingredient-text">
+                Example only: olive oil.
+              </p>
+
+              <p class="data-note">
+                Product grades and composition are not verified here.
+                Consult the package and producer information.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="product-actions">
+            <button class="glass-btn primary save-btn" type="button">
+              <span class="material-symbols-outlined">bookmark_add</span>
+              <span class="save-label">Add to Vault</span>
+            </button>
+
+            <button
+              class="glass-btn icon-btn compare-btn"
+              type="button"
+              aria-label="Compare Olive Oil"
+              title="Compare"
+            >
+              <span class="material-symbols-outlined">compare_arrows</span>
+            </button>
+          </div>
+        </article>
+
+
+        <!-- Product 6 -->
+
+        <article
+          class="product-card"
+          data-id="plain-yogurt"
+          data-category="pantry"
+        >
+          <div class="product-visual">
+            <span class="sample-badge">DEMO PRODUCT</span>
+            <span class="product-emoji" aria-hidden="true">🥣</span>
+          </div>
+
+          <div class="product-body">
+
+            <div class="product-category">Pantry</div>
+
+            <h3 class="product-title">Plain Yogurt</h3>
+
+            <p class="product-description">
+              A sample dairy entry for learning how to review ingredients,
+              nutrition information, and allergens.
+            </p>
+
+            <div class="product-tags">
+              <span class="tag">Dairy</span>
+              <span class="tag">Nutrition Label</span>
+            </div>
+
+            <div class="ingredient-box">
+              <div class="ingredient-label">SAMPLE INGREDIENT LIST</div>
+
+              <p class="ingredient-text">
+                Example only: milk, live cultures.
+              </p>
+
+              <p class="data-note">
+                Actual ingredients vary. Check for added sugar, allergens,
+                and other ingredients on the package.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="product-actions">
+            <button class="glass-btn primary save-btn" type="button">
+              <span class="material-symbols-outlined">bookmark_add</span>
+              <span class="save-label">Add to Vault</span>
+            </button>
+
+            <button
+              class="glass-btn icon-btn compare-btn"
+              type="button"
+              aria-label="Compare Plain Yogurt"
+              title="Compare"
+            >
+              <span class="material-symbols-outlined">compare_arrows</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+
+      <div class="empty-state" id="emptyState">
+        <span class="material-symbols-outlined">search_off</span>
+        <h3>No products found</h3>
+        <p>Try a different search or clear your filters.</p>
+
+        <button class="glass-btn" id="emptyClearBtn" type="button">
+          Clear Search
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- SAVED PRODUCTS VAULT -->
+
+    <section class="vault-section" id="vault">
+
+      <div class="vault-header">
+
+        <div>
+          <h2>Your Saved Products</h2>
+          <p>
+            Products saved in this browser are shown here.
+            This demo does not sync the vault to your Supabase account.
+          </p>
+        </div>
+
+        <button class="glass-btn" id="clearVaultBtn" type="button">
+          <span class="material-symbols-outlined">delete_sweep</span>
+          Clear Vault
+        </button>
+
+      </div>
+
+      <div class="vault-list" id="vaultList">
+        <p class="vault-empty">No saved products yet.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- COMPARISON DIALOG -->
+
+  <dialog id="compareDialog">
+
+    <div class="dialog-header">
+      <h2>Compare Products</h2>
+
+      <button
+        class="glass-btn icon-btn"
+        id="closeCompareBtn"
+        type="button"
+        aria-label="Close comparison"
+      >
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <p class="data-note">
+      This comparison displays sample descriptions and ingredients.
+      It does not determine which product is healthier.
+    </p>
+
+    <div class="comparison-list" id="comparisonList"></div>
+
+    <button class="glass-btn primary" id="finishCompareBtn" type="button">
+      Done
+    </button>
+
+  </dialog>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <div class="container footer-content">
+
+      <div class="footer-brand">
+        VERIDIS NUTRISCAN
+      </div>
+
+      <p class="footer-note">
+        Educational food-label exploration interface. Product examples are
+        illustrative and are not verified laboratory results, medical advice,
+        or product certifications. Always consult the actual package.
+      </p>
+
+    </div>
+  </footer>
+
+
+  <!-- NOTIFICATION -->
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <script>
+    "use strict";
+
+    /*
+      VERIDIS NUTRISCAN - FOOD EXPLORER
+
+      Working features:
+      1. Search product names, categories, and ingredient descriptions.
+      2. Filter by category.
+      3. Sort products.
+      4. Save products to localStorage.
+      5. Remove saved products.
+      6. Compare up to three products.
+      7. Export the product list as CSV.
+      8. Mobile navigation.
+      9. Clear search and filters.
+      10. Toast notifications.
+
+      Important:
+      localStorage is browser-specific. It is not a replacement for
+      server-side authentication or Supabase database storage.
+    */
+
+
+    // DOM HELPERS
+
+    const $ = (selector, parent = document) =>
+      parent.querySelector(selector);
+
+    const $$ = (selector, parent = document) =>
+      [...parent.querySelectorAll(selector)];
+
+
+    // ELEMENTS
+
+    const searchInput = $("#searchInput");
+    const sortSelect = $("#sortSelect");
+    const productGrid = $("#productGrid");
+    const resultCount = $("#resultCount");
+    const emptyState = $("#emptyState");
+    const filters = $$("#filters .filter-chip");
+
+    const vaultList = $("#vaultList");
+    const toast = $("#toast");
+
+    const compareDialog = $("#compareDialog");
+    const comparisonList = $("#comparisonList");
+
+
+    // STATE
+
+    let activeCategory = "all";
+    let compareIds = [];
+    let toastTimer = null;
+
+    const STORAGE_KEY = "veridis_food_explorer_v1";
+
+
+    // PRODUCT DATA IS READ FROM THE HTML CARDS.
+
+    function getCards() {
+      return $$(".product-card");
+    }
+
+
+    function getProductData(card) {
+      return {
+        id: card.dataset.id,
+        title: $(".product-title", card).textContent.trim(),
+        category: $(".product-category", card).textContent.trim(),
+        description: $(".product-description", card).textContent.trim(),
+        ingredients: $(".ingredient-text", card).textContent.trim(),
+        emoji: $(".product-emoji", card).textContent.trim(),
+        tags: $$(".tag", card).map(tag => tag.textContent.trim())
+      };
+    }
+
+
+    function getAllProducts() {
+      return getCards().map(getProductData);
+    }
+
+
+    function getProductById(id) {
+      return getAllProducts().find(product => product.id === id);
+    }
+
+
+    // NOTIFICATIONS
+
+    function showToast(message, isError = false) {
+      toast.textContent = message;
+      toast.classList.toggle("error", isError);
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+
+    // SAFE LOCAL STORAGE
+
+    function readSavedProducts() {
+      try {
+        const saved = JSON.parse(
+          localStorage.getItem(STORAGE_KEY) || "[]"
+        );
+
+        if (!Array.isArray(saved)) {
+          return [];
+        }
+
+        const knownIds = new Set(
+          getAllProducts().map(product => product.id)
+        );
+
+        return [...new Set(
+          saved.filter(id =>
+            typeof id === "string" && knownIds.has(id)
+          )
+        )];
+
+      } catch (error) {
+        console.error("Unable to read saved products:", error);
+        return [];
+      }
+    }
+
+
+    function writeSavedProducts(ids) {
+      try {
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify(ids)
+        );
+
+        return true;
+
+      } catch (error) {
+        console.error("Unable to save products:", error);
+
+        showToast(
+          "Could not save products. Check your browser storage settings.",
+          true
+        );
+
+        return false;
+      }
+    }
+
+
+    // SEARCH, CATEGORY FILTER, AND SORT
+
+    function updateProducts() {
+      const query = searchInput.value.trim().toLowerCase();
+
+      const sortMode = sortSelect.value;
+
+      let cards = getCards();
+
+      cards.forEach(card => {
+        const product = getProductData(card);
+
+        const searchableText = [
+          product.title,
+          product.category,
+          product.description,
+          product.ingredients,
+          ...product.tags
+        ].join(" ").toLowerCase();
+
+        const matchesSearch = searchableText.includes(query);
+
+        const categories = card.dataset.category
+          .split(/\s+/);
+
+        const matchesCategory =
+          activeCategory === "all" ||
+          categories.includes(activeCategory);
+
+        card.dataset.visible =
+          matchesSearch && matchesCategory ? "true" : "false";
+      });
+
+
+      cards = cards.filter(card =>
+        card.dataset.visible === "true"
+      );
+
+
+      if (sortMode === "name") {
+        cards.sort((a, b) =>
+          getProductData(a).title.localeCompare(
+            getProductData(b).title
+          )
+        );
+      }
+
+      if (sortMode === "category") {
+        cards.sort((a, b) =>
+          getProductData(a).category.localeCompare(
+            getProductData(b).category
+          )
+        );
+      }
+
+
+      // Reorder the existing cards without recreating their buttons.
+
+      cards.forEach(card => {
+        productGrid.appendChild(card);
+      });
+
+
+      getCards().forEach(card => {
+        card.classList.toggle(
+          "hidden",
+          card.dataset.visible !== "true"
+        );
+      });
+
+
+      resultCount.textContent =
+        `${cards.length} product${cards.length === 1 ? "" : "s"}`;
+
+      emptyState.style.display =
+        cards.length === 0 ? "block" : "none";
+    }
+
+
+    searchInput.addEventListener("input", updateProducts);
+
+    sortSelect.addEventListener("change", updateProducts);
+
+
+    filters.forEach(button => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.category;
+
+        filters.forEach(chip => {
+          const selected = chip === button;
+
+          chip.classList.toggle("active", selected);
+          chip.setAttribute(
+            "aria-pressed",
+            String(selected)
+          );
+        });
+
+        updateProducts();
+      });
     });
-  });
-</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><span class="font-label-mono text-label-mono tracking-wider text-on-surface">VERIDIS NUTRISCAN ARCHITECTURE</span></div><div class="flex items-center gap-space-lg"><span class="font-label-mono-xs text-label-mono-xs text-outline">TELEMETRY CORE: CALIBRATED</span><span class="font-label-mono-xs text-label-mono-xs text-outline">CLINICAL RECALL ENGINE v9.2</span></div><p class="font-label-mono-xs text-label-mono-xs text-outline">© 2025 VERIDIS BIO-DIAGNOSTICS LABS. ALL METRIC INTEL PROTECTED.</p></div></footer><script src="/site-interactions.js" defer></script></body></html>
+
+
+    // CLEAR FILTERS
+
+    function clearFilters() {
+      searchInput.value = "";
+      sortSelect.value = "default";
+      activeCategory = "all";
+
+      filters.forEach(button => {
+        const selected = button.dataset.category === "all";
+
+        button.classList.toggle("active", selected);
+
+        button.setAttribute(
+          "aria-pressed",
+          String(selected)
+        );
+      });
+
+      updateProducts();
+
+      showToast("Search and filters cleared.");
+    }
+
+
+    $("#clearFiltersBtn").addEventListener(
+      "click",
+      clearFilters
+    );
+
+    $("#emptyClearBtn").addEventListener(
+      "click",
+      clearFilters
+    );
+
+
+    // SAVE PRODUCTS TO VAULT
+
+    function updateSaveButtons() {
+      const saved = readSavedProducts();
+
+      getCards().forEach(card => {
+        const isSaved = saved.includes(card.dataset.id);
+
+        const button = $(".save-btn", card);
+        const label = $(".save-label", card);
+        const icon = $(".material-symbols-outlined", button);
+
+        label.textContent = isSaved
+          ? "Saved to Vault"
+          : "Add to Vault";
+
+        icon.textContent = isSaved
+          ? "bookmark_added"
+          : "bookmark_add";
+
+        button.classList.toggle("saved-indicator", isSaved);
+      });
+    }
+
+
+    function toggleSavedProduct(id) {
+      const saved = readSavedProducts();
+
+      const alreadySaved = saved.includes(id);
+
+      const updated = alreadySaved
+        ? saved.filter(savedId => savedId !== id)
+        : [...saved, id];
+
+      if (!writeSavedProducts(updated)) {
+        return;
+      }
+
+      renderVault();
+      updateSaveButtons();
+
+      const product = getProductById(id);
+
+      showToast(
+        alreadySaved
+          ? `${product.title} removed from your vault.`
+          : `${product.title} saved to your vault.`
+      );
+    }
+
+
+    // VAULT RENDERING
+
+    function renderVault() {
+      const savedIds = readSavedProducts();
+
+      vaultList.replaceChildren();
+
+      if (savedIds.length === 0) {
+        const empty = document.createElement("p");
+
+        empty.className = "vault-empty";
+        empty.textContent = "No saved products yet.";
+
+        vaultList.appendChild(empty);
+        return;
+      }
+
+
+      savedIds.forEach(id => {
+        const product = getProductById(id);
+
+        if (!product) {
+          return;
+        }
+
+        const item = document.createElement("div");
+        item.className = "vault-item";
+
+        const emoji = document.createElement("span");
+        emoji.className = "vault-emoji";
+        emoji.textContent = product.emoji;
+        emoji.setAttribute("aria-hidden", "true");
+
+        const textWrap = document.createElement("div");
+
+        const title = document.createElement("strong");
+        title.textContent = product.title;
+
+        const subtitle = document.createElement("small");
+        subtitle.textContent = product.category;
+
+        textWrap.append(title, subtitle);
+        item.append(emoji, textWrap);
+
+        vaultList.appendChild(item);
+      });
+    }
+
+
+    // PRODUCT BUTTON EVENTS
+
+    getCards().forEach(card => {
+      const id = card.dataset.id;
+
+      $(".save-btn", card).addEventListener("click", () => {
+        toggleSavedProduct(id);
+      });
+
+      $(".compare-btn", card).addEventListener("click", () => {
+        toggleCompareProduct(id);
+      });
+    });
+
+
+    // CLEAR VAULT
+
+    $("#clearVaultBtn").addEventListener("click", () => {
+      const saved = readSavedProducts();
+
+      if (saved.length === 0) {
+        showToast("Your vault is already empty.");
+        return;
+      }
+
+      const confirmed = window.confirm(
+        "Remove all saved products from this browser?"
+      );
+
+      if (!confirmed) {
+        return;
+      }
+
+      if (!writeSavedProducts([])) {
+        return;
+      }
+
+      renderVault();
+      updateSaveButtons();
+
+      showToast("Your saved products have been cleared.");
+    });
+
+
+    // SCROLL TO VAULT
+
+    $("#vaultShortcut").addEventListener("click", () => {
+      $("#vault").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+
+
+    // PRODUCT COMPARISON
+
+    function toggleCompareProduct(id) {
+      if (compareIds.includes(id)) {
+        compareIds = compareIds.filter(
+          compareId => compareId !== id
+        );
+
+        showToast("Product removed from comparison.");
+      } else {
+        if (compareIds.length >= 3) {
+          showToast(
+            "You can compare up to three products at once.",
+            true
+          );
+
+          return;
+        }
+
+        compareIds.push(id);
+      }
+
+      renderComparison();
+
+      if (compareIds.length > 0) {
+        if (!compareDialog.open) {
+          compareDialog.showModal();
+        }
+      } else if (compareDialog.open) {
+        compareDialog.close();
+      }
+    }
+
+
+    function renderComparison() {
+      comparisonList.replaceChildren();
+
+      if (compareIds.length === 0) {
+        const empty = document.createElement("p");
+
+        empty.textContent = "No products selected.";
+        comparisonList.appendChild(empty);
+
+        return;
+      }
+
+
+      compareIds.forEach(id => {
+        const product = getProductById(id);
+
+        if (!product) {
+          return;
+        }
+
+        const item = document.createElement("div");
+        item.className = "comparison-item";
+
+        const title = document.createElement("strong");
+        title.textContent = `${product.emoji} ${product.title}`;
+
+        const category = document.createElement("div");
+        category.textContent = `Category: ${product.category}`;
+
+        const ingredients = document.createElement("div");
+        ingredients.textContent =
+          `Sample ingredients: ${product.ingredients}`;
+
+        const removeButton = document.createElement("button");
+
+        removeButton.type = "button";
+        removeButton.className = "glass-btn";
+        removeButton.style.marginTop = "10px";
+        removeButton.textContent = "Remove";
+
+        removeButton.addEventListener("click", () => {
+          compareIds = compareIds.filter(
+            compareId => compareId !== id
+          );
+
+          renderComparison();
+
+          if (compareIds.length === 0 && compareDialog.open) {
+            compareDialog.close();
+          }
+        });
+
+        item.append(
+          title,
+          category,
+          ingredients,
+          removeButton
+        );
+
+        comparisonList.appendChild(item);
+      });
+    }
+
+
+    $("#closeCompareBtn").addEventListener("click", () => {
+      compareDialog.close();
+    });
+
+    $("#finishCompareBtn").addEventListener("click", () => {
+      compareDialog.close();
+    });
+
+
+    // EXPORT PRODUCT LIST AS CSV
+
+    function escapeCSV(value) {
+      const safeValue = String(value)
+        .replace(/"/g, '""');
+
+      return `"${safeValue}"`;
+    }
+
+
+    $("#exportBtn").addEventListener("click", () => {
+      const products = getAllProducts();
+
+      if (products.length === 0) {
+        showToast("There are no products to export.", true);
+        return;
+      }
+
+      const headings = [
+        "Product",
+        "Category",
+        "Sample Ingredients",
+        "Description",
+        "Data Status"
+      ];
+
+      const rows = products.map(product => [
+        product.title,
+        product.category,
+        product.ingredients,
+        product.description,
+        "Illustrative demo data; not independently verified"
+      ]);
+
+      const csv = [
+        headings,
+        ...rows
+      ]
+        .map(row => row.map(escapeCSV).join(","))
+        .join("\r\n");
+
+
+      const blob = new Blob(
+        ["\uFEFF" + csv],
+        { type: "text/csv;charset=utf-8;" }
+      );
+
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = "veridis-food-explorer.csv";
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+      }, 1000);
+
+      showToast("Your CSV shopping and product list was exported.");
+    });
+
+
+    // MOBILE NAVIGATION
+
+    const mobileMenuBtn = $("#mobileMenuBtn");
+    const navLinks = $("#navLinks");
+
+    mobileMenuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("mobile-open");
+
+      mobileMenuBtn.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      const icon = $(".material-symbols-outlined", mobileMenuBtn);
+
+      icon.textContent = isOpen ? "close" : "menu";
+    });
+
+
+    $$(".nav-link", navLinks).forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("mobile-open");
+
+        mobileMenuBtn.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        $(".material-symbols-outlined", mobileMenuBtn)
+          .textContent = "menu";
+      });
+    });
+
+
+    // INITIALIZE
+
+    updateProducts();
+    updateSaveButtons();
+    renderVault();
+
+  </script>
+
+</body>
+              </html>
