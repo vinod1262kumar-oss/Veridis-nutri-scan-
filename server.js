@@ -9,8 +9,11 @@ import { fileURLToPath } from 'url';
 dotenv.config();
 
 const app = express();
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PORT = process.env.PORT || 3000;
+
+// ADD THIS LINE BELOW TO FIX THE PROXY VALUE HEADERS
+app.set('trust proxy', 1); 
+
+app.use(express.json({ limit: '8mb' }));
 
 // Middleware
 app.use(helmet()); // Security headers
@@ -46,7 +49,7 @@ app.get('/login', (req, res) => {
 
 app.get('/scanner', (req, res) => {
   res.sendFile(path.join(__dirname, 'Scanner.html'));
-});
+}); 
 
 app.get('/analysis', (req, res) => {
   res.sendFile(path.join(__dirname, 'Analysis.html'));
