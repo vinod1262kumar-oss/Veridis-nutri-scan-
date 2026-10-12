@@ -1,454 +1,2603 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>VERIDIS NutriScan - Biological Intelligence Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#ffefe0","tertiary-fixed-dim":"#ffb95f","inverse-on-surface":"#2b3139","surface-dim":"#0e141b","surface-variant":"#2f353d","surface":"#0e141b","surface-container-low":"#161c23","error":"#ffb4ab","primary-container":"#00f2a5","inverse-surface":"#dde3ed","secondary-fixed":"#acedff","surface-container":"#1a2027","background":"#0e141b","on-secondary-fixed":"#001f26","on-primary":"#003823","primary-fixed-dim":"#00e29a","surface-container-high":"#242a32","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","on-tertiary-fixed":"#2a1700","on-tertiary-container":"#825100","on-error":"#690005","on-error-container":"#ffdad6","outline":"#849589","on-primary-fixed":"#002113","primary-fixed":"#4affb4","tertiary-fixed":"#ffddb8","inverse-primary":"#006c47","secondary":"#4cd7f6","primary":"#c0ffdb","on-primary-fixed-variant":"#005235","surface-container-highest":"#2f353d","on-tertiary-fixed-variant":"#653e00","on-tertiary":"#472a00","surface-tint":"#00e29a","tertiary-container":"#ffcc90","on-surface":"#dde3ed","on-secondary-container":"#00424e","outline-variant":"#3b4a41","on-surface-variant":"#b9cbbe","on-primary-container":"#006945","on-secondary":"#003640","secondary-fixed-dim":"#4cd7f6","surface-bright":"#343a42","on-background":"#dde3ed","surface-container-lowest":"#090f16","error-container":"#93000a"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"2rem","margin-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter-mobile":"0.75rem","space-sm":"0.5rem"},fontFamily:{"data-display-md":["JetBrains Mono"],"label-mono-xs":["JetBrains Mono"],"body-md":["Inter"],"label-mono":["JetBrains Mono"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"data-display-lg":["JetBrains Mono"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"data-display-md":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-mono-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"data-display-lg":["40px",{"lineHeight":"44px","letterSpacing":"-0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase leading-none">VERIDIS NUTRISCAN</span><span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant tracking-widest mt-1">BIO-SPECTRAL ANALYSIS</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container-low border border-primary-container/20"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,242,165,0.8)]"></span><span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider uppercase">SPECTRA v3.4 ONLINE</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container/60" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="live-scanner" href="#">Live Scanner</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="ingredient-intel" href="#">Ingredient Intel</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="health-vault" href="#">Health Vault</a><a class="px-space-md py-space-xs font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" data-path="clean-food-explorer" href="#">Clean Food Explorer</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container px-space-md py-space-xs rounded-xl transition-all cursor-pointer group"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-lg">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search matrix...</span><kbd class="px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs bg-surface-container-highest text-secondary">⌘K / Scan Barcode</kbd></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-mono-xs text-label-mono-xs text-primary tracking-wider uppercase">SENSOR ACTIVE</span></div><button class="relative p-space-xs rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden sm:flex flex-col text-right"><span class="font-label-mono text-label-mono text-on-surface">Dr. Elena Vance</span><span class="font-label-mono-xs text-label-mono-xs text-primary uppercase tracking-wider">Pro Bio-Tier</span></div><div class="relative ring-1 ring-primary-container/30 rounded-full p-0.5"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfYHjWGiIm2RsNaTVEu5XYRXJb83fhKz8fqz-JwjjFymWdmQQdzg16x7Oaegy9WBp82_GSodCHddes6_xHpkK_rWngrkwwAOTZouHupN8WHj0_dLBRG7OQifkTG0CP-0cML8eqy2dsjGmyrE9cZg1It_5yiFy_1w8fQyfM0fHHbuYLEdRtOZd8tcmaQmbfPvhHHG_g6nOylj31YLMBRSkKkdBzUGIY7EcLqQSlURw"/></div></div></div></div></div><div class="w-full h-px bg-gradient-to-r from-transparent via-primary-container/50 to-transparent shadow-[0_0_12px_rgba(0,242,165,0.4)]"></div></header><main class="w-full pt-20 bg-background relative min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
-<div class="w-full px-gutter-mobile lg:px-gutter py-space-md max-w-[1540px] mx-auto flex flex-col gap-space-lg">
-<!-- Top HUD Navigation & Control Strip -->
-<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md bg-surface-container-low/70 backdrop-blur-xl p-space-md rounded-xl shadow-xl">
-<div class="flex flex-col md:flex-row md:items-center gap-space-md">
-<div class="flex items-center gap-space-sm">
-<div class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_12px_rgba(0,242,165,0.9)] animate-pulse"></div>
-<div>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary tracking-widest uppercase block">DIAGNOSTIC MATRIX // ACTIVE VIEWPORT</span>
-<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-none mt-0.5">Real-Time Food Spectrometer &amp; Barcode Scanner</h1>
-</div>
-</div>
-<div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-lg">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">FREQ:</span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">915nm NIR / HYPERSPECTRAL</span>
-</div>
-</div>
-<!-- Mode Switcher Pill Group -->
-<div class="flex items-center overflow-x-auto gap-space-xs bg-surface-container-lowest/80 p-1 rounded-xl">
-<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono bg-primary-container text-on-primary-container font-semibold transition-all shadow-[0_0_16px_rgba(0,242,165,0.35)] flex items-center gap-space-xs" id="mode-opt">
-<span class="material-symbols-outlined text-base">center_focus_strong</span>
-<span>Optical Camera</span>
-</button>
-<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-space-xs" id="mode-bar">
-<span class="material-symbols-outlined text-base">barcode_scanner</span>
-<span>Barcode Beam</span>
-</button>
-<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-space-xs" id="mode-nir">
-<span class="material-symbols-outlined text-base">graphic_eq</span>
-<span>Spectro-NIR Sensor</span>
-</button>
-<button class="px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-space-xs" id="mode-upl">
-<span class="material-symbols-outlined text-base">cloud_upload</span>
-<span>Upload Package</span>
-</button>
-</div>
-</div>
-<!-- Main Viewport & Telemetry Grid (60 / 40 Split) -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-<!-- LEFT COLUMN: SCAN VIEWPORT & INTERACTIVE HUD (7 of 12 cols = ~58-60%) -->
-<div class="lg:col-span-7 flex flex-col gap-space-md">
-<!-- Viewport Chamber -->
-<div class="relative w-full aspect-[4/3] sm:aspect-[16/11] bg-surface-container-lowest rounded-xl overflow-hidden shadow-2xl flex flex-col justify-between p-space-md sm:p-space-lg group">
-<!-- Background Product Simulation Image -->
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover opacity-80 filter contrast-125 brightness-90 group-hover:scale-105 transition-transform duration-700" data-alt="High-end organic cold-pressed almond and macadamia beverage carton on laboratory slate counter with botanical glass apparatus, soft cinematic teal and emerald rim illumination, hyper-detailed clean food packaging, dark futuristic bio-tech laboratory vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlWSkRtnuf2pYzxjvLjpqsjFp5E-C2oiTnxKOZxCKVm8A7L_YmmWCDfBC4oQUI60n-qkfxSQwg3cQzJa45utSrd2l4HBDlK1c_ik6WhiQ0iTZSXWtymty9FkUs1bjC9eBdnksZOfFSRfMdqXfISmLfc6Y0CsJV04QEjuVBXP2kE4N6v3iXvvPEZx3PY-S2I_OlDyo_ANn6N60TkqM2b6hu7DXjbQR2OxVjFL1Bgcc"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-surface-container-lowest/70 pointer-events-none"></div>
-<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(9,15,22,0.85)_100%)] pointer-events-none"></div>
-</div>
-<!-- Animated Sweeping Laser Ray -->
-<div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-95 shadow-[0_0_24px_rgba(0,242,165,1)] z-10 pointer-events-none animate-[scanLaser_3.2s_ease-in-out_infinite]" style="animation: scanLaser 3.5s ease-in-out infinite;"></div>
-<style>
-            @keyframes scanLaser {
-              0% { top: 6%; opacity: 0.1; }
-              15% { opacity: 0.95; }
-              85% { opacity: 0.95; }
-              100% { top: 92%; opacity: 0.1; }
-            }
-          </style>
-<!-- Holographic Targeting HUD Reticle Overlay -->
-<div class="relative z-20 flex flex-col justify-between h-full pointer-events-none">
-<!-- Top Reticle & Sensor Telemetry Badges -->
-<div class="flex items-start justify-between gap-space-md">
-<div class="flex flex-col gap-space-xs pointer-events-auto">
-<div class="flex items-center gap-space-xs bg-surface-container-high/90 backdrop-blur-md px-space-sm py-1 rounded shadow-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-semibold tracking-wider">LOCKED // SPECTRUM ACQUIRED</span>
-</div>
-<div class="bg-surface-container-lowest/90 backdrop-blur-md p-space-sm rounded-lg max-w-xs shadow-lg">
-<span class="font-label-mono-xs text-label-mono-xs text-secondary block">TARGET MATRIX ID</span>
-<p class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate leading-tight">Almond &amp; Macadamia Mylk</p>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">BARCODE: 890412891044</span>
-</div>
-</div>
-<!-- Reticle System Benchmarks -->
-<div class="flex flex-col items-end gap-1 pointer-events-auto">
-<div class="bg-surface-container-high/90 backdrop-blur-md px-space-sm py-0.5 rounded flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">OPTICAL FIDELITY:</span>
-<span class="font-label-mono text-label-mono text-primary font-bold">99.4%</span>
-</div>
-<div class="bg-surface-container-high/90 backdrop-blur-md px-space-sm py-0.5 rounded flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">SPECTRA LATENCY:</span>
-<span class="font-label-mono text-label-mono text-secondary font-bold">14ms</span>
-</div>
-<div class="bg-surface-container-high/90 backdrop-blur-md px-space-sm py-0.5 rounded flex items-center gap-space-xs">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">TEMPERATURE:</span>
-<span class="font-label-mono text-label-mono text-on-surface font-semibold">4.2°C (CHILLED)</span>
-</div>
-</div>
-</div>
-<!-- Central Scanning Reticle Corner Brackets -->
-<div class="relative w-full max-w-md mx-auto aspect-square max-h-60 sm:max-h-72 flex items-center justify-center pointer-events-none">
-<!-- Top-Left Corner -->
-<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary-container shadow-[0_0_12px_rgba(0,242,165,0.7)]"></div>
-<!-- Top-Right Corner -->
-<div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary-container shadow-[0_0_12px_rgba(0,242,165,0.7)]"></div>
-<!-- Bottom-Left Corner -->
-<div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary-container shadow-[0_0_12px_rgba(0,242,165,0.7)]"></div>
-<!-- Bottom-Right Corner -->
-<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary-container shadow-[0_0_12px_rgba(0,242,165,0.7)]"></div>
-<!-- Subtle Reticle Center Target Crosshair -->
-<div class="relative w-16 h-16 flex items-center justify-center">
-<div class="w-full h-px bg-secondary/50"></div>
-<div class="h-full w-px bg-secondary/50 absolute"></div>
-<div class="w-6 h-6 rounded-full border border-secondary/70 animate-pulse absolute"></div>
-</div>
-<!-- Monospace Bounding Metadata Card inside Target -->
-<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 px-space-xs py-0.5 rounded font-label-mono-xs text-label-mono-xs text-primary shadow-sm pointer-events-auto">
-                BIO-SIG: UNADULTERATED [TAG: #412]
+  <title>VERIDIS NutriScan — Food Intelligence</title>
+  <meta
+    name="description"
+    content="VERIDIS NutriScan helps you understand packaged-food ingredients and nutrition labels."
+  >
+  <meta name="theme-color" content="#f5f3eb">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #f5f3eb;
+      --card: #fcfbf6;
+      --white: #ffffff;
+
+      --green: #124d35;
+      --green-dark: #0b3926;
+      --green-light: #e8eee5;
+      --green-border: #d6e1d5;
+
+      --text: #1d2b22;
+      --muted: #758075;
+      --border: #e3e5da;
+
+      --yellow: #f4e7bf;
+      --yellow-text: #795b13;
+
+      --red: #a13c34;
+      --red-light: #f9e9e6;
+
+      --shadow: 0 8px 30px rgba(30, 55, 37, 0.06);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 3px solid #80a98d;
+      outline-offset: 3px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .material-symbols-outlined {
+      font-size: 21px;
+      line-height: 1;
+      vertical-align: middle;
+      font-weight: normal;
+    }
+
+    .container {
+      width: min(1460px, 100%);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* HEADER */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(252, 251, 246, 0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--green);
+      border-radius: 15px;
+      font-family: "DM Serif Display", serif;
+      font-size: 25px;
+      box-shadow: 0 5px 14px rgba(18, 77, 53, 0.15);
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+    }
+
+    .brand-subtitle {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px;
+      background: #f0f0e7;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .nav a {
+      padding: 10px 13px;
+      border-radius: 10px;
+      color: #667269;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: white;
+      background: var(--green);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: var(--card);
+      color: var(--green);
+      transition: 0.2s;
+    }
+
+    .icon-btn:hover {
+      background: var(--green-light);
+    }
+
+    .profile-chip {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 5px 12px 5px 5px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: white;
+    }
+
+    .profile-avatar {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .profile-text {
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .profile-caption {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    /* MAIN */
+
+    main {
+      padding: 30px 0 55px;
+    }
+
+    .page-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6b9d76;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin: 9px 0 6px;
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(27px, 3vw, 39px);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.6px;
+    }
+
+    .page-description {
+      margin: 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border: 1px solid #e5d8ad;
+      border-radius: 10px;
+      background: #fbf4df;
+      color: var(--yellow-text);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* MODE BAR */
+
+    .mode-panel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .mode-label {
+      padding-left: 4px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mode-label small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    .mode-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .mode-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 39px;
+      padding: 9px 13px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      background: #f0f0e8;
+      color: #657167;
+      font-size: 11px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .mode-btn:hover {
+      border-color: var(--green-border);
+      color: var(--green);
+    }
+
+    .mode-btn.active {
+      border-color: var(--green);
+      background: var(--green);
+      color: white;
+    }
+
+    /* GRID */
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      align-items: start;
+      gap: 22px;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .card-padding {
+      padding: 22px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 17px;
+    }
+
+    .section-heading h2,
+    .section-heading h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .section-heading p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .tiny-label {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    /* PRODUCT PREVIEW */
+
+    .product-viewport {
+      position: relative;
+      min-height: 365px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 19px;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 50% 40%, #edf1e3 0, #dbe6d4 43%, #c5d4c3 100%);
+      transition: filter 0.2s;
+    }
+
+    .product-viewport.highlight {
+      filter: saturate(1.25) contrast(1.06);
+    }
+
+    .product-viewport.frozen .scan-line {
+      animation-play-state: paused;
+    }
+
+    .viewport-top,
+    .viewport-bottom {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 10px;
+      border: 1px solid rgba(18, 77, 53, 0.12);
+      border-radius: 10px;
+      background: rgba(252, 251, 246, 0.9);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .status-pill .material-symbols-outlined {
+      font-size: 17px;
+    }
+
+    .viewport-product-name {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border: 1px solid rgba(18, 77, 53, 0.1);
+      border-radius: 12px;
+      background: rgba(252, 251, 246, 0.93);
+      color: var(--text);
+    }
+
+    .viewport-product-name strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .viewport-product-name span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .sample-tag {
+      padding: 7px 9px;
+      border-radius: 9px;
+      background: rgba(252, 251, 246, 0.88);
+      color: #5b695d;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .product-stage {
+      position: relative;
+      min-height: 195px;
+      display: grid;
+      place-items: center;
+    }
+
+    .bottle {
+      position: relative;
+      width: 120px;
+      height: 178px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-3deg);
+      border: 1px solid rgba(18, 77, 53, 0.16);
+      border-radius: 14px 14px 18px 18px;
+      background: linear-gradient(110deg, #fffef7, #e6eddb 55%, #d0dec9);
+      box-shadow: 15px 22px 35px rgba(32, 64, 39, 0.15);
+    }
+
+    .bottle::before {
+      content: "";
+      position: absolute;
+      top: -17px;
+      width: 37px;
+      height: 21px;
+      border-radius: 6px 6px 2px 2px;
+      background: var(--green);
+    }
+
+    .bottle-label {
+      width: 100%;
+      padding: 17px 8px;
+      border-top: 1px solid #c9d6c6;
+      border-bottom: 1px solid #c9d6c6;
+      background: rgba(255, 255, 255, 0.68);
+      text-align: center;
+    }
+
+    .bottle-leaf {
+      color: #709176;
+      font-size: 29px;
+    }
+
+    .bottle-brand {
+      display: block;
+      margin-top: 5px;
+      color: var(--green);
+      font-family: "DM Serif Display", serif;
+      font-size: 15px;
+    }
+
+    .bottle-sub {
+      display: block;
+      margin-top: 2px;
+      color: #647464;
+      font-size: 8px;
+      letter-spacing: 1px;
+    }
+
+    .scan-line {
+      position: absolute;
+      z-index: 1;
+      top: 10%;
+      left: 7%;
+      width: 86%;
+      height: 2px;
+      border-radius: 4px;
+      background: rgba(18, 77, 53, 0.5);
+      box-shadow: 0 0 15px rgba(18, 77, 53, 0.25);
+      animation: scan 4s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes scan {
+      from {
+        top: 12%;
+      }
+
+      to {
+        top: 88%;
+      }
+    }
+
+    .viewport-bottom {
+      align-items: center;
+    }
+
+    .viewport-bottom span {
+      color: #455f49;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .viewport-bottom .status-pill {
+      max-width: 100%;
+    }
+
+    .product-viewport.paused .scan-line {
+      animation-play-state: paused;
+    }
+
+    .upload-input {
+      display: none;
+    }
+
+    /* ACTION BUTTONS */
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .action-btn {
+      min-height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .action-btn:hover {
+      background: var(--green-light);
+      border-color: var(--green-border);
+      transform: translateY(-1px);
+    }
+
+    .action-btn.selected {
+      background: var(--green);
+      color: white;
+      border-color: var(--green);
+    }
+
+    .action-btn .material-symbols-outlined {
+      font-size: 18px;
+    }
+
+    /* SESSION HISTORY */
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: white;
+      text-align: left;
+      transition: 0.2s;
+    }
+
+    .history-item:hover {
+      border-color: #b9cbb9;
+      background: #f6f8f1;
+    }
+
+    .history-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 11px;
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .history-item strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 11px;
+    }
+
+    .history-item small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* REPORT CARD */
+
+    .report-top {
+      padding: 22px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, #fcfbf6, #f0f2e8);
+    }
+
+    .report-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .report-heading h2 {
+      margin: 6px 0 5px;
+      font-family: "DM Serif Display", serif;
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .report-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .sample-label {
+      padding: 6px 9px;
+      border-radius: 8px;
+      background: var(--yellow);
+      color: var(--yellow-text);
+      font-size: 9px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .score-layout {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      margin-top: 23px;
+    }
+
+    .score-circle {
+      width: 104px;
+      height: 104px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: conic-gradient(var(--green) 0deg 270deg, #e2e5da 270deg 360deg);
+    }
+
+    .score-circle::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: var(--card);
+    }
+
+    .score-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .score-number {
+      display: block;
+      color: var(--green);
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .score-denominator {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .score-copy {
+      min-width: 0;
+    }
+
+    .score-copy strong {
+      display: inline-block;
+      padding: 6px 9px;
+      border-radius: 8px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 10px;
+    }
+
+    .score-copy p {
+      margin: 10px 0 0;
+      color: #637064;
+      font-size: 11px;
+    }
+
+    .notice {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px solid #e5d8ad;
+      border-radius: 12px;
+      background: #fbf6e8;
+      color: #75602a;
+      font-size: 10px;
+    }
+
+    .notice .material-symbols-outlined {
+      flex-shrink: 0;
+    }
+
+    .report-body {
+      padding: 20px 22px 22px;
+    }
+
+    .grade-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .grade-tile {
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: white;
+    }
+
+    .grade-tile strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    .grade-tile span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* NUTRITION */
+
+    .nutrition-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .nutrition-title h3 {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .nutrition-title span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .nutrition-list {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+    }
+
+    .nutrition-row {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .nutrition-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 11px;
+    }
+
+    .nutrition-row-top strong {
+      font-size: 11px;
+    }
+
+    .nutrition-row-top span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .progress-track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #e9ebe2;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: var(--green);
+      transition: width 0.4s ease;
+    }
+
+    .nutrition-footnote {
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* INGREDIENTS */
+
+    .ingredient-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .ingredient-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+    }
+
+    .ingredient-name {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .ingredient-note {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    .ingredient-status {
+      padding: 5px 8px;
+      border-radius: 7px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .ingredient-status.unknown {
+      background: #f0f0e8;
+      color: #687267;
+    }
+
+    /* CTA */
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 47px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 14px;
+      border: 1px solid var(--green);
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .primary-btn {
+      background: var(--green);
+      color: white;
+    }
+
+    .primary-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .secondary-btn {
+      background: white;
+      color: var(--green);
+    }
+
+    .secondary-btn:hover {
+      background: var(--green-light);
+    }
+
+    .full-btn {
+      width: 100%;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .footer-brand {
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* MODAL */
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(18, 36, 25, 0.42);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(470px, 100%);
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 25px 90px rgba(0, 0, 0, 0.2);
+      animation: modalIn 0.2s ease;
+    }
+
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.99);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .modal-top h2 {
+      margin: 0;
+      font-family: "DM Serif Display", serif;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .modal-copy {
+      color: #647064;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .modal-copy li {
+      margin-bottom: 8px;
+    }
+
+    .modal-close {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      color: var(--green);
+    }
+
+    .modal-footer {
+      margin-top: 20px;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      z-index: 150;
+      left: 50%;
+      bottom: 25px;
+      width: max-content;
+      max-width: calc(100% - 30px);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 17px;
+      border: 1px solid #315f42;
+      border-radius: 13px;
+      background: var(--green-dark);
+      color: white;
+      box-shadow: 0 12px 35px rgba(11, 57, 38, 0.2);
+      font-size: 12px;
+      transform: translate(-50%, 20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    .empty-message {
+      padding: 18px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 11px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1100px) {
+      .nav {
+        display: none;
+      }
+
+      .dashboard {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .product-viewport {
+        min-height: 340px;
+      }
+
+      .action-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .column {
+        width: 100%;
+      }
+
+      .action-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .header-inner {
+        min-height: 70px;
+      }
+
+      .profile-text {
+        display: none;
+      }
+
+      .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mode-panel {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .mode-buttons {
+        width: 100%;
+      }
+
+      .mode-btn {
+        flex: 1 1 auto;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        padding: 0 14px;
+      }
+
+      main {
+        padding-top: 23px;
+      }
+
+      .brand-mark {
+        width: 39px;
+        height: 39px;
+      }
+
+      .brand-name {
+        font-size: 12px;
+      }
+
+      .brand-subtitle {
+        font-size: 8px;
+        letter-spacing: 1px;
+      }
+
+      .header-actions {
+        gap: 6px;
+      }
+
+      .profile-chip {
+        padding-right: 5px;
+        border: 0;
+        background: transparent;
+      }
+
+      .profile-avatar {
+        width: 34px;
+        height: 34px;
+      }
+
+      .header-inner {
+        gap: 8px;
+      }
+
+      .card-padding,
+      .report-top,
+      .report-body {
+        padding: 16px;
+      }
+
+      .product-viewport {
+        min-height: 325px;
+        padding: 12px;
+      }
+
+      .viewport-top {
+        flex-wrap: wrap;
+      }
+
+      .viewport-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .bottle {
+        width: 102px;
+        height: 155px;
+      }
+
+      .history-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .score-layout {
+        align-items: flex-start;
+        gap: 13px;
+      }
+
+      .score-circle {
+        width: 90px;
+        height: 90px;
+      }
+
+      .score-number {
+        font-size: 27px;
+      }
+
+      .score-copy p {
+        font-size: 10px;
+      }
+
+      .action-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mode-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mode-btn {
+        font-size: 10px;
+        padding: 9px 6px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+
+      <a class="brand" href="Index.html" aria-label="VERIDIS NutriScan home">
+        <div class="brand-mark">V</div>
+
+        <div>
+          <div class="brand-name">VERIDIS NUTRISCAN</div>
+          <div class="brand-subtitle">Understand your food</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="Analysis.html" aria-current="page">
+          Analysis
+        </a>
+
+        <a href="Scanner.html">
+          Live Scanner
+        </a>
+
+        <a href="Explanation.html">
+          Ingredient Intel
+        </a>
+
+        <a href="User.html">
+          Health Vault
+        </a>
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          class="icon-btn"
+          id="search-btn"
+          type="button"
+          aria-label="Search analysis"
+          title="Search this page"
+        >
+          <span class="material-symbols-outlined">search</span>
+        </button>
+
+        <button
+          class="icon-btn"
+          id="notifications-btn"
+          type="button"
+          aria-label="Notifications"
+          title="Notifications"
+        >
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+
+        <a class="profile-chip" href="User.html" aria-label="Open account">
+          <span class="profile-avatar">V</span>
+          <span class="profile-text">
+            My Account
+            <span class="profile-caption">NutriScan user</span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- PAGE TITLE -->
+      <section class="page-heading">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            FOOD INTELLIGENCE DASHBOARD
+          </div>
+
+          <h1>Know what's inside your food.</h1>
+
+          <p class="page-description">
+            Review nutrition facts, understand ingredients, and identify
+            packaging claims that need further verification.
+          </p>
+        </div>
+
+        <div class="demo-badge">
+          <span class="material-symbols-outlined">info</span>
+          SAMPLE REPORT
+        </div>
+      </section>
+
+      <!-- MODE SELECTOR -->
+      <section class="mode-panel">
+
+        <div class="mode-label">
+          Analysis workspace
+          <small id="mode-description">
+            Preview a product image or choose a workflow.
+          </small>
+        </div>
+
+        <div class="mode-buttons">
+
+          <button class="mode-btn active" id="mode-opt" type="button">
+            <span class="material-symbols-outlined">center_focus_strong</span>
+            Image Preview
+          </button>
+
+          <button class="mode-btn" id="mode-bar" type="button">
+            <span class="material-symbols-outlined">barcode_scanner</span>
+            Barcode
+          </button>
+
+          <button class="mode-btn" id="mode-nir" type="button">
+            <span class="material-symbols-outlined">nutrition</span>
+            Nutrition
+          </button>
+
+          <button class="mode-btn" id="mode-upl" type="button">
+            <span class="material-symbols-outlined">cloud_upload</span>
+            Upload Image
+          </button>
+
+        </div>
+      </section>
+
+      <div class="dashboard">
+
+        <!-- LEFT COLUMN -->
+        <div class="column">
+
+          <!-- PRODUCT PREVIEW -->
+          <section class="card card-padding">
+
+            <div class="section-heading">
+              <div>
+                <h2>Product workspace</h2>
+                <p>Preview an uploaded package image.</p>
               </div>
-</div>
-<!-- Viewport Bottom Status Bar -->
-<div class="flex items-end justify-between gap-space-md">
-<div class="flex items-center gap-space-sm bg-surface-container-high/90 backdrop-blur-md px-space-sm py-1 rounded">
-<span class="material-symbols-outlined text-secondary text-sm">filter_vintage</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface">COLLOIDAL NUTRITION PROFILE LOCKED</span>
-</div>
-<div class="flex items-center gap-space-xs bg-surface-container-lowest/90 px-space-sm py-1 rounded">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary-fixed">LIVE 4K SENSOR FEED</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Viewport Interactive Action Control Bar -->
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs bg-surface-container-low p-space-xs rounded-xl shadow-md">
-<button class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95 group" id="torch-btn">
-<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-lg">flashlight_on</span>
-<span class="font-label-mono text-label-mono font-medium">Spectro Torch</span>
-</button>
-<button class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95 group" id="lens-btn">
-<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-lg">lens</span>
-<span class="font-label-mono text-label-mono font-medium">Macro / NIR</span>
-</button>
-<button class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95 group" id="freeze-btn">
-<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-lg">pause_circle</span>
-<span class="font-label-mono text-label-mono font-medium">Freeze Matrix</span>
-</button>
-<button class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg bg-surface-container-highest hover:bg-surface-bright text-primary font-semibold transition-all active:scale-95">
-<span class="material-symbols-outlined text-primary-container text-lg">playlist_play</span>
-<span class="font-label-mono text-label-mono">Batch Scan (4/12)</span>
-</button>
-</div>
-<!-- Rapid-Scan Roll Thumbnail Strip -->
-<div class="flex flex-col gap-space-xs bg-surface-container-low/60 p-space-md rounded-xl">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-outline text-base">history</span>
-<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant uppercase tracking-wider">SESSION SCAN AUDIT LOG</span>
-</div>
-<a class="font-label-mono-xs text-label-mono-xs text-secondary hover:underline" href="#">VIEW ALL 18 SCANS →</a>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm mt-1">
-<!-- Item 1 (Active) -->
-<div class="flex items-center gap-space-xs p-1.5 rounded-lg bg-surface-container-highest shadow-sm relative overflow-hidden">
-<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
-<div class="w-10 h-10 rounded bg-surface-dim overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Close up photograph of organic almond macadamia milk bottle on laboratory black granite" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc0YapM5AIwCdJxM512Zdv7h7JNIXqT9CMbXrqQFQIpRd5KoQNeT-IiSwvYMYf_xNjbY18N4PD-uBqEJrHWy7xYr8VzXwHz5aQPfvVF6ul8xrPPjkIydMT9fVFTyFtMj_mOWpK1B-6WIW0BzeA6l69Mx4wUK-OGuPsPf0PgxwazHjt3IAz8BhPRsYqiWaPxTXKvsMV_Z4vUBujKHGRdmyNBN2vg7_JCpwuo4TeUuw"/>
-</div>
-<div class="flex flex-col min-w-0 pr-1">
-<span class="font-label-mono text-label-mono text-on-surface truncate font-semibold">Almond Mylk</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">94 OPTIMAL</span>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="flex items-center gap-space-xs p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
-<div class="w-10 h-10 rounded bg-surface-dim overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Artisanal raw Greek sourdough bread loaf textured macro shot under cool spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADZ2MdMBInZqyHQk4eh02O1fPmqd-nS6obGWLYnyFrEgYDD8gAOiMqf-VzZDo2rex41N8u9ZBBPQD8DGgoAygat6smfyp2rQcq18ZVEY99UxApPLQCCrt35w_ic3CzE15bj5ocMkgalVKwGpwUAn7cIiPXabb4QsdHoF1AHTDuvmolrHrekETtX6bw9TGet0VDlEi7jKe3Hd-rjTrOHdqPDf_Z6AmQ77Iq8iB4HW8"/>
-</div>
-<div class="flex flex-col min-w-0 pr-1">
-<span class="font-label-mono text-label-mono text-on-surface-variant truncate">Raw Sourdough</span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary-fixed font-bold">88 EXCELLENT</span>
-</div>
-</div>
-<!-- Item 3 (Warning) -->
-<div class="flex items-center gap-space-xs p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
-<div class="w-10 h-10 rounded bg-surface-dim overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Commercial chocolate protein bar wrapper on dark reflective tech backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh3JtaECxBdU6TuQe4Pvfw0q8UeiOQ_GSOHlEu-I67U097H5nW-oim-kKEPQT6vCgFFrVep6iYlwVywFtwUdM4zzN8CZFi78Gm79eUCrhVvHatIIDHLDCaJ2iPwhxtrurZ1wCOj4FmH3BLfMwoiammmL53yEN2boSBx1o2C_fsdqnmyG1ivjUMddPJJRiOEUbRrxYbnd1cBNuuBD3aTCSsdZiJDOOe4xZYRrEbKAE"/>
-</div>
-<div class="flex flex-col min-w-0 pr-1">
-<span class="font-label-mono text-label-mono text-on-surface-variant truncate">Crunch Bar</span>
-<span class="font-label-mono-xs text-label-mono-xs text-tertiary-fixed-dim font-bold">54 MODERATE</span>
-</div>
-</div>
-<!-- Item 4 (Critical) -->
-<div class="flex items-center gap-space-xs p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
-<div class="w-10 h-10 rounded bg-surface-dim overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="Can of synthetic energy drink with neon artificial branding on laboratory slate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb0gQ42drb1THPRs2KDDRAt6AP5lSwSc7OqhHwzsYGtM1VThc41uKwhYXeWxogiLsAv3f7IFfKUpNVv-l5hVEl4kKPkkSw8Yszakb1fkjmuusJCVMYOobvTRxAnACGx_FP2Cw3jxPJtNyMk9MWFoaGhclg6B0q7wLCtMUyDfQf7_7J465PmZBfNEjQga7LoDbnkFLoIFI3h7OjFVyOo26nXK8Nf_5Mg7CrMSU4vFk"/>
-</div>
-<div class="flex flex-col min-w-0 pr-1">
-<span class="font-label-mono text-label-mono text-on-surface-variant truncate">Nitro Energy</span>
-<span class="font-label-mono-xs text-label-mono-xs text-error font-bold">22 HAZARD</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- RIGHT COLUMN: INSTANT TELEMETRY & HEALTH INTELLIGENCE (5 of 12 cols = ~40-42%) -->
-<div class="lg:col-span-5 flex flex-col gap-space-md">
-<!-- Score Card & Classification Hero Panel -->
-<div class="p-space-lg rounded-xl bg-surface-container-low shadow-xl relative overflow-hidden flex flex-col gap-space-md">
-<!-- Subtle Glow Halo in Corner -->
-<div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-primary-container/10 filter blur-3xl pointer-events-none"></div>
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-secondary uppercase tracking-widest">BIOLOGICAL PURITY INDEX</span>
-<div class="flex items-center gap-1 bg-surface-container-highest px-space-xs py-0.5 rounded">
-<span class="material-symbols-outlined text-primary text-xs">verified</span>
-<span class="font-label-mono-xs text-label-mono-xs text-primary font-bold">ISO 22000 CERTIFIED</span>
-</div>
-</div>
-<!-- Score Dial Lockup -->
-<div class="flex flex-col sm:flex-row items-center gap-space-lg py-space-xs">
-<!-- SVG Radial Telemetry Meter -->
-<div class="relative w-36 h-36 flex-shrink-0 flex items-center justify-center">
-<svg class="w-full h-full transform -rotate-90" viewbox="0 0 120 120">
-<!-- Track Ring -->
-<circle class="text-surface-container-highest" cx="60" cy="60" fill="transparent" r="48" stroke="currentColor" stroke-width="8"></circle>
-<!-- Secondary Baseline Glow Ring -->
-<circle class="text-primary-container/20 filter blur-[2px]" cx="60" cy="60" fill="transparent" r="48" stroke="currentColor" stroke-dasharray="301.59" stroke-dashoffset="18" stroke-linecap="round" stroke-width="8"></circle>
-<!-- Active Sweep Ring: 94% of 301.59 = 283.49 -> offset = 301.59 * 0.06 = 18.09 -->
-<circle class="text-primary-container shadow-[0_0_16px_rgba(0,242,165,0.8)]" cx="60" cy="60" fill="transparent" r="48" stroke="currentColor" stroke-dasharray="301.59" stroke-dashoffset="18.09" stroke-linecap="round" stroke-width="8"></circle>
-</svg>
-<!-- Center Metric Text -->
-<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-<span class="font-data-display-lg text-data-display-lg text-primary-container font-extrabold leading-none tracking-tighter">94</span>
-<span class="font-label-mono-xs text-label-mono-xs text-outline font-semibold tracking-wider">/ 100</span>
-</div>
-</div>
-<!-- Metric Summary Breakdown -->
-<div class="flex flex-col gap-space-xs text-center sm:text-left">
-<span class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-primary-container/15 text-primary font-label-mono text-label-mono font-bold tracking-wider w-fit mx-auto sm:mx-0">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                EXEMPLARY - BIO-OPTIMAL
+
+              <span class="tiny-label">IMAGE VIEW</span>
+            </div>
+
+            <div class="product-viewport" id="product-viewport">
+
+              <div class="scan-line" id="scan-line"></div>
+
+              <div class="viewport-top">
+
+                <div>
+                  <div class="status-pill">
+                    <span class="material-symbols-outlined">image</span>
+                    <span id="viewport-status">DEMO PREVIEW</span>
+                  </div>
+
+                  <div class="viewport-product-name">
+                    <strong id="product-title">Sample Almond Drink</strong>
+                    <span id="product-subtitle">
+                      Example product — not yet analysed
+                    </span>
+                  </div>
+                </div>
+
+                <div class="sample-tag" id="image-status">
+                  SAMPLE IMAGE
+                </div>
+
+              </div>
+
+              <div class="product-stage" id="product-stage">
+
+                <!-- CSS-created illustration; no scientific sensor implied -->
+                <div class="bottle" id="sample-bottle">
+                  <div class="bottle-label">
+                    <span class="material-symbols-outlined bottle-leaf">
+                      spa
+                    </span>
+
+                    <span class="bottle-brand">Plant Drink</span>
+                    <span class="bottle-sub">SAMPLE PACKAGE</span>
+                  </div>
+                </div>
+
+                <img
+                  id="uploaded-preview"
+                  alt="Uploaded food package preview"
+                  style="
+                    display:none;
+                    max-width:90%;
+                    max-height:240px;
+                    object-fit:contain;
+                    border-radius:14px;
+                    box-shadow:0 12px 35px rgba(18,77,53,.12);
+                  "
+                >
+
+              </div>
+
+              <div class="viewport-bottom">
+                <span id="viewport-footer">
+                  Demo illustration — no sensor is connected.
+                </span>
+
+                <div class="status-pill">
+                  <span class="material-symbols-outlined">verified_user</span>
+                  Visual preview only
+                </div>
+              </div>
+
+            </div>
+
+            <input
+              id="package-upload"
+              class="upload-input"
+              type="file"
+              accept="image/*"
+            >
+
+            <div class="action-grid">
+
+              <button class="action-btn" id="torch-btn" type="button">
+                <span class="material-symbols-outlined">light_mode</span>
+                <span>Highlight View</span>
+              </button>
+
+              <button class="action-btn" id="freeze-btn" type="button">
+                <span class="material-symbols-outlined">pause_circle</span>
+                <span>Pause Animation</span>
+              </button>
+
+              <button class="action-btn" id="upload-btn" type="button">
+                <span class="material-symbols-outlined">upload_file</span>
+                <span>Upload Package</span>
+              </button>
+
+            </div>
+
+          </section>
+
+          <!-- RECENT SCANS -->
+          <section class="card card-padding" id="scan-history">
+
+            <div class="section-heading">
+              <div>
+                <h2>Recent sample items</h2>
+                <p>Examples only — these are not saved real scans.</p>
+              </div>
+
+              <span class="material-symbols-outlined" style="color:var(--green)">
+                history
               </span>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Clean, unadulterated cold-pressed macro profile. Contains zero synthetics, gums, or high-fructose compounds.
+            </div>
+
+            <div class="history-grid">
+
+              <button
+                class="history-item"
+                type="button"
+                data-product="Sample Almond Drink"
+                data-detail="Plant-based drink sample. Upload its actual label to analyse it."
+              >
+                <span class="history-icon">
+                  <span class="material-symbols-outlined">local_drink</span>
+                </span>
+
+                <span>
+                  <strong>Almond Drink</strong>
+                  <small>Sample item · Not analysed</small>
+                </span>
+              </button>
+
+              <button
+                class="history-item"
+                type="button"
+                data-product="Sample Wholegrain Bread"
+                data-detail="Bread sample. Nutrition and ingredients need the actual package label."
+              >
+                <span class="history-icon">
+                  <span class="material-symbols-outlined">bakery_dining</span>
+                </span>
+
+                <span>
+                  <strong>Wholegrain Bread</strong>
+                  <small>Sample item · Not analysed</small>
+                </span>
+              </button>
+
+              <button
+                class="history-item"
+                type="button"
+                data-product="Sample Chocolate Bar"
+                data-detail="Chocolate sample. Check the ingredient list and nutrition panel before drawing conclusions."
+              >
+                <span class="history-icon">
+                  <span class="material-symbols-outlined">cookie</span>
+                </span>
+
+                <span>
+                  <strong>Chocolate Bar</strong>
+                  <small>Sample item · Not analysed</small>
+                </span>
+              </button>
+
+              <button
+                class="history-item"
+                type="button"
+                data-product="Sample Energy Drink"
+                data-detail="Energy drink sample. Review caffeine, sugar, serving size, and the product label."
+              >
+                <span class="history-icon">
+                  <span class="material-symbols-outlined">local_cafe</span>
+                </span>
+
+                <span>
+                  <strong>Energy Drink</strong>
+                  <small>Sample item · Not analysed</small>
+                </span>
+              </button>
+
+            </div>
+
+          </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="column">
+
+          <!-- REPORT OVERVIEW -->
+          <section class="card">
+
+            <div class="report-top">
+
+              <div class="report-heading">
+                <div>
+                  <div class="eyebrow">PRODUCT REPORT</div>
+
+                  <h2 id="report-title">Sample Food Report</h2>
+
+                  <p id="report-subtitle">
+                    Waiting for a real product label
+                  </p>
+                </div>
+
+                <span class="sample-label" id="report-badge">
+                  DEMO DATA
+                </span>
+              </div>
+
+              <div class="score-layout">
+
+                <div class="score-circle" id="score-circle">
+                  <div class="score-content">
+                    <span class="score-number" id="score-number">—</span>
+                    <span class="score-denominator">/ 100</span>
+                  </div>
+                </div>
+
+                <div class="score-copy">
+                  <strong id="score-label">No verified score</strong>
+
+                  <p id="score-description">
+                    A reliable nutrition score requires actual package
+                    information and a defined scoring method.
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="notice">
+                <span class="material-symbols-outlined">info</span>
+
+                <div>
+                  <strong>Transparency note</strong><br>
+                  This page does not perform a real scan yet. Product
+                  scores, safety claims, and nutrition facts must not be
+                  treated as verified until actual label data is processed.
+                </div>
+              </div>
+
+            </div>
+
+            <div class="report-body">
+
+              <div class="section-heading">
+                <div>
+                  <h3>Product classification</h3>
+                  <p>Results will appear when label analysis is connected.</p>
+                </div>
+              </div>
+
+              <div class="grade-grid">
+
+                <div class="grade-tile">
+                  <strong id="nutrition-grade">Pending</strong>
+                  <span>Nutrition assessment</span>
+                </div>
+
+                <div class="grade-tile">
+                  <strong id="processing-grade">Unknown</strong>
+                  <span>Processing category</span>
+                </div>
+
+                <div class="grade-tile">
+                  <strong id="ingredient-grade">Pending</strong>
+                  <span>Ingredient review</span>
+                </div>
+
+                <div class="grade-tile">
+                  <strong id="claim-grade">Not checked</strong>
+                  <span>Packaging claims</span>
+                </div>
+
+              </div>
+
+              <!-- NUTRITION -->
+              <div class="nutrition-title">
+                <h3>Nutrition facts</h3>
+                <span id="serving-size">Serving size: not provided</span>
+              </div>
+
+              <div class="nutrition-list" id="nutrition-list">
+
+                <div class="nutrition-row">
+                  <div class="nutrition-row-top">
+                    <span>Energy</span>
+                    <strong>Not available</strong>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width:0%"></div>
+                  </div>
+                </div>
+
+                <div class="nutrition-row">
+                  <div class="nutrition-row-top">
+                    <span>Protein</span>
+                    <strong>Not available</strong>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width:0%"></div>
+                  </div>
+                </div>
+
+                <div class="nutrition-row">
+                  <div class="nutrition-row-top">
+                    <span>Carbohydrates</span>
+                    <strong>Not available</strong>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width:0%"></div>
+                  </div>
+                </div>
+
+                <div class="nutrition-row">
+                  <div class="nutrition-row-top">
+                    <span>Total sugars</span>
+                    <strong>Not available</strong>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width:0%"></div>
+                  </div>
+                </div>
+
+                <div class="nutrition-row">
+                  <div class="nutrition-row-top">
+                    <span>Total fat</span>
+                    <strong>Not available</strong>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width:0%"></div>
+                  </div>
+                </div>
+
+              </div>
+
+              <p class="nutrition-footnote">
+                Values should be taken from the product's nutrition label.
+                Percentages depend on the declared serving size and reference values.
               </p>
-<div class="flex items-center gap-space-sm justify-center sm:justify-start pt-1">
-<div class="flex flex-col">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">METABOLIC LOAD</span>
-<span class="font-label-mono text-label-mono text-on-surface font-semibold">MINIMAL (0.4%)</span>
-</div>
-<div class="w-px h-6 bg-surface-container-highest"></div>
-<div class="flex flex-col">
-<span class="font-label-mono-xs text-label-mono-xs text-outline">GUT TOXICITY RISK</span>
-<span class="font-label-mono text-label-mono text-primary font-semibold">0.00% UNDETECTED</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Grade Classification Two-Column Tiles -->
-<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
-<div class="p-space-sm rounded-lg bg-surface-container flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-data-display-md text-data-display-md font-bold shadow-md">
-                A
+
+            </div>
+          </section>
+
+          <!-- INGREDIENT REVIEW -->
+          <section class="card card-padding">
+
+            <div class="section-heading">
+              <div>
+                <h2>Ingredient intelligence</h2>
+                <p>Understand what the ingredient list tells you.</p>
               </div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">NUTRI-SCORE</span>
-<span class="font-label-mono text-label-mono text-on-surface font-semibold">GRADE A ELITE</span>
-</div>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-mono text-label-mono font-bold shadow-md">
-                NV-1
+
+              <span class="material-symbols-outlined" style="color:var(--green)">
+                eco
+              </span>
+            </div>
+
+            <div class="ingredient-list" id="ingredient-list">
+
+              <div class="ingredient-row">
+                <div>
+                  <div class="ingredient-name">Ingredient list</div>
+                  <span class="ingredient-note">
+                    Upload a readable package label first.
+                  </span>
+                </div>
+
+                <span class="ingredient-status unknown">PENDING</span>
               </div>
-<div class="flex flex-col min-w-0">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">NOVA CATEGORY</span>
-<span class="font-label-mono text-label-mono text-secondary font-semibold truncate">Minimally Processed</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Ultra-Processed Shield & Safety Banner -->
-<div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-md shadow-md">
-<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center flex-shrink-0 text-primary shadow-[0_0_12px_rgba(0,242,165,0.3)]">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center gap-space-xs">
-<span class="font-label-mono text-label-mono text-primary font-bold tracking-wide">CLEAN MATRIX VERIFIED</span>
-<span class="px-1.5 py-0.2 rounded font-label-mono-xs text-label-mono-xs bg-primary-container/25 text-primary">ZERO SEED OILS</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-              Tested zero industrial emulsifiers (no polysorbate-80, no guar gum), zero inflammatory sunflower/canola lipid vehicles.
-            </p>
-</div>
-</div>
-<!-- Macro Telemetry Gauges HUD -->
-<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-widest">SPECTRAL MACRO ASSAY // 240ML SERVING</span>
-<span class="font-label-mono-xs text-label-mono-xs text-secondary">CALORIE DENSITY: 120 KCAL</span>
-</div>
-<div class="flex flex-col gap-space-sm">
-<!-- Metric 1: Protein -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-baseline font-label-mono text-label-mono">
-<span class="text-on-surface flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                  Plant Protein (Almond isolate)
-                </span>
-<span class="text-primary font-bold">4.2g <span class="text-on-surface-variant font-normal text-body-sm">(8% DV)</span></span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-<div class="h-full bg-primary-container rounded-full shadow-[0_0_8px_rgba(0,242,165,0.7)]" style="width: 48%;"></div>
-</div>
-</div>
-<!-- Metric 2: Net Carbs -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-baseline font-label-mono text-label-mono">
-<span class="text-on-surface flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-secondary"></span>
-                  Net Carbs (Low Glycemic)
-                </span>
-<span class="text-secondary font-bold">2.1g <span class="text-on-surface-variant font-normal text-body-sm">(GI &lt; 15)</span></span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-<div class="h-full bg-secondary rounded-full shadow-[0_0_8px_rgba(76,215,246,0.7)]" style="width: 22%;"></div>
-</div>
-</div>
-<!-- Metric 3: Healthy Fats -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-baseline font-label-mono text-label-mono">
-<span class="text-on-surface flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
-                  Lipids / Monounsaturated (Omega-9)
-                </span>
-<span class="text-secondary-fixed font-bold">8.5g <span class="text-on-surface-variant font-normal text-body-sm">(Macadamia rich)</span></span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-<div class="h-full bg-secondary-fixed rounded-full shadow-[0_0_8px_rgba(172,237,255,0.7)]" style="width: 65%;"></div>
-</div>
-</div>
-<!-- Metric 4: Added Sugars -->
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-baseline font-label-mono text-label-mono">
-<span class="text-on-surface flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-outline"></span>
-                  Refined / Added Sugars
-                </span>
-<span class="text-primary font-bold">0.0g <span class="text-primary font-semibold text-body-sm">(100% PURE)</span></span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 0%;"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- Bio-Chemical Marker Badges Micro-Chips -->
-<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl shadow-md">
-<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase tracking-wider">LABORATORY BIO-VERIFIED PURITY CHIPS</span>
-<div class="flex flex-wrap gap-space-xs mt-1">
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">eco</span>
-              Non-GMO Project
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">ac_unit</span>
-              Cold-Pressed Expeller
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">shield</span>
-              Glyphosate Residue Free
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span>
-              No Carrageenan
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-primary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">recycling</span>
-              BPA-Free Packaging
-            </span>
-<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-label-mono-xs text-label-mono-xs text-secondary flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">water_drop</span>
-              Filtered Mountain Spring
-            </span>
-</div>
-</div>
-<!-- Direct CTA Action Hub -->
-<div class="flex flex-col sm:flex-row items-center gap-space-sm">
-<button class="w-full sm:flex-1 py-space-sm px-space-md rounded-lg bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-space-xs shadow-[0_0_20px_rgba(0,242,165,0.4)] hover:shadow-[0_0_28px_rgba(0,242,165,0.6)] hover:scale-[1.01] transition-all" id="deep-intel-btn">
-<span>Deep Ingredient Intel</span>
-<span class="material-symbols-outlined text-lg">arrow_forward</span>
-</button>
-<button class="w-full sm:w-auto py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-secondary font-label-mono text-label-mono font-semibold flex items-center justify-center gap-space-xs transition-all active:scale-95" id="vault-btn">
-<span class="material-symbols-outlined text-base">bookmark</span>
-<span>Save to Vault</span>
-</button>
-<button class="w-full sm:w-auto py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-mono text-label-mono transition-all flex items-center justify-center gap-space-xs" id="alt-btn">
-<span class="material-symbols-outlined text-base">swap_horizontal_circle</span>
-<span>Alternatives</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script>
-  // Simple micro-interactions for scanner hub
-  const torchBtn = document.getElementById('torch-btn');
-  let torchActive = false;
-  if (torchBtn) {
-    torchBtn.addEventListener('click', () => {
-      torchActive = !torchActive;
-      torchBtn.classList.toggle('bg-primary-container', torchActive);
-      torchBtn.classList.toggle('text-on-primary-container', torchActive);
-      torchBtn.classList.toggle('shadow-[0_0_16px_rgba(0,242,165,0.5)]', torchActive);
-    });
-  }
 
-  const freezeBtn = document.getElementById('freeze-btn');
-  let isFrozen = false;
-  if (freezeBtn) {
-    freezeBtn.addEventListener('click', () => {
-      isFrozen = !isFrozen;
-      const text = freezeBtn.querySelector('span:last-child');
-      if (text) text.innerText = isFrozen ? 'Unfreeze Stream' : 'Freeze Matrix';
-      freezeBtn.classList.toggle('bg-secondary', isFrozen);
-      freezeBtn.classList.toggle('text-on-secondary', isFrozen);
-    });
-  }
+              <div class="ingredient-row">
+                <div>
+                  <div class="ingredient-name">Allergen information</div>
+                  <span class="ingredient-note">
+                    Must be checked against the actual label.
+                  </span>
+                </div>
 
-  // Vault notification trigger
-  const vaultBtn = document.getElementById('vault-btn');
-  if (vaultBtn) {
-    vaultBtn.addEventListener('click', () => {
-      const origText = vaultBtn.innerHTML;
-      vaultBtn.innerHTML = '<span class="material-symbols-outlined text-base text-primary">done_all</span><span class="text-primary font-bold">Stored in Vault</span>';
-      setTimeout(() => {
-        vaultBtn.innerHTML = origText;
-      }, 2000);
-    });
-  }
+                <span class="ingredient-status unknown">UNKNOWN</span>
+              </div>
 
-  // Interactive Switchers
-  const modes = ['mode-opt', 'mode-bar', 'mode-nir', 'mode-upl'];
-  modes.forEach(id => {
-    const btn = document.getElementById(id);
-    if (btn) {
-      btn.addEventListener('click', () => {
-        modes.forEach(otherId => {
-          const other = document.getElementById(otherId);
-          if (other) {
-            other.className = 'px-space-md py-space-xs rounded-lg font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-space-xs';
-          }
+              <div class="ingredient-row">
+                <div>
+                  <div class="ingredient-name">Packaging claims</div>
+                  <span class="ingredient-note">
+                    Certifications need reliable supporting evidence.
+                  </span>
+                </div>
+
+                <span class="ingredient-status unknown">UNVERIFIED</span>
+              </div>
+
+            </div>
+
+          </section>
+
+          <!-- ACTION HUB -->
+          <section class="card card-padding">
+
+            <div class="section-heading">
+              <div>
+                <h2>Explore this product</h2>
+                <p>Choose what you want to understand next.</p>
+              </div>
+            </div>
+
+            <div class="cta-grid">
+
+              <button class="primary-btn" id="deep-intel-btn" type="button">
+                <span>Ingredient guide</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+
+              <button class="secondary-btn" id="vault-btn" type="button">
+                <span class="material-symbols-outlined">bookmark_add</span>
+                Save report
+              </button>
+
+              <button class="secondary-btn" id="alt-btn" type="button">
+                <span class="material-symbols-outlined">swap_horiz</span>
+                Find alternatives
+              </button>
+
+              <button class="secondary-btn" id="share-btn" type="button">
+                <span class="material-symbols-outlined">share</span>
+                Share report
+              </button>
+
+            </div>
+
+          </section>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">VERIDIS NUTRISCAN</div>
+
+      <div>
+        Food-label information and nutrition education
+      </div>
+
+      <div>
+        Sample data is illustrative, not a laboratory result.
+      </div>
+    </div>
+  </footer>
+
+  <!-- REUSABLE INFORMATION MODAL -->
+  <div
+    class="modal-backdrop"
+    id="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <div class="modal">
+
+      <div class="modal-top">
+        <h2 id="modal-title">Information</h2>
+
+        <button
+          class="modal-close"
+          id="modal-close"
+          type="button"
+          aria-label="Close dialog"
+        >
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="modal-copy" id="modal-content"></div>
+
+      <div class="modal-footer">
+        <button
+          class="primary-btn full-btn"
+          id="modal-done"
+          type="button"
+        >
+          Done
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="material-symbols-outlined">check_circle</span>
+    <span id="toast-message">Done</span>
+  </div>
+
+  <script>
+    "use strict";
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const viewport = $("#product-viewport");
+    const uploadInput = $("#package-upload");
+    const uploadedPreview = $("#uploaded-preview");
+    const sampleBottle = $("#sample-bottle");
+
+    let currentImageUrl = null;
+    let currentProduct = {
+      name: "Sample Almond Drink",
+      detail: "Example product — not yet analysed",
+      isSample: true
+    };
+
+    let highlightActive = false;
+    let animationPaused = false;
+    let toastTimer = null;
+
+    /* TOAST */
+
+    function showToast(message) {
+      const toast = $("#toast");
+
+      $("#toast-message").textContent = message;
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2800);
+    }
+
+    /* MODAL */
+
+    function openModal(title, html) {
+      $("#modal-title").textContent = title;
+      $("#modal-content").innerHTML = html;
+
+      $("#modal-backdrop").classList.add("open");
+      $("#modal-close").focus();
+    }
+
+    function closeModal() {
+      $("#modal-backdrop").classList.remove("open");
+    }
+
+    $("#modal-close").addEventListener("click", closeModal);
+    $("#modal-done").addEventListener("click", closeModal);
+
+    $("#modal-backdrop").addEventListener("click", (event) => {
+      if (event.target === $("#modal-backdrop")) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+
+      if (
+        (event.ctrlKey || event.metaKey) &&
+        event.key.toLowerCase() === "k"
+      ) {
+        event.preventDefault();
+        $("#search-btn").click();
+      }
+    });
+
+    /* WORKFLOW MODES */
+
+    const modeButtons = {
+      "mode-opt": {
+        description: "Preview the selected food-package image.",
+        action: () => {
+          showToast("Image preview mode selected.");
+        }
+      },
+
+      "mode-bar": {
+        description: "Barcode lookup requires a barcode-reading integration.",
+        action: () => {
+          openModal(
+            "Barcode lookup",
+            `
+              <p>
+                A barcode can help identify a product when connected to a
+                reliable product database.
+              </p>
+              <p>
+                This page does not currently read or look up barcodes.
+                A barcode number alone also cannot verify a product's
+                ingredients, purity, or safety.
+              </p>
+              <p>
+                <strong>Next step:</strong> Connect a barcode reader and
+                a product-data API to enable this workflow.
+              </p>
+            `
+          );
+        }
+      },
+
+      "mode-nir": {
+        description: "Nutrition analysis uses label data, not a simulated sensor.",
+        action: () => {
+          $("#nutrition-list").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+          showToast("Nutrition facts section opened.");
+        }
+      },
+
+      "mode-upl": {
+        description: "Choose a photo of the product or nutrition label.",
+        action: () => {
+          uploadInput.click();
+        }
+      }
+    };
+
+    Object.entries(modeButtons).forEach(([id, config]) => {
+      const button = document.getElementById(id);
+
+      button.addEventListener("click", () => {
+        Object.keys(modeButtons).forEach((otherId) => {
+          document.getElementById(otherId).classList.remove("active");
         });
-        btn.className = 'px-space-md py-space-xs rounded-lg font-label-mono text-label-mono bg-primary-container text-on-primary-container font-semibold transition-all shadow-[0_0_16px_rgba(0,242,165,0.35)] flex items-center gap-space-xs';
+
+        button.classList.add("active");
+        $("#mode-description").textContent = config.description;
+
+        config.action();
+      });
+    });
+
+    /* HIGHLIGHT VIEW */
+
+    $("#torch-btn").addEventListener("click", () => {
+      highlightActive = !highlightActive;
+
+      viewport.classList.toggle("highlight", highlightActive);
+
+      const button = $("#torch-btn");
+
+      button.classList.toggle("selected", highlightActive);
+
+      button.innerHTML = highlightActive
+        ? `
+          <span class="material-symbols-outlined">light_mode</span>
+          <span>Normal View</span>
+        `
+        : `
+          <span class="material-symbols-outlined">light_mode</span>
+          <span>Highlight View</span>
+        `;
+
+      showToast(
+        highlightActive
+          ? "Visual highlight enabled."
+          : "Normal image view restored."
+      );
+    });
+
+    /* PAUSE / RESUME ANIMATION */
+
+    $("#freeze-btn").addEventListener("click", () => {
+      animationPaused = !animationPaused;
+
+      viewport.classList.toggle("paused", animationPaused);
+
+      const button = $("#freeze-btn");
+
+      button.classList.toggle("selected", animationPaused);
+
+      button.innerHTML = animationPaused
+        ? `
+          <span class="material-symbols-outlined">play_circle</span>
+          <span>Resume Animation</span>
+        `
+        : `
+          <span class="material-symbols-outlined">pause_circle</span>
+          <span>Pause Animation</span>
+        `;
+
+      showToast(
+        animationPaused
+          ? "Preview animation paused."
+          : "Preview animation resumed."
+      );
+    });
+
+    /* UPLOAD A PACKAGE IMAGE */
+
+    $("#upload-btn").addEventListener("click", () => {
+      uploadInput.click();
+    });
+
+    uploadInput.addEventListener("change", () => {
+      const file = uploadInput.files && uploadInput.files[0];
+
+      if (!file) {
+        return;
+      }
+
+      if (!file.type.startsWith("image/")) {
+        showToast("Please choose an image file.");
+        uploadInput.value = "";
+        return;
+      }
+
+      const maxSize = 10 * 1024 * 1024;
+
+      if (file.size > maxSize) {
+        showToast("Please choose an image smaller than 10 MB.");
+        uploadInput.value = "";
+        return;
+      }
+
+      if (currentImageUrl) {
+        URL.revokeObjectURL(currentImageUrl);
+      }
+
+      currentImageUrl = URL.createObjectURL(file);
+
+      uploadedPreview.src = currentImageUrl;
+      uploadedPreview.style.display = "block";
+
+      sampleBottle.style.display = "none";
+
+      $("#product-title").textContent = file.name;
+      $("#product-subtitle").textContent =
+        "Image loaded — label analysis not yet performed";
+
+      $("#image-status").textContent = "USER IMAGE";
+      $("#viewport-status").textContent = "IMAGE LOADED";
+
+      $("#viewport-footer").textContent =
+        "Image preview only. OCR and nutrition extraction are not connected.";
+
+      $("#report-title").textContent = "Awaiting label analysis";
+      $("#report-subtitle").textContent = file.name;
+      $("#report-badge").textContent = "NOT ANALYSED";
+
+      $("#score-number").textContent = "—";
+      $("#score-label").textContent = "No verified score";
+
+      $("#score-description").textContent =
+        "The image has been loaded, but its nutrition information has not been extracted.";
+
+      $("#score-circle").style.background =
+        "conic-gradient(#dfe4d9 0deg 360deg)";
+
+      $("#nutrition-grade").textContent = "Pending";
+      $("#processing-grade").textContent = "Unknown";
+      $("#ingredient-grade").textContent = "Pending";
+      $("#claim-grade").textContent = "Not checked";
+
+      $("#serving-size").textContent = "Serving size: not provided";
+
+      $("#nutrition-list").innerHTML = `
+        <div class="empty-message">
+          Image uploaded successfully. Connect OCR and food-label analysis
+          to extract actual nutrition values.
+        </div>
+      `;
+
+      $("#ingredient-list").innerHTML = `
+        <div class="empty-message">
+          Ingredient analysis has not run. No ingredients, allergens,
+          certifications, or health claims have been verified.
+        </div>
+      `;
+
+      currentProduct = {
+        name: file.name,
+        detail: "Image uploaded — not analysed",
+        isSample: false
+      };
+
+      showToast("Image loaded. No analysis has been performed yet.");
+    });
+
+    /* RECENT SAMPLE ITEMS */
+
+    document.querySelectorAll(".history-item").forEach((button) => {
+      button.addEventListener("click", () => {
+        const name = button.dataset.product;
+        const detail = button.dataset.detail;
+
+        $("#product-title").textContent = name;
+        $("#product-subtitle").textContent = "Example product — not analysed";
+
+        $("#report-title").textContent = name;
+        $("#report-subtitle").textContent = "Sample item";
+        $("#report-badge").textContent = "DEMO DATA";
+
+        $("#score-number").textContent = "—";
+        $("#score-label").textContent = "No verified score";
+
+        $("#score-description").textContent = detail;
+
+        $("#score-circle").style.background =
+          "conic-gradient(#dfe4d9 0deg 360deg)";
+
+        $("#nutrition-grade").textContent = "Pending";
+        $("#processing-grade").textContent = "Unknown";
+        $("#ingredient-grade").textContent = "Pending";
+        $("#claim-grade").textContent = "Not checked";
+
+        $("#serving-size").textContent = "Serving size: not provided";
+
+        $("#nutrition-list").innerHTML = `
+          <div class="empty-message">
+            Nutrition facts are unavailable because this is a demonstration
+            item, not a real analysed product.
+          </div>
+        `;
+
+        $("#ingredient-list").innerHTML = `
+          <div class="empty-message">
+            Upload the actual package label to review ingredients and
+            allergens. No product claims have been verified.
+          </div>
+        `;
+
+        if (currentImageUrl) {
+          URL.revokeObjectURL(currentImageUrl);
+          currentImageUrl = null;
+        }
+
+        uploadedPreview.removeAttribute("src");
+        uploadedPreview.style.display = "none";
+        sampleBottle.style.display = "flex";
+
+        $("#image-status").textContent = "SAMPLE IMAGE";
+        $("#viewport-status").textContent = "DEMO PREVIEW";
+
+        $("#viewport-footer").textContent =
+          "Demo illustration — no sensor is connected.";
+
+        currentProduct = {
+          name,
+          detail,
+          isSample: true
+        };
+
+        showToast("Sample item selected. No real analysis was performed.");
+      });
+    });
+
+    /* INGREDIENT GUIDE */
+
+    $("#deep-intel-btn").addEventListener("click", () => {
+      openModal(
+        "Ingredient guide",
+        `
+          <p>
+            An ingredient list can help you understand what a packaged
+            food contains. Ingredients are generally listed in descending
+            order by weight, subject to applicable local regulations.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Ingredients:</strong> Review the full list rather
+              than relying only on front-of-package marketing.
+            </li>
+
+            <li>
+              <strong>Added sugars:</strong> Check the nutrition panel and
+              ingredient list for relevant sugar sources.
+            </li>
+
+            <li>
+              <strong>Allergens:</strong> Read the product's allergen
+              declaration carefully.
+            </li>
+
+            <li>
+              <strong>Serving size:</strong> Compare values using the
+              same serving size.
+            </li>
+
+            <li>
+              <strong>Claims:</strong> Organic, non-GMO, residue-free,
+              and similar claims may require independent documentation
+              or certification to verify.
+            </li>
+          </ul>
+
+          <p>
+            Uploading an image here does not automatically perform OCR
+            or identify ingredients. Those capabilities require an
+            analysis service.
+          </p>
+        `
+      );
+    });
+
+    /* SAVE TO VAULT */
+
+    $("#vault-btn").addEventListener("click", () => {
+      const report = {
+        product: currentProduct.name,
+        detail: currentProduct.detail,
+        isSample: currentProduct.isSample,
+        savedAt: new Date().toISOString(),
+        note: "Frontend preview only. No verified nutrition score is available."
+      };
+
+      try {
+        const key = "veridis_analysis_saved_reports";
+
+        const saved = JSON.parse(localStorage.getItem(key) || "[]");
+
+        if (!Array.isArray(saved)) {
+          throw new Error("Saved report data is invalid.");
+        }
+
+        saved.unshift(report);
+
+        localStorage.setItem(
+          key,
+          JSON.stringify(saved.slice(0, 50))
+        );
+
+        showToast("Report saved in this browser.");
+      } catch (error) {
+        console.error("Could not save report:", error);
+
+        showToast(
+          "Could not save locally. Check your browser storage settings."
+        );
+      }
+    });
+
+    /* ALTERNATIVES */
+
+    $("#alt-btn").addEventListener("click", () => {
+      openModal(
+        "Find food alternatives",
+        `
+          <p>
+            Suitable alternatives depend on the actual ingredients,
+            nutrition facts, allergens, dietary preferences, and budget.
+          </p>
+
+          <p>
+            This demonstration does not have verified product data, so
+            it cannot responsibly rank or recommend a specific replacement.
+          </p>
+
+          <p>
+            Once real label analysis is connected, this section can compare
+            products using:
+          </p>
+
+          <ul>
+            <li>Added sugar and sodium per comparable serving</li>
+            <li>Protein, fibre, and other relevant nutrients</li>
+            <li>Ingredient and allergen information</li>
+            <li>Price and package size, when available</li>
+          </ul>
+        `
+      );
+    });
+
+    /* SHARE REPORT */
+
+    $("#share-btn").addEventListener("click", async () => {
+      const text = [
+        "VERIDIS NutriScan",
+        "Product: " + currentProduct.name,
+        "Status: " + (
+          currentProduct.isSample
+            ? "Demonstration item"
+            : "Image uploaded; not analysed"
+        ),
+        "This report does not contain verified nutrition results."
+      ].join("\n");
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: "VERIDIS NutriScan Report",
+            text
+          });
+
+          return;
+        } catch (error) {
+          if (error.name === "AbortError") {
+            return;
+          }
+
+          console.warn("Native sharing unavailable:", error);
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(text);
+
+        showToast("Report summary copied to clipboard.");
+      } catch (error) {
+        openModal(
+          "Report summary",
+          `
+            <p>
+              <strong>Product:</strong>
+              ${escapeHtml(currentProduct.name)}
+            </p>
+
+            <p>
+              <strong>Status:</strong>
+              ${currentProduct.isSample
+                ? "Demonstration item"
+                : "Image uploaded; not analysed"}
+            </p>
+
+            <p>
+              This report does not contain verified nutrition results.
+            </p>
+          `
+        );
+      }
+    });
+
+    /* SEARCH */
+
+    $("#search-btn").addEventListener("click", () => {
+      openModal(
+        "Find a section",
+        `
+          <p>Choose a section to jump to.</p>
+
+          <ul>
+            <li><a href="#scan-history" class="modal-link">Recent sample items</a></li>
+            <li><a href="#nutrition-list" class="modal-link">Nutrition facts</a></li>
+            <li><a href="#ingredient-list" class="modal-link">Ingredient intelligence</a></li>
+          </ul>
+        `
+      );
+
+      document.querySelectorAll(".modal-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          closeModal();
+        });
+      });
+    });
+
+    /* NOTIFICATIONS */
+
+    $("#notifications-btn").addEventListener("click", () => {
+      openModal(
+        "Notifications",
+        `
+          <p>
+            There are no live scan notifications on this page.
+          </p>
+
+          <p>
+            Uploaded images remain previews until a real analysis
+            backend is connected.
+          </p>
+        `
+      );
+    });
+
+    /* HTML ESCAPING FOR USER-PROVIDED FILE NAMES */
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (character) => {
+        const entities = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        };
+
+        return entities[character];
       });
     }
-  });
-</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 pt-space-xl pb-space-lg"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-lg text-on-surface-variant"><div class="flex items-center gap-space-sm"><img alt="Veridis NutriScan Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1UBbxdhAEOtHNJI8y-MQBBZ2WPOKoD1cw--I2Ja_2oA5bAKib7tKL40_jtw7-q8QZXx3uOk1DUqjjFIgGbvWHqxN5w1zn_7iJDXhR-ZU78o3gnnSUEHBWV7gQiEOA2Z5p0LjFQsmAg_LFr_IfUBQlrmXev8ZFawbqME_3yxk3pE58eww-F_2M6Jdl6rrPCcaPJtuJynAU1E2YYaZFyMo9zLwbV3NN2jZiPvtGzTvmfl"/><span class="font-label-mono text-label-mono tracking-wider text-on-surface">VERIDIS NUTRISCAN ARCHITECTURE</span></div><div class="flex items-center gap-space-lg"><span class="font-label-mono-xs text-label-mono-xs text-outline">TELEMETRY CORE: CALIBRATED</span><span class="font-label-mono-xs text-label-mono-xs text-outline">CLINICAL RECALL ENGINE v9.2</span></div><p class="font-label-mono-xs text-label-mono-xs text-outline">© 2025 VERIDIS BIO-DIAGNOSTICS LABS. ALL METRIC INTEL PROTECTED.</p></div></footer><script src="/site-interactions.js" defer></script></body></html>
+
+    /* CLEAN UP TEMPORARY IMAGE URL */
+
+    window.addEventListener("beforeunload", () => {
+      if (currentImageUrl) {
+        URL.revokeObjectURL(currentImageUrl);
+      }
+    });
+  </script>
+
+</body>
+            </html>
