@@ -1,85 +1,128 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import dotenv from 'dotenv';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import dotenv from "dotenv";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
 
-// ADD THIS LINE BELOW TO FIX THE PROXY VALUE HEADERS
-app.set('trust proxy', 1); 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const publicDir = path.join(__dirname, "public");
 
-app.use(express.json({ limit: '8mb' }));
+const PORT = Number(process.env.PORT) || 3000;
 
-// Middleware
-app.use(helmet()); // Security headers
-app.use(cors()); // Cross-Origin Resource Sharing
-app.use(express.json()); // JSON body parser
-app.use(express.static(path.join(__dirname, 'public'))); // Static files
+app.set("trust proxy", 1);
 
-// API Routes
-app.use('/api/auth', (req, res) => {
-  res.json({ message: 'Auth endpoint ready' });
+app.use(
+helmet({
+crossOriginResourcePolicy: { policy: "cross-origin" }
+})
+);
+
+app.use(cors());
+app.use(express.json({ limit: "8mb" }));
+
+// Serve frontend files from the public directory.
+app.use(express.static(publicDir));
+
+// Health check.
+app.get("/api/health", (req, res) => {
+res.json({
+success: true,
+app: "VERIDIS NutriScan",
+server: "online",
+aiConfigured: Boolean(process.env.GEMINI_API_KEY)
+});
 });
 
-app.use('/api/scan', (req, res) => {
-  res.json({ message: 'Scan endpoint ready' });
+// Temporary API status endpoints.
+// These do not perform AI analysis.
+app.get("/api/auth", (req, res) => {
+res.json({
+success: true,
+message: "Authentication API is reachable.",
+note: "Configure Supabase authentication in the frontend."
+});
 });
 
-app.use('/api/nutrition', (req, res) => {
-  res.json({ message: 'Nutrition database ready' });
+app.get("/api/scan", (req, res) => {
+res.json({
+success: true,
+message: "Scan API is reachable.",
+analysisConfigured: Boolean(process.env.GEMINI_API_KEY)
+});
 });
 
-app.use('/api/user', (req, res) => {
-  res.json({ message: 'User profile endpoint ready' });
+app.get("/api/nutrition", (req, res) => {
+res.json({
+success: true,
+message: "Nutrition API is reachable."
+});
 });
 
-// Serve HTML pages
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Index.html'));
+app.get("/api/user", (req, res) => {
+res.json({
+success: true,
+message: "User API is reachable."
+});
 });
 
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Login.html'));
+// Serve existing HTML pages.
+const pages = {
+"/": "Index.html",
+"/login": "Login.html",
+"/scanner": "Scanner.html",
+"/analysis": "Analysis.html",
+"/explanation": "Explanation.html",
+"/user-profile": "User.html",
+"/code": "code.html"
+};
+
+for (const [route, filename] of Object.entries(pages)) {
+app.get(route, (req, res) => {
+res.sendFile(path.join(publicDir, filename), (err) => {
+if (err && !res.headersSent) {
+res.status(404).send(
+"Page not found: ${filename}. Check the public directory."
+);
+}
+});
+});
+}
+
+// API-specific 404 response.
+app.use("/api", (req, res) => {
+res.status(404).json({
+success: false,
+error: "API endpoint not found."
+});
 });
 
-app.get('/scanner', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Scanner.html'));
-}); 
-
-app.get('/analysis', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Analysis.html'));
-});
-
-app.get('/explanation', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Explanation.html'));
-});
-
-app.get('/user-profile', (req, res) => {
-  res.sendFile(path.join(__dirname, 'User.html'));
-});
-
-app.get('/code', (req, res) => {
-  res.sendFile(path.join(__dirname, 'code.html'));
-});
-
-// 404 Handler
+// General 404 response.
 app.use((req, res) => {
-  res.status(404).json({ error: 'Route not found' });
+res.status(404).send("Page not found.");
 });
 
-// Error Handler
+// Error handler.
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Internal server error' });
+console.error("Server error:", err.message);
+
+if (res.headersSent) {
+return next(err);
+}
+
+res.status(500).json({
+success: false,
+error: "Internal server error."
+});
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 VERIDIS NutriScan Server running on http://localhost:${PORT}`);
-  console.log(`📊 API Base: http://localhost:${PORT}/api`);
-  console.log(`🔐 Environment: ${process.env.REACT_APP_ENVIRONMENT || 'development'}`);
+app.listen(PORT, "0.0.0.0", () => {
+console.log("VERIDIS NutriScan server listening on port ${PORT}");
+console.log("Environment: ${process.env.NODE_ENV || "development"}");
+console.log("Gemini configured: ${Boolean(process.env.GEMINI_API_KEY)}");
 });
