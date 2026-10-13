@@ -9,6 +9,22 @@
     'clean-food-explorer': '/code.html'
   };
 
+  const realAppButtonIds = new Set([
+    'startCamera',
+    'capturePhoto',
+    'stopCamera',
+    'removeImage',
+    'analyzeButton',
+    'barcodeButton',
+    'refreshHistory',
+    'google-auth-btn',
+    'auth-submit',
+    'forgot-password',
+    'tab-signin',
+    'tab-signup',
+    'submit-label'
+  ]);
+
   function toast(message) {
     let box = document.getElementById('site-action-toast');
     if (!box) {
@@ -16,13 +32,15 @@
       box.id = 'site-action-toast';
       box.setAttribute('role', 'status');
       box.setAttribute('aria-live', 'polite');
-      box.style.cssText = 'position:fixed;z-index:99999;left:50%;bottom:24px;transform:translateX(-50%);max-width:min(90vw,560px);padding:12px 16px;border:1px solid #00f2a5;border-radius:12px;background:#111b20;color:#e9fff5;box-shadow:0 8px 28px #0008;font:14px/1.45 system-ui,sans-serif;text-align:center;';
+      box.style.cssText = 'position:fixed;z-index:99999;left:50%;bottom:24px;transform:translateX(-50%);max-width:min(90vw,560px);padding:12px 16px;border:1px solid #00f2a5;border-radius:12px;background:rgba(2,10,12,0.9);color:#dffdf4;font-size:12px;box-shadow:0 18px 40px rgba(0,0,0,0.25);font-family:Inter,Arial,sans-serif;';
       document.body.appendChild(box);
     }
     box.textContent = message;
     box.style.display = 'block';
     clearTimeout(window.__siteToastTimer);
-    window.__siteToastTimer = setTimeout(() => { box.style.display = 'none'; }, 3600);
+    window.__siteToastTimer = setTimeout(() => {
+      box.style.display = 'none';
+    }, 3600);
   }
 
   function labelOf(el) {
@@ -31,7 +49,10 @@
 
   function go(path) {
     if (!path) return;
-    if (path === '/') { window.location.href = '/'; return; }
+    if (path === '/') {
+      window.location.href = '/';
+      return;
+    }
     window.location.href = path;
   }
 
@@ -53,11 +74,16 @@
 
     const button = event.target.closest('button');
     if (!button || button.disabled || button.dataset.noToast === 'true') return;
-    // Existing inline/page-specific click handlers are allowed to run normally.
+
+    // Real page logic should always be allowed to run.
     if (button.hasAttribute('onclick')) return;
 
     const id = button.id || '';
     const label = labelOf(button);
+
+    if (realAppButtonIds.has(id)) return;
+    if (id && /^tab-|^btn-|^mode-|^scanner|^upload|^camera|^barcode|^analyze|^refresh|^remove|^submit/.test(id)) return;
+    if (button.classList.contains('btn') || button.classList.contains('tab') || button.classList.contains('filter-chip')) return;
 
     if (id === 'btn-browse-local' || /browse local/i.test(label)) {
       let picker = document.getElementById('veridis-local-file-picker');
@@ -92,19 +118,20 @@
       toast(`${label} selected.`);
       return;
     }
+
+    // For unknown generic buttons, don't block app-specific handlers.
+    if (button.closest('.btn, .tab')) return;
     toast(`${label} tapped. This control needs its feature handler connected.`);
   });
 
-  // Keep forms from appearing to silently submit to nowhere on a static site.
   document.addEventListener('submit', (event) => {
     const form = event.target;
     if (!(form instanceof HTMLFormElement)) return;
-    if (form.getAttribute('onsubmit')) return; // preserve existing page logic
+    if (form.getAttribute('onsubmit')) return;
     event.preventDefault();
     toast('Form received. A backend endpoint is required to submit or save this information.');
   });
 
-  // Real Supabase authentication on the login page. Never fake a successful login.
   window.addEventListener('DOMContentLoaded', () => {
     const page = location.pathname.toLowerCase();
     if (!page.includes('login')) return;
@@ -153,7 +180,6 @@
       });
     }
 
-    // Finish OAuth callback if Google has redirected back to this page.
     if (client) {
       client.auth.getSession().then(({ data, error }) => {
         if (error) showStatus(`Could not check sign-in session: ${error.message}`);
@@ -166,7 +192,6 @@
       });
     }
 
-    // Email/password login and signup use Supabase too, if configured.
     window.triggerAuth = async function () {
       if (!client) {
         showStatus('Authentication is not configured. Set the Supabase URL/key and enable the desired provider first.');
