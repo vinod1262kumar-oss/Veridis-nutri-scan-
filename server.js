@@ -6,6 +6,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+// Import the analyze handler from the repo so the /api/analyze-food route works.
+import analyzeFood from "./analyze-food.js";
+
 dotenv.config();
 
 const app = express();
@@ -26,7 +29,7 @@ app.use(
 );
 
 app.use(cors());
-app.use(express.json({ limit: "8mb" }));
+app.use(express.json({ limit: "12mb" }));
 
 // Serve frontend files from the project root when no public/ directory exists.
 app.use(express.static(frontendRoot));
@@ -71,6 +74,18 @@ app.get("/api/user", (req, res) => {
     success: true,
     message: "User API is reachable."
   });
+});
+
+// Analysis endpoint - delegates to analyze-food.js
+app.post("/api/analyze-food", async (req, res) => {
+  try {
+    await analyzeFood(req, res);
+  } catch (err) {
+    console.error("/api/analyze-food handler failed:", err?.message || err);
+    if (!res.headersSent) {
+      res.status(500).json({ success: false, error: "Food analysis failed." });
+    }
+  }
 });
 
 // Serve existing HTML pages.
