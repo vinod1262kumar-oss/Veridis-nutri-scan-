@@ -49,10 +49,7 @@
 
   function go(path) {
     if (!path) return;
-    if (path === '/') {
-      window.location.href = '/';
-      return;
-    }
+    if (path === '/') { window.location.href = '/'; return; }
     window.location.href = path;
   }
 
@@ -75,12 +72,13 @@
     const button = event.target.closest('button');
     if (!button || button.disabled || button.dataset.noToast === 'true') return;
 
-    // Real page logic should always be allowed to run.
+    // Allow native inline handlers to run.
     if (button.hasAttribute('onclick')) return;
 
     const id = button.id || '';
     const label = labelOf(button);
 
+    // Allow known app buttons and common naming patterns to behave normally.
     if (realAppButtonIds.has(id)) return;
     if (id && /^tab-|^btn-|^mode-|^scanner|^upload|^camera|^barcode|^analyze|^refresh|^remove|^submit/.test(id)) return;
     if (button.classList.contains('btn') || button.classList.contains('tab') || button.classList.contains('filter-chip')) return;
@@ -127,7 +125,15 @@
   document.addEventListener('submit', (event) => {
     const form = event.target;
     if (!(form instanceof HTMLFormElement)) return;
-    if (form.getAttribute('onsubmit')) return;
+    if (form.getAttribute('onsubmit')) return; // preserve existing page logic
+
+    // Allow known application forms to submit (handled by app code).
+    const allowedFormIds = ['barcodeForm', 'auth-form', 'authForm', 'scanForm', 'searchForm'];
+    if (form.id && allowedFormIds.includes(form.id)) return;
+    // Also allow any form explicitly marked with data-app-form="true" to proceed.
+    if (form.dataset && form.dataset.appForm === 'true') return;
+
+    // Otherwise prevent accidental submissions on the static/demo site.
     event.preventDefault();
     toast('Form received. A backend endpoint is required to submit or save this information.');
   });
